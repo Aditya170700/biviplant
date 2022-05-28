@@ -15,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Index');
+    return Inertia::render('Homepage');
+});
+Route::get('/products', function () {
+    return Inertia::render('Products');
+});
+Route::get('/products/{product}', function () {
+    return Inertia::render('Product');
 });

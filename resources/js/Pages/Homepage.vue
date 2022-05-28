@@ -1,5 +1,34 @@
 <template>
-    <Layout>
+    <div>
+        <Header></Header>
+        <Sidebar></Sidebar>
+        <div
+            class="toast pwa-install-alert shadow bg-white"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+            data-bs-delay="5000"
+            data-bs-autohide="true"
+        >
+            <div class="toast-body">
+                <div class="content d-flex align-items-center mb-2">
+                    <img src="img/icons/icon-72x72.png" alt="" />
+                    <h6 class="mb-0">Add to Home Screen</h6>
+                    <button
+                        class="btn-close ms-auto"
+                        type="button"
+                        data-bs-dismiss="toast"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <span class="mb-0 d-block"
+                    >Add Suha on your mobile home screen. Click the<strong
+                        class="mx-1"
+                        >Add to Home Screen</strong
+                    >button &amp; enjoy it like a regular app.</span
+                >
+            </div>
+        </div>
         <div class="page-content-wrapper">
             <div class="container">
                 <div class="pt-3">
@@ -538,7 +567,7 @@
                         class="section-heading d-flex align-items-center justify-content-between"
                     >
                         <h6>Top Products</h6>
-                        <a class="btn" href="shop-grid.html">View All</a>
+                        <Link class="btn" href="/products">View All</Link>
                     </div>
                     <div class="row g-3">
                         <div class="col-6 col-md-4 col-lg-3">
@@ -1273,13 +1302,23 @@
                 <div class="pb-3"></div>
             </div>
         </div>
-    </Layout>
+        <div class="internet-connection-status" id="internetStatus"></div>
+        <Footer></Footer>
+    </div>
 </template>
 
 <script>
-import Layout from "./../Shared/Layout.vue";
+import { Link } from "@inertiajs/inertia-vue3";
+import Header from "./../Shared/Homepage/Header.vue";
+import Sidebar from "./../Shared/Homepage/Sidebar.vue";
+import Footer from "./../Shared/Footer.vue";
 
 export default {
-    layout: Layout,
+    components: {
+        Link,
+        Header,
+        Sidebar,
+        Footer,
+    },
 };
 </script>
