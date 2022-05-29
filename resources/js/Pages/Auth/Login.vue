@@ -36,7 +36,7 @@ const submit = () => {
                 <div class="col-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
                     <img
                         class="big-logo"
-                        src="img/core-img/logo-white.png"
+                        src="/img/core-img/logo-white.png"
                         alt=""
                     />
                     <div class="register-form mt-5 px-4">
@@ -69,7 +69,7 @@ const submit = () => {
                                     name="password"
                                 />
                             </div>
-                            <div class="form-check text-start text-white">
+                            <div class="form-check text-start text-white mb-5">
                                 <input
                                     class="form-check-input"
                                     type="checkbox"
