@@ -4,9 +4,7 @@
         tabindex="-1"
         id="suhaOffcanvas"
         aria-labelledby="suhaOffcanvasLabel"
-        style="
-            background: linear-gradient(to left, #6adc60, #6adc60) !important;
-        "
+        style="background: rgb(80, 208, 72) !important"
     >
         <button
             class="btn-close btn-close-white text-reset"

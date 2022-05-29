@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, shrink-to-fit=no">
-    <meta name="description" content="Suha - Multipurpose Ecommerce Mobile HTML Template">
+    <meta name="description" content="Biviplant - Tanaman Buah Dalam Pot Wonogiri">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#100DD1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+    <title>Biviplant - Tanaman Buah Dalam Pot Wonogiri</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -39,12 +39,17 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     {{-- <link rel="manifest" href="manifest.json"> --}}
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
+    @routes
     <script src="{{ mix('/js/app.js') }}" defer></script>
     @inertiaHead
 </head>
 
 <body>
     @inertia
+
+    @env('local')
+    <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
+    @endenv
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
