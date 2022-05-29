@@ -21688,6 +21688,33 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Product.vue?vue&type=script&lang=js":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Product.vue?vue&type=script&lang=js ***!
+  \********************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Shared_Product_Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Shared/Product/Header.vue */ "./resources/js/Shared/Product/Header.vue");
+/* harmony import */ var _Shared_Product_Sidebar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Shared/Product/Sidebar.vue */ "./resources/js/Shared/Product/Sidebar.vue");
+/* harmony import */ var _Shared_Footer_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Shared/Footer.vue */ "./resources/js/Shared/Footer.vue");
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Header: _Shared_Product_Header_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Sidebar: _Shared_Product_Sidebar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Footer: _Shared_Footer_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Products.vue?vue&type=script&lang=js":
 /*!*********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Products.vue?vue&type=script&lang=js ***!
@@ -21699,17 +21726,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Shared_Products_Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Shared/Products/Header.vue */ "./resources/js/Shared/Products/Header.vue");
-/* harmony import */ var _Shared_Products_Sidebar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Shared/Products/Sidebar.vue */ "./resources/js/Shared/Products/Sidebar.vue");
-/* harmony import */ var _Shared_Footer_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Shared/Footer.vue */ "./resources/js/Shared/Footer.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _Shared_Products_Header_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Shared/Products/Header.vue */ "./resources/js/Shared/Products/Header.vue");
+/* harmony import */ var _Shared_Products_Sidebar_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Shared/Products/Sidebar.vue */ "./resources/js/Shared/Products/Sidebar.vue");
+/* harmony import */ var _Shared_Footer_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Shared/Footer.vue */ "./resources/js/Shared/Footer.vue");
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Header: _Shared_Products_Header_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Sidebar: _Shared_Products_Sidebar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Footer: _Shared_Footer_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Link,
+    Header: _Shared_Products_Header_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Sidebar: _Shared_Products_Sidebar_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Footer: _Shared_Footer_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Product/Header.vue?vue&type=script&lang=js":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Product/Header.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Link
   }
 });
 
@@ -22004,11 +22055,103 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("View All");
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row g-3\"><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/11.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/12/31 23:59:59\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Beach Cap</a><p class=\"sale-price\"> $13<span>$42</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">New</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/5.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Sofa</a><p class=\"sale-price\"> $74<span>$99</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/6.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Roof Lamp</a><p class=\"sale-price\"> $99<span>$113</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-18%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/9.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/11/23 23:21:29\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Sneaker Shoes</a><p class=\"sale-price\"> $87<span>$92</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-11%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/8.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Chair</a><p class=\"sale-price\"> $21<span>$25</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">On Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/4.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Polo Shirts</a><p class=\"sale-price\"> $38<span>$41</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div></div>", 1);
+var _hoisted_11 = {
+  "class": "row g-3"
+};
+var _hoisted_12 = {
+  "class": "col-6 col-md-4 col-lg-3"
+};
+var _hoisted_13 = {
+  "class": "card product-card"
+};
+var _hoisted_14 = {
+  "class": "card-body"
+};
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"cta-area\"><div class=\"container\"><div class=\"cta-text p-4 p-lg-5\" style=\"background-image:url(img/bg-img/24.jpg);\"><h4 class=\"text-white\">On Sale 50% Off!</h4><p class=\"text-white\"> Suha is a multipurpose, creative &amp; <br>modern mobile template. </p><a class=\"btn btn-warning\" href=\"#\">Shop Today</a></div></div></div><div class=\"weekly-best-seller-area py-3\"><div class=\"container\"><div class=\"section-heading d-flex align-items-center justify-content-between\"><h6>Weekly Best Sellers</h6><a class=\"btn\" href=\"shop-list.html\">View All</a></div><div class=\"row g-3\"><div class=\"col-12 col-md-6\"><div class=\"card horizontal-product-card\"><div class=\"card-body d-flex align-items-center\"><div class=\"product-thumbnail-side\"><span class=\"badge badge-success\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/10.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Modern Sofa</a><p class=\"sale-price\"><i class=\"lni lni-dollar\"></i>$64<span>$89</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i>4.88 (39) </div><a class=\"btn btn-danger btn-sm\" href=\"#\"><i class=\"me-1 lni lni-cart\"></i>Buy Now</a></div></div></div></div><div class=\"col-12 col-md-6\"><div class=\"card horizontal-product-card\"><div class=\"card-body d-flex align-items-center\"><div class=\"product-thumbnail-side\"><span class=\"badge badge-primary\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/7.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Office Chair</a><p class=\"sale-price\"><i class=\"lni lni-dollar\"></i>$100<span>$160</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i>4.82 (125) </div><a class=\"btn btn-danger btn-sm\" href=\"#\"><i class=\"me-1 lni lni-cart\"></i>Buy Now</a></div></div></div></div><div class=\"col-12 col-md-6\"><div class=\"card horizontal-product-card\"><div class=\"card-body d-flex align-items-center\"><div class=\"product-thumbnail-side\"><span class=\"badge badge-danger\">-10%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/12.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2022/12/09 23:59:59\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Sun Glasses</a><p class=\"sale-price\"><i class=\"lni lni-dollar\"></i>$24<span>$32</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i>4.79 (63) </div><a class=\"btn btn-danger btn-sm\" href=\"#\"><i class=\"me-1 lni lni-cart\"></i>Buy Now</a></div></div></div></div><div class=\"col-12 col-md-6\"><div class=\"card horizontal-product-card\"><div class=\"card-body d-flex align-items-center\"><div class=\"product-thumbnail-side\"><span class=\"badge badge-warning\">New</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/13.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Wall Clock</a><p class=\"sale-price\"><i class=\"lni lni-dollar\"></i>$31<span>$47</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i>4.99 (7) </div><a class=\"btn btn-danger btn-sm\" href=\"#\"><i class=\"me-1 lni lni-cart\"></i>Buy Now</a></div></div></div></div></div></div></div><div class=\"container\"><div class=\"card discount-coupon-card\"><div class=\"card-body\"><div class=\"coupon-text-wrap d-flex align-items-center p-3\"><h4 class=\"text-white pe-3 mb-0\"> Get 20% <br> discount </h4><p class=\"text-white ps-3 mb-0\"> To get discount, enter the<strong class=\"px-1\">GET20</strong>code on the checkout page. </p></div></div></div></div><div class=\"featured-products-wrapper py-3\"><div class=\"container\"><div class=\"section-heading d-flex align-items-center justify-content-between\"><h6>Featured Products</h6><a class=\"btn\" href=\"featured-products.html\">View All</a></div><div class=\"row g-3\"><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card featured-product-card\"><div class=\"card-body\"><span class=\"badge badge-warning custom-badge\"><i class=\"lni lni-star\"></i></span><div class=\"product-thumbnail-side\"><a class=\"wishlist-btn shadow-sm border\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/14.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Blue Skateboard</a><p class=\"sale-price\"> $39.8<span>$89</span></p></div></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card featured-product-card\"><div class=\"card-body\"><span class=\"badge badge-warning custom-badge\"><i class=\"lni lni-star\"></i></span><div class=\"product-thumbnail-side\"><a class=\"wishlist-btn shadow-sm border\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/15.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Travel Bag</a><p class=\"sale-price\"> $14.7<span>$21</span></p></div></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card featured-product-card\"><div class=\"card-body\"><span class=\"badge badge-warning custom-badge\"><i class=\"lni lni-star\"></i></span><div class=\"product-thumbnail-side\"><a class=\"wishlist-btn shadow-sm border\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/16.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Cotton T-shirts</a><p class=\"sale-price\"> $3.69<span>$5</span></p></div></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card featured-product-card\"><div class=\"card-body\"><span class=\"badge badge-warning custom-badge\"><i class=\"lni lni-star\"></i></span><div class=\"product-thumbnail-side\"><a class=\"wishlist-btn shadow-sm border\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/6.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Roof Lamp</a><p class=\"sale-price\"> $27.9<span>$31</span></p></div></div></div></div></div></div></div><div class=\"container\"><div class=\"section-heading d-flex align-items-center justify-content-between\"><h6>Collections</h6><a class=\"btn\" href=\"#\">View All</a></div><div class=\"collection-slide owl-carousel\"><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/17.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Women</span><span>9 new items</span></div></div><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/19.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Men</span><span>29 items</span></div></div><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/21.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Kids</span><span>4 new items</span></div></div><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/22.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Gadget</span><span>11 items</span></div></div><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/23.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Foods</span><span>2 new items</span></div></div><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/24.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Sports</span><span>5 items</span></div></div></div><div class=\"pb-3\"></div></div>", 5);
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "badge rounded-pill badge-warning"
+}, "Sale", -1
+/* HOISTED */
+);
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "wishlist-btn",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-heart"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "mb-2",
+  src: "img/product/11.png",
+  alt: ""
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "offer-countdown-timer d-flex align-items-center shadow-sm",
+  "data-countdown": "2021/12/31 23:59:59"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "days"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("d ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "hours"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("h ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "minutes"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("m ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "seconds"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("s ")])], -1
+/* HOISTED */
+);
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Beach Cap");
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<p class=\"sale-price\"> $13<span>$42</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a>", 3);
+
+var _hoisted_23 = {
+  "class": "col-6 col-md-4 col-lg-3"
+};
+var _hoisted_24 = {
+  "class": "card product-card"
+};
+var _hoisted_25 = {
+  "class": "card-body"
+};
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "badge rounded-pill badge-success"
+}, "New", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "wishlist-btn",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-heart"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "mb-2",
+  src: "img/product/5.png",
+  alt: ""
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Wooden Sofa");
+
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<p class=\"sale-price\"> $74<span>$99</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a>", 3);
+
+var _hoisted_33 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/6.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Roof Lamp</a><p class=\"sale-price\"> $99<span>$113</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-18%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/9.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/11/23 23:21:29\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Sneaker Shoes</a><p class=\"sale-price\"> $87<span>$92</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-11%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/8.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Chair</a><p class=\"sale-price\"> $21<span>$25</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">On Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/4.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Polo Shirts</a><p class=\"sale-price\"> $38<span>$41</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div>", 4);
+
+var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"cta-area\"><div class=\"container\"><div class=\"cta-text p-4 p-lg-5\" style=\"background-image:url(img/bg-img/24.jpg);\"><h4 class=\"text-white\">On Sale 50% Off!</h4><p class=\"text-white\"> Suha is a multipurpose, creative &amp; <br>modern mobile template. </p><a class=\"btn btn-warning\" href=\"#\">Shop Today</a></div></div></div><div class=\"weekly-best-seller-area py-3\"><div class=\"container\"><div class=\"section-heading d-flex align-items-center justify-content-between\"><h6>Weekly Best Sellers</h6><a class=\"btn\" href=\"shop-list.html\">View All</a></div><div class=\"row g-3\"><div class=\"col-12 col-md-6\"><div class=\"card horizontal-product-card\"><div class=\"card-body d-flex align-items-center\"><div class=\"product-thumbnail-side\"><span class=\"badge badge-success\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/10.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Modern Sofa</a><p class=\"sale-price\"><i class=\"lni lni-dollar\"></i>$64<span>$89</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i>4.88 (39) </div><a class=\"btn btn-danger btn-sm\" href=\"#\"><i class=\"me-1 lni lni-cart\"></i>Buy Now</a></div></div></div></div><div class=\"col-12 col-md-6\"><div class=\"card horizontal-product-card\"><div class=\"card-body d-flex align-items-center\"><div class=\"product-thumbnail-side\"><span class=\"badge badge-primary\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/7.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Office Chair</a><p class=\"sale-price\"><i class=\"lni lni-dollar\"></i>$100<span>$160</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i>4.82 (125) </div><a class=\"btn btn-danger btn-sm\" href=\"#\"><i class=\"me-1 lni lni-cart\"></i>Buy Now</a></div></div></div></div><div class=\"col-12 col-md-6\"><div class=\"card horizontal-product-card\"><div class=\"card-body d-flex align-items-center\"><div class=\"product-thumbnail-side\"><span class=\"badge badge-danger\">-10%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/12.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2022/12/09 23:59:59\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Sun Glasses</a><p class=\"sale-price\"><i class=\"lni lni-dollar\"></i>$24<span>$32</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i>4.79 (63) </div><a class=\"btn btn-danger btn-sm\" href=\"#\"><i class=\"me-1 lni lni-cart\"></i>Buy Now</a></div></div></div></div><div class=\"col-12 col-md-6\"><div class=\"card horizontal-product-card\"><div class=\"card-body d-flex align-items-center\"><div class=\"product-thumbnail-side\"><span class=\"badge badge-warning\">New</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/13.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Wall Clock</a><p class=\"sale-price\"><i class=\"lni lni-dollar\"></i>$31<span>$47</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i>4.99 (7) </div><a class=\"btn btn-danger btn-sm\" href=\"#\"><i class=\"me-1 lni lni-cart\"></i>Buy Now</a></div></div></div></div></div></div></div><div class=\"container\"><div class=\"card discount-coupon-card\"><div class=\"card-body\"><div class=\"coupon-text-wrap d-flex align-items-center p-3\"><h4 class=\"text-white pe-3 mb-0\"> Get 20% <br> discount </h4><p class=\"text-white ps-3 mb-0\"> To get discount, enter the<strong class=\"px-1\">GET20</strong>code on the checkout page. </p></div></div></div></div><div class=\"featured-products-wrapper py-3\"><div class=\"container\"><div class=\"section-heading d-flex align-items-center justify-content-between\"><h6>Featured Products</h6><a class=\"btn\" href=\"featured-products.html\">View All</a></div><div class=\"row g-3\"><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card featured-product-card\"><div class=\"card-body\"><span class=\"badge badge-warning custom-badge\"><i class=\"lni lni-star\"></i></span><div class=\"product-thumbnail-side\"><a class=\"wishlist-btn shadow-sm border\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/14.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Blue Skateboard</a><p class=\"sale-price\"> $39.8<span>$89</span></p></div></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card featured-product-card\"><div class=\"card-body\"><span class=\"badge badge-warning custom-badge\"><i class=\"lni lni-star\"></i></span><div class=\"product-thumbnail-side\"><a class=\"wishlist-btn shadow-sm border\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/15.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Travel Bag</a><p class=\"sale-price\"> $14.7<span>$21</span></p></div></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card featured-product-card\"><div class=\"card-body\"><span class=\"badge badge-warning custom-badge\"><i class=\"lni lni-star\"></i></span><div class=\"product-thumbnail-side\"><a class=\"wishlist-btn shadow-sm border\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/16.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Cotton T-shirts</a><p class=\"sale-price\"> $3.69<span>$5</span></p></div></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card featured-product-card\"><div class=\"card-body\"><span class=\"badge badge-warning custom-badge\"><i class=\"lni lni-star\"></i></span><div class=\"product-thumbnail-side\"><a class=\"wishlist-btn shadow-sm border\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img src=\"img/product/6.png\" alt=\"\"></a></div><div class=\"product-description\"><a class=\"product-title d-block\" href=\"single-product.html\">Roof Lamp</a><p class=\"sale-price\"> $27.9<span>$31</span></p></div></div></div></div></div></div></div><div class=\"container\"><div class=\"section-heading d-flex align-items-center justify-content-between\"><h6>Collections</h6><a class=\"btn\" href=\"#\">View All</a></div><div class=\"collection-slide owl-carousel\"><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/17.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Women</span><span>9 new items</span></div></div><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/19.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Men</span><span>29 items</span></div></div><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/21.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Kids</span><span>4 new items</span></div></div><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/22.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Gadget</span><span>11 items</span></div></div><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/23.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Foods</span><span>2 new items</span></div></div><div class=\"card collection-card\"><a href=\"single-product.html\"><img src=\"img/product/24.jpg\" alt=\"\"></a><div class=\"collection-title\"><span>Sports</span><span>5 items</span></div></div></div><div class=\"pb-3\"></div></div>", 5);
+
+var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "internet-connection-status",
   id: "internetStatus"
 }, null, -1
@@ -22034,7 +22177,699 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })]), _hoisted_11])]), _hoisted_12]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)]);
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    "class": "product-thumbnail d-block",
+    href: "/products/beach-cap"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_17, _hoisted_18];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    "class": "product-title d-block",
+    href: "/products/beach-cap"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_19];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), _hoisted_20])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    "class": "product-thumbnail d-block",
+    href: "/products/wooden-sofa"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_28];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    "class": "product-title d-block",
+    href: "/products/wooden-sofa"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_29];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), _hoisted_30])])]), _hoisted_33])])]), _hoisted_37]), _hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Product.vue?vue&type=template&id=e2dbd454":
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Product.vue?vue&type=template&id=e2dbd454 ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "toast pwa-install-alert shadow bg-white",
+  role: "alert",
+  "aria-live": "assertive",
+  "aria-atomic": "true",
+  "data-bs-delay": "5000",
+  "data-bs-autohide": "true"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "toast-body"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "content d-flex align-items-center mb-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "/img/icons/icon-72x72.png",
+  alt: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
+  "class": "mb-0"
+}, "Add to Home Screen"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "btn-close ms-auto",
+  type: "button",
+  "data-bs-dismiss": "toast",
+  "aria-label": "Close"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "mb-0 d-block"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Add Suha on your mobile home screen. Click the"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", {
+  "class": "mx-1"
+}, "Add to Home Screen"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("button & enjoy it like a regular app.")])])], -1
+/* HOISTED */
+);
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "page-content-wrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  id: "carouselExampleIndicators",
+  "class": "carousel slide",
+  "data-bs-ride": "carousel"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "carousel-indicators"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "button",
+  "data-bs-target": "#carouselExampleIndicators",
+  "data-bs-slide-to": "0",
+  "class": "active",
+  "aria-current": "true",
+  "aria-label": "Slide 1"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "button",
+  "data-bs-target": "#carouselExampleIndicators",
+  "data-bs-slide-to": "1",
+  "aria-label": "Slide 2"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "button",
+  "data-bs-target": "#carouselExampleIndicators",
+  "data-bs-slide-to": "2",
+  "aria-label": "Slide 3"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "carousel-inner"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "carousel-item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "single-product-slide",
+  style: {
+    "background-image": "url('/img/bg-img/6.jpg')"
+  }
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "carousel-item"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "single-product-slide",
+  style: {
+    "background-image": "url('/img/bg-img/10.jpg')"
+  }
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "carousel-item active"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "single-product-slide",
+  style: {
+    "background-image": "url('/img/bg-img/11.jpg')"
+  }
+})])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "carousel-control-prev",
+  type: "button",
+  "data-bs-target": "#carouselExampleIndicators",
+  "data-bs-slide": "prev"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "carousel-control-prev-icon",
+  "aria-hidden": "true"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "visually-hidden"
+}, "Previous")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "carousel-control-next",
+  type: "button",
+  "data-bs-target": "#carouselExampleIndicators",
+  "data-bs-slide": "next"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "carousel-control-next-icon",
+  "aria-hidden": "true"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "visually-hidden"
+}, "Next")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "product-description pb-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "product-title-meta-data bg-white py-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "container d-flex justify-content-between"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "p-title-price"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
+  "class": "mb-1"
+}, "Flower Ceramic Pots"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "sale-price mb-0"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("$38"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "$41")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "p-wishlist-share"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "wishlist-grid.html"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-heart"
+})])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "product-ratings"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "container d-flex align-items-center justify-content-between"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "ratings"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "ps-1"
+}, "3 ratings")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "total-result-of-ratings"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "5.0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Very Good ")])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flash-sale-panel bg-white py-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "container"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "sales-offer-content d-flex align-items-end justify-content-between"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "sales-end"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "mb-1 font-weight-bold"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-bolt"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Flash sale end in ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "sales-end-timer ps-0 d-flex align-items-center",
+  "data-countdown": "2022/01/01 14:21:37"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "days"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("d")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "hours"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("h")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "minutes"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("m")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "seconds"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("s")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "sales-volume text-end"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "mb-1 font-weight-bold"
+}, " 82% Sold Out "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "progress",
+  style: {
+    "height": "6px"
+  }
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "progress-bar bg-warning",
+  role: "progressbar",
+  style: {
+    "width": "82%"
+  },
+  "aria-valuenow": "82",
+  "aria-valuemin": "0",
+  "aria-valuemax": "100"
+})])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "selection-panel bg-white py-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "container d-flex align-items-center justify-content-between"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "choose-color-wrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "mb-1 font-weight-bold"
+}, "Color"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "choose-color-radio d-flex align-items-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-check mb-0"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "form-check-input blue",
+  id: "colorRadio1",
+  type: "radio",
+  name: "colorRadio",
+  checked: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-check-label",
+  "for": "colorRadio1"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-check mb-0"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "form-check-input yellow",
+  id: "colorRadio2",
+  type: "radio",
+  name: "colorRadio"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-check-label",
+  "for": "colorRadio2"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-check mb-0"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "form-check-input green",
+  id: "colorRadio3",
+  type: "radio",
+  name: "colorRadio"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-check-label",
+  "for": "colorRadio3"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-check mb-0"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "form-check-input purple",
+  id: "colorRadio4",
+  type: "radio",
+  name: "colorRadio"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-check-label",
+  "for": "colorRadio4"
+})])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "choose-size-wrapper text-end"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "mb-1 font-weight-bold"
+}, "Size"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "choose-size-radio d-flex align-items-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-check mb-0 me-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "form-check-input",
+  id: "sizeRadio1",
+  type: "radio",
+  name: "sizeRadio"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-check-label",
+  "for": "sizeRadio1"
+}, "S")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-check mb-0 me-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "form-check-input",
+  id: "sizeRadio2",
+  type: "radio",
+  name: "sizeRadio",
+  checked: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-check-label",
+  "for": "sizeRadio2"
+}, "M")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "form-check mb-0"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "form-check-input",
+  id: "sizeRadio3",
+  type: "radio",
+  name: "sizeRadio"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "form-check-label",
+  "for": "sizeRadio3"
+}, "L")])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "cart-form-wrapper bg-white py-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "container"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  "class": "cart-form",
+  action: "#",
+  method: ""
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "order-plus-minus d-flex align-items-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "quantity-button-handler"
+}, "-"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "form-control cart-quantity-input",
+  type: "text",
+  step: "1",
+  name: "quantity",
+  value: "3"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "quantity-button-handler"
+}, "+")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "btn btn-danger ms-3",
+  type: "submit"
+}, " Add To Cart ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "p-specification bg-white py-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "container"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, "Specifications"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, " Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, eum? Id, culpa? At officia quisquam laudantium nisi mollitia nesciunt, qui porro asperiores cum voluptates placeat similique recusandae in facere quos vitae? "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "mb-3 ps-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-checkmark-circle"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 100% Good Reviews ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-checkmark-circle"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 7 Days Returns ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-checkmark-circle"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Warranty not Aplicable ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-checkmark-circle"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 100% Brand New Product ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "mb-0"
+}, " Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, eum? Id, culpa? At officia quisquam laudantium nisi mollitia nesciunt, qui porro asperiores cum voluptates placeat similique recusandae in facere quos vitae? ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "related-product-wrapper"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "container"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "section-heading d-flex align-items-center justify-content-between"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, "Related Products"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "btn",
+  href: "shop-grid.html"
+}, "View All")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "related-product-slide owl-carousel"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "single-related-product-slide"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "card product-card"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "card-body"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "badge rounded-pill badge-warning"
+}, "Sale"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "wishlist-btn",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-heart"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "product-thumbnail d-block",
+  href: "single-product.html"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "mb-2",
+  src: "/img/product/11.png",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "product-title d-block",
+  href: "single-product.html"
+}, "Beach Cap"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "sale-price"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" $13"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "$42")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "product-rating"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "btn btn-success btn-sm",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-plus"
+})])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "single-related-product-slide"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "card product-card"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "card-body"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "badge rounded-pill badge-success"
+}, "New"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "wishlist-btn",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-heart"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "product-thumbnail d-block",
+  href: "single-product.html"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "mb-2",
+  src: "/img/product/5.png",
+  alt: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "offer-countdown-timer d-flex align-items-center shadow-sm",
+  "data-countdown": "2021/12/31 23:59:59"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "days"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("d ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "hours"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("h ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "minutes"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("m ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "seconds"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("s ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "product-title d-block",
+  href: "single-product.html"
+}, "Wooden Sofa"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "sale-price"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" $74"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "$99")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "product-rating"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "btn btn-success btn-sm",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-plus"
+})])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "single-related-product-slide"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "card product-card"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "card-body"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "badge rounded-pill badge-success"
+}, "Sale"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "wishlist-btn",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-heart"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "product-thumbnail d-block",
+  href: "single-product.html"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "mb-2",
+  src: "/img/product/6.png",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "product-title d-block",
+  href: "single-product.html"
+}, "Roof Lamp"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "sale-price"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" $99"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "$113")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "product-rating"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "btn btn-success btn-sm",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-plus"
+})])])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "rating-and-review-wrapper bg-white py-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "container"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, "Ratings & Reviews"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "rating-review-content"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "ps-0"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "single-user-review d-flex"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "user-thumbnail"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "/img/bg-img/7.jpg",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "rating-comment"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "rating"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "comment mb-0"
+}, " Very good product. It's just amazing! "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "name-date"
+}, "Designing World 12 Dec 2021"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "review-image mt-2 border rounded",
+  href: "/img/product/3.png"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "rounded-3",
+  src: "/img/product/3.png",
+  alt: ""
+})])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "single-user-review d-flex"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "user-thumbnail"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "/img/bg-img/8.jpg",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "rating-comment"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "rating"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "comment mb-0"
+}, " Very excellent product. Love it. "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "name-date"
+}, "Designing World 8 Dec 2021"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "review-image mt-2 border rounded",
+  href: "/img/product/4.png"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "rounded-3",
+  src: "/img/product/4.png",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "review-image mt-2 border rounded",
+  href: "/img/product/6.png"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "rounded-3",
+  src: "/img/product/6.png",
+  alt: ""
+})])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "single-user-review d-flex"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "user-thumbnail"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "/img/bg-img/9.jpg",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "rating-comment"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "rating"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-star-filled"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "comment mb-0"
+}, " What a nice product it is. I am looking it's. "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "name-date"
+}, "Designing World 28 Nov 2021")])])])])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "ratings-submit-form bg-white py-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "container"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", null, "Submit A Review"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  action: "#",
+  method: ""
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "stars mb-3"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "star-1",
+  type: "radio",
+  name: "star",
+  id: "star1"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "star-1",
+  "for": "star1"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "star-2",
+  type: "radio",
+  name: "star",
+  id: "star2"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "star-2",
+  "for": "star2"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "star-3",
+  type: "radio",
+  name: "star",
+  id: "star3"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "star-3",
+  "for": "star3"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "star-4",
+  type: "radio",
+  name: "star",
+  id: "star4"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "star-4",
+  "for": "star4"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  "class": "star-5",
+  type: "radio",
+  name: "star",
+  id: "star5"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "star-5",
+  "for": "star5"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+  "class": "form-control mb-3",
+  id: "comments",
+  name: "comment",
+  cols: "30",
+  rows: "10",
+  "data-max-length": "200",
+  placeholder: "Write your review..."
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "btn btn-sm btn-primary",
+  type: "submit"
+}, " Save Review ")])])])])], -1
+/* HOISTED */
+);
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "internet-connection-status",
+  id: "internetStatus"
+}, null, -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header");
+
+  var _component_Sidebar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Sidebar");
+
+  var _component_Footer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Footer");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Sidebar), _hoisted_1, _hoisted_2, _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)]);
 }
 
 /***/ }),
@@ -22082,16 +22917,169 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"page-content-wrapper\"><div class=\"top-products-area py-3\"><div class=\"container\"><div class=\"section-heading d-flex align-items-center justify-content-between\"><h6>All Products</h6><div class=\"select-product-catagory\"><select class=\"form-select\" id=\"selectProductCatagory\" name=\"selectProductCatagory\" aria-label=\"Default select example\"><option selected>Short by</option><option value=\"1\">Newest</option><option value=\"2\">Popular</option><option value=\"3\">Ratings</option></select></div></div><div class=\"product-catagories\"><div class=\"row g-3\"><div class=\"col-4\"><a class=\"shadow-sm\" href=\"#\"><img src=\"img/product/5.png\" alt=\"\">Furniture</a></div><div class=\"col-4\"><a class=\"shadow-sm\" href=\"#\"><img src=\"img/product/9.png\" alt=\"\">Shoes</a></div><div class=\"col-4\"><a class=\"shadow-sm\" href=\"#\"><img src=\"img/product/4.png\" alt=\"\">Dress</a></div></div></div><div class=\"row g-3\"><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/11.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/12/31 23:59:59\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Beach Cap</a><p class=\"sale-price\"> $13<span>$42</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">New</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/5.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Sofa</a><p class=\"sale-price\"> $74<span>$99</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/6.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Roof Lamp</a><p class=\"sale-price\"> $99<span>$113</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-18%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/9.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/11/23 23:21:29\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Sneaker Shoes</a><p class=\"sale-price\"> $87<span>$92</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-11%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/8.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Chair</a><p class=\"sale-price\"> $21<span>$25</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">On Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/4.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Polo Shirts</a><p class=\"sale-price\"> $38<span>$41</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/11.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/12/31 23:59:59\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Beach Cap</a><p class=\"sale-price\"> $13<span>$42</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">New</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/5.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Sofa</a><p class=\"sale-price\"> $74<span>$99</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/6.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Roof Lamp</a><p class=\"sale-price\"> $99<span>$113</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-18%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/9.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/11/23 23:21:29\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Sneaker Shoes</a><p class=\"sale-price\"> $87<span>$92</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-11%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/8.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Chair</a><p class=\"sale-price\"> $21<span>$25</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">On Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/4.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Polo Shirts</a><p class=\"sale-price\"> $38<span>$41</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/11.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/12/31 23:59:59\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Beach Cap</a><p class=\"sale-price\"> $13<span>$42</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">New</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/5.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Sofa</a><p class=\"sale-price\"> $74<span>$99</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/6.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Roof Lamp</a><p class=\"sale-price\"> $99<span>$113</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-18%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/9.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/11/23 23:21:29\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Sneaker Shoes</a><p class=\"sale-price\"> $87<span>$92</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-11%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/8.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Chair</a><p class=\"sale-price\"> $21<span>$25</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">On Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/4.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Polo Shirts</a><p class=\"sale-price\"> $38<span>$41</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div></div></div></div></div><div class=\"internet-connection-status\" id=\"internetStatus\"></div>", 2);
+var _hoisted_2 = {
+  "class": "page-content-wrapper"
+};
+var _hoisted_3 = {
+  "class": "top-products-area py-3"
+};
+var _hoisted_4 = {
+  "class": "container"
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"section-heading d-flex align-items-center justify-content-between\"><h6>All Products</h6><div class=\"select-product-catagory\"><select class=\"form-select\" id=\"selectProductCatagory\" name=\"selectProductCatagory\" aria-label=\"Default select example\"><option selected>Short by</option><option value=\"1\">Newest</option><option value=\"2\">Popular</option><option value=\"3\">Ratings</option></select></div></div><div class=\"product-catagories\"><div class=\"row g-3\"><div class=\"col-4\"><a class=\"shadow-sm\" href=\"#\"><img src=\"img/product/5.png\" alt=\"\">Furniture</a></div><div class=\"col-4\"><a class=\"shadow-sm\" href=\"#\"><img src=\"img/product/9.png\" alt=\"\">Shoes</a></div><div class=\"col-4\"><a class=\"shadow-sm\" href=\"#\"><img src=\"img/product/4.png\" alt=\"\">Dress</a></div></div></div>", 2);
+
+var _hoisted_7 = {
+  "class": "row g-3"
+};
+var _hoisted_8 = {
+  "class": "col-6 col-md-4 col-lg-3"
+};
+var _hoisted_9 = {
+  "class": "card product-card"
+};
+var _hoisted_10 = {
+  "class": "card-body"
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "badge rounded-pill badge-warning"
+}, "Sale", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "wishlist-btn",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-heart"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "mb-2",
+  src: "img/product/11.png",
+  alt: ""
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "offer-countdown-timer d-flex align-items-center shadow-sm",
+  "data-countdown": "2021/12/31 23:59:59"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "days"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("d ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "hours"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("h ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "minutes"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("m ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "seconds"
+}, "0"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("s ")])], -1
+/* HOISTED */
+);
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Beach Cap");
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<p class=\"sale-price\"> $13<span>$42</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a>", 3);
+
+var _hoisted_19 = {
+  "class": "col-6 col-md-4 col-lg-3"
+};
+var _hoisted_20 = {
+  "class": "card product-card"
+};
+var _hoisted_21 = {
+  "class": "card-body"
+};
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "badge rounded-pill badge-success"
+}, "New", -1
+/* HOISTED */
+);
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "wishlist-btn",
+  href: "#"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "lni lni-heart"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "mb-2",
+  src: "img/product/5.png",
+  alt: ""
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Wooden Sofa");
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<p class=\"sale-price\"> $74<span>$99</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a>", 3);
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/6.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Roof Lamp</a><p class=\"sale-price\"> $99<span>$113</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-18%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/9.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/11/23 23:21:29\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Sneaker Shoes</a><p class=\"sale-price\"> $87<span>$92</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-11%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/8.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Chair</a><p class=\"sale-price\"> $21<span>$25</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">On Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/4.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Polo Shirts</a><p class=\"sale-price\"> $38<span>$41</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/11.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/12/31 23:59:59\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Beach Cap</a><p class=\"sale-price\"> $13<span>$42</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">New</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/5.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Sofa</a><p class=\"sale-price\"> $74<span>$99</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/6.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Roof Lamp</a><p class=\"sale-price\"> $99<span>$113</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-18%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/9.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/11/23 23:21:29\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Sneaker Shoes</a><p class=\"sale-price\"> $87<span>$92</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-11%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/8.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Chair</a><p class=\"sale-price\"> $21<span>$25</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">On Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/4.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Polo Shirts</a><p class=\"sale-price\"> $38<span>$41</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/11.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/12/31 23:59:59\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Beach Cap</a><p class=\"sale-price\"> $13<span>$42</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">New</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/5.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Sofa</a><p class=\"sale-price\"> $74<span>$99</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-success\">Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/6.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Roof Lamp</a><p class=\"sale-price\"> $99<span>$113</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-18%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/9.png\" alt=\"\"><ul class=\"offer-countdown-timer d-flex align-items-center shadow-sm\" data-countdown=\"2021/11/23 23:21:29\"><li><span class=\"days\">0</span>d </li><li><span class=\"hours\">0</span>h </li><li><span class=\"minutes\">0</span>m </li><li><span class=\"seconds\">0</span>s </li></ul></a><a class=\"product-title d-block\" href=\"single-product.html\">Sneaker Shoes</a><p class=\"sale-price\"> $87<span>$92</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-danger\">-11%</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/8.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Wooden Chair</a><p class=\"sale-price\"> $21<span>$25</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div><div class=\"col-6 col-md-4 col-lg-3\"><div class=\"card product-card\"><div class=\"card-body\"><span class=\"badge rounded-pill badge-warning\">On Sale</span><a class=\"wishlist-btn\" href=\"#\"><i class=\"lni lni-heart\"></i></a><a class=\"product-thumbnail d-block\" href=\"single-product.html\"><img class=\"mb-2\" src=\"img/product/4.png\" alt=\"\"></a><a class=\"product-title d-block\" href=\"single-product.html\">Polo Shirts</a><p class=\"sale-price\"> $38<span>$41</span></p><div class=\"product-rating\"><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i><i class=\"lni lni-star-filled\"></i></div><a class=\"btn btn-success btn-sm\" href=\"#\"><i class=\"lni lni-plus\"></i></a></div></div></div>", 16);
+
+var _hoisted_45 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "internet-connection-status",
+  id: "internetStatus"
+}, null, -1
+/* HOISTED */
+);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header");
 
   var _component_Sidebar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Sidebar");
 
+  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
+
   var _component_Footer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Footer");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Sidebar), _hoisted_1, _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Sidebar), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    "class": "product-thumbnail d-block",
+    href: "/products/beach-cap"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_13, _hoisted_14];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    "class": "product-title d-block",
+    href: "/products/beach-cap"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_15];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), _hoisted_16])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    "class": "product-thumbnail d-block",
+    href: "/products/wooden-sofa"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_24];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    "class": "product-title d-block",
+    href: "/products/wooden-sofa"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_25];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), _hoisted_26])])]), _hoisted_29])])])]), _hoisted_45, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)]);
 }
 
 /***/ }),
@@ -22203,6 +23191,110 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<button class=\"btn-close btn-close-white text-reset\" type=\"button\" data-bs-dismiss=\"offcanvas\" aria-label=\"Close\"></button><div class=\"offcanvas-body\"><div class=\"sidenav-profile\"><div class=\"user-profile\"><img src=\"img/bg-img/9.jpg\" alt=\"\"></div><div class=\"user-info\"><h6 class=\"user-name mb-1\">Suha Sarah</h6><p class=\"available-balance\"> Total balance $<span class=\"counter\">583.67</span></p></div></div><ul class=\"sidenav-nav ps-0\"><li><a href=\"profile.html\"><i class=\"lni lni-user\"></i>My Profile</a></li><li><a href=\"notifications.html\"><i class=\"lni lni-alarm lni-tada-effect\"></i>Notifications<span class=\"ms-3 badge badge-warning\">3</span></a></li><li class=\"suha-dropdown-menu\"><a href=\"#\"><i class=\"lni lni-cart\"></i>Shop Pages</a><ul><li><a href=\"shop-grid.html\">- Shop Grid</a></li><li><a href=\"shop-list.html\">- Shop List</a></li><li><a href=\"single-product.html\">- Product Details</a></li><li><a href=\"featured-products.html\">- Featured Products</a></li><li><a href=\"flash-sale.html\">- Flash Sale</a></li></ul></li><li><a href=\"pages.html\"><i class=\"lni lni-empty-file\"></i>All Pages</a></li><li class=\"suha-dropdown-menu\"><a href=\"wishlist-grid.html\"><i class=\"lni lni-heart\"></i>My Wishlist</a><ul><li><a href=\"wishlist-grid.html\">- Wishlist Grid</a></li><li><a href=\"wishlist-list.html\">- Wishlist List</a></li></ul></li><li><a href=\"settings.html\"><i class=\"lni lni-cog\"></i>Settings</a></li><li><a href=\"intro.html\"><i class=\"lni lni-power-switch\"></i>Sign Out</a></li></ul></div>", 2);
+
+var _hoisted_4 = [_hoisted_2];
+function render(_ctx, _cache) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_4);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Product/Header.vue?vue&type=template&id=329580ae":
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Product/Header.vue?vue&type=template&id=329580ae ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "header-area",
+  id: "headerArea"
+};
+var _hoisted_2 = {
+  "class": "container h-100 d-flex align-items-center justify-content-between"
+};
+var _hoisted_3 = {
+  "class": "back-button"
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  "class": "bi bi-arrow-left",
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "24",
+  height: "24",
+  fill: "currentColor",
+  viewBox: "0 0 16 16"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "fill-rule": "evenodd",
+  d: "M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "page-heading"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
+  "class": "mb-0"
+}, "Product Details")], -1
+/* HOISTED */
+);
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "suha-navbar-toggler",
+  "data-bs-toggle": "offcanvas",
+  "data-bs-target": "#suhaOffcanvas",
+  "aria-controls": "suhaOffcanvas"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span")], -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    href: "/products"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_4];
+    }),
+    _: 1
+    /* STABLE */
+
+  })]), _hoisted_5, _hoisted_6])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Product/Sidebar.vue?vue&type=template&id=d8f9d120":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Product/Sidebar.vue?vue&type=template&id=d8f9d120 ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "offcanvas offcanvas-start suha-filter-offcanvas-wrap",
+  tabindex: "-1",
+  id: "suhaFilterOffcanvas",
+  "aria-labelledby": "suhaFilterOffcanvasLabel",
+  style: {
+    "background": "linear-gradient(to left, #fff, #fff) !important"
+  }
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<button class=\"btn-close text-reset\" type=\"button\" data-bs-dismiss=\"offcanvas\" aria-label=\"Close\"></button><div class=\"offcanvas-body py-5\"><div class=\"container\"><div class=\"row\"><div class=\"col-12\"><div class=\"widget catagory mb-4\"><h6 class=\"widget-title mb-2\">Brand</h6><div class=\"widget-desc\"><div class=\"form-check\"><input class=\"form-check-input\" id=\"zara\" type=\"checkbox\" checked><label class=\"form-check-label\" for=\"zara\">Zara</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"Gucci\" type=\"checkbox\"><label class=\"form-check-label\" for=\"Gucci\">Gucci</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"Addidas\" type=\"checkbox\"><label class=\"form-check-label\" for=\"Addidas\">Addidas</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"Nike\" type=\"checkbox\"><label class=\"form-check-label\" for=\"Nike\">Nike</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"Denim\" type=\"checkbox\"><label class=\"form-check-label\" for=\"Denim\">Denim</label></div></div></div></div><div class=\"col-12\"><div class=\"widget color mb-4\"><h6 class=\"widget-title mb-2\">Color Family</h6><div class=\"widget-desc\"><div class=\"form-check\"><input class=\"form-check-input\" id=\"Purple\" type=\"checkbox\" checked><label class=\"form-check-label\" for=\"Purple\">Purple</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"Black\" type=\"checkbox\"><label class=\"form-check-label\" for=\"Black\">Black</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"White\" type=\"checkbox\"><label class=\"form-check-label\" for=\"White\">White</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"Red\" type=\"checkbox\"><label class=\"form-check-label\" for=\"Red\">Red</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"Pink\" type=\"checkbox\"><label class=\"form-check-label\" for=\"Pink\">Pink</label></div></div></div></div><div class=\"col-12\"><div class=\"widget size mb-4\"><h6 class=\"widget-title mb-2\">Size</h6><div class=\"widget-desc\"><div class=\"form-check\"><input class=\"form-check-input\" id=\"XtraLarge\" type=\"checkbox\" checked><label class=\"form-check-label\" for=\"XtraLarge\">Xtra Large</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"Large\" type=\"checkbox\"><label class=\"form-check-label\" for=\"Large\">Large</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"medium\" type=\"checkbox\"><label class=\"form-check-label\" for=\"medium\">Medium</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"Small\" type=\"checkbox\"><label class=\"form-check-label\" for=\"Small\">Small</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"ExtraSmall\" type=\"checkbox\"><label class=\"form-check-label\" for=\"ExtraSmall\">Extra Small</label></div></div></div></div><div class=\"col-12\"><div class=\"widget ratings mb-4\"><h6 class=\"widget-title mb-2\">Ratings</h6><div class=\"widget-desc\"><div class=\"form-check\"><input class=\"form-check-input\" id=\"5star\" type=\"checkbox\" checked><label class=\"form-check-label\" for=\"5star\"><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star-filled\"></i></label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"4star\" type=\"checkbox\"><label class=\"form-check-label\" for=\"4star\"><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star\"></i></label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"3star\" type=\"checkbox\"><label class=\"form-check-label\" for=\"3star\"><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star\"></i><i class=\"text-warning me-1 lni lni-star\"></i></label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"2star\" type=\"checkbox\"><label class=\"form-check-label\" for=\"2star\"><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star\"></i><i class=\"text-warning me-1 lni lni-star\"></i><i class=\"text-warning me-1 lni lni-star\"></i></label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"1star\" type=\"checkbox\"><label class=\"form-check-label\" for=\"1star\"><i class=\"text-warning me-1 lni lni-star-filled\"></i><i class=\"text-warning me-1 lni lni-star\"></i><i class=\"text-warning me-1 lni lni-star\"></i><i class=\"text-warning me-1 lni lni-star\"></i><i class=\"text-warning me-1 lni lni-star\"></i></label></div></div></div></div><div class=\"col-12\"><div class=\"widget payment-type mb-4\"><h6 class=\"widget-title mb-2\">Payment Type</h6><div class=\"widget-desc\"><div class=\"form-check\"><input class=\"form-check-input\" id=\"cod\" type=\"checkbox\" checked><label class=\"form-check-label\" for=\"cod\">Cash On Delivery</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"paypal\" type=\"checkbox\"><label class=\"form-check-label\" for=\"paypal\">Paypal</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"checkpayment\" type=\"checkbox\"><label class=\"form-check-label\" for=\"checkpayment\">Check Payment</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"payonner\" type=\"checkbox\"><label class=\"form-check-label\" for=\"payonner\">Payonner</label></div><div class=\"form-check\"><input class=\"form-check-input\" id=\"mobbanking\" type=\"checkbox\"><label class=\"form-check-label\" for=\"mobbanking\">Mobile Banking</label></div></div></div></div><div class=\"col-12\"><div class=\"widget price-range mb-4\"><h6 class=\"widget-title mb-2\">Price Range</h6><div class=\"widget-desc\"><div class=\"row g-3\"><div class=\"col-6\"><div class=\"form-floating\"><input class=\"form-control\" id=\"floatingInput\" type=\"text\" placeholder=\"1\" value=\"1\"><label for=\"floatingInput\">Min</label></div></div><div class=\"col-6\"><div class=\"form-floating\"><input class=\"form-control\" id=\"floatingInput\" type=\"text\" placeholder=\"1\" value=\"5000\"><label for=\"floatingInput\">Max</label></div></div></div></div></div></div><div class=\"col-12\"><div class=\"apply-filter-btn\"><a class=\"btn btn-success w-100\" href=\"\">Apply Filter</a></div></div></div></div></div>", 2);
 
 var _hoisted_4 = [_hoisted_2];
 function render(_ctx, _cache) {
@@ -46261,6 +47353,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Product.vue":
+/*!****************************************!*\
+  !*** ./resources/js/Pages/Product.vue ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Product_vue_vue_type_template_id_e2dbd454__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Product.vue?vue&type=template&id=e2dbd454 */ "./resources/js/Pages/Product.vue?vue&type=template&id=e2dbd454");
+/* harmony import */ var _Product_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Product.vue?vue&type=script&lang=js */ "./resources/js/Pages/Product.vue?vue&type=script&lang=js");
+/* harmony import */ var _Users_macbookair_Project_biviplant_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_Users_macbookair_Project_biviplant_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Product_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Product_vue_vue_type_template_id_e2dbd454__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Product.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Products.vue":
 /*!*****************************************!*\
   !*** ./resources/js/Pages/Products.vue ***!
@@ -46367,6 +47487,60 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Shared/Product/Header.vue":
+/*!************************************************!*\
+  !*** ./resources/js/Shared/Product/Header.vue ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Header_vue_vue_type_template_id_329580ae__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header.vue?vue&type=template&id=329580ae */ "./resources/js/Shared/Product/Header.vue?vue&type=template&id=329580ae");
+/* harmony import */ var _Header_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header.vue?vue&type=script&lang=js */ "./resources/js/Shared/Product/Header.vue?vue&type=script&lang=js");
+/* harmony import */ var _Users_macbookair_Project_biviplant_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_Users_macbookair_Project_biviplant_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Header_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Header_vue_vue_type_template_id_329580ae__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Shared/Product/Header.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Shared/Product/Sidebar.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/Shared/Product/Sidebar.vue ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Sidebar_vue_vue_type_template_id_d8f9d120__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Sidebar.vue?vue&type=template&id=d8f9d120 */ "./resources/js/Shared/Product/Sidebar.vue?vue&type=template&id=d8f9d120");
+/* harmony import */ var _Users_macbookair_Project_biviplant_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+const script = {}
+
+;
+const __exports__ = /*#__PURE__*/(0,_Users_macbookair_Project_biviplant_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_Sidebar_vue_vue_type_template_id_d8f9d120__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Shared/Product/Sidebar.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Shared/Products/Header.vue":
 /*!*************************************************!*\
   !*** ./resources/js/Shared/Products/Header.vue ***!
@@ -46437,6 +47611,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Product.vue?vue&type=script&lang=js":
+/*!****************************************************************!*\
+  !*** ./resources/js/Pages/Product.vue?vue&type=script&lang=js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Product_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Product_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Product.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Product.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Products.vue?vue&type=script&lang=js":
 /*!*****************************************************************!*\
   !*** ./resources/js/Pages/Products.vue?vue&type=script&lang=js ***!
@@ -46449,6 +47639,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Products_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Products_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Products.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Products.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Shared/Product/Header.vue?vue&type=script&lang=js":
+/*!************************************************************************!*\
+  !*** ./resources/js/Shared/Product/Header.vue?vue&type=script&lang=js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Header_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Header_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Header.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Product/Header.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -46481,6 +47687,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Homepage_vue_vue_type_template_id_6eabef97__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Homepage_vue_vue_type_template_id_6eabef97__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Homepage.vue?vue&type=template&id=6eabef97 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Homepage.vue?vue&type=template&id=6eabef97");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Product.vue?vue&type=template&id=e2dbd454":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/Product.vue?vue&type=template&id=e2dbd454 ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Product_vue_vue_type_template_id_e2dbd454__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Product_vue_vue_type_template_id_e2dbd454__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Product.vue?vue&type=template&id=e2dbd454 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Product.vue?vue&type=template&id=e2dbd454");
 
 
 /***/ }),
@@ -46545,6 +47767,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Sidebar_vue_vue_type_template_id_5dd521f7__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Sidebar_vue_vue_type_template_id_5dd521f7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Sidebar.vue?vue&type=template&id=5dd521f7 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Homepage/Sidebar.vue?vue&type=template&id=5dd521f7");
+
+
+/***/ }),
+
+/***/ "./resources/js/Shared/Product/Header.vue?vue&type=template&id=329580ae":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Shared/Product/Header.vue?vue&type=template&id=329580ae ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Header_vue_vue_type_template_id_329580ae__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Header_vue_vue_type_template_id_329580ae__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Header.vue?vue&type=template&id=329580ae */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Product/Header.vue?vue&type=template&id=329580ae");
+
+
+/***/ }),
+
+/***/ "./resources/js/Shared/Product/Sidebar.vue?vue&type=template&id=d8f9d120":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Shared/Product/Sidebar.vue?vue&type=template&id=d8f9d120 ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Sidebar_vue_vue_type_template_id_d8f9d120__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Sidebar_vue_vue_type_template_id_d8f9d120__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Sidebar.vue?vue&type=template&id=d8f9d120 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Product/Sidebar.vue?vue&type=template&id=d8f9d120");
 
 
 /***/ }),
@@ -46820,6 +48074,8 @@ function compileToFunction(template, options) {
 var map = {
 	"./Homepage": "./resources/js/Pages/Homepage.vue",
 	"./Homepage.vue": "./resources/js/Pages/Homepage.vue",
+	"./Product": "./resources/js/Pages/Product.vue",
+	"./Product.vue": "./resources/js/Pages/Product.vue",
 	"./Products": "./resources/js/Pages/Products.vue",
 	"./Products.vue": "./resources/js/Pages/Products.vue"
 };
