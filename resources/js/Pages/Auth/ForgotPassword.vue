@@ -1,61 +1,67 @@
 <script setup>
-import { Head, useForm } from '@inertiajs/inertia-vue3';
-import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue';
-import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue';
-import JetButton from '@/Jetstream/Button.vue';
-import JetInput from '@/Jetstream/Input.vue';
-import JetLabel from '@/Jetstream/Label.vue';
-import JetValidationErrors from '@/Jetstream/ValidationErrors.vue';
+import { useForm } from "@inertiajs/inertia-vue3";
 
 defineProps({
     status: String,
 });
 
 const form = useForm({
-    email: '',
+    email: "",
 });
 
 const submit = () => {
-    form.post(route('password.email'));
+    form.post(route("password.email"));
 };
 </script>
 
 <template>
-    <Head title="Forgot Password" />
-
-    <JetAuthenticationCard>
-        <template #logo>
-            <JetAuthenticationCardLogo />
-        </template>
-
-        <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
-        </div>
-
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
-        </div>
-
-        <JetValidationErrors class="mb-4" />
-
-        <form @submit.prevent="submit">
-            <div>
-                <JetLabel for="email" value="Email" />
-                <JetInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                />
+    <div
+        class="login-wrapper d-flex align-items-center justify-content-center text-center"
+        style="background: rgb(163, 228, 153) !important"
+    >
+        <div
+            class="background-shape"
+            style="background: rgb(80, 208, 72) !important"
+        ></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
+                    <img
+                        class="big-logo"
+                        src="/img/core-img/logo-white.png"
+                        alt=""
+                    />
+                    <div class="register-form mt-5 px-4">
+                        <form @submit.prevent="submit">
+                            <div class="form-group text-start mb-5">
+                                <span>Email</span>
+                                <label for="email"
+                                    ><i class="lni lni-user"></i
+                                ></label>
+                                <input
+                                    class="form-control"
+                                    id="email"
+                                    type="text"
+                                    placeholder="info@example.com"
+                                    v-model="form.email"
+                                    name="email"
+                                    required
+                                    autofocus
+                                />
+                            </div>
+                            <button
+                                class="btn btn-warning btn-lg w-100 text-white"
+                                type="submit"
+                                style="
+                                    background: rgb(192, 210, 118) !important;
+                                "
+                            >
+                                Email Password Reset Link
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Email Password Reset Link
-                </JetButton>
-            </div>
-        </form>
-    </JetAuthenticationCard>
+        </div>
+    </div>
 </template>
