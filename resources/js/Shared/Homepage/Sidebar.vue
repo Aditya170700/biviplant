@@ -15,16 +15,25 @@
         <div class="offcanvas-body">
             <div class="sidenav-profile">
                 <div class="user-profile">
-                    <img src="img/bg-img/9.jpg" alt="" />
+                    <img
+                        :src="
+                            $page.props.user
+                                ? $page.props.user.profile_photo_url
+                                : 'https://ui-avatars.com/api/?name=Guest&color=50D048&background=C0D276&size=500'
+                        "
+                        alt=""
+                    />
                 </div>
                 <div class="user-info">
-                    <h6 class="user-name mb-1">Suha Sarah</h6>
-                    <p class="available-balance">
+                    <h6 class="user-name mb-1">
+                        {{ $page.props.user ? $page.props.user.name : "Guest" }}
+                    </h6>
+                    <p class="available-balance" v-if="$page.props.user">
                         Total balance $<span class="counter">583.67</span>
                     </p>
                 </div>
             </div>
-            <ul class="sidenav-nav ps-0">
+            <ul class="sidenav-nav ps-0" v-if="$page.props.user">
                 <li>
                     <a href="profile.html"
                         ><i class="lni lni-user"></i>My Profile</a
@@ -39,38 +48,9 @@
                     >
                 </li>
                 <li class="suha-dropdown-menu">
-                    <a href="#"><i class="lni lni-cart"></i>Shop Pages</a>
-                    <ul>
-                        <li><a href="shop-grid.html">- Shop Grid</a></li>
-                        <li><a href="shop-list.html">- Shop List</a></li>
-                        <li>
-                            <a href="single-product.html">- Product Details</a>
-                        </li>
-                        <li>
-                            <a href="featured-products.html"
-                                >- Featured Products</a
-                            >
-                        </li>
-                        <li><a href="flash-sale.html">- Flash Sale</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="pages.html"
-                        ><i class="lni lni-empty-file"></i>All Pages</a
-                    >
-                </li>
-                <li class="suha-dropdown-menu">
                     <a href="wishlist-grid.html"
                         ><i class="lni lni-heart"></i>My Wishlist</a
                     >
-                    <ul>
-                        <li>
-                            <a href="wishlist-grid.html">- Wishlist Grid</a>
-                        </li>
-                        <li>
-                            <a href="wishlist-list.html">- Wishlist List</a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="settings.html"
@@ -78,11 +58,38 @@
                     >
                 </li>
                 <li>
-                    <a href="intro.html"
+                    <a href="#" @click="logout"
                         ><i class="lni lni-power-switch"></i>Sign Out</a
+                    >
+                </li>
+            </ul>
+            <ul class="sidenav-nav ps-0" v-else>
+                <li>
+                    <Link :href="route('login')"
+                        ><i class="lni lni-power-switch"></i>Login</Link
                     >
                 </li>
             </ul>
         </div>
     </div>
 </template>
+
+<script>
+import { Inertia } from "@inertiajs/inertia";
+import { Link } from "@inertiajs/inertia-vue3";
+
+export default {
+    components: {
+        Link,
+    },
+    setup() {
+        const logout = () => {
+            Inertia.post(route("logout"));
+        };
+
+        return {
+            logout,
+        };
+    },
+};
+</script>
