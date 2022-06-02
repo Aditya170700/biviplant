@@ -579,9 +579,9 @@
                                     ><a class="wishlist-btn" href="#"
                                         ><i class="lni lni-heart"> </i
                                     ></a>
-                                    <a
+                                    <Link
                                         class="product-thumbnail d-block"
-                                        href="single-product.html"
+                                        href="/products/beach-cap"
                                         ><img
                                             class="mb-2"
                                             src="img/product/11.png"
@@ -603,11 +603,11 @@
                                             <li>
                                                 <span class="seconds">0</span>s
                                             </li>
-                                        </ul></a
-                                    ><a
+                                        </ul></Link
+                                    ><Link
                                         class="product-title d-block"
-                                        href="single-product.html"
-                                        >Beach Cap</a
+                                        href="/products/beach-cap"
+                                        >Beach Cap</Link
                                     >
                                     <p class="sale-price">
                                         $13<span>$42</span>
@@ -636,18 +636,18 @@
                                     <a class="wishlist-btn" href="#"
                                         ><i class="lni lni-heart"> </i
                                     ></a>
-                                    <a
+                                    <Link
                                         class="product-thumbnail d-block"
-                                        href="single-product.html"
+                                        href="/products/wooden-sofa"
                                         ><img
                                             class="mb-2"
                                             src="img/product/5.png"
                                             alt=""
-                                    /></a>
-                                    <a
+                                    /></Link>
+                                    <Link
                                         class="product-title d-block"
-                                        href="single-product.html"
-                                        >Wooden Sofa</a
+                                        href="/products/wooden-sofa"
+                                        >Wooden Sofa</Link
                                     >
 
                                     <p class="sale-price">
