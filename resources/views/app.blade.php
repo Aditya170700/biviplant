@@ -39,6 +39,12 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     {{-- <link rel="manifest" href="manifest.json"> --}}
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
+    <style>
+        .bg-fug {
+            background-color: #f1f5f0 !important;
+        }
+
+    </style>
     @routes
     <script src="{{ mix('/js/app.js') }}" defer></script>
     @inertiaHead
