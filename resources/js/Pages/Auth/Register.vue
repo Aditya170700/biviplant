@@ -19,7 +19,7 @@ const submit = () => {
 <template>
     <div
         class="login-wrapper d-flex align-items-center justify-content-center text-center"
-        style="background: rgb(163, 228, 153) !important"
+        style="background: white !important"
     >
         <div
             class="background-shape"
@@ -28,20 +28,21 @@ const submit = () => {
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-9 col-md-7 col-lg-6 col-xl-5">
-                    <img
-                        class="big-logo"
-                        src="/img/core-img/logo-white.png"
-                        alt=""
-                    />
-                    <div class="register-form mt-5 px-4">
+                    <div class="d-flex justify-content-center">
+                        <Link :href="route('homepage')">
+                            <img
+                                class="big-logo"
+                                src="/img/core-img/logo-white.png"
+                                alt=""
+                            />
+                        </Link>
+                    </div>
+                    <div class="mt-5 px-4">
                         <form @submit.prevent="submit">
                             <div class="form-group text-start mb-4">
-                                <span>Name</span>
-                                <label for="name"
-                                    ><i class="lni lni-user"></i
-                                ></label>
+                                <span class="text-dark">Name</span>
                                 <input
-                                    class="form-control"
+                                    class="form-control rounded"
                                     id="name"
                                     type="text"
                                     placeholder="Alex"
@@ -50,12 +51,9 @@ const submit = () => {
                                 />
                             </div>
                             <div class="form-group text-start mb-4">
-                                <span>Email</span>
-                                <label for="email"
-                                    ><i class="lni lni-user"></i
-                                ></label>
+                                <span class="text-dark">Email</span>
                                 <input
-                                    class="form-control"
+                                    class="form-control rounded"
                                     id="email"
                                     type="email"
                                     placeholder="info@example.com"
@@ -64,12 +62,9 @@ const submit = () => {
                                 />
                             </div>
                             <div class="form-group text-start mb-4">
-                                <span>Password</span>
-                                <label for="password"
-                                    ><i class="lni lni-lock"></i
-                                ></label>
+                                <span class="text-dark">Password</span>
                                 <input
-                                    class="form-control"
+                                    class="form-control rounded"
                                     id="password"
                                     type="password"
                                     placeholder="Password"
@@ -78,12 +73,11 @@ const submit = () => {
                                 />
                             </div>
                             <div class="form-group text-start mb-4">
-                                <span>Password Confirmation</span>
-                                <label for="password_confirmation"
-                                    ><i class="lni lni-lock"></i
-                                ></label>
+                                <span class="text-dark"
+                                    >Password Confirmation</span
+                                >
                                 <input
-                                    class="form-control"
+                                    class="form-control rounded"
                                     id="password_confirmation"
                                     type="password"
                                     placeholder="Password Confirmation"
@@ -99,19 +93,22 @@ const submit = () => {
                                     v-model="form.terms"
                                     name="terms"
                                 />
-                                <label class="form-check-label" for="terms">
+                                <label
+                                    class="form-check-label text-dark"
+                                    for="terms"
+                                >
                                     I agree to the
                                     <a
                                         target="_blank"
                                         :href="route('terms.show')"
-                                        class="text-decoration-none"
+                                        class="text-decoration-none text-dark"
                                         >Terms of Service</a
                                     >
                                     and
                                     <a
                                         target="_blank"
                                         :href="route('policy.show')"
-                                        class="text-decoration-none"
+                                        class="text-decoration-none text-dark"
                                         >Privacy Policy</a
                                     >
                                 </label>
@@ -119,9 +116,7 @@ const submit = () => {
                             <button
                                 class="btn btn-warning btn-lg w-100 text-white"
                                 type="submit"
-                                style="
-                                    background: rgb(192, 210, 118) !important;
-                                "
+                                style="background: rgb(80, 208, 72) !important"
                             >
                                 Register
                             </button>
@@ -130,7 +125,7 @@ const submit = () => {
                     <div class="login-meta-data">
                         <Link
                             :href="route('login')"
-                            class="forgot-password d-block mt-3 mb-1 text-white"
+                            class="forgot-password d-block mt-3 mb-1 text-dark"
                         >
                             Already registered?
                         </Link>
