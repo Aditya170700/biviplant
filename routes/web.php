@@ -15,6 +15,15 @@ use Inertia\Inertia;
 |
 */
 
+Route::get('/admin', function () {
+    return Inertia::render('Dashboard/Index', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+
 Route::get('/', function () {
     return Inertia::render('Homepage', [
         'canLogin' => Route::has('login'),
