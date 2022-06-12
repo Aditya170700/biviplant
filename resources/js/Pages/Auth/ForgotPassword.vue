@@ -1,5 +1,7 @@
 <script setup>
 import { Link, useForm } from "@inertiajs/inertia-vue3";
+import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing";
+import FormText from "../../Shared/Form/FormText";
 
 defineProps({
     status: String,
@@ -46,8 +48,12 @@ const submit = () => {
                                     placeholder="info@example.com"
                                     v-model="form.email"
                                     name="email"
-                                    required
                                     autofocus
+                                />
+                                <FormText
+                                    :id="'email'"
+                                    :message="form.errors.email"
+                                    v-if="form.errors.email"
                                 />
                             </div>
                             <button
@@ -55,7 +61,10 @@ const submit = () => {
                                 type="submit"
                                 style="background: rgb(80, 208, 72) !important"
                             >
-                                Email Password Reset Link
+                                <div class="d-flex justify-content-center">
+                                    <SpinnerProcessing v-if="form.processing" />
+                                    Email Password Reset Link
+                                </div>
                             </button>
                         </form>
                     </div>

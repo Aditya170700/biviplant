@@ -13,7 +13,18 @@ class HandleInertiaRequests extends Middleware
      *
      * @var string
      */
-    protected $rootView = 'app';
+    // protected $rootView = 'app';
+
+    public function rootView(Request $request)
+    {
+        $routePrefix = explode('/', $request->route()->uri)[0];
+
+        if ($routePrefix == 'admin') {
+            return 'admin';
+        }
+
+        return 'app';
+    }
 
     /**
      * Determine the current asset version.
@@ -38,6 +49,9 @@ class HandleInertiaRequests extends Middleware
             'ziggy' => function () {
                 return (new Ziggy)->toArray();
             },
+            'flash' => [
+                'message' => fn () => $request->session()->get('message')
+            ],
         ]);
     }
 }

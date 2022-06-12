@@ -29,7 +29,7 @@
                 >
             </div>
         </div>
-        <div class="page-content-wrapper">
+        <div class="page-content-wrapper bg-fug">
             <div
                 id="carouselExampleIndicators"
                 class="carousel slide"

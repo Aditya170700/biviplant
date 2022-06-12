@@ -1,5 +1,7 @@
 <script setup>
 import { Link, useForm } from "@inertiajs/inertia-vue3";
+import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing";
+import FormText from "../../Shared/Form/FormText";
 
 defineProps({
     canResetPassword: Boolean,
@@ -55,6 +57,11 @@ const submit = () => {
                                     v-model="form.email"
                                     name="email"
                                 />
+                                <FormText
+                                    :id="'email'"
+                                    :message="form.errors.email"
+                                    v-if="form.errors.email"
+                                />
                             </div>
                             <div class="form-group text-start mb-4">
                                 <span class="text-dark">Password</span>
@@ -65,6 +72,11 @@ const submit = () => {
                                     placeholder="Password"
                                     v-model="form.password"
                                     name="password"
+                                />
+                                <FormText
+                                    :id="'password'"
+                                    :message="form.errors.password"
+                                    v-if="form.errors.password"
                                 />
                             </div>
                             <div class="form-check text-start text-dark mb-5">
@@ -83,8 +95,12 @@ const submit = () => {
                                 class="btn btn-warning btn-lg w-100 text-white"
                                 type="submit"
                                 style="background: rgb(80, 208, 72) !important"
+                                :disabled="form.processing"
                             >
-                                Log In
+                                <div class="d-flex justify-content-center">
+                                    <SpinnerProcessing v-if="form.processing" />
+                                    Log In
+                                </div>
                             </button>
                         </form>
                     </div>

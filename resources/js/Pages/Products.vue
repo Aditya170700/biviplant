@@ -29,7 +29,7 @@
                 >
             </div>
         </div>
-        <div class="page-content-wrapper">
+        <div class="page-content-wrapper bg-fug">
             <div class="top-products-area py-3">
                 <div class="container">
                     <div
