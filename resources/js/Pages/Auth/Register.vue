@@ -1,5 +1,7 @@
 <script setup>
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
+import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing";
+import FormText from "../../Shared/Form/FormText";
 
 const form = useForm({
     name: "",
@@ -49,6 +51,11 @@ const submit = () => {
                                     v-model="form.name"
                                     name="name"
                                 />
+                                <FormText
+                                    :id="'name'"
+                                    :message="form.errors.name"
+                                    v-if="form.errors.name"
+                                />
                             </div>
                             <div class="form-group text-start mb-4">
                                 <span class="text-dark">Email</span>
@@ -60,6 +67,11 @@ const submit = () => {
                                     v-model="form.email"
                                     name="email"
                                 />
+                                <FormText
+                                    :id="'email'"
+                                    :message="form.errors.email"
+                                    v-if="form.errors.email"
+                                />
                             </div>
                             <div class="form-group text-start mb-4">
                                 <span class="text-dark">Password</span>
@@ -70,6 +82,11 @@ const submit = () => {
                                     placeholder="Password"
                                     v-model="form.password"
                                     name="password"
+                                />
+                                <FormText
+                                    :id="'password'"
+                                    :message="form.errors.password"
+                                    v-if="form.errors.password"
                                 />
                             </div>
                             <div class="form-group text-start mb-4">
@@ -118,7 +135,10 @@ const submit = () => {
                                 type="submit"
                                 style="background: rgb(80, 208, 72) !important"
                             >
-                                Register
+                                <div class="d-flex justify-content-center">
+                                    <SpinnerProcessing v-if="form.processing" />
+                                    Register
+                                </div>
                             </button>
                         </form>
                     </div>
