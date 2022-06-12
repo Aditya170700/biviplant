@@ -129,6 +129,11 @@ const submit = () => {
                                         >Privacy Policy</a
                                     >
                                 </label>
+                                <FormText
+                                    :id="'terms'"
+                                    :message="form.errors.terms"
+                                    v-if="form.errors.terms"
+                                />
                             </div>
                             <button
                                 class="btn btn-warning btn-lg w-100 text-white"

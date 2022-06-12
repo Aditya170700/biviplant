@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Laravel\Jetstream\HasProfilePhoto;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -57,6 +58,7 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
+        'is_admin',
     ];
 
     // override profile photo url
@@ -67,5 +69,12 @@ class User extends Authenticatable
         // })->join(' '));
 
         return "https://ui-avatars.com/api/?name={$this->name}&color=50D048&background=C0D276&size=500";
+    }
+
+    protected function isAdmin(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes['role'] == 'admin',
+        );
     }
 }
