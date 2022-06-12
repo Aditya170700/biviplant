@@ -15,7 +15,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::middleware('role:admin')->get('/admin', function () {
+Route::middleware(['auth', 'role:admin'])->get('/admin', function () {
     return Inertia::render('Dashboard/Index', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),

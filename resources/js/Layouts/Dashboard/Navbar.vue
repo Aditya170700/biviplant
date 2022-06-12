@@ -4,7 +4,8 @@
     >
         <div class="navbar-brand-wrapper d-flex align-items-top px-4">
             <a class="navbar-brand brand-logo" href="index.html">
-                <img src="/assets/images/logo.svg" alt="logo" />
+                <!-- <img src="/assets/images/logo.jpg" alt="logo" /> -->
+                Biviplant
             </a>
             <a class="navbar-brand brand-logo-mini" href="index.html">
                 <img src="/assets/images/logo-mini.svg" alt="logo" />
