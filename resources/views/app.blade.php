@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, shrink-to-fit=no">
-    <meta name="description" content="Biviplant - Tanaman Buah Dalam Pot Wonogiri">
+    <meta name="description" content="{{ env('APP_NAME') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#100DD1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Biviplant - Tanaman Buah Dalam Pot Wonogiri</title>
+    <title>{{ env('APP_NAME') }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -43,7 +43,6 @@
         .bg-fug {
             background-color: #f1f5f0 !important;
         }
-
     </style>
     @routes
     <script src="{{ mix('/js/app.js') }}" defer></script>

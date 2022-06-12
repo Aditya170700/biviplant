@@ -4,7 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Biviplant</title>
+    <title>{{ env('APP_NAME') }}</title>
+    <link rel="icon" href="{{ asset('img/icons/icon-72x72.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('img/icons/icon-96x96.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img/icons/icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{ asset('img/icons/icon-167x167.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/icons/icon-180x180.png') }}">
     <link rel="stylesheet" href="assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/iconfonts/ionicons/dist/css/ionicons.css">
     <link rel="stylesheet" href="assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
@@ -12,7 +17,6 @@
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.addons.css">
     <link rel="stylesheet" href="assets/css/shared/style.css">
     <link rel="stylesheet" href="assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     @routes
     <script src="{{ mix('/js/app.js') }}" defer></script>

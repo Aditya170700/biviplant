@@ -1093,25 +1093,7 @@
                         </div>
                     </div>
                 </div>
-                <footer class="footer">
-                    <div class="container-fluid clearfix">
-                        <span
-                            class="text-muted d-block text-center text-sm-left d-sm-inline-block"
-                            >Copyright © bootstrapdash.com 2020</span
-                        >
-                        <span
-                            class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"
-                        >
-                            Free
-                            <a
-                                href="https://www.bootstrapdash.com/bootstrap-admin-template/"
-                                target="_blank"
-                                >Bootstrap admin templates</a
-                            >
-                            from Bootstrapdash.com</span
-                        >
-                    </div>
-                </footer>
+                <Footer />
             </div>
         </div>
     </div>
@@ -1120,9 +1102,10 @@
 <script>
 import Navbar from "../../Layouts/Dashboard/Navbar.vue";
 import Sidebar from "../../Layouts/Dashboard/Sidebar.vue";
+import Footer from "../../Layouts/Dashboard/Footer.vue";
 
 export default {
-    components: { Navbar, Sidebar },
+    components: { Navbar, Sidebar, Footer },
     setup() {
         //
     },
