@@ -3,10 +3,10 @@
         <ul class="nav">
             <hr style="border: 1px solid white" />
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <Link class="nav-link" href="/admin/categories">
                     <i class="menu-icon typcn typcn-document-text"></i>
-                    <span class="menu-title">Dashboard</span>
-                </a>
+                    <span class="menu-title">Category</span>
+                </Link>
             </li>
             <li class="nav-item">
                 <a
@@ -127,3 +127,13 @@
         </ul>
     </nav>
 </template>
+
+<script>
+import { Link } from "@inertiajs/inertia-vue3";
+
+export default {
+    components: {
+        Link,
+    },
+};
+</script>

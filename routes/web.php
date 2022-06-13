@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,14 +17,19 @@ use Inertia\Inertia;
 |
 */
 
-Route::middleware(['auth', 'role:admin'])->get('/admin', function () {
-    return Inertia::render('Dashboard/Index', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::middleware(['auth', 'role:admin'])
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function () {
+        Route::controller(DashboardController::class)
+            ->group(function () {
+                Route::get('/', 'index')->name('dashboard');
+            });
+        Route::controller(CategoryController::class)
+            ->group(function () {
+                Route::resource('categories', CategoryController::class);
+            });
+    });
 
 Route::get('/', function () {
     return Inertia::render('Homepage', [
