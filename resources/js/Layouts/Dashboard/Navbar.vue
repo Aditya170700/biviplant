@@ -1,306 +1,856 @@
 <template>
-    <nav
-        class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row"
-    >
-        <div class="navbar-brand-wrapper d-flex align-items-top px-4">
-            <a class="navbar-brand brand-logo" href="index.html">
-                <!-- <img src="/assets/images/logo.jpg" alt="logo" /> -->
-                Biviplant
-            </a>
-            <a class="navbar-brand brand-logo-mini" href="index.html">
-                <img src="/assets/images/logo-mini.svg" alt="logo" />
-            </a>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center">
-            <ul class="navbar-nav">
-                <li class="nav-item font-weight-semibold d-none d-lg-block">
-                    Help : +050 2992 709
-                </li>
-                <li class="nav-item dropdown language-dropdown">
-                    <a
-                        class="nav-link dropdown-toggle px-2 d-flex align-items-center"
-                        id="LanguageDropdown"
-                        href="#"
-                        data-toggle="dropdown"
-                        aria-expanded="false"
-                    >
-                        <div class="d-inline-flex mr-0 mr-md-3">
-                            <div class="flag-icon-holder">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                        </div>
-                        <span
-                            class="profile-text font-weight-medium d-none d-md-block"
-                            >English</span
-                        >
-                    </a>
-                    <div
-                        class="dropdown-menu dropdown-menu-left navbar-dropdown py-2"
-                        aria-labelledby="LanguageDropdown"
-                    >
-                        <a class="dropdown-item">
-                            <div class="flag-icon-holder">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                            English
-                        </a>
-                        <a class="dropdown-item">
-                            <div class="flag-icon-holder">
-                                <i class="flag-icon flag-icon-fr"></i>
-                            </div>
-                            French
-                        </a>
-                        <a class="dropdown-item">
-                            <div class="flag-icon-holder">
-                                <i class="flag-icon flag-icon-ae"></i>
-                            </div>
-                            Arabic
-                        </a>
-                        <a class="dropdown-item">
-                            <div class="flag-icon-holder">
-                                <i class="flag-icon flag-icon-ru"></i>
-                            </div>
-                            Russian
-                        </a>
-                    </div>
-                </li>
-            </ul>
-            <form class="ml-auto search-form d-none d-md-block" action="#">
-                <div class="form-group">
-                    <input
-                        type="search"
-                        class="form-control"
-                        placeholder="Search Here"
-                    />
+    <header class="top-header">
+        <nav class="navbar navbar-expand gap-3">
+            <div class="mobile-toggle-icon fs-3">
+                <i class="bi bi-list"></i>
+            </div>
+            <form class="searchbar">
+                <div
+                    class="position-absolute top-50 translate-middle-y search-icon ms-3"
+                >
+                    <i class="bi bi-search"></i>
+                </div>
+                <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Type here to search"
+                />
+                <div
+                    class="position-absolute top-50 translate-middle-y search-close-icon"
+                >
+                    <i class="bi bi-x-lg"></i>
                 </div>
             </form>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a
-                        class="nav-link count-indicator"
-                        id="messageDropdown"
-                        href="#"
-                        data-toggle="dropdown"
-                        aria-expanded="false"
-                    >
-                        <i class="mdi mdi-bell-outline"></i>
-                        <span class="count">7</span>
-                    </a>
-                    <div
-                        class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
-                        aria-labelledby="messageDropdown"
-                    >
-                        <a class="dropdown-item py-3">
-                            <p class="mb-0 font-weight-medium float-left">
-                                You have 7 unread mails
-                            </p>
-                            <span
-                                class="badge badge-pill badge-primary float-right"
-                                >View all</span
-                            >
+            <div class="top-navbar-right ms-auto">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item search-toggle-icon">
+                        <a class="nav-link" href="#">
+                            <div class="">
+                                <i class="fas fa-search"></i>
+                            </div>
                         </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
+                    </li>
+                    <li class="nav-item dropdown dropdown-user-setting">
+                        <a
+                            class="nav-link dropdown-toggle dropdown-toggle-nocaret"
+                            href="#"
+                            data-bs-toggle="dropdown"
+                        >
+                            <div class="user-setting d-flex align-items-center">
                                 <img
-                                    src="/assets/images/faces/face10.jpg"
-                                    alt="image"
-                                    class="img-sm profile-pic"
+                                    src="https://via.placeholder.com/110X110"
+                                    class="user-img"
+                                    alt=""
                                 />
                             </div>
-                            <div class="preview-item-content flex-grow py-2">
-                                <p
-                                    class="preview-subject ellipsis font-weight-medium text-dark"
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://via.placeholder.com/110X110"
+                                            alt=""
+                                            class="rounded-circle"
+                                            width="54"
+                                            height="54"
+                                        />
+                                        <div class="ms-3">
+                                            <h6 class="mb-0 dropdown-user-name">
+                                                Jhon Deo
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-user-designation text-secondary"
+                                                >HR Manager</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                                <a
+                                    class="dropdown-item"
+                                    href="pages-user-profile.html"
                                 >
-                                    Marian Garner
-                                </p>
-                                <p class="font-weight-light small-text">
-                                    The meeting is cancelled
-                                </p>
-                            </div>
-                        </a>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img
-                                    src="/assets/images/faces/face12.jpg"
-                                    alt="image"
-                                    class="img-sm profile-pic"
-                                />
-                            </div>
-                            <div class="preview-item-content flex-grow py-2">
-                                <p
-                                    class="preview-subject ellipsis font-weight-medium text-dark"
+                                    <div class="d-flex align-items-center">
+                                        <div class="">
+                                            <i class="bi bi-person-fill"></i>
+                                        </div>
+                                        <div class="ms-3">
+                                            <span>Profile</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="">
+                                            <i class="fas fa-cog"></i>
+                                        </div>
+                                        <div class="ms-3">
+                                            <span>Setting</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="index2.html">
+                                    <div class="d-flex align-items-center">
+                                        <div class="">
+                                            <i class="bi bi-speedometer"></i>
+                                        </div>
+                                        <div class="ms-3">
+                                            <span>Dashboard</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="">
+                                            <i
+                                                class="bi bi-piggy-bank-fill"
+                                            ></i>
+                                        </div>
+                                        <div class="ms-3">
+                                            <span>Earnings</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="">
+                                            <i
+                                                class="bi bi-cloud-arrow-down-fill"
+                                            ></i>
+                                        </div>
+                                        <div class="ms-3">
+                                            <span>Downloads</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                                <a
+                                    class="dropdown-item"
+                                    href="authentication-signup-with-header-footer.html"
                                 >
-                                    David Grey
-                                </p>
-                                <p class="font-weight-light small-text">
-                                    The meeting is cancelled
-                                </p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="">
+                                            <i class="bi bi-lock-fill"></i>
+                                        </div>
+                                        <div class="ms-3">
+                                            <span>Logout</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown dropdown-large">
+                        <a
+                            class="nav-link dropdown-toggle dropdown-toggle-nocaret"
+                            href="#"
+                            data-bs-toggle="dropdown"
+                        >
+                            <div class="projects">
+                                <i class="bi bi-grid-3x3-gap-fill"></i>
                             </div>
                         </a>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img
-                                    src="/assets/images/faces/face1.jpg"
-                                    alt="image"
-                                    class="img-sm profile-pic"
-                                />
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <div class="row row-cols-3 gx-2">
+                                <div class="col">
+                                    <a href="ecommerce-orders.html">
+                                        <div
+                                            class="apps p-2 radius-10 text-center"
+                                        >
+                                            <div
+                                                class="apps-icon-box mb-1 text-white bg-gradient-purple"
+                                            >
+                                                <i
+                                                    class="bi bi-basket2-fill"
+                                                ></i>
+                                            </div>
+                                            <p class="mb-0 apps-name">Orders</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="javascript:;">
+                                        <div
+                                            class="apps p-2 radius-10 text-center"
+                                        >
+                                            <div
+                                                class="apps-icon-box mb-1 text-white bg-gradient-info"
+                                            >
+                                                <i
+                                                    class="bi bi-people-fill"
+                                                ></i>
+                                            </div>
+                                            <p class="mb-0 apps-name">Users</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="ecommerce-products-grid.html">
+                                        <div
+                                            class="apps p-2 radius-10 text-center"
+                                        >
+                                            <div
+                                                class="apps-icon-box mb-1 text-white bg-gradient-success"
+                                            >
+                                                <i
+                                                    class="bi bi-trophy-fill"
+                                                ></i>
+                                            </div>
+                                            <p class="mb-0 apps-name">
+                                                Products
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="component-media-object.html">
+                                        <div
+                                            class="apps p-2 radius-10 text-center"
+                                        >
+                                            <div
+                                                class="apps-icon-box mb-1 text-white bg-gradient-danger"
+                                            >
+                                                <i
+                                                    class="bi bi-collection-play-fill"
+                                                ></i>
+                                            </div>
+                                            <p class="mb-0 apps-name">Media</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="pages-user-profile.html">
+                                        <div
+                                            class="apps p-2 radius-10 text-center"
+                                        >
+                                            <div
+                                                class="apps-icon-box mb-1 text-white bg-gradient-warning"
+                                            >
+                                                <i
+                                                    class="bi bi-person-circle"
+                                                ></i>
+                                            </div>
+                                            <p class="mb-0 apps-name">
+                                                Account
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="javascript:;">
+                                        <div
+                                            class="apps p-2 radius-10 text-center"
+                                        >
+                                            <div
+                                                class="apps-icon-box mb-1 text-white bg-gradient-voilet"
+                                            >
+                                                <i
+                                                    class="bi bi-file-earmark-text-fill"
+                                                ></i>
+                                            </div>
+                                            <p class="mb-0 apps-name">Docs</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="ecommerce-orders-detail.html">
+                                        <div
+                                            class="apps p-2 radius-10 text-center"
+                                        >
+                                            <div
+                                                class="apps-icon-box mb-1 text-white bg-gradient-branding"
+                                            >
+                                                <i
+                                                    class="bi bi-credit-card-fill"
+                                                ></i>
+                                            </div>
+                                            <p class="mb-0 apps-name">
+                                                Payment
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="javascript:;">
+                                        <div
+                                            class="apps p-2 radius-10 text-center"
+                                        >
+                                            <div
+                                                class="apps-icon-box mb-1 text-white bg-gradient-desert"
+                                            >
+                                                <i
+                                                    class="bi bi-calendar-check-fill"
+                                                ></i>
+                                            </div>
+                                            <p class="mb-0 apps-name">Events</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="javascript:;">
+                                        <div
+                                            class="apps p-2 radius-10 text-center"
+                                        >
+                                            <div
+                                                class="apps-icon-box mb-1 text-white bg-gradient-amour"
+                                            >
+                                                <i class="bi bi-book-half"></i>
+                                            </div>
+                                            <p class="mb-0 apps-name">Story</p>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="preview-item-content flex-grow py-2">
-                                <p
-                                    class="preview-subject ellipsis font-weight-medium text-dark"
-                                >
-                                    Travis Jenkins
-                                </p>
-                                <p class="font-weight-light small-text">
-                                    The meeting is cancelled
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a
-                        class="nav-link count-indicator"
-                        id="notificationDropdown"
-                        href="#"
-                        data-toggle="dropdown"
-                    >
-                        <i class="mdi mdi-email-outline"></i>
-                        <span class="count bg-success">3</span>
-                    </a>
-                    <div
-                        class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
-                        aria-labelledby="notificationDropdown"
-                    >
-                        <a class="dropdown-item py-3 border-bottom">
-                            <p class="mb-0 font-weight-medium float-left">
-                                You have 4 new notifications
-                            </p>
-                            <span
-                                class="badge badge-pill badge-primary float-right"
-                                >View all</span
-                            >
-                        </a>
-                        <a class="dropdown-item preview-item py-3">
-                            <div class="preview-thumbnail">
-                                <i
-                                    class="mdi mdi-alert m-auto text-primary"
-                                ></i>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6
-                                    class="preview-subject font-weight-normal text-dark mb-1"
-                                >
-                                    Application Error
-                                </h6>
-                                <p class="font-weight-light small-text mb-0">
-                                    Just now
-                                </p>
-                            </div>
-                        </a>
-                        <a class="dropdown-item preview-item py-3">
-                            <div class="preview-thumbnail">
-                                <i
-                                    class="mdi mdi-settings m-auto text-primary"
-                                ></i>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6
-                                    class="preview-subject font-weight-normal text-dark mb-1"
-                                >
-                                    Settings
-                                </h6>
-                                <p class="font-weight-light small-text mb-0">
-                                    Private message
-                                </p>
-                            </div>
-                        </a>
-                        <a class="dropdown-item preview-item py-3">
-                            <div class="preview-thumbnail">
-                                <i
-                                    class="mdi mdi-airballoon m-auto text-primary"
-                                ></i>
-                            </div>
-                            <div class="preview-item-content">
-                                <h6
-                                    class="preview-subject font-weight-normal text-dark mb-1"
-                                >
-                                    New user registration
-                                </h6>
-                                <p class="font-weight-light small-text mb-0">
-                                    2 days ago
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-                <li
-                    class="nav-item dropdown d-none d-xl-inline-block user-dropdown"
-                >
-                    <a
-                        class="nav-link dropdown-toggle"
-                        id="UserDropdown"
-                        href="#"
-                        data-toggle="dropdown"
-                        aria-expanded="false"
-                    >
-                        <img
-                            class="img-xs rounded-circle"
-                            src="/assets/images/faces/face8.jpg"
-                            alt="Profile image"
-                        />
-                    </a>
-                    <div
-                        class="dropdown-menu dropdown-menu-right navbar-dropdown"
-                        aria-labelledby="UserDropdown"
-                    >
-                        <div class="dropdown-header text-center">
-                            <img
-                                class="img-md rounded-circle"
-                                src="/assets/images/faces/face8.jpg"
-                                alt="Profile image"
-                            />
-                            <p class="mb-1 mt-3 font-weight-semibold">
-                                Allen Moreno
-                            </p>
-                            <p class="font-weight-light text-muted mb-0">
-                                allenmoreno@gmail.com
-                            </p>
+                            <!--end row-->
                         </div>
-                        <a class="dropdown-item"
-                            >My Profile
-                            <span class="badge badge-pill badge-danger">1</span
-                            ><i class="dropdown-item-icon ti-dashboard"></i
-                        ></a>
-                        <a class="dropdown-item"
-                            >Messages<i
-                                class="dropdown-item-icon ti-comment-alt"
-                            ></i
-                        ></a>
-                        <a class="dropdown-item"
-                            >Activity<i
-                                class="dropdown-item-icon ti-location-arrow"
-                            ></i
-                        ></a>
-                        <a class="dropdown-item"
-                            >FAQ<i class="dropdown-item-icon ti-help-alt"></i
-                        ></a>
-                        <a class="dropdown-item"
-                            >Sign Out<i
-                                class="dropdown-item-icon ti-power-off"
-                            ></i
-                        ></a>
-                    </div>
-                </li>
-            </ul>
-            <button
-                class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
-                type="button"
-                data-toggle="offcanvas"
-            >
-                <span class="mdi mdi-menu"></span>
-            </button>
-        </div>
-    </nav>
+                    </li>
+                    <li class="nav-item dropdown dropdown-large">
+                        <a
+                            class="nav-link dropdown-toggle dropdown-toggle-nocaret"
+                            href="#"
+                            data-bs-toggle="dropdown"
+                        >
+                            <div class="messages">
+                                <span class="notify-badge">5</span>
+                                <i class="bi bi-chat-right-fill"></i>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end p-0">
+                            <div class="p-2 border-bottom m-2">
+                                <h5 class="h5 mb-0">Messages</h5>
+                            </div>
+                            <div class="header-message-list p-2">
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://via.placeholder.com/110X110"
+                                            alt=""
+                                            class="rounded-circle"
+                                            width="50"
+                                            height="50"
+                                        />
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Amelio Joly
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >1 m</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >The standard chunk of
+                                                lorem...</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://via.placeholder.com/110X110"
+                                            alt=""
+                                            class="rounded-circle"
+                                            width="50"
+                                            height="50"
+                                        />
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Althea Cabardo
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >7 m</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >Many desktop publishing</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://via.placeholder.com/110X110"
+                                            alt=""
+                                            class="rounded-circle"
+                                            width="50"
+                                            height="50"
+                                        />
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Katherine Pechon
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >2 h</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >Making this the first
+                                                true</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://via.placeholder.com/110X110"
+                                            alt=""
+                                            class="rounded-circle"
+                                            width="50"
+                                            height="50"
+                                        />
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Peter Costanzo
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >3 h</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >It was popularised in the
+                                                1960</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://via.placeholder.com/110X110"
+                                            alt=""
+                                            class="rounded-circle"
+                                            width="50"
+                                            height="50"
+                                        />
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Thomas Wheeler
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >1 d</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >If you are going to use a
+                                                passage</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://via.placeholder.com/110X110"
+                                            alt=""
+                                            class="rounded-circle"
+                                            width="50"
+                                            height="50"
+                                        />
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Johnny Seitz
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >2 w</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >All the Lorem Ipsum
+                                                generators</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://via.placeholder.com/110X110"
+                                            alt=""
+                                            class="rounded-circle"
+                                            width="50"
+                                            height="50"
+                                        />
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Amelio Joly
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >1 m</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >The standard chunk of
+                                                lorem...</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://via.placeholder.com/110X110"
+                                            alt=""
+                                            class="rounded-circle"
+                                            width="50"
+                                            height="50"
+                                        />
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Althea Cabardo
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >7 m</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >Many desktop publishing</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            src="https://via.placeholder.com/110X110"
+                                            alt=""
+                                            class="rounded-circle"
+                                            width="50"
+                                            height="50"
+                                        />
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Katherine Pechon
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >2 h</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >Making this the first
+                                                true</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="p-2">
+                                <div><hr class="dropdown-divider" /></div>
+                                <a class="dropdown-item" href="#">
+                                    <div class="text-center">
+                                        View All Messages
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown dropdown-large">
+                        <a
+                            class="nav-link dropdown-toggle dropdown-toggle-nocaret"
+                            href="#"
+                            data-bs-toggle="dropdown"
+                        >
+                            <div class="notifications">
+                                <span class="notify-badge">8</span>
+                                <i class="bi bi-bell-fill"></i>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end p-0">
+                            <div class="p-2 border-bottom m-2">
+                                <h5 class="h5 mb-0">Notifications</h5>
+                            </div>
+                            <div class="header-notifications-list p-2">
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="notification-box bg-light-primary text-primary"
+                                        >
+                                            <i class="bi bi-basket2-fill"></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                New Orders
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >1 m</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >You have recived new
+                                                orders</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="notification-box bg-light-purple text-purple"
+                                        >
+                                            <i class="bi bi-people-fill"></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                New Customers
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >7 m</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >5 new user registered</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="notification-box bg-light-success text-success"
+                                        >
+                                            <i
+                                                class="bi bi-file-earmark-bar-graph-fill"
+                                            ></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                24 PDF File
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >2 h</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >The pdf files generated</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="notification-box bg-light-orange text-orange"
+                                        >
+                                            <i
+                                                class="bi bi-collection-play-fill"
+                                            ></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Time Response
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >3 h</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >5.1 min avarage time
+                                                response</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="notification-box bg-light-info text-info"
+                                        >
+                                            <i class="bi bi-cursor-fill"></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                New Product Approved
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >1 d</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >Your new product has
+                                                approved</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="notification-box bg-light-pink text-pink"
+                                        >
+                                            <i class="bi bi-gift-fill"></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                New Comments
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >2 w</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >New customer comments
+                                                recived</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="notification-box bg-light-warning text-warning"
+                                        >
+                                            <i class="bi bi-droplet-fill"></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                New 24 authors<span
+                                                    class="msg-time float-end text-secondary"
+                                                    >1 m</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >24 new authors joined last
+                                                week</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="notification-box bg-light-primary text-primary"
+                                        >
+                                            <i class="bi bi-mic-fill"></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Your item is shipped
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >7 m</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >Successfully shipped your
+                                                item</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="notification-box bg-light-success text-success"
+                                        >
+                                            <i class="bi bi-lightbulb-fill"></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                Defense Alerts
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >2 h</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >45% less alerts last 4
+                                                weeks</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="notification-box bg-light-info text-info"
+                                        >
+                                            <i
+                                                class="bi bi-bookmark-heart-fill"
+                                            ></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                4 New Sign Up
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >2 w</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >New 4 user registartions</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="notification-box bg-light-bronze text-bronze"
+                                        >
+                                            <i class="bi bi-briefcase-fill"></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">
+                                            <h6 class="mb-0 dropdown-msg-user">
+                                                All Documents Uploaded
+                                                <span
+                                                    class="msg-time float-end text-secondary"
+                                                    >1 mo</span
+                                                >
+                                            </h6>
+                                            <small
+                                                class="mb-0 dropdown-msg-text text-secondary d-flex align-items-center"
+                                                >Sussessfully uploaded all
+                                                files</small
+                                            >
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="p-2">
+                                <div><hr class="dropdown-divider" /></div>
+                                <a class="dropdown-item" href="#">
+                                    <div class="text-center">
+                                        View All Notifications
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 </template>

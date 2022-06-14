@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Category\StoreRequest;
+use App\Http\Requests\Category\UpdateRequest;
 use App\Interfaces\CategoryInterface;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -19,7 +22,8 @@ class CategoryController extends Controller
     {
         try {
             return Inertia::render('Dashboard/Category/Index', [
-                'categories' => $this->categoryInterface->getPaginated($this->request),
+                'results' => $this->categoryInterface->getPaginated($this->request),
+                'filters' => $this->request->all(['search', 'field', 'direction', 'limit']),
             ]);
         } catch (\Throwable $th) {
             throw $th;
@@ -35,16 +39,31 @@ class CategoryController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        try {
+            $this->categoryInterface
+                ->create([
+                    'meta_title' => $request->meta_title,
+                    'meta_description' => $request->meta_description,
+                    'meta_keyword' => $request->meta_keyword,
+                    'icon' => $request->icon(),
+                    'name' => $request->name,
+                    'banner' => $request->banner(),
+                ]);
+
+            return redirect()->route('admin.categories.index')
+                ->with('success', 'Created');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
-    public function show($id)
+    public function show(Category $model)
     {
         try {
             return Inertia::render('Dashboard/Category/Show', [
-                'category' => $this->categoryInterface->getById($id),
+                'result' => $model,
             ]);
         } catch (\Throwable $th) {
             throw $th;
@@ -55,22 +74,41 @@ class CategoryController extends Controller
     {
         try {
             return Inertia::render('Dashboard/Category/Edit', [
-                'category' => $this->categoryInterface->getById($id),
+                'result' => $this->categoryInterface->getById($id),
             ]);
         } catch (\Throwable $th) {
             throw $th;
         }
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, string $id)
     {
-        //
+        try {
+            $model = $this->categoryInterface->getById($id);
+            $this->categoryInterface
+                ->update($model, [
+                    'meta_title' => $request->meta_title,
+                    'meta_description' => $request->meta_description,
+                    'meta_keyword' => $request->meta_keyword,
+                    'icon' => $request->icon() ?? $model->icon,
+                    'name' => $request->name,
+                    'banner' => $request->banner() ?? $model->banner,
+                ]);
+
+            return redirect()->route('admin.categories.index')
+                ->with('success', 'Updated');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     public function destroy($id)
     {
         try {
-            return $this->categoryInterface->delete($this->categoryInterface->getById($id));
+            $this->categoryInterface->delete($this->categoryInterface->getById($id));
+
+            return redirect()->route('admin.categories.index')
+                ->with('success', 'Deleted');
         } catch (\Throwable $th) {
             throw $th;
         }

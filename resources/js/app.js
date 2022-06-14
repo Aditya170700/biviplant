@@ -6,6 +6,7 @@ import { InertiaProgress } from '@inertiajs/progress';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
+InertiaProgress.init({ color: '#4B5563' });
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => require(`./Pages/${name}.vue`),
@@ -16,5 +17,3 @@ createInertiaApp({
             .mount(el);
     },
 });
-
-InertiaProgress.init({ color: '#4B5563' });

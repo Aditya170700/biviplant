@@ -3,11 +3,8 @@
 namespace App\Exceptions;
 
 use Throwable;
-use Illuminate\Auth\AuthenticationException;
-use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
 
 class Handler extends ExceptionHandler
 {
@@ -54,21 +51,7 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $e)
     {
-        if ($e instanceof Responsable) {
-            return $e->toResponse($request);
-        }
-
-        $e = $this->prepareException($this->mapException($e));
-
-        if ($response = $this->renderViaCallbacks($request, $e)) {
-            return $response;
-        }
-
-        return match (true) {
-            $e instanceof HttpResponseException => $e->getResponse(),
-            $e instanceof AuthenticationException => $this->unauthenticated($request, $e),
-            $e instanceof ValidationException => $this->convertValidationExceptionToResponse($e, $request),
-            default => $this->renderExceptionResponse($request, $e),
-        };
+        Log::error($e);
+        return redirect()->back()->with('error', $e->getMessage());
     }
 }

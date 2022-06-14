@@ -24,7 +24,7 @@ class CategoryRepository implements CategoryInterface
             ->when(!$request->field || !$request->direction, function ($query) use ($request) {
                 $query->latest();
             })
-            ->paginate($request->limit ?? 25);
+            ->paginate($request->limit ?? 2);
     }
 
     public function getById(string $id)
@@ -36,26 +36,12 @@ class CategoryRepository implements CategoryInterface
     public function create(array $data)
     {
         return $this->model
-            ->create([
-                'meta_title' => $data['meta_title'],
-                'meta_description' => $data['meta_description'],
-                'meta_keyword' => $data['meta_keyword'],
-                'icon' => $data['icon'],
-                'name' => $data['name'],
-                'banner' => $data['banner'],
-            ]);
+            ->create($data);
     }
 
     public function update(Category $model, array $data)
     {
-        return $model->update([
-            'meta_title' => $data['meta_title'],
-            'meta_description' => $data['meta_description'],
-            'meta_keyword' => $data['meta_keyword'],
-            'icon' => $data['icon'],
-            'name' => $data['name'],
-            'banner' => $data['banner'],
-        ]);
+        return $model->update($data);
     }
 
     public function delete(Category $model)

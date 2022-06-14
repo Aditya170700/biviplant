@@ -34,6 +34,7 @@
         "@inertiajs/server": "^0.1.0",
         "@vue/server-renderer": "^3.2.36",
         "vue": "^3.2.36",
+        "vue-sweetalert2": "^5.0.5",
         "vue-toast-notification": "^3.0.4",
         "webpack-node-externals": "^3.0.0"
     }

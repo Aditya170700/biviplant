@@ -1,1111 +1,1304 @@
 <template>
-    <div class="container-scroller">
-        <Navbar />
-        <div class="container-fluid page-body-wrapper">
-            <Sidebar />
-            <div class="main-panel">
-                <div class="content-wrapper">
-                    <div class="row">
-                        <div class="col-md-12 grid-margin">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-6">
-                                            <div class="d-flex">
-                                                <div class="wrapper">
-                                                    <h3
-                                                        class="mb-0 font-weight-semibold"
-                                                    >
-                                                        32,451
-                                                    </h3>
-                                                    <h5
-                                                        class="mb-0 font-weight-medium text-primary"
-                                                    >
-                                                        Visits
-                                                    </h5>
-                                                    <p class="mb-0 text-muted">
-                                                        +14.00(+0.50%)
-                                                    </p>
-                                                </div>
-                                                <div
-                                                    class="wrapper my-auto ml-auto ml-lg-4"
-                                                >
-                                                    <canvas
-                                                        height="50"
-                                                        width="100"
-                                                        id="stats-line-graph-1"
-                                                    ></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="col-lg-3 col-md-6 mt-md-0 mt-4"
-                                        >
-                                            <div class="d-flex">
-                                                <div class="wrapper">
-                                                    <h3
-                                                        class="mb-0 font-weight-semibold"
-                                                    >
-                                                        15,236
-                                                    </h3>
-                                                    <h5
-                                                        class="mb-0 font-weight-medium text-primary"
-                                                    >
-                                                        Impressions
-                                                    </h5>
-                                                    <p class="mb-0 text-muted">
-                                                        +138.97(+0.54%)
-                                                    </p>
-                                                </div>
-                                                <div
-                                                    class="wrapper my-auto ml-auto ml-lg-4"
-                                                >
-                                                    <canvas
-                                                        height="50"
-                                                        width="100"
-                                                        id="stats-line-graph-2"
-                                                    ></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="col-lg-3 col-md-6 mt-md-0 mt-4"
-                                        >
-                                            <div class="d-flex">
-                                                <div class="wrapper">
-                                                    <h3
-                                                        class="mb-0 font-weight-semibold"
-                                                    >
-                                                        7,688
-                                                    </h3>
-                                                    <h5
-                                                        class="mb-0 font-weight-medium text-primary"
-                                                    >
-                                                        Conversation
-                                                    </h5>
-                                                    <p class="mb-0 text-muted">
-                                                        +57.62(+0.76%)
-                                                    </p>
-                                                </div>
-                                                <div
-                                                    class="wrapper my-auto ml-auto ml-lg-4"
-                                                >
-                                                    <canvas
-                                                        height="50"
-                                                        width="100"
-                                                        id="stats-line-graph-3"
-                                                    ></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="col-lg-3 col-md-6 mt-md-0 mt-4"
-                                        >
-                                            <div class="d-flex">
-                                                <div class="wrapper">
-                                                    <h3
-                                                        class="mb-0 font-weight-semibold"
-                                                    >
-                                                        1,553
-                                                    </h3>
-                                                    <h5
-                                                        class="mb-0 font-weight-medium text-primary"
-                                                    >
-                                                        Downloads
-                                                    </h5>
-                                                    <p class="mb-0 text-muted">
-                                                        +138.97(+0.54%)
-                                                    </p>
-                                                </div>
-                                                <div
-                                                    class="wrapper my-auto ml-auto ml-lg-4"
-                                                >
-                                                    <canvas
-                                                        height="50"
-                                                        width="100"
-                                                        id="stats-line-graph-4"
-                                                    ></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+    <Layout>
+        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-4">
+            <div class="col">
+                <div class="card overflow-hidden radius-10">
+                    <div class="card-body p-2">
+                        <div
+                            class="d-flex align-items-stretch justify-content-between radius-10 overflow-hidden"
+                        >
+                            <div class="w-50 p-3 bg-light-pink">
+                                <p>Total Orders</p>
+                                <h4 class="text-pink">8,542</h4>
+                            </div>
+                            <div class="w-50 bg-pink p-3">
+                                <p class="mb-3 text-white">
+                                    + 16% <i class="bi bi-arrow-up"></i>
+                                </p>
+                                <div id="chart1"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-8 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title mb-0">
-                                        Sales Statistics Overview
-                                    </h4>
-                                    <div class="d-flex flex-column flex-lg-row">
-                                        <p>
-                                            Lorem ipsum is placeholder text
-                                            commonly used
-                                        </p>
-                                        <ul
-                                            class="nav nav-tabs sales-mini-tabs ml-lg-auto mb-4 mb-md-0"
-                                            role="tablist"
+                </div>
+            </div>
+            <div class="col">
+                <div class="card overflow-hidden radius-10">
+                    <div class="card-body p-2">
+                        <div
+                            class="d-flex align-items-stretch justify-content-between radius-10 overflow-hidden"
+                        >
+                            <div class="w-50 p-3 bg-light-purple">
+                                <p>Total Views</p>
+                                <h4 class="text-purple">12.5M</h4>
+                            </div>
+                            <div class="w-50 bg-purple p-3">
+                                <p class="mb-3 text-white">
+                                    - 3.4%
+                                    <i class="bi bi-arrow-down"></i>
+                                </p>
+                                <div id="chart2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card overflow-hidden radius-10">
+                    <div class="card-body p-2">
+                        <div
+                            class="d-flex align-items-stretch justify-content-between radius-10 overflow-hidden"
+                        >
+                            <div class="w-50 p-3 bg-light-success">
+                                <p>Revenue</p>
+                                <h4 class="text-success">$64.5K</h4>
+                            </div>
+                            <div class="w-50 bg-success p-3">
+                                <p class="mb-3 text-white">
+                                    + 24% <i class="bi bi-arrow-up"></i>
+                                </p>
+                                <div id="chart3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card overflow-hidden radius-10">
+                    <div class="card-body p-2">
+                        <div
+                            class="d-flex align-items-stretch justify-content-between radius-10 overflow-hidden"
+                        >
+                            <div class="w-50 p-3 bg-light-orange">
+                                <p>Customers</p>
+                                <h4 class="text-orange">25.8K</h4>
+                            </div>
+                            <div class="w-50 bg-orange p-3">
+                                <p class="mb-3 text-white">
+                                    + 8.2%
+                                    <i class="bi bi-arrow-up"></i>
+                                </p>
+                                <div id="chart4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-6 col-xl-6 col-xxl-4 d-flex">
+                <div class="card radius-10 bg-transparent shadow-none w-100">
+                    <div class="card-body p-0">
+                        <div class="card radius-10">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <h6 class="mb-0">By Device</h6>
+                                    <div class="fs-5 ms-auto dropdown">
+                                        <div
+                                            class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
+                                            data-bs-toggle="dropdown"
                                         >
-                                            <li class="nav-item">
+                                            <i class="bi bi-three-dots"></i>
+                                        </div>
+                                        <ul class="dropdown-menu">
+                                            <li>
                                                 <a
-                                                    class="nav-link active"
-                                                    id="sales-statistics_switch_1"
-                                                    data-toggle="tab"
-                                                    role="tab"
-                                                    aria-selected="true"
-                                                    >1D</a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Action</a
                                                 >
                                             </li>
-                                            <li class="nav-item">
+                                            <li>
                                                 <a
-                                                    class="nav-link"
-                                                    id="sales-statistics_switch_2"
-                                                    data-toggle="tab"
-                                                    role="tab"
-                                                    aria-selected="false"
-                                                    >5D</a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Another action</a
                                                 >
                                             </li>
-                                            <li class="nav-item">
-                                                <a
-                                                    class="nav-link"
-                                                    id="sales-statistics_switch_3"
-                                                    data-toggle="tab"
-                                                    role="tab"
-                                                    aria-selected="false"
-                                                    >1M</a
-                                                >
+                                            <li>
+                                                <hr class="dropdown-divider" />
                                             </li>
-                                            <li class="nav-item">
+                                            <li>
                                                 <a
-                                                    class="nav-link"
-                                                    id="sales-statistics_switch_4"
-                                                    data-toggle="tab"
-                                                    role="tab"
-                                                    aria-selected="false"
-                                                    >1Y</a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Something else here</a
                                                 >
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="d-flex flex-column flex-lg-row">
-                                        <div
-                                            class="data-wrapper d-flex mt-2 mt-lg-0"
-                                        >
-                                            <div class="wrapper pr-5">
-                                                <h5 class="mb-0">Total Cost</h5>
-                                                <div
-                                                    class="d-flex align-items-center"
-                                                >
-                                                    <h4
-                                                        class="font-weight-semibold mb-0"
-                                                    >
-                                                        15,263
-                                                    </h4>
-                                                    <small
-                                                        class="ml-2 text-gray d-none d-lg-block"
-                                                        ><b>89.5%</b> of 20,000
-                                                        Total</small
-                                                    >
-                                                </div>
-                                            </div>
-                                            <div class="wrapper">
-                                                <h5 class="mb-0">
-                                                    Total Revenue
-                                                </h5>
-                                                <div
-                                                    class="d-flex align-items-center"
-                                                >
-                                                    <h4
-                                                        class="font-weight-semibold mb-0"
-                                                    >
-                                                        $753,098
-                                                    </h4>
-                                                    <small
-                                                        class="ml-2 text-gray d-none d-lg-block"
-                                                        ><b>10.5%</b> of 20,000
-                                                        Total</small
-                                                    >
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="ml-lg-auto"
-                                            id="sales-statistics-legend"
-                                        ></div>
-                                    </div>
-                                    <canvas
-                                        class="mt-5"
-                                        height="120"
-                                        id="sales-statistics-overview"
-                                    ></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body d-flex flex-column">
-                                    <div class="wrapper">
-                                        <h4 class="card-title mb-0">
-                                            Net Profit Margin
-                                        </h4>
-                                        <p>
-                                            Started collecting data from
-                                            February 2019
-                                        </p>
-                                        <div
-                                            class="mb-4"
-                                            id="net-profit-legend"
-                                        ></div>
-                                    </div>
-                                    <canvas
-                                        class="my-auto mx-auto"
-                                        height="250"
-                                        id="net-profit"
-                                    ></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="row">
-                                <div class="col-md-6 grid-margin stretch-card">
-                                    <div class="card">
-                                        <div class="card-body pb-0">
-                                            <div
-                                                class="d-flex justify-content-between"
-                                            >
-                                                <h4 class="card-title mb-0">
-                                                    Total Revenue
-                                                </h4>
-                                                <p
-                                                    class="font-weight-semibold mb-0"
-                                                >
-                                                    +1.37%
-                                                </p>
-                                            </div>
-                                            <h3 class="font-weight-medium mb-4">
-                                                184.42K
-                                            </h3>
-                                        </div>
-                                        <canvas
-                                            class="mt-n4"
-                                            height="90"
-                                            id="total-revenue"
-                                        ></canvas>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 grid-margin stretch-card">
-                                    <div class="card">
-                                        <div class="card-body pb-0">
-                                            <div
-                                                class="d-flex justify-content-between"
-                                            >
-                                                <h4 class="card-title mb-0">
-                                                    Transaction
-                                                </h4>
-                                                <p
-                                                    class="font-weight-semibold mb-0"
-                                                >
-                                                    -2.87%
-                                                </p>
-                                            </div>
-                                            <h3 class="font-weight-medium">
-                                                147.7K
-                                            </h3>
-                                        </div>
-                                        <canvas
-                                            class="mt-n3"
-                                            height="90"
-                                            id="total-transaction"
-                                        ></canvas>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 grid-margin">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="card-title mb-0">
-                                                Market Overview
-                                            </h4>
-                                            <div
-                                                class="d-flex align-items-center justify-content-between w-100"
-                                            >
-                                                <p class="mb-0">
-                                                    Lorem ipsum dolor sit amet
-                                                    consectetur adipisicing
-                                                    elit.
-                                                </p>
-                                                <div class="dropdown">
-                                                    <button
-                                                        class="btn btn-outline-secondary dropdown-toggle"
-                                                        type="button"
-                                                        id="dateSorter"
-                                                        data-toggle="dropdown"
-                                                        aria-haspopup="true"
-                                                        aria-expanded="false"
-                                                    >
-                                                        This Month
-                                                    </button>
-                                                    <div
-                                                        class="dropdown-menu"
-                                                        aria-labelledby="dateSorter"
-                                                    >
-                                                        <div
-                                                            class="dropdown-item"
-                                                            id="market-overview_1"
-                                                        >
-                                                            Daily
-                                                        </div>
-                                                        <div
-                                                            class="dropdown-item"
-                                                            id="market-overview_2"
-                                                        >
-                                                            Weekly
-                                                        </div>
-                                                        <div
-                                                            class="dropdown-item"
-                                                            id="market-overview_3"
-                                                        >
-                                                            Monthly
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex align-items-end">
-                                                <h3
-                                                    class="mb-0 font-weight-semibold"
-                                                >
-                                                    $36,2531.00
-                                                </h3>
-                                                <p
-                                                    class="mb-0 font-weight-medium mr-2 ml-2 mb-1"
-                                                >
-                                                    USD
-                                                </p>
-                                                <p
-                                                    class="mb-0 text-success font-weight-semibold mb-1"
-                                                >
-                                                    (+1.37%)
-                                                </p>
-                                            </div>
-                                            <canvas
-                                                class="mt-4"
-                                                height="100"
-                                                id="market-overview-chart"
-                                            ></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 grid-margin">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div
-                                                class="d-flex justify-content-between"
-                                            >
-                                                <h4 class="card-title mb-0">
-                                                    Invoice
-                                                </h4>
-                                                <a href="#"
-                                                    ><small>Show All</small></a
-                                                >
-                                            </div>
-                                            <p>
-                                                Lorem ipsum dolor sit amet,
-                                                consectetur adipisicing elit.
-                                                Est quod cupiditate esse fuga
-                                            </p>
-                                            <div class="table-responsive">
-                                                <table
-                                                    class="table table-striped table-hover"
-                                                >
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Invoice ID</th>
-                                                            <th>Customer</th>
-                                                            <th>Status</th>
-                                                            <th>Due Date</th>
-                                                            <th>Amount</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>INV-87239</td>
-                                                            <td>Viola Ford</td>
-                                                            <td>Paid</td>
-                                                            <td>20 Jan 2019</td>
-                                                            <td>$755</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>INV-87239</td>
-                                                            <td>
-                                                                Dylan Waters
-                                                            </td>
-                                                            <td>Unpaid</td>
-                                                            <td>23 Feb 2019</td>
-                                                            <td>$800</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>INV-87239</td>
-                                                            <td>Louis Poole</td>
-                                                            <td>Unpaid</td>
-                                                            <td>25 Mar 2019</td>
-                                                            <td>$463</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>INV-87239</td>
-                                                            <td>Vera Howell</td>
-                                                            <td>Paid</td>
-                                                            <td>27 Mar 2019</td>
-                                                            <td>$235</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>INV-87239</td>
-                                                            <td>
-                                                                Allie Goodman
-                                                            </td>
-                                                            <td>Unpaid</td>
-                                                            <td>1 Apr 2019</td>
-                                                            <td>$657</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 grid-margin stretch-card">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div
-                                                        class="d-flex align-items-center pb-2"
-                                                    >
-                                                        <div
-                                                            class="dot-indicator bg-danger mr-2"
-                                                        ></div>
-                                                        <p class="mb-0">
-                                                            Total Sales
-                                                        </p>
-                                                    </div>
-                                                    <h4
-                                                        class="font-weight-semibold"
-                                                    >
-                                                        $7,590
-                                                    </h4>
-                                                    <div
-                                                        class="progress progress-md"
-                                                    >
-                                                        <div
-                                                            class="progress-bar bg-danger"
-                                                            role="progressbar"
-                                                            style="width: 78%"
-                                                            aria-valuenow="78"
-                                                            aria-valuemin="0"
-                                                            aria-valuemax="78"
-                                                        ></div>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="col-md-6 mt-4 mt-md-0"
-                                                >
-                                                    <div
-                                                        class="d-flex align-items-center pb-2"
-                                                    >
-                                                        <div
-                                                            class="dot-indicator bg-success mr-2"
-                                                        ></div>
-                                                        <p class="mb-0">
-                                                            Active Users
-                                                        </p>
-                                                    </div>
-                                                    <h4
-                                                        class="font-weight-semibold"
-                                                    >
-                                                        $5,460
-                                                    </h4>
-                                                    <div
-                                                        class="progress progress-md"
-                                                    >
-                                                        <div
-                                                            class="progress-bar bg-success"
-                                                            role="progressbar"
-                                                            style="width: 45%"
-                                                            aria-valuenow="45"
-                                                            aria-valuemin="0"
-                                                            aria-valuemax="45"
-                                                        ></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div
-                                    class="col-md-6 grid-margin stretch-card average-price-card"
+                                    class="row row-cols-1 row-cols-md-2 mt-3 g-3"
                                 >
-                                    <div class="card text-white">
-                                        <div class="card-body">
-                                            <div
-                                                class="d-flex justify-content-between pb-2 align-items-center"
+                                    <div class="col">
+                                        <div class="by-device-container">
+                                            <canvas id="chart5"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="">
+                                            <ul
+                                                class="list-group list-group-flush"
                                             >
-                                                <h2
-                                                    class="font-weight-semibold mb-0"
+                                                <li
+                                                    class="list-group-item d-flex align-items-center justify-content-between border-0"
                                                 >
-                                                    4,624
-                                                </h2>
-                                                <div class="icon-holder">
                                                     <i
-                                                        class="mdi mdi-briefcase-outline"
+                                                        class="bi bi-tablet-landscape-fill me-2 text-orange"
                                                     ></i>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="d-flex justify-content-between"
-                                            >
-                                                <h5
-                                                    class="font-weight-semibold mb-0"
+                                                    <span>Tablet - </span>
+                                                    <span>22.5%</span>
+                                                </li>
+                                                <li
+                                                    class="list-group-item d-flex align-items-center justify-content-between border-0"
                                                 >
-                                                    Average Price
-                                                </h5>
-                                                <p class="text-white mb-0">
-                                                    Since last month
-                                                </p>
-                                            </div>
+                                                    <i
+                                                        class="bi bi-phone-fill me-2 text-success"
+                                                    ></i>
+                                                    <span>Mobile - </span>
+                                                    <span>62.3%</span>
+                                                </li>
+                                                <li
+                                                    class="list-group-item d-flex align-items-center justify-content-between border-0"
+                                                >
+                                                    <i
+                                                        class="bi bi-display-fill me-2 text-primary"
+                                                    ></i>
+                                                    <span>Desktop - </span>
+                                                    <span>15.2%</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-12 grid-margin">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h1 class="card-title mb-4">
-                                                Website Audience Metrics
-                                            </h1>
-                                            <div class="row">
-                                                <div class="col-5 col-md-5">
-                                                    <div
-                                                        class="wrapper border-bottom mb-2 pb-2"
-                                                    >
-                                                        <h4
-                                                            class="font-weight-semibold mb-0"
-                                                        >
-                                                            523,200
-                                                        </h4>
-                                                        <div
-                                                            class="d-flex align-items-center"
-                                                        >
-                                                            <p class="mb-0">
-                                                                Page Views
-                                                            </p>
-                                                            <div
-                                                                class="dot-indicator bg-secondary ml-auto"
-                                                            ></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="wrapper">
-                                                        <h4
-                                                            class="font-weight-semibold mb-0"
-                                                        >
-                                                            753,098
-                                                        </h4>
-                                                        <div
-                                                            class="d-flex align-items-center"
-                                                        >
-                                                            <p class="mb-0">
-                                                                Bounce Rate
-                                                            </p>
-                                                            <div
-                                                                class="dot-indicator bg-primary ml-auto"
-                                                            ></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="col-5 col-md-7 d-flex pl-4"
-                                                >
-                                                    <div class="ml-auto">
-                                                        <canvas
-                                                            height="100"
-                                                            id="realtime-statistics"
-                                                        ></canvas>
-                                                    </div>
-                                                </div>
+                        <div class="card radius-10 w-100 mb-0 overflow-hidden">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <h6 class="mb-0">Sales</h6>
+                                    <div class="fs-5 ms-auto">
+                                        <div
+                                            class="d-flex align-items-center justify-content-sm-end gap-3 cursor-pointer"
+                                        >
+                                            <div class="font-13">
+                                                <i
+                                                    class="bi bi-circle-fill text-purple"
+                                                ></i
+                                                ><span class="ms-2">iPad</span>
                                             </div>
-                                            <div class="row mt-5">
-                                                <div class="col-6">
-                                                    <div
-                                                        class="d-flex align-items-center mb-2"
-                                                    >
-                                                        <div
-                                                            class="icon-holder bg-primary text-white py-1 px-3 rounded mr-2"
-                                                        >
-                                                            <i
-                                                                class="icon ion-logo-buffer icon-sm"
-                                                            ></i>
-                                                        </div>
-                                                        <h2
-                                                            class="font-weight-semibold mb-0"
-                                                        >
-                                                            3,605
-                                                        </h2>
-                                                    </div>
-                                                    <p>Since last week</p>
-                                                    <p>
-                                                        <span
-                                                            class="font-weight-medium"
-                                                            >0.51%</span
-                                                        >
-                                                        (30 days)
-                                                    </p>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div
-                                                        class="mt-n3 ml-auto"
-                                                        id="dashboard-guage-chart"
-                                                    ></div>
-                                                </div>
+                                            <div class="font-13">
+                                                <i
+                                                    class="bi bi-circle-fill text-purple opacity-75"
+                                                ></i
+                                                ><span class="ms-2">Mob</span>
+                                            </div>
+                                            <div class="font-13">
+                                                <i
+                                                    class="bi bi-circle-fill text-purple opacity-50"
+                                                ></i
+                                                ><span class="ms-2">Lap</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 grid-margin">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="card-title mb-4">
-                                                World sellings
-                                            </h4>
-                                            <div
-                                                id="dashboard-vmap"
-                                                class="vector-map"
-                                            ></div>
-                                            <div class="wrapper">
-                                                <div
-                                                    class="d-flex w-100 pt-2 mt-4"
-                                                >
-                                                    <p
-                                                        class="mb-0 font-weight-semibold"
-                                                    >
-                                                        California
-                                                    </p>
-                                                    <div
-                                                        class="wrapper ml-auto d-flex align-items-center"
-                                                    >
-                                                        <p
-                                                            class="font-weight-semibold mb-0"
-                                                        >
-                                                            26,437
-                                                        </p>
-                                                        <p class="ml-1 mb-0">
-                                                            26%
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex w-100 pt-2">
-                                                    <p
-                                                        class="mb-0 font-weight-semibold"
-                                                    >
-                                                        Washington
-                                                    </p>
-                                                    <div
-                                                        class="wrapper ml-auto d-flex align-items-center"
-                                                    >
-                                                        <p
-                                                            class="font-weight-semibold mb-0"
-                                                        >
-                                                            3252
-                                                        </p>
-                                                        <p class="ml-1 mb-0">
-                                                            64%
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex w-100 pt-2">
-                                                    <p
-                                                        class="mb-0 font-weight-semibold"
-                                                    >
-                                                        Michigan
-                                                    </p>
-                                                    <div
-                                                        class="wrapper ml-auto d-flex align-items-center"
-                                                    >
-                                                        <p
-                                                            class="font-weight-semibold mb-0"
-                                                        >
-                                                            4,987
-                                                        </p>
-                                                        <p class="ml-1 mb-0">
-                                                            30%
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            </div>
+                            <div id="chart6"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-6 col-xxl-4 d-flex">
+                <div class="card radius-10 w-100 overflow-hidden">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <h6 class="mb-0">Orders</h6>
+                            <div class="fs-5 ms-auto dropdown">
+                                <div
+                                    class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
+                                    data-bs-toggle="dropdown"
+                                >
+                                    <i class="bi bi-three-dots"></i>
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="#"
+                                            >Action</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#"
+                                            >Another action</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#"
+                                            >Something else here</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="chart7"></div>
+                        <div
+                            class="d-flex align-items-center gap-5 justify-content-center mt-4 p-3 bg-light radius-10 border"
+                        >
+                            <div class="text-center">
+                                <h2 class="mb-3 text-success">9.32m</h2>
+                                <p>
+                                    Total <br />
+                                    Orders
+                                </p>
+                            </div>
+                            <div class="border-end sepration"></div>
+                            <div class="text-center">
+                                <h2 class="mb-3">2.56</h2>
+                                <p>
+                                    AVG per <br />
+                                    Customer
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-12 col-xl-12 col-xxl-4 d-flex">
+                <div class="w-100">
+                    <div class="card radius-10">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <h6 class="mb-0">Traffic</h6>
+                                <div class="fs-5 ms-auto">
+                                    <div
+                                        class="d-flex align-items-center justify-content-sm-end gap-3 cursor-pointer"
+                                    >
+                                        <div class="font-13">
+                                            <i
+                                                class="bi bi-circle-fill text-pink"
+                                            ></i
+                                            ><span class="ms-2">Referral</span>
+                                        </div>
+                                        <div class="font-13">
+                                            <i
+                                                class="bi bi-circle-fill text-pink opacity-50"
+                                            ></i
+                                            ><span class="ms-2">Search</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 grid-margin">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="card-title mb-0">
-                                                Top Performer
-                                            </h4>
-                                            <div
-                                                class="d-flex mt-3 py-2 border-bottom"
+                            </div>
+                            <div id="chart8"></div>
+                        </div>
+                    </div>
+                    <div class="card radius-10">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="">
+                                    <p class="mb-1">Bounce Rate</p>
+                                    <h4 class="mb-0 text-orange">24.8%</h4>
+                                </div>
+                                <div class="dropdown ms-auto">
+                                    <div
+                                        class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
+                                        data-bs-toggle="dropdown"
+                                    >
+                                        <i class="bi bi-three-dots fs-4"></i>
+                                    </div>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a
+                                                class="dropdown-item"
+                                                href="javascript:;"
+                                                >Action</a
                                             >
-                                                <img
-                                                    class="img-sm rounded-circle"
-                                                    src="assets/images/faces/face3.jpg"
-                                                    alt="profile image"
-                                                />
-                                                <div class="wrapper ml-2">
-                                                    <p
-                                                        class="mb-n1 font-weight-semibold"
-                                                    >
-                                                        Ray Douglas
-                                                    </p>
-                                                    <small>162543</small>
-                                                </div>
-                                                <small
-                                                    class="text-muted ml-auto"
-                                                    >1 Hours ago</small
-                                                >
-                                            </div>
-                                            <div
-                                                class="d-flex py-2 border-bottom"
+                                        </li>
+                                        <li>
+                                            <a
+                                                class="dropdown-item"
+                                                href="javascript:;"
+                                                >Another action</a
                                             >
-                                                <span
-                                                    class="img-sm rounded-circle bg-warning text-white text-avatar"
-                                                    >OH</span
-                                                >
-                                                <div class="wrapper ml-2">
-                                                    <p
-                                                        class="mb-n1 font-weight-semibold"
-                                                    >
-                                                        Ora Hill
-                                                    </p>
-                                                    <small>162543</small>
-                                                </div>
-                                                <small
-                                                    class="text-muted ml-auto"
-                                                    >4 Hours ago</small
-                                                >
-                                            </div>
-                                            <div
-                                                class="d-flex py-2 border-bottom"
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider" />
+                                        </li>
+                                        <li>
+                                            <a
+                                                class="dropdown-item"
+                                                href="javascript:;"
+                                                >Something else here</a
                                             >
-                                                <img
-                                                    class="img-sm rounded-circle"
-                                                    src="assets/images/faces/face4.jpg"
-                                                    alt="profile image"
-                                                />
-                                                <div class="wrapper ml-2">
-                                                    <p
-                                                        class="mb-n1 font-weight-semibold"
-                                                    >
-                                                        Brian Dean
-                                                    </p>
-                                                    <small>162543</small>
-                                                </div>
-                                                <small
-                                                    class="text-muted ml-auto"
-                                                    >4 Hours ago</small
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="chart9"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xl-4 d-flex">
+                <div class="card w-100 radius-10">
+                    <div class="card-body">
+                        <div class="card radius-10 border shadow-none">
+                            <div class="card-body pb-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="">
+                                        <h6 class="mb-0">Montly Sales</h6>
+                                    </div>
+                                    <div class="fs-5 ms-auto dropdown">
+                                        <div
+                                            class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
+                                            data-bs-toggle="dropdown"
+                                        >
+                                            <i class="bi bi-three-dots"></i>
+                                        </div>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Action</a
                                                 >
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Another action</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider" />
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Something else here</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-0">
+                                    <div
+                                        class="widget-icon mx-auto mb-2 bg-light-success text-success"
+                                    >
+                                        <i class="bi bi-bank2"></i>
+                                    </div>
+                                    <h4 class="mb-0 text-center">$45,865</h4>
+                                </div>
+                                <div id="chart15"></div>
+                            </div>
+                        </div>
+                        <div class="card radius-10 border shadow-none">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="">
+                                        <h6 class="mb-0">Total Clicks</h6>
+                                    </div>
+                                    <div class="fs-5 ms-auto dropdown">
+                                        <div
+                                            class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
+                                            data-bs-toggle="dropdown"
+                                        >
+                                            <i class="bi bi-three-dots"></i>
+                                        </div>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Action</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Another action</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider" />
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Something else here</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="chart14"></div>
+                            </div>
+                        </div>
+                        <div class="card radius-10 border shadow-none mb-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="">
+                                        <h6 class="mb-0">Sessions</h6>
+                                    </div>
+                                    <div class="fs-5 ms-auto dropdown">
+                                        <div
+                                            class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
+                                            data-bs-toggle="dropdown"
+                                        >
+                                            <i class="bi bi-three-dots"></i>
+                                        </div>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Action</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Another action</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider" />
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="#"
+                                                    >Something else here</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="chart16"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-12 col-xl-8 d-flex">
+                <div class="w-100">
+                    <div class="row">
+                        <div class="col-12 col-lg-12 col-xl-12">
+                            <div class="card radius-10">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <h6 class="mb-0">Visitors</h6>
+                                        <div class="fs-5 ms-auto dropdown">
+                                            <div
+                                                class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
+                                                data-bs-toggle="dropdown"
+                                            >
+                                                <i class="bi bi-three-dots"></i>
                                             </div>
-                                            <div class="d-flex pt-2">
-                                                <span
-                                                    class="img-sm rounded-circle bg-success text-white text-avatar"
-                                                    >OB</span
-                                                >
-                                                <div class="wrapper ml-2">
-                                                    <p
-                                                        class="mb-n1 font-weight-semibold"
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a
+                                                        class="dropdown-item"
+                                                        href="#"
+                                                        >Action</a
                                                     >
-                                                        Olive Bridges
-                                                    </p>
-                                                    <small>162543</small>
-                                                </div>
-                                                <small
-                                                    class="text-muted ml-auto"
-                                                    >7 Hours ago</small
-                                                >
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        class="dropdown-item"
+                                                        href="#"
+                                                        >Another action</a
+                                                    >
+                                                </li>
+                                                <li>
+                                                    <hr
+                                                        class="dropdown-divider"
+                                                    />
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        class="dropdown-item"
+                                                        href="#"
+                                                        >Something else here</a
+                                                    >
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="d-sm-flex align-items-center gap-3 mt-3"
+                                    >
+                                        <div class="mb-2 mb-sm-0">
+                                            <h4 class="mb-0">254,852</h4>
+                                            <p class="mb-0">New / Returning</p>
+                                        </div>
+                                        <div
+                                            class="d-none d-sm-block border-end sepration-2"
+                                        ></div>
+                                        <div
+                                            class="align-self-end mb-2 mb-sm-0"
+                                        >
+                                            <p class="mb-0">45,762 / 2,491</p>
+                                        </div>
+                                        <div class="align-self-end ms-auto">
+                                            <div
+                                                class="d-flex align-items-center gap-3"
+                                            >
+                                                <p class="mb-0 font-13">
+                                                    <i
+                                                        class="bi bi-square-fill ms-1 text-primary"
+                                                    ></i>
+                                                    New Visitors
+                                                </p>
+                                                <p class="mb-0 font-13">
+                                                    <i
+                                                        class="bi bi-square-fill ms-1 text-primary-3"
+                                                    ></i>
+                                                    Returning Visitors
+                                                </p>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div id="chart10"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4 col-xl-4">
+                            <div class="card radius-10">
+                                <div class="card-body">
+                                    <div id="chart11"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4 col-xl-4">
+                            <div class="card radius-10">
+                                <div class="card-body">
+                                    <div id="chart12"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4 col-xl-4">
+                            <div class="card radius-10">
+                                <div class="card-body">
+                                    <div id="chart13"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end row-->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-12 col-xl-8 d-flex">
+                <div class="card radius-10 w-100">
+                    <div class="card-header bg-transparent">
+                        <div class="row g-3 align-items-center">
+                            <div class="col">
+                                <h5 class="mb-0">Recent Orders</h5>
+                            </div>
+                            <div class="col">
+                                <div
+                                    class="d-flex align-items-center justify-content-end gap-3 cursor-pointer"
+                                >
+                                    <div class="dropdown">
+                                        <a
+                                            class="dropdown-toggle dropdown-toggle-nocaret"
+                                            href="#"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                            ><i
+                                                class="bx bx-dots-horizontal-rounded font-22 text-option"
+                                            ></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="javascript:;"
+                                                    >Action</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="javascript:;"
+                                                    >Another action</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider" />
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="javascript:;"
+                                                    >Something else here</a
+                                                >
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title mb-0">
-                                        Recent Events
-                                    </h4>
-                                    <div class="d-flex py-2 border-bottom">
-                                        <div class="wrapper">
-                                            <small class="text-muted"
-                                                >Mar 14, 2019</small
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>#ID</th>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#89742</td>
+                                        <td>
+                                            <div
+                                                class="d-flex align-items-center gap-3"
                                             >
-                                            <p
-                                                class="font-weight-semibold text-gray mb-0"
+                                                <div class="product-box border">
+                                                    <img
+                                                        src="https://via.placeholder.com/400X300"
+                                                        alt=""
+                                                    />
+                                                </div>
+                                                <div class="product-info">
+                                                    <h6
+                                                        class="product-name mb-1"
+                                                    >
+                                                        Smart Mobile Phone
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>2</td>
+                                        <td>$214</td>
+                                        <td>Apr 8, 2021</td>
+                                        <td>
+                                            <div
+                                                class="d-flex align-items-center gap-3 fs-6"
                                             >
-                                                Change in Directors
-                                            </p>
-                                        </div>
-                                        <small class="text-muted ml-auto"
-                                            >Edit event</small
-                                        >
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-primary"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="View detail"
+                                                    aria-label="Views"
+                                                    ><i
+                                                        class="bi bi-eye-fill"
+                                                    ></i
+                                                ></a>
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-warning"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="Edit info"
+                                                    aria-label="Edit"
+                                                    ><i
+                                                        class="bi bi-pencil-fill"
+                                                    ></i
+                                                ></a>
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-danger"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="Delete"
+                                                    aria-label="Delete"
+                                                    ><i
+                                                        class="bi bi-trash-fill"
+                                                    ></i
+                                                ></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#68570</td>
+                                        <td>
+                                            <div
+                                                class="d-flex align-items-center gap-3"
+                                            >
+                                                <div class="product-box border">
+                                                    <img
+                                                        src="https://via.placeholder.com/400X300"
+                                                        alt=""
+                                                    />
+                                                </div>
+                                                <div class="product-info">
+                                                    <h6
+                                                        class="product-name mb-1"
+                                                    >
+                                                        Sports Time Watch
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>1</td>
+                                        <td>$185</td>
+                                        <td>Apr 9, 2021</td>
+                                        <td>
+                                            <div
+                                                class="d-flex align-items-center gap-3 fs-6"
+                                            >
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-primary"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="View detail"
+                                                    aria-label="Views"
+                                                    ><i
+                                                        class="bi bi-eye-fill"
+                                                    ></i
+                                                ></a>
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-warning"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="Edit info"
+                                                    aria-label="Edit"
+                                                    ><i
+                                                        class="bi bi-pencil-fill"
+                                                    ></i
+                                                ></a>
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-danger"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="Delete"
+                                                    aria-label="Delete"
+                                                    ><i
+                                                        class="bi bi-trash-fill"
+                                                    ></i
+                                                ></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#38567</td>
+                                        <td>
+                                            <div
+                                                class="d-flex align-items-center gap-3"
+                                            >
+                                                <div class="product-box border">
+                                                    <img
+                                                        src="https://via.placeholder.com/400X300"
+                                                        alt=""
+                                                    />
+                                                </div>
+                                                <div class="product-info">
+                                                    <h6
+                                                        class="product-name mb-1"
+                                                    >
+                                                        Women Red Heals
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>3</td>
+                                        <td>$356</td>
+                                        <td>Apr 10, 2021</td>
+                                        <td>
+                                            <div
+                                                class="d-flex align-items-center gap-3 fs-6"
+                                            >
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-primary"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="View detail"
+                                                    aria-label="Views"
+                                                    ><i
+                                                        class="bi bi-eye-fill"
+                                                    ></i
+                                                ></a>
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-warning"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="Edit info"
+                                                    aria-label="Edit"
+                                                    ><i
+                                                        class="bi bi-pencil-fill"
+                                                    ></i
+                                                ></a>
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-danger"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="Delete"
+                                                    aria-label="Delete"
+                                                    ><i
+                                                        class="bi bi-trash-fill"
+                                                    ></i
+                                                ></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#48572</td>
+                                        <td>
+                                            <div
+                                                class="d-flex align-items-center gap-3"
+                                            >
+                                                <div class="product-box border">
+                                                    <img
+                                                        src="https://via.placeholder.com/400X300"
+                                                        alt=""
+                                                    />
+                                                </div>
+                                                <div class="product-info">
+                                                    <h6
+                                                        class="product-name mb-1"
+                                                    >
+                                                        Yellow Winter Jacket
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>1</td>
+                                        <td>$149</td>
+                                        <td>Apr 11, 2021</td>
+                                        <td>
+                                            <div
+                                                class="d-flex align-items-center gap-3 fs-6"
+                                            >
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-primary"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="View detail"
+                                                    aria-label="Views"
+                                                    ><i
+                                                        class="bi bi-eye-fill"
+                                                    ></i
+                                                ></a>
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-warning"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="Edit info"
+                                                    aria-label="Edit"
+                                                    ><i
+                                                        class="bi bi-pencil-fill"
+                                                    ></i
+                                                ></a>
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-danger"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="Delete"
+                                                    aria-label="Delete"
+                                                    ><i
+                                                        class="bi bi-trash-fill"
+                                                    ></i
+                                                ></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#96857</td>
+                                        <td>
+                                            <div
+                                                class="d-flex align-items-center gap-3"
+                                            >
+                                                <div class="product-box border">
+                                                    <img
+                                                        src="https://via.placeholder.com/400X300"
+                                                        alt=""
+                                                    />
+                                                </div>
+                                                <div class="product-info">
+                                                    <h6
+                                                        class="product-name mb-1"
+                                                    >
+                                                        Orange Micro Headphone
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>2</td>
+                                        <td>$199</td>
+                                        <td>Apr 15, 2021</td>
+                                        <td>
+                                            <div
+                                                class="d-flex align-items-center gap-3 fs-6"
+                                            >
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-primary"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="View detail"
+                                                    aria-label="Views"
+                                                    ><i
+                                                        class="bi bi-eye-fill"
+                                                    ></i
+                                                ></a>
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-warning"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="Edit info"
+                                                    aria-label="Edit"
+                                                    ><i
+                                                        class="bi bi-pencil-fill"
+                                                    ></i
+                                                ></a>
+                                                <a
+                                                    href="javascript:;"
+                                                    class="text-danger"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom"
+                                                    title=""
+                                                    data-bs-original-title="Delete"
+                                                    aria-label="Delete"
+                                                    ><i
+                                                        class="bi bi-trash-fill"
+                                                    ></i
+                                                ></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-12 col-xl-4 d-flex">
+                <div class="card radius-10 w-100">
+                    <div class="card-header bg-transparent border-0">
+                        <div class="row g-3 align-items-center">
+                            <div class="col">
+                                <h6 class="mb-0">Top Sold</h6>
+                            </div>
+                            <div class="col">
+                                <div
+                                    class="d-flex align-items-center justify-content-end gap-3 cursor-pointer"
+                                >
+                                    <div class="dropdown">
+                                        <a
+                                            class="dropdown-toggle dropdown-toggle-nocaret"
+                                            href="#"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                            ><i
+                                                class="bx bx-dots-horizontal-rounded font-22 text-option"
+                                            ></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="javascript:;"
+                                                    >Action</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="javascript:;"
+                                                    >Another action</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider" />
+                                            </li>
+                                            <li>
+                                                <a
+                                                    class="dropdown-item"
+                                                    href="javascript:;"
+                                                    >Something else here</a
+                                                >
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <div class="d-flex py-2 border-bottom">
-                                        <div class="wrapper">
-                                            <small class="text-muted"
-                                                >Mar 14, 2019</small
-                                            >
-                                            <p
-                                                class="font-weight-semibold text-gray mb-0"
-                                            >
-                                                Other Events
-                                            </p>
-                                        </div>
-                                        <small class="text-muted ml-auto"
-                                            >Edit event</small
-                                        >
-                                    </div>
-                                    <div class="d-flex py-2 border-bottom">
-                                        <div class="wrapper">
-                                            <small class="text-muted"
-                                                >Mar 14, 2019</small
-                                            >
-                                            <p
-                                                class="font-weight-semibold text-gray mb-0"
-                                            >
-                                                Quarterly Report
-                                            </p>
-                                        </div>
-                                        <small class="text-muted ml-auto"
-                                            >Edit event</small
-                                        >
-                                    </div>
-                                    <div class="d-flex pt-2">
-                                        <div class="wrapper">
-                                            <small class="text-muted"
-                                                >Mar 14, 2019</small
-                                            >
-                                            <p
-                                                class="font-weight-semibold text-gray mb-0"
-                                            >
-                                                Change in Directors
-                                            </p>
-                                        </div>
-                                        <small class="text-muted ml-auto"
-                                            >Edit event</small
-                                        >
-                                    </div>
-                                    <a class="d-block mt-5" href="#"
-                                        >Show all</a
-                                    >
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div
-                                        class="d-flex justify-content-between pb-3"
-                                    >
-                                        <h4 class="card-title mb-0">
-                                            Activities
-                                        </h4>
-                                        <p class="mb-0 text-muted">
-                                            20 finished, 5 remaining
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="best-product p-2 mb-3">
+                            <div class="best-product-item">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="product-box border">
+                                        <img
+                                            src="https://via.placeholder.com/400X300"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="product-info flex-grow-1">
+                                        <div class="progress-wrapper">
+                                            <div
+                                                class="progress"
+                                                style="height: 5px"
+                                            >
+                                                <div
+                                                    class="progress-bar bg-primary"
+                                                    role="progressbar"
+                                                    style="width: 80%"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                        <p class="product-name mb-0 mt-2 fs-6">
+                                            White Polo T-Shirt
+                                            <span class="float-end">245</span>
                                         </p>
                                     </div>
-                                    <ul class="timeline">
-                                        <li class="timeline-item">
-                                            <p class="timeline-content">
-                                                <a href="#">Ben Tossell</a>
-                                                assign you a task
-                                            </p>
-                                            <p class="event-time">Just now</p>
-                                        </li>
-                                        <li class="timeline-item">
-                                            <p class="timeline-content">
-                                                <a href="#">Ben Tossell</a>
-                                                assign you a task
-                                            </p>
-                                            <p class="event-time">Just now</p>
-                                        </li>
-                                        <li class="timeline-item">
-                                            <p class="timeline-content">
-                                                <a href="#">Ben Tossell</a>
-                                                assign you a task
-                                            </p>
-                                            <p class="event-time">Just now</p>
-                                        </li>
-                                        <li class="timeline-item">
-                                            <p class="timeline-content">
-                                                <a href="#">Ben Tossell</a>
-                                                assign you a task
-                                            </p>
-                                            <p class="event-time">Just now</p>
-                                        </li>
-                                        <li class="timeline-item">
-                                            <p class="timeline-content">
-                                                <a href="#">Ben Tossell</a>
-                                                assign you a task
-                                            </p>
-                                            <p class="event-time">Just now</p>
-                                        </li>
-                                    </ul>
-                                    <a class="d-block mt-3" href="#"
-                                        >Show all</a
-                                    >
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title mb-0">
-                                        People Also Watch
-                                    </h4>
-                                    <div class="table-responsive">
-                                        <table class="table table-stretched">
-                                            <thead>
-                                                <tr>
-                                                    <th>Symbol</th>
-                                                    <th>Last Price</th>
-                                                    <th>Change</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <p
-                                                            class="mb-1 text-dark font-weight-medium"
-                                                        >
-                                                            NFLX
-                                                        </p>
-                                                        <small
-                                                            class="font-weight-medium"
-                                                            >Netflix,
-                                                            Inc.</small
-                                                        >
-                                                    </td>
-                                                    <td
-                                                        class="font-weight-medium"
-                                                    >
-                                                        $250.00
-                                                    </td>
-                                                    <td
-                                                        class="text-success font-weight-medium"
-                                                    >
-                                                        +12.64
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p
-                                                            class="mb-1 text-dark font-weight-medium"
-                                                        >
-                                                            TSLA
-                                                        </p>
-                                                        <small
-                                                            class="font-weight-medium"
-                                                            >Tesla, Inc.</small
-                                                        >
-                                                    </td>
-                                                    <td
-                                                        class="font-weight-medium"
-                                                    >
-                                                        $458.00
-                                                    </td>
-                                                    <td
-                                                        class="text-danger font-weight-medium"
-                                                    >
-                                                        -14.53
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p
-                                                            class="mb-1 text-dark font-weight-medium"
-                                                        >
-                                                            GOOG
-                                                        </p>
-                                                        <small
-                                                            class="font-weight-medium"
-                                                            >Alphabet,
-                                                            Inc.</small
-                                                        >
-                                                    </td>
-                                                    <td
-                                                        class="font-weight-medium"
-                                                    >
-                                                        $250.00
-                                                    </td>
-                                                    <td
-                                                        class="text-danger font-weight-medium"
-                                                    >
-                                                        +12.64
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p
-                                                            class="mb-1 text-dark font-weight-medium"
-                                                        >
-                                                            AMZN
-                                                        </p>
-                                                        <small
-                                                            class="font-weight-medium"
-                                                            >Amazon.com,
-                                                            Inc.</small
-                                                        >
-                                                    </td>
-                                                    <td
-                                                        class="font-weight-medium"
-                                                    >
-                                                        $546.00
-                                                    </td>
-                                                    <td
-                                                        class="text-success font-weight-medium"
-                                                    >
-                                                        +24.34
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                            <div class="best-product-item">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="product-box border">
+                                        <img
+                                            src="https://via.placeholder.com/400X300"
+                                            alt=""
+                                        />
                                     </div>
-                                    <a class="d-block mt-3" href="#"
-                                        >Show all</a
-                                    >
+                                    <div class="product-info flex-grow-1">
+                                        <div class="progress-wrapper">
+                                            <div
+                                                class="progress"
+                                                style="height: 5px"
+                                            >
+                                                <div
+                                                    class="progress-bar bg-danger"
+                                                    role="progressbar"
+                                                    style="width: 70%"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                        <p class="product-name mb-0 mt-2 fs-6">
+                                            Black Coat Pant
+                                            <span class="float-end">245</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="best-product-item">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="product-box border">
+                                        <img
+                                            src="https://via.placeholder.com/400X300"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="product-info flex-grow-1">
+                                        <div class="progress-wrapper">
+                                            <div
+                                                class="progress"
+                                                style="height: 5px"
+                                            >
+                                                <div
+                                                    class="progress-bar bg-success"
+                                                    role="progressbar"
+                                                    style="width: 60%"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                        <p class="product-name mb-0 mt-2 fs-6">
+                                            Blue Shade Jeans
+                                            <span class="float-end">245</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="best-product-item">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="product-box border">
+                                        <img
+                                            src="https://via.placeholder.com/400X300"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="product-info flex-grow-1">
+                                        <div class="progress-wrapper">
+                                            <div
+                                                class="progress"
+                                                style="height: 5px"
+                                            >
+                                                <div
+                                                    class="progress-bar bg-orange"
+                                                    role="progressbar"
+                                                    style="width: 50%"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                        <p class="product-name mb-0 mt-2 fs-6">
+                                            Yellow Winter Jacket
+                                            <span class="float-end">245</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="best-product-item">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="product-box border">
+                                        <img
+                                            src="https://via.placeholder.com/400X300"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="product-info flex-grow-1">
+                                        <div class="progress-wrapper">
+                                            <div
+                                                class="progress"
+                                                style="height: 5px"
+                                            >
+                                                <div
+                                                    class="progress-bar bg-purple"
+                                                    role="progressbar"
+                                                    style="width: 40%"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                        <p class="product-name mb-0 mt-2 fs-6">
+                                            Men Sports Shoes Nike
+                                            <span class="float-end">245</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="best-product-item">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="product-box border">
+                                        <img
+                                            src="https://via.placeholder.com/400X300"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="product-info flex-grow-1">
+                                        <div class="progress-wrapper">
+                                            <div
+                                                class="progress"
+                                                style="height: 5px"
+                                            >
+                                                <div
+                                                    class="progress-bar bg-info"
+                                                    role="progressbar"
+                                                    style="width: 30%"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                        <p class="product-name mb-0 mt-2 fs-6">
+                                            Fancy Home Sofa
+                                            <span class="float-end">245</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="best-product-item">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="product-box border">
+                                        <img
+                                            src="https://via.placeholder.com/400X300"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="product-info flex-grow-1">
+                                        <div class="progress-wrapper">
+                                            <div
+                                                class="progress"
+                                                style="height: 5px"
+                                            >
+                                                <div
+                                                    class="progress-bar bg-pink"
+                                                    role="progressbar"
+                                                    style="width: 20%"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                        <p class="product-name mb-0 mt-2 fs-6">
+                                            Sports Time Watch
+                                            <span class="float-end">245</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="best-product-item">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="product-box border">
+                                        <img
+                                            src="https://via.placeholder.com/400X300"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="product-info flex-grow-1">
+                                        <div class="progress-wrapper">
+                                            <div
+                                                class="progress"
+                                                style="height: 5px"
+                                            >
+                                                <div
+                                                    class="progress-bar bg-dark"
+                                                    role="progressbar"
+                                                    style="width: 10%"
+                                                ></div>
+                                            </div>
+                                        </div>
+                                        <p class="product-name mb-0 mt-2 fs-6">
+                                            Women Blue Heals
+                                            <span class="float-end">245</span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <Footer />
             </div>
         </div>
-    </div>
+    </Layout>
 </template>
 
 <script>
-import Navbar from "../../Layouts/Dashboard/Navbar.vue";
-import Sidebar from "../../Layouts/Dashboard/Sidebar.vue";
-import Footer from "../../Layouts/Dashboard/Footer.vue";
+import Layout from "../../Layouts/Dashboard/App.vue";
 
 export default {
-    components: { Navbar, Sidebar, Footer },
+    components: { Layout },
     setup() {
         //
     },
