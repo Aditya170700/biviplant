@@ -23,6 +23,8 @@
     <link href="{{ asset('assets/css/semi-dark.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/header-colors.css') }}" rel="stylesheet" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     @routes
     <script src="{{ mix('/js/app.js') }}" defer></script>

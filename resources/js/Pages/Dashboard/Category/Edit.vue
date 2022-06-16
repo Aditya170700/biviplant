@@ -185,6 +185,7 @@ export default {
         const form = useForm(props.result);
 
         function submit() {
+            let data = form.data();
             Inertia.post(
                 route("admin.categories.update", {
                     id: props.result.id,

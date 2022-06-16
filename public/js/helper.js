@@ -1,19 +1,23 @@
 let success = (message) => {
-    swal({
-        title: "Success",
+    Toastify({
         text: message,
-        icon: "success",
-        button: "Oke",
-    });
+        className: "rounded",
+        style: {
+            background: "#0d9618",
+        },
+        close: true,
+    }).showToast();
 }
 
 let failed = (message) => {
-    swal({
-        title: "Error",
+    Toastify({
         text: message,
-        icon: "error",
-        button: "Oke",
-    });
+        className: "rounded",
+        style: {
+            background: "#e72d2e",
+        },
+        close: true,
+    }).showToast();
 }
 
 let confirmation = async (message) => {

@@ -23676,6 +23676,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.useForm)(props.result);
 
     function submit() {
+      var data = form.data();
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post(route("admin.categories.update", {
         id: props.result.id
       }), _objectSpread({
