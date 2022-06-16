@@ -59,11 +59,11 @@ class CategoryController extends Controller
         }
     }
 
-    public function show(Category $model)
+    public function show($id)
     {
         try {
             return Inertia::render('Dashboard/Category/Show', [
-                'result' => $model,
+                'result' => $this->categoryInterface->getById($id),
             ]);
         } catch (\Throwable $th) {
             throw $th;
