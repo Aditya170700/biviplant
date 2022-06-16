@@ -27,6 +27,18 @@
     @routes
     <script src="{{ mix('/js/app.js') }}" defer></script>
     @inertiaHead
+    <style>
+        .sidebar-wrapper .metismenu .mm-active>a,
+        .sidebar-wrapper .metismenu a:active,
+        .sidebar-wrapper .metismenu a:focus,
+        .sidebar-wrapper .metismenu a:hover {
+            color: #12be25 !important;
+            text-decoration: none;
+            background-color: rgb(255 255 255);
+            border-left: 4px solid #12be25 !important;
+            box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+        }
+    </style>
 </head>
 
 <body>

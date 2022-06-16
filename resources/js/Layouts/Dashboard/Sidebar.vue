@@ -16,7 +16,13 @@
             </div>
         </div>
         <ul class="metismenu" id="menu">
-            <li>
+            <li
+                :class="[
+                    route().current() == 'admin.categories.index'
+                        ? 'mm-active'
+                        : '',
+                ]"
+            >
                 <Link href="/admin/categories">
                     <div class="parent-icon">
                         <i class="fas fa-boxes"></i>

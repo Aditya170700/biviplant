@@ -4,7 +4,9 @@
             <div class="col-md-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <div class="d-flex justify-content-between mb-3">
+                        <div
+                            class="d-flex justify-content-between align-items-center mb-3"
+                        >
                             <div class="h6">Category</div>
                             <Link
                                 class="btn btn-success btn-sm"
@@ -14,7 +16,7 @@
                             </Link>
                         </div>
                         <div class="d-flex justify-content-start">
-                            <div class="col-2 me-2">
+                            <div class="col-lg-2 col-sm-6 me-2">
                                 <div class="mb-3">
                                     <input
                                         type="email"
@@ -24,7 +26,7 @@
                                     />
                                 </div>
                             </div>
-                            <div class="col-2 me-2">
+                            <div class="col-lg-2 col-sm-6 me-2">
                                 <select
                                     class="form-select mb-3"
                                     v-model="params.limit"
