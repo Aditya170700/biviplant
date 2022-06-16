@@ -171,6 +171,7 @@
 import Layout from "../../../Layouts/Dashboard/App.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
+import { Inertia } from "@inertiajs/inertia";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
 
@@ -184,12 +185,14 @@ export default {
         const form = useForm(props.result);
 
         function submit() {
-            form.transform((data) => ({
-                ...data,
-            })).put(
+            Inertia.post(
                 route("admin.categories.update", {
                     id: props.result.id,
-                })
+                }),
+                {
+                    _method: "put",
+                    ...data,
+                }
             );
         }
 
