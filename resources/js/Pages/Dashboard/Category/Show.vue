@@ -41,7 +41,7 @@
                                 <img
                                     :src="result.icon_url"
                                     alt=""
-                                    width="100px"
+                                    style="width: 100px"
                                 />
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                 <img
                                     :src="result.banner_url"
                                     alt=""
-                                    width="200px"
+                                    style="width: 200px"
                                 />
                             </div>
                         </div>

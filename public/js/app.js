@@ -29034,7 +29034,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           src: result.icon_url,
           alt: "",
           "class": "img-fluid",
-          width: "200px"
+          style: {
+            "width": "50px"
+          }
         }, null, 8
         /* PROPS */
         , _hoisted_32)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(result.name), 1
@@ -29250,13 +29252,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
         src: $props.result.icon_url,
         alt: "",
-        width: "100px"
+        style: {
+          "width": "100px"
+        }
       }, null, 8
       /* PROPS */
       , _hoisted_24)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
         src: $props.result.banner_url,
         alt: "",
-        width: "200px"
+        style: {
+          "width": "200px"
+        }
       }, null, 8
       /* PROPS */
       , _hoisted_28)])])])])])])];

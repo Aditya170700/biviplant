@@ -116,7 +116,7 @@
                                                 :src="result.icon_url"
                                                 alt=""
                                                 class="img-fluid"
-                                                width="200px"
+                                                style="width: 50px"
                                             />
                                         </td>
                                         <td>{{ result.name }}</td>
