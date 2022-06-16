@@ -2,7 +2,7 @@
     <header class="top-header">
         <nav class="navbar navbar-expand gap-3">
             <div class="mobile-toggle-icon fs-3">
-                <i class="bi bi-list"></i>
+                <i class="fas fa-bars text-success"></i>
             </div>
             <form class="searchbar">
                 <div
