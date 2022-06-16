@@ -16,49 +16,21 @@
 import Navbar from "../../Layouts/Dashboard/Navbar.vue";
 import Sidebar from "../../Layouts/Dashboard/Sidebar.vue";
 import Footer from "../../Layouts/Dashboard/Footer.vue";
-import { reactive } from "vue";
+import { usePage } from "@inertiajs/inertia-vue3";
+import { computed } from "vue";
 
 export default {
     components: { Navbar, Sidebar, Footer },
-    props: {
-        success: {
-            type: String,
-            default: "",
-        },
-        error: {
-            type: String,
-            default: "",
-        },
-    },
-    setup(props) {
-        let reactiveData = reactive(props);
+    setup() {
+        const shared = computed(() => usePage().props.value);
 
-        return {
-            reactiveData,
-        };
-    },
-    watch: {
-        reactiveData: {
-            handler() {
-                if (this.reactiveData.success != "") {
-                    swal({
-                        title: "Success",
-                        text: this.reactiveData.success,
-                        icon: "success",
-                        button: "OK",
-                    });
-                }
-                if (this.reactiveData.error != "") {
-                    swal({
-                        title: "Error",
-                        text: this.reactiveData.error,
-                        icon: "error",
-                        button: "OK",
-                    });
-                }
-            },
-            deep: true,
-        },
+        if (shared.value.flash.success) {
+            success(shared.value.flash.success);
+        }
+
+        if (shared.value.flash.failed) {
+            failed(shared.value.flash.failed);
+        }
     },
 };
 </script>

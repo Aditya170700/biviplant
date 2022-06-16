@@ -36,6 +36,14 @@
                                 </select>
                             </div>
                         </div>
+                        <div
+                            v-if="$page.props.flash.success_delete"
+                            class="alert alert-success"
+                            role="alert"
+                        >
+                            <i class="fas fa-check me-2"></i
+                            >{{ $page.props.flash.success_delete }}
+                        </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="table-dark">
@@ -198,7 +206,13 @@ export default {
         };
 
         let destroy = (id) => {
-            Inertia.delete(route("admin.categories.destroy", { id: id }));
+            confirmation("This action will delete this data").then((res) => {
+                if (res) {
+                    Inertia.delete(
+                        route("admin.categories.destroy", { id: id })
+                    );
+                }
+            });
         };
 
         return {

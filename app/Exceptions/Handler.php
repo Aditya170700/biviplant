@@ -3,8 +3,9 @@
 namespace App\Exceptions;
 
 use Throwable;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -51,7 +52,10 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $e)
     {
-        Log::error($e);
-        return redirect()->back()->with('error', $e->getMessage());
+        if (!$e instanceof ValidationException) {
+            return redirect()->back()->with('failed', $e->getMessage());
+        }
+
+        return redirect()->back()->withErrors($e->validator->errors())->withInput();
     }
 }
