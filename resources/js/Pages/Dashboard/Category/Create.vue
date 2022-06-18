@@ -1,18 +1,13 @@
 <template>
-    <Layout>
+    <Layout
+        :title="'Create Category'"
+        :typeButton="'back'"
+        :href="route('admin.categories.index')"
+    >
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="h6">Create Category</div>
-                            <Link
-                                class="btn btn-secondary btn-sm"
-                                :href="route('admin.categories.index')"
-                            >
-                                <i class="fas fa-arrow-left me-2"></i> Back
-                            </Link>
-                        </div>
                         <form @submit.prevent="submit">
                             <div class="row">
                                 <div class="col-lg-6 mb-3">
@@ -21,7 +16,6 @@
                                             >Name</label
                                         >
                                         <input
-                                            type="text"
                                             class="form-control"
                                             id="name"
                                             v-model="form.name"
@@ -41,7 +35,6 @@
                                             >Meta Title</label
                                         >
                                         <input
-                                            type="text"
                                             class="form-control"
                                             id="meta_title"
                                             v-model="form.meta_title"
@@ -139,7 +132,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <button
-                                        class="btn btn-primary btn-sm"
+                                        class="btn btn-primary btn-sm rounded-custom"
                                         :disabled="form.processing"
                                     >
                                         <div
@@ -147,7 +140,7 @@
                                         >
                                             <SpinnerProcessing
                                                 :color="'text-white'"
-                                                :size="'xs'"
+                                                :size="'sm'"
                                                 :me="'me-2'"
                                                 v-if="form.processing"
                                             />

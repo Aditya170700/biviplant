@@ -1,26 +1,70 @@
 <template>
-    <div class="wrapper">
-        <Navbar />
+    <div id="app">
         <Sidebar />
-        <main class="page-content">
-            <slot />
-        </main>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </header>
 
-        <a href="javaScript:;" class="back-to-top"
-            ><i class="bx bxs-up-arrow-alt"></i
-        ></a>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center fw-bold"
+                            >
+                                <h3>{{ title }}</h3>
+                                <Link
+                                    v-if="typeButton == 'back'"
+                                    class="btn btn-secondary btn-sm rounded-custom"
+                                    :href="href"
+                                >
+                                    <i class="fas fa-arrow-left me-2"></i> Back
+                                </Link>
+                                <Link
+                                    v-if="typeButton == 'create'"
+                                    class="btn btn-success btn-sm rounded-custom"
+                                    :href="href"
+                                >
+                                    <i class="fas fa-plus me-2"></i> Create
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <slot />
+            </div>
+            <Footer />
+        </div>
     </div>
 </template>
 
 <script>
-import Navbar from "../../Layouts/Dashboard/Navbar.vue";
 import Sidebar from "../../Layouts/Dashboard/Sidebar.vue";
 import Footer from "../../Layouts/Dashboard/Footer.vue";
-import { usePage } from "@inertiajs/inertia-vue3";
+import { usePage, Link } from "@inertiajs/inertia-vue3";
 import { computed } from "vue";
 
 export default {
-    components: { Navbar, Sidebar, Footer },
+    components: { Sidebar, Footer, Link },
+    props: {
+        title: {
+            type: String,
+            required: true,
+        },
+        typeButton: {
+            type: String,
+            required: true,
+        },
+        href: {
+            type: String,
+            required: false,
+        },
+    },
     setup() {
         const shared = computed(() => usePage().props.value);
 

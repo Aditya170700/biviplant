@@ -1,5 +1,5 @@
 <template>
-    <div :class="`spinner-border ${color} ${me} ${size}`"></div>
+    <div :class="`spinner-border ${color} ${me} spinner-border-${size}`"></div>
 </template>
 
 <script>

@@ -1,18 +1,13 @@
 <template>
-    <Layout>
+    <Layout
+        :title="'Show Category'"
+        :typeButton="'back'"
+        :href="route('admin.categories.index')"
+    >
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="h6">Category</div>
-                            <Link
-                                class="btn btn-secondary btn-sm"
-                                :href="route('admin.categories.index')"
-                            >
-                                <i class="fas fa-arrow-left me-2"></i> Back
-                            </Link>
-                        </div>
                         <div class="row mt-3">
                             <div class="col-lg-2">Name</div>
                             <div class="col-lg-10">: {{ result.name }}</div>

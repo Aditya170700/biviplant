@@ -1,25 +1,17 @@
 <template>
-    <Layout>
+    <Layout
+        :title="'Category'"
+        :typeButton="'create'"
+        :href="route('admin.categories.create')"
+    >
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <div
-                            class="d-flex justify-content-between align-items-center mb-3"
-                        >
-                            <div class="h6">Category</div>
-                            <Link
-                                class="btn btn-success btn-sm"
-                                :href="route('admin.categories.create')"
-                            >
-                                <i class="fas fa-plus me-2"></i> Create
-                            </Link>
-                        </div>
                         <div class="d-flex justify-content-start">
                             <div class="col-lg-2 col-sm-6 me-2">
                                 <div class="mb-3">
                                     <input
-                                        type="email"
                                         class="form-control"
                                         placeholder="Search..."
                                         v-model="params.search"
@@ -28,7 +20,7 @@
                             </div>
                             <div class="col-lg-2 col-sm-6 me-2">
                                 <select
-                                    class="form-select mb-3"
+                                    class="form-control mb-3"
                                     v-model="params.limit"
                                 >
                                     <option value="25">Show 25 data</option>
@@ -133,9 +125,9 @@
                                                         }
                                                     )
                                                 "
-                                                class="btn btn-sm btn-primary me-2"
+                                                class="btn btn-sm btn-primary me-2 rounded-custom"
                                             >
-                                                <i class="fas fa-eye me-1"></i>
+                                                <i class="fas fa-eye"></i>
                                             </Link>
                                             <Link
                                                 :href="
@@ -146,19 +138,15 @@
                                                         }
                                                     )
                                                 "
-                                                class="btn btn-sm btn-warning me-2"
+                                                class="btn btn-sm btn-warning me-2 rounded-custom"
                                             >
-                                                <i
-                                                    class="fas fa-pencil me-1"
-                                                ></i>
+                                                <i class="fas fa-pencil"></i>
                                             </Link>
                                             <button
-                                                class="btn btn-sm btn-danger me-2"
+                                                class="btn btn-sm btn-danger me-2 rounded-custom"
                                                 @click="destroy(result.id)"
                                             >
-                                                <i
-                                                    class="fas fa-trash me-1"
-                                                ></i>
+                                                <i class="fas fa-trash"></i>
                                             </button>
                                         </td>
                                     </tr>
