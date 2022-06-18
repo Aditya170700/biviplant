@@ -23832,7 +23832,16 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Layout: _Layouts_Dashboard_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  setup: function setup() {//
+  props: {
+    refreshPage: {
+      type: Boolean,
+      required: true
+    }
+  },
+  setup: function setup(props) {
+    if (props.refreshPage) {
+      window.location.search += "refreshPage=true";
+    }
   }
 });
 
@@ -32581,7 +32590,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var appName = ((_window$document$getE = window.document.getElementsByTagName('title')[0]) === null || _window$document$getE === void 0 ? void 0 : _window$document$getE.innerText) || 'Laravel';
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__.InertiaProgress.init({
-  color: '#4B5563'
+  color: '#4B5563',
+  showSpinner: true
 });
 (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.createInertiaApp)({
   title: function title(_title) {

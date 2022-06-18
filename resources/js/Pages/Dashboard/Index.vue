@@ -163,8 +163,16 @@ import Layout from "../../Layouts/Dashboard/App.vue";
 
 export default {
     components: { Layout },
-    setup() {
-        //
+    props: {
+        refreshPage: {
+            type: Boolean,
+            required: true,
+        },
+    },
+    setup(props) {
+        if (props.refreshPage) {
+            window.location.search += "refreshPage=true";
+        }
     },
 };
 </script>
