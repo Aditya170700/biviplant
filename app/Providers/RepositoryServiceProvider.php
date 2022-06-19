@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Interfaces\BannerInterface;
 use App\Interfaces\CategoryInterface;
+use App\Repositories\BannerRepository;
 use App\Repositories\CategoryRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,6 +18,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(CategoryInterface::class, CategoryRepository::class);
+        $this->app->bind(BannerInterface::class, BannerRepository::class);
     }
 
     /**
