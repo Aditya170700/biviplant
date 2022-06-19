@@ -4,9 +4,9 @@ namespace App\Classes\Adapters\Admin\Banner;
 
 use App\Classes\Adapters\DataRequestAdapterInterface;
 
-class BannerRequestAdapter implements DataRequestAdapterInterface
-{
-    public static function rulesCreated(): array
+class BannerRequestAdapter implements DataRequestAdapterInterface {
+    
+    public static function rulesCreated() : array 
     {
         return [
             'title' => 'required|string|max:255',
@@ -16,7 +16,16 @@ class BannerRequestAdapter implements DataRequestAdapterInterface
         ];
     }
 
-    public static function transform($data)
+    public static function rulesUpdated() : array 
+    {
+        return [
+            'title' => 'required|string|max:255',
+            'sub_title' => 'required|string|max:255',
+            'link' => 'required|string|max:255',
+        ];
+    }
+
+    public static function transform($data) 
     {
         return [
             'title' => $data['title'],
