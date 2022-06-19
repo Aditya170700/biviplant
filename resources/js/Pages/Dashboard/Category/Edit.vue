@@ -22,8 +22,8 @@
                                         />
                                         <FormText
                                             :id="'name'"
-                                            :message="form.errors.name"
-                                            v-if="form.errors.name"
+                                            :message="errors.name"
+                                            v-if="errors.name"
                                         />
                                     </div>
                                 </div>
@@ -41,8 +41,8 @@
                                         />
                                         <FormText
                                             :id="'meta_title'"
-                                            :message="form.errors.meta_title"
-                                            v-if="form.errors.meta_title"
+                                            :message="errors.meta_title"
+                                            v-if="errors.meta_title"
                                         />
                                     </div>
                                 </div>
@@ -61,10 +61,8 @@
                                         ></textarea>
                                         <FormText
                                             :id="'meta_description'"
-                                            :message="
-                                                form.errors.meta_description
-                                            "
-                                            v-if="form.errors.meta_description"
+                                            :message="errors.meta_description"
+                                            v-if="errors.meta_description"
                                         />
                                     </div>
                                 </div>
@@ -83,8 +81,8 @@
                                         ></textarea>
                                         <FormText
                                             :id="'meta_keyword'"
-                                            :message="form.errors.meta_keyword"
-                                            v-if="form.errors.meta_keyword"
+                                            :message="errors.meta_keyword"
+                                            v-if="errors.meta_keyword"
                                         />
                                     </div>
                                 </div>
@@ -104,8 +102,8 @@
                                         />
                                         <FormText
                                             :id="'banner'"
-                                            :message="form.errors.banner"
-                                            v-if="form.errors.banner"
+                                            :message="errors.banner"
+                                            v-if="errors.banner"
                                         />
                                     </div>
                                 </div>
@@ -125,8 +123,8 @@
                                         />
                                         <FormText
                                             :id="'icon'"
-                                            :message="form.errors.icon"
-                                            v-if="form.errors.icon"
+                                            :message="errors.icon"
+                                            v-if="errors.icon"
                                         />
                                     </div>
                                 </div>

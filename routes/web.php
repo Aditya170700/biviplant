@@ -30,7 +30,7 @@ Route::middleware(['auth', 'role:admin'])
         Route::resources([
             'categories' => CategoryController::class,
             'users' => UserController::class,
-            'banners' => UserController::class,
+            'banners' => BannerController::class,
         ]);
     });
 

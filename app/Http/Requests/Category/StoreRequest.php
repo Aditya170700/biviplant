@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Category;
 
+use App\Classes\Adapters\Admin\Category\CategoryRequestAdapter;
 use App\Services\File;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
@@ -25,14 +26,7 @@ class StoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|string|max:255',
-            'meta_title' => 'required|string|max:255',
-            'meta_description' => 'required|string|max:255',
-            'meta_keyword' => 'required|string|max:255',
-            'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        ];
+        return CategoryRequestAdapter::rulesCreated();
     }
 
     public function banner()
@@ -45,16 +39,17 @@ class StoreRequest extends FormRequest
         return File::upload('categories/icons', $this->file('icon'));
     }
 
+    public function data()
+    {
+        return CategoryRequestAdapter::transform($this->all() + [
+            'banner_url_adapter' => $this->banner(),
+            'icon_url_adapter' => $this->icon(),
+        ]);
+    }
+
     public function attributes()
     {
-        return [
-            'name' => 'Name',
-            'meta_title' => 'Meta Title',
-            'meta_description' => 'Meta Description',
-            'meta_keyword' => 'Meta Keyword',
-            'banner' => 'Banner',
-            'icon' => 'Icon',
-        ];
+        return CategoryRequestAdapter::attributes();
     }
 
     public function failedValidation($validator)

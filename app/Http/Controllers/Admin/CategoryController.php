@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\StoreRequest;
 use App\Http\Requests\Category\UpdateRequest;
 use App\Interfaces\CategoryInterface;
-use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -43,14 +42,7 @@ class CategoryController extends Controller
     {
         try {
             $this->categoryInterface
-                ->create([
-                    'meta_title' => $request->meta_title,
-                    'meta_description' => $request->meta_description,
-                    'meta_keyword' => $request->meta_keyword,
-                    'icon' => $request->icon(),
-                    'name' => $request->name,
-                    'banner' => $request->banner(),
-                ]);
+                ->create($request->data());
 
             return redirect()->route('admin.categories.index')
                 ->with('success', 'Created');
@@ -86,14 +78,7 @@ class CategoryController extends Controller
         try {
             $model = $this->categoryInterface->getById($id);
             $this->categoryInterface
-                ->update($model, [
-                    'meta_title' => $request->meta_title,
-                    'meta_description' => $request->meta_description,
-                    'meta_keyword' => $request->meta_keyword,
-                    'icon' => $request->icon() ?? $model->icon,
-                    'name' => $request->name,
-                    'banner' => $request->banner() ?? $model->banner,
-                ]);
+                ->update($model, $request->data());
 
             return redirect()->route('admin.categories.index')
                 ->with('success', 'Updated');
