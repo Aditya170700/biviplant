@@ -58,7 +58,22 @@
                             <span>Category</span>
                         </Link>
                     </li>
-
+                    <li
+                        :class="[
+                            'sidebar-item',
+                            route().current().includes('admin.banners.')
+                                ? 'active'
+                                : '',
+                        ]"
+                    >
+                        <Link
+                            :href="route('admin.banners.index')"
+                            class="sidebar-link"
+                        >
+                            <i class="fas fa-boxes"></i>
+                            <span>Banner</span>
+                        </Link>
+                    </li>
                     <li
                         :class="[
                             'sidebar-item',

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
@@ -29,6 +30,7 @@ Route::middleware(['auth', 'role:admin'])
         Route::resources([
             'categories' => CategoryController::class,
             'users' => UserController::class,
+            'banners' => UserController::class,
         ]);
     });
 
