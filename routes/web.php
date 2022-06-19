@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Foundation\Application;
@@ -28,6 +29,10 @@ Route::middleware(['auth', 'role:admin'])
         Route::controller(CategoryController::class)
             ->group(function () {
                 Route::resource('categories', CategoryController::class);
+            });
+        Route::controller(BannerController::class)
+            ->group(function () {
+                Route::resource('banners', BannerController::class);
             });
     });
 
