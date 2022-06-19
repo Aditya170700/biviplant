@@ -26,17 +26,18 @@ class StoreRequest extends FormRequest
      */
     public function rules()
     {
-        return BannerRequestAdapter::rules();
+        return BannerRequestAdapter::rulesCreated();
     }
 
     public function path()
     {
-        return File::upload('banners/', $this->file('path'));
+        return File::upload('banners', $this->file('path'));
     }
 
     public function data()
     {
-        return BannerRequestAdapter::transform($this->all()+['path_url' => $this->path()]);
+        $data = $this->all()+['path_url' => $this->path()];
+        return BannerRequestAdapter::transform($data);
     }
 
     public function attributes()

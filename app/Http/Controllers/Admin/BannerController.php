@@ -79,16 +79,9 @@ class BannerController extends Controller
         try {
             $model = $this->bannerInterface->getById($id);
             $this->bannerInterface
-                ->update($model, [
-                    'meta_title' => $request->meta_title,
-                    'meta_description' => $request->meta_description,
-                    'meta_keyword' => $request->meta_keyword,
-                    'icon' => $request->icon() ?? $model->icon,
-                    'name' => $request->name,
-                    'banner' => $request->banner() ?? $model->banner,
-                ]);
+                ->update($model, $request->data());
 
-            return redirect()->route('admin.categories.index')
+            return redirect()->route('admin.banners.index')
                 ->with('success', 'Updated');
         } catch (\Throwable $th) {
             throw $th;
@@ -100,7 +93,7 @@ class BannerController extends Controller
         try {
             $this->bannerInterface->delete($this->bannerInterface->getById($id));
 
-            return redirect()->route('admin.categories.index')
+            return redirect()->route('admin.banners.index')
                 ->with('success_delete', 'Deleted');
         } catch (\Throwable $th) {
             throw $th;

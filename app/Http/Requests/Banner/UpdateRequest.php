@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Banner;
 
+use App\Classes\Adapters\Admin\Banner\BannerRequestAdapter;
 use App\Interfaces\BannerInterface;
 use App\Models\Banner;
 use App\Services\File;
@@ -27,12 +28,7 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => 'required|string|max:255',
-            'sub_title' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
-            'path' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        ];
+        return BannerRequestAdapter::rulesUpdated();
     }
 
     public function banner()
@@ -51,22 +47,13 @@ class UpdateRequest extends FormRequest
 
     public function data()
     {
-        return [
-            'title' => $this->title,
-            'sub_title' => $this->sub_title,
-            'link' => $this->link,
-            'path' => $this->path(),
-        ];
+        $data = $this->all() + ['path_url' => $this->path()];
+        return BannerRequestAdapter::transform($data);
     }
 
     public function attributes()
     {
-        return [
-            'title' => 'Judul',
-            'sub_title' => 'Sub Judul',
-            'link' => 'Link',
-            'path' => 'Gambar'
-        ];
+        return BannerRequestAdapter::attributes();
     }
 
     public function failedValidation($validator)
