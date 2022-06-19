@@ -21,15 +21,20 @@ let failed = (message) => {
 }
 
 let confirmation = async (message) => {
-    let result = await swal({
+    let result = await Swal.fire({
         title: "Are you sure?",
         text: message,
         icon: "warning",
         buttons: true,
+        showCancelButton: true,
         dangerMode: true,
     })
     .then((res) => {
-        return res;
+        if (res.isConfirmed) {
+            return true;
+        }
+
+        return false;
     });
 
     return result;

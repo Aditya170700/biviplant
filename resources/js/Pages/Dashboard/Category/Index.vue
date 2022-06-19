@@ -30,14 +30,12 @@
                                 </select>
                             </div>
                         </div>
-                        <div
+                        <Alert
                             v-if="$page.props.flash.success_delete"
-                            class="alert alert-success"
-                            role="alert"
-                        >
-                            <i class="fas fa-check me-2"></i
-                            >{{ $page.props.flash.success_delete }}
-                        </div>
+                            :type="'success'"
+                            :icon="'check'"
+                            :message="$page.props.flash.success_delete"
+                        />
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="table-dark">
@@ -170,13 +168,14 @@
 <script>
 import Layout from "../../../Layouts/Dashboard/App.vue";
 import Pagination from "../../../Shared/Pagination.vue";
+import Alert from "../../../Shared/Alert.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import { reactive } from "vue";
 import { pickBy } from "lodash";
 
 export default {
-    components: { Layout, Link, Pagination },
+    components: { Layout, Link, Pagination, Alert },
     props: {
         errors: Object,
         results: Object,

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -25,10 +26,10 @@ Route::middleware(['auth', 'role:admin'])
             ->group(function () {
                 Route::get('/', 'index')->name('dashboard');
             });
-        Route::controller(CategoryController::class)
-            ->group(function () {
-                Route::resource('categories', CategoryController::class);
-            });
+        Route::resources([
+            'categories' => CategoryController::class,
+            'users' => UserController::class,
+        ]);
     });
 
 Route::get('/', function () {
