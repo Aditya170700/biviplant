@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\Admin\Event;
 
-use App\Classes\Adapters\Admin\Category\CategoryRequestAdapter;
+use App\Classes\Adapters\Admin\Event\EventRequestAdapter;
 use App\Services\File;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
@@ -26,30 +26,23 @@ class StoreRequest extends FormRequest
      */
     public function rules()
     {
-        return CategoryRequestAdapter::rulesCreated();
+        return EventRequestAdapter::rulesCreated();
     }
 
-    public function banner()
+    public function path()
     {
-        return File::upload('categories/banners', $this->file('banner'));
-    }
-
-    public function icon()
-    {
-        return File::upload('categories/icons', $this->file('icon'));
+        return File::upload('event/banners', $this->file('path'));
     }
 
     public function data()
     {
-        return CategoryRequestAdapter::transform($this->all() + [
-            'banner_url_adapter' => $this->banner(),
-            'icon_url_adapter' => $this->icon(),
-        ]);
+        $data = $this->all()+['path_url' => $this->path()];
+        return EventRequestAdapter::transform($data);
     }
 
     public function attributes()
     {
-        return CategoryRequestAdapter::attributes();
+        return EventRequestAdapter::attributes();
     }
 
     public function failedValidation($validator)

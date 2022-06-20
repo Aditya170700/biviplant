@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Banner;
+namespace App\Http\Requests\Admin\Event;
 
-use App\Classes\Adapters\Admin\Banner\BannerRequestAdapter;
+use App\Classes\Adapters\Admin\Event\EventRequestAdapter;
 use App\Interfaces\BannerInterface;
 use App\Models\Banner;
 use App\Services\File;
@@ -28,7 +28,7 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return BannerRequestAdapter::rulesUpdated($this->id);
+        return EventRequestAdapter::rulesUpdated($this->id);
     }
 
     public function banner()
@@ -39,7 +39,7 @@ class UpdateRequest extends FormRequest
     public function path()
     {
         if ($this->hasFile('path')) {
-            return File::upload('banners', $this->file('path'));
+            return File::upload('event/banners', $this->file('path'));
         }
 
         return $this->banner()->path;
@@ -48,12 +48,12 @@ class UpdateRequest extends FormRequest
     public function data()
     {
         $data = $this->all() + ['path_url' => $this->path()];
-        return BannerRequestAdapter::transform($data);
+        return EventRequestAdapter::transform($data);
     }
 
     public function attributes()
     {
-        return BannerRequestAdapter::attributes();
+        return EventRequestAdapter::attributes();
     }
 
     public function failedValidation($validator)

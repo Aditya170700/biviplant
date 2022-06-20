@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Category\StoreRequest;
-use App\Http\Requests\Category\UpdateRequest;
+use App\Http\Requests\Admin\Category\StoreRequest;
+use App\Http\Requests\Admin\Category\UpdateRequest;
 use App\Interfaces\CategoryInterface;
 
 class CategoryController extends Controller
