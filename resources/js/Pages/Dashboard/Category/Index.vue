@@ -41,7 +41,6 @@
                                 <thead class="table-dark">
                                     <tr>
                                         <th>NO</th>
-                                        <th>IKON</th>
                                         <th>
                                             <span
                                                 @click="sort('name')"
@@ -103,14 +102,6 @@
                                         :key="i"
                                     >
                                         <td>{{ i + 1 }}</td>
-                                        <td>
-                                            <img
-                                                :src="result.icon_url"
-                                                alt=""
-                                                class="img-fluid"
-                                                style="width: 50px"
-                                            />
-                                        </td>
                                         <td>{{ result.name }}</td>
                                         <td>{{ result.meta_title }}</td>
                                         <td class="d-flex justify-content-end">
