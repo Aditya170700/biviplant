@@ -56,7 +56,7 @@
                             <span>Dashboard</span>
                         </Link>
                     </li>
-                    <li class="sidebar-title">Master Data</li>
+                    <li class="sidebar-title">Data Master</li>
 
                     <li
                         :class="[
@@ -106,7 +106,7 @@
                             <span>Pengguna</span>
                         </Link>
                     </li>
-                    <li class="sidebar-title">Other</li>
+                    <li class="sidebar-title">Lainnya</li>
 
                     <li class="sidebar-item">
                         <a
@@ -115,7 +115,7 @@
                             @click.prevent="logout"
                         >
                             <i class="fas fa-power-off"></i>
-                            <span>Sign Out</span>
+                            <span>Keluar</span>
                         </a>
                     </li>
                 </ul>
