@@ -1,8 +1,8 @@
 <template>
     <Layout
-        :title="'Tambah Kategori'"
+        :title="'Ubah Pengguna'"
         :typeButton="'back'"
-        :href="route('admin.categories.index')"
+        :href="route('admin.users.index')"
     >
         <div class="row">
             <div class="col-md-12 grid-margin">
@@ -22,117 +22,127 @@
                                         />
                                         <FormText
                                             :id="'name'"
-                                            :message="form.errors.name"
-                                            v-if="form.errors.name"
+                                            :message="errors.name"
+                                            v-if="errors.name"
                                         />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-3">
+                                    <label for="role" class="form-label"
+                                        >Role</label
+                                    >
+                                    <select
+                                        class="form-control mb-3"
+                                        v-model="form.role"
+                                        id="role"
+                                    >
+                                        <option value="admin">Admin</option>
+                                        <option value="customer">
+                                            Customer
+                                        </option>
+                                    </select>
+                                    <FormText
+                                        :id="'role'"
+                                        :message="errors.role"
+                                        v-if="errors.role"
+                                    />
+                                </div>
+                                <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
-                                        <label
-                                            for="meta_title"
-                                            class="form-label"
-                                            >Meta Title</label
+                                        <label for="email" class="form-label"
+                                            >E-Mail</label
                                         >
                                         <input
                                             class="form-control"
-                                            id="meta_title"
-                                            v-model="form.meta_title"
+                                            id="email"
+                                            v-model="form.email"
                                         />
                                         <FormText
-                                            :id="'meta_title'"
-                                            :message="form.errors.meta_title"
-                                            v-if="form.errors.meta_title"
+                                            :id="'email'"
+                                            :message="errors.email"
+                                            v-if="errors.email"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label"
+                                            >No Telepon</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="phone"
+                                            v-model="form.phone"
+                                        />
+                                        <FormText
+                                            :id="'phone'"
+                                            :message="errors.phone"
+                                            v-if="errors.phone"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label"
+                                            >Password</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="password"
+                                            v-model="form.password"
+                                        />
+                                        <FormText
+                                            :id="'password'"
+                                            :message="errors.password"
+                                            v-if="errors.password"
                                         />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
                                         <label
-                                            for="meta_description"
+                                            for="password_confirmation"
                                             class="form-label"
-                                            >Meta Description</label
+                                            >Konfirmasi Password</label
                                         >
-                                        <textarea
+                                        <input
                                             class="form-control"
-                                            id="meta_description"
-                                            rows="3"
-                                            v-model="form.meta_description"
-                                        ></textarea>
+                                            id="password_confirmation"
+                                            v-model="form.password_confirmation"
+                                        />
                                         <FormText
-                                            :id="'meta_description'"
+                                            :id="'password_confirmation'"
                                             :message="
-                                                form.errors.meta_description
+                                                errors.password_confirmation
                                             "
-                                            v-if="form.errors.meta_description"
+                                            v-if="errors.password_confirmation"
                                         />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
-                                        <label
-                                            for="meta_keyword"
-                                            class="form-label"
-                                            >Meta Keyword</label
-                                        >
-                                        <textarea
-                                            class="form-control"
-                                            id="meta_keyword"
-                                            rows="3"
-                                            v-model="form.meta_keyword"
-                                        ></textarea>
-                                        <FormText
-                                            :id="'meta_keyword'"
-                                            :message="form.errors.meta_keyword"
-                                            v-if="form.errors.meta_keyword"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-3">
-                                    <div class="mb-3">
-                                        <label for="banner" class="form-label"
-                                            >Banner</label
+                                        <label for="photo" class="form-label"
+                                            >Foto Profil</label
                                         >
                                         <input
                                             type="file"
                                             class="form-control"
-                                            id="banner"
+                                            id="photo"
                                             @input="
-                                                form.banner =
+                                                form.photo =
                                                     $event.target.files[0]
                                             "
                                         />
                                         <FormText
-                                            :id="'banner'"
-                                            :message="form.errors.banner"
-                                            v-if="form.errors.banner"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-3">
-                                    <div class="mb-3">
-                                        <label for="icon" class="form-label"
-                                            >Ikon</label
-                                        >
-                                        <input
-                                            type="file"
-                                            class="form-control"
-                                            id="icon"
-                                            @input="
-                                                form.icon =
-                                                    $event.target.files[0]
-                                            "
-                                        />
-                                        <FormText
-                                            :id="'icon'"
-                                            :message="form.errors.icon"
-                                            v-if="form.errors.icon"
+                                            :id="'photo'"
+                                            :message="errors.photo"
+                                            v-if="errors.photo"
                                         />
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <button
-                                        class="btn btn-primary btn-sm rounded-custom"
+                                        class="btn btn-primary btn-sm"
                                         :disabled="form.processing"
                                     >
                                         <div
@@ -146,7 +156,7 @@
                                             />
                                             <span
                                                 ><i class="fas fa-save me-2"></i
-                                                >Simpan</span
+                                                >Save</span
                                             >
                                         </div>
                                     </button>
@@ -164,6 +174,7 @@
 import Layout from "../../../Layouts/Dashboard/App.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
+import { Inertia } from "@inertiajs/inertia";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
 
@@ -171,21 +182,27 @@ export default {
     components: { Layout, Link, SpinnerProcessing, FormText },
     props: {
         errors: Object,
+        result: Object,
     },
-    setup() {
+    setup(props) {
         const form = useForm({
-            name: "",
-            meta_title: "",
-            meta_description: "",
-            meta_keyword: "",
-            banner: "",
-            icon: "",
+            ...props.result,
+            photo: "",
+            password: "",
+            password_confirmation: "",
         });
 
         function submit() {
-            form.transform((data) => ({
-                ...data,
-            })).post(route("admin.categories.store"));
+            let data = form.data();
+            Inertia.post(
+                route("admin.users.update", {
+                    id: props.result.id,
+                }),
+                {
+                    _method: "put",
+                    ...data,
+                }
+            );
         }
 
         return {

@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Interfaces\UserInterface;
 use App\Interfaces\BannerInterface;
+use App\Repositories\UserRepository;
 use App\Interfaces\CategoryInterface;
 use App\Repositories\BannerRepository;
-use App\Repositories\CategoryRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\CategoryRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(CategoryInterface::class, CategoryRepository::class);
         $this->app->bind(BannerInterface::class, BannerRepository::class);
+        $this->app->bind(UserInterface::class, UserRepository::class);
     }
 
     /**

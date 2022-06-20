@@ -45,7 +45,7 @@ class CategoryController extends Controller
                 ->create($request->data());
 
             return redirect()->route('admin.categories.index')
-                ->with('success', 'Created');
+                ->with('success', 'Berhasil tambah data');
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -81,7 +81,7 @@ class CategoryController extends Controller
                 ->update($model, $request->data());
 
             return redirect()->route('admin.categories.index')
-                ->with('success', 'Updated');
+                ->with('success', 'Berhasil ubah data');
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -93,7 +93,7 @@ class CategoryController extends Controller
             $this->categoryInterface->delete($this->categoryInterface->getById($id));
 
             return redirect()->route('admin.categories.index')
-                ->with('success_delete', 'Deleted');
+                ->with('success_delete', 'Berhasil hapus data');
         } catch (\Throwable $th) {
             throw $th;
         }

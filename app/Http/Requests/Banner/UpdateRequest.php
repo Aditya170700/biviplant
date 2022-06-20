@@ -28,7 +28,7 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return BannerRequestAdapter::rulesUpdated();
+        return BannerRequestAdapter::rulesUpdated($this->id);
     }
 
     public function banner()

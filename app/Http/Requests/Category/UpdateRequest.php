@@ -16,7 +16,7 @@ class UpdateRequest extends FormRequest
         $this->repository = $categoryInterface;
     }
 
-    public function getCategory()
+    public function getModelById()
     {
         return $this->repository->getById($this->id);
     }
@@ -38,7 +38,7 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return CategoryRequestAdapter::rulesUpdated();
+        return CategoryRequestAdapter::rulesUpdated($this->id);
     }
 
     public function banner()
@@ -47,7 +47,7 @@ class UpdateRequest extends FormRequest
             return File::upload('categories/banners', $this->file('banner'));
         }
 
-        return $this->getCategory()->banner;
+        return $this->getModelById()->banner;
     }
 
     public function icon()
@@ -56,7 +56,7 @@ class UpdateRequest extends FormRequest
             return File::upload('categories/icons', $this->file('icon'));
         }
 
-        return $this->getCategory()->icon;
+        return $this->getModelById()->icon;
     }
 
     public function data()

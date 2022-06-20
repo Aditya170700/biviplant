@@ -40,6 +40,22 @@
             </div>
             <div class="sidebar-menu">
                 <ul class="menu">
+                    <li
+                        :class="[
+                            'sidebar-item',
+                            route().current().includes('admin.dashboard')
+                                ? 'active'
+                                : '',
+                        ]"
+                    >
+                        <Link
+                            :href="route('admin.dashboard')"
+                            class="sidebar-link"
+                        >
+                            <i class="fas fa-dashboard"></i>
+                            <span>Dashboard</span>
+                        </Link>
+                    </li>
                     <li class="sidebar-title">Master Data</li>
 
                     <li
@@ -55,7 +71,7 @@
                             class="sidebar-link"
                         >
                             <i class="fas fa-boxes"></i>
-                            <span>Category</span>
+                            <span>Kategori</span>
                         </Link>
                     </li>
                     <li
@@ -70,7 +86,7 @@
                             :href="route('admin.banners.index')"
                             class="sidebar-link"
                         >
-                            <i class="fas fa-boxes"></i>
+                            <i class="fas fa-images"></i>
                             <span>Banner</span>
                         </Link>
                     </li>

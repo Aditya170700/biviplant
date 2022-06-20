@@ -21,14 +21,15 @@
                                     class="btn btn-secondary btn-sm rounded-custom"
                                     :href="href"
                                 >
-                                    <i class="fas fa-arrow-left me-2"></i> Back
+                                    <i class="fas fa-arrow-left me-2"></i>
+                                    Kembali
                                 </Link>
                                 <Link
                                     v-if="typeButton == 'create'"
                                     class="btn btn-success btn-sm rounded-custom"
                                     :href="href"
                                 >
-                                    <i class="fas fa-plus me-2"></i> Create
+                                    <i class="fas fa-plus me-2"></i> Tambah
                                 </Link>
                             </div>
                         </div>

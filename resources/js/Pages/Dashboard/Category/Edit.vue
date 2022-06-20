@@ -1,6 +1,6 @@
 <template>
     <Layout
-        :title="'Edit Category'"
+        :title="'Ubah Kategori'"
         :typeButton="'back'"
         :href="route('admin.categories.index')"
     >
@@ -13,7 +13,7 @@
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
                                         <label for="name" class="form-label"
-                                            >Name</label
+                                            >Nama</label
                                         >
                                         <input
                                             class="form-control"
@@ -110,7 +110,7 @@
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
                                         <label for="icon" class="form-label"
-                                            >Icon</label
+                                            >Ikon</label
                                         >
                                         <input
                                             type="file"
@@ -144,7 +144,7 @@
                                             />
                                             <span
                                                 ><i class="fas fa-save me-2"></i
-                                                >Save</span
+                                                >Simpan</span
                                             >
                                         </div>
                                     </button>

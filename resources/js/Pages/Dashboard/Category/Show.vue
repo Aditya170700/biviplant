@@ -1,6 +1,6 @@
 <template>
     <Layout
-        :title="'Show Category'"
+        :title="'Detail Kategori'"
         :typeButton="'back'"
         :href="route('admin.categories.index')"
     >
@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row mt-3">
-                            <div class="col-lg-2">Name</div>
+                            <div class="col-lg-2">Nama</div>
                             <div class="col-lg-10">: {{ result.name }}</div>
                         </div>
                         <div class="row mt-3">
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-lg-2">Icon</div>
+                            <div class="col-lg-2">Ikon</div>
                             <div class="col-lg-10">
                                 <img
                                     :src="result.icon_url"

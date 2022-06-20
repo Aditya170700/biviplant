@@ -46,7 +46,7 @@ class BannerController extends Controller
                 ->create($request->data());
 
             return redirect()->route('admin.banners.index')
-                ->with('success', 'Created');
+                ->with('success', 'Berhasil tambah data');
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -82,7 +82,7 @@ class BannerController extends Controller
                 ->update($model, $request->data());
 
             return redirect()->route('admin.banners.index')
-                ->with('success', 'Updated');
+                ->with('success', 'Berhasil ubah data');
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -94,7 +94,7 @@ class BannerController extends Controller
             $this->bannerInterface->delete($this->bannerInterface->getById($id));
 
             return redirect()->route('admin.banners.index')
-                ->with('success_delete', 'Deleted');
+                ->with('success_delete', 'Berhasil hapus data');
         } catch (\Throwable $th) {
             throw $th;
         }

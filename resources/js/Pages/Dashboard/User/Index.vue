@@ -1,8 +1,8 @@
 <template>
     <Layout
-        :title="'Banner'"
+        :title="'Pengguna'"
         :typeButton="'create'"
-        :href="route('admin.banners.create')"
+        :href="route('admin.users.create')"
     >
         <div class="row">
             <div class="col-md-12 grid-margin">
@@ -30,14 +30,12 @@
                                 </select>
                             </div>
                         </div>
-                        <div
+                        <Alert
                             v-if="$page.props.flash.success_delete"
-                            class="alert alert-success"
-                            role="alert"
-                        >
-                            <i class="fas fa-check me-2"></i
-                            >{{ $page.props.flash.success_delete }}
-                        </div>
+                            :type="'success'"
+                            :icon="'check'"
+                            :message="$page.props.flash.success_delete"
+                        />
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="table-dark">
@@ -45,16 +43,16 @@
                                         <th>NO</th>
                                         <th>
                                             <span
-                                                @click="sort('title')"
+                                                @click="sort('name')"
                                                 class="d-flex justify-content-between"
                                                 style="cursor: pointer"
                                             >
-                                                JUDUL
+                                                NAMA
                                                 <i
                                                     v-if="
                                                         params.direction ==
                                                             'asc' &&
-                                                        params.field == 'title'
+                                                        params.field == 'name'
                                                     "
                                                     class="fa-solid fa-arrow-down-a-z"
                                                 ></i>
@@ -62,7 +60,7 @@
                                                     v-if="
                                                         params.direction ==
                                                             'desc' &&
-                                                        params.field == 'title'
+                                                        params.field == 'name'
                                                     "
                                                     class="fa-solid fa-arrow-up-z-a"
                                                 ></i>
@@ -70,17 +68,16 @@
                                         </th>
                                         <th>
                                             <span
-                                                @click="sort('sub_title')"
+                                                @click="sort('role')"
                                                 class="d-flex justify-content-between"
                                                 style="cursor: pointer"
                                             >
-                                                SUB JUDUL
+                                                ROLE
                                                 <i
                                                     v-if="
                                                         params.direction ==
                                                             'asc' &&
-                                                        params.field ==
-                                                            'sub_title'
+                                                        params.field == 'role'
                                                     "
                                                     class="fa-solid fa-arrow-down-a-z"
                                                 ></i>
@@ -88,8 +85,57 @@
                                                     v-if="
                                                         params.direction ==
                                                             'desc' &&
-                                                        params.field ==
-                                                            'sub_title'
+                                                        params.field == 'role'
+                                                    "
+                                                    class="fa-solid fa-arrow-up-z-a"
+                                                ></i>
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span
+                                                @click="sort('email')"
+                                                class="d-flex justify-content-between"
+                                                style="cursor: pointer"
+                                            >
+                                                EMAIL
+                                                <i
+                                                    v-if="
+                                                        params.direction ==
+                                                            'asc' &&
+                                                        params.field == 'email'
+                                                    "
+                                                    class="fa-solid fa-arrow-down-a-z"
+                                                ></i>
+                                                <i
+                                                    v-if="
+                                                        params.direction ==
+                                                            'desc' &&
+                                                        params.field == 'email'
+                                                    "
+                                                    class="fa-solid fa-arrow-up-z-a"
+                                                ></i>
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span
+                                                @click="sort('phone')"
+                                                class="d-flex justify-content-between"
+                                                style="cursor: pointer"
+                                            >
+                                                TELEPON
+                                                <i
+                                                    v-if="
+                                                        params.direction ==
+                                                            'asc' &&
+                                                        params.field == 'phone'
+                                                    "
+                                                    class="fa-solid fa-arrow-down-a-z"
+                                                ></i>
+                                                <i
+                                                    v-if="
+                                                        params.direction ==
+                                                            'desc' &&
+                                                        params.field == 'phone'
                                                     "
                                                     class="fa-solid fa-arrow-up-z-a"
                                                 ></i>
@@ -104,17 +150,16 @@
                                         :key="i"
                                     >
                                         <td>{{ i + 1 }}</td>
-                                        <td>{{ result.title }}</td>
-                                        <td>{{ result.sub_title }}</td>
+                                        <td>{{ result.name }}</td>
+                                        <td>{{ result.role }}</td>
+                                        <td>{{ result.email }}</td>
+                                        <td>{{ result.phone }}</td>
                                         <td class="d-flex justify-content-end">
                                             <Link
                                                 :href="
-                                                    route(
-                                                        'admin.banners.show',
-                                                        {
-                                                            id: result.id,
-                                                        }
-                                                    )
+                                                    route('admin.users.show', {
+                                                        id: result.id,
+                                                    })
                                                 "
                                                 class="btn btn-sm btn-primary me-2 rounded-custom"
                                             >
@@ -122,12 +167,9 @@
                                             </Link>
                                             <Link
                                                 :href="
-                                                    route(
-                                                        'admin.banners.edit',
-                                                        {
-                                                            id: result.id,
-                                                        }
-                                                    )
+                                                    route('admin.users.edit', {
+                                                        id: result.id,
+                                                    })
                                                 "
                                                 class="btn btn-sm btn-warning me-2 rounded-custom"
                                             >
@@ -161,13 +203,14 @@
 <script>
 import Layout from "../../../Layouts/Dashboard/App.vue";
 import Pagination from "../../../Shared/Pagination.vue";
+import Alert from "../../../Shared/Alert.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import { reactive } from "vue";
 import { pickBy } from "lodash";
 
 export default {
-    components: { Layout, Link, Pagination },
+    components: { Layout, Link, Pagination, Alert },
     props: {
         errors: Object,
         results: Object,
@@ -191,7 +234,7 @@ export default {
                 "Tindakan ini akan menghapus data secara permanen"
             ).then((res) => {
                 if (res) {
-                    Inertia.delete(route("admin.banners.destroy", { id: id }));
+                    Inertia.delete(route("admin.users.destroy", { id: id }));
                 }
             });
         };
@@ -206,7 +249,7 @@ export default {
         params: {
             handler() {
                 let params = pickBy(this.params);
-                Inertia.get(route("admin.banners.index"), params, {
+                Inertia.get(route("admin.users.index"), params, {
                     replace: true,
                     preserveState: true,
                 });

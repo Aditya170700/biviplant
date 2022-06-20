@@ -18,7 +18,7 @@ class CategoryRequestAdapter implements DataRequestAdapterInterface
         ];
     }
 
-    public static function rulesUpdated(): array
+    public static function rulesUpdated($id): array
     {
         return [
             'name' => 'required|string|max:255',

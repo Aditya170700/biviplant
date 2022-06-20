@@ -3,11 +3,23 @@
 namespace App\Http\Requests\User;
 
 use App\Services\File;
+use App\Interfaces\UserInterface;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
+use App\Classes\Adapters\Admin\User\UserRequestAdapter;
 
 class UpdateRequest extends FormRequest
 {
+    public function __construct(UserInterface $userInterface)
+    {
+        $this->repository = $userInterface;
+    }
+
+    public function getModelById()
+    {
+        return $this->repository->getById($this->id);
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,40 +37,29 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|string|max:255',
-            'meta_title' => 'required|string|max:255',
-            'meta_description' => 'required|string|max:255',
-            'meta_keyword' => 'required|string|max:255',
-        ];
+        return UserRequestAdapter::rulesUpdated($this->id);
     }
 
-    public function banner()
+    public function profilePhotoPath()
     {
-        if ($this->hasFile('banner')) {
-            return File::upload('categories/banners', $this->file('banner'));
+        if ($this->hasFile('photo')) {
+            return File::upload('users/profile_photo_path', $this->file('photo'));
         }
 
-        return NULL;
+        return $this->getModelById()->profile_photo_path;
     }
 
-    public function icon()
+    public function data()
     {
-        if ($this->hasFile('icon')) {
-            return File::upload('categories/icons', $this->file('icon'));
-        }
-
-        return NULL;
+        return UserRequestAdapter::transform($this->all() + [
+            'password_adapter' => $this->password ? bcrypt($this->password) : $this->getModelById()->password,
+            'photo_url_adapter' => $this->profilePhotoPath(),
+        ]);
     }
 
     public function attributes()
     {
-        return [
-            'name' => 'Name',
-            'meta_title' => 'Meta Title',
-            'meta_description' => 'Meta Description',
-            'meta_keyword' => 'Meta Keyword',
-        ];
+        return UserRequestAdapter::attributes();
     }
 
     public function failedValidation($validator)

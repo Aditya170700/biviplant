@@ -26,7 +26,7 @@ class UserRepository implements UserInterface
             ->when(!$request->field || !$request->direction, function ($query) use ($request) {
                 $query->latest();
             })
-            ->paginate($request->limit ?? 2);
+            ->paginate($request->limit ?? 25);
     }
 
     public function getById(string $id)

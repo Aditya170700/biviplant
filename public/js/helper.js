@@ -22,11 +22,13 @@ let failed = (message) => {
 
 let confirmation = async (message) => {
     let result = await Swal.fire({
-        title: "Are you sure?",
+        title: "Yakin?",
         text: message,
         icon: "warning",
         buttons: true,
         showCancelButton: true,
+        confirmButtonText: "Oke",
+        cancelButtonText: "Batal",
         dangerMode: true,
     })
     .then((res) => {

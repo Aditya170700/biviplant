@@ -1,6 +1,6 @@
 <template>
     <Layout
-        :title="'Create Banner'"
+        :title="'Tambah Banner'"
         :typeButton="'back'"
         :href="route('admin.banners.index')"
     >
@@ -13,7 +13,7 @@
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
                                         <label for="title" class="form-label"
-                                            >Title</label
+                                            >Judul</label
                                         >
                                         <input
                                             class="form-control"
@@ -32,7 +32,7 @@
                                         <label
                                             for="sub_title"
                                             class="form-label"
-                                            >Sub Title</label
+                                            >Sub Judul</label
                                         >
                                         <input
                                             class="form-control"
@@ -48,9 +48,7 @@
                                 </div>
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
-                                        <label
-                                            for="link"
-                                            class="form-label"
+                                        <label for="link" class="form-label"
                                             >Link</label
                                         >
                                         <textarea
@@ -103,7 +101,7 @@
                                             />
                                             <span
                                                 ><i class="fas fa-save me-2"></i
-                                                >Save</span
+                                                >Simpan</span
                                             >
                                         </div>
                                     </button>
@@ -134,7 +132,7 @@ export default {
             title: "",
             sub_title: "",
             link: "",
-            path: ""
+            path: "",
         });
 
         function submit() {

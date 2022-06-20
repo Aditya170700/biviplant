@@ -1,32 +1,34 @@
 <template>
     <Layout
-        :title="'Detail Banner'"
+        :title="'Detail Pengguna'"
         :typeButton="'back'"
-        :href="route('admin.banners.index')"
+        :href="route('admin.users.index')"
     >
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
                         <div class="row mt-3">
-                            <div class="col-lg-2">Judul</div>
-                            <div class="col-lg-10">: {{ result.title }}</div>
+                            <div class="col-lg-2">Nama</div>
+                            <div class="col-lg-10">: {{ result.name }}</div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-lg-2">Sub Judul</div>
-                            <div class="col-lg-10">
-                                : {{ result.sub_title }}
-                            </div>
+                            <div class="col-lg-2">Role</div>
+                            <div class="col-lg-10">: {{ result.role }}</div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-lg-2">Link</div>
-                            <div class="col-lg-10">: {{ result.link }}</div>
+                            <div class="col-lg-2">E-Mail</div>
+                            <div class="col-lg-10">: {{ result.email }}</div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-lg-2">Banner</div>
+                            <div class="col-lg-2">No Telepon</div>
+                            <div class="col-lg-10">: {{ result.phone }}</div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-lg-2">Foto Profil</div>
                             <div class="col-lg-10">
                                 <img
-                                    :src="result.path_url"
+                                    :src="result.profile_photo_path_url"
                                     alt=""
                                     style="width: 200px"
                                 />

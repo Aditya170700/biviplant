@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\User;
 
+use App\Classes\Adapters\Admin\User\UserRequestAdapter;
 use App\Services\File;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
@@ -25,36 +26,25 @@ class StoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|string|max:255',
-            'meta_title' => 'required|string|max:255',
-            'meta_description' => 'required|string|max:255',
-            'meta_keyword' => 'required|string|max:255',
-            'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        ];
+        return UserRequestAdapter::rulesCreated();
     }
 
-    public function banner()
+    public function profilePhotoPath()
     {
-        return File::upload('categories/banners', $this->file('banner'));
+        return File::upload('users/profile_photo_path', $this->file('photo'));
     }
 
-    public function icon()
+    public function data()
     {
-        return File::upload('categories/icons', $this->file('icon'));
+        return UserRequestAdapter::transform($this->all() + [
+            'password_adapter' => bcrypt($this->password),
+            'photo_url_adapter' => $this->profilePhotoPath(),
+        ]);
     }
 
     public function attributes()
     {
-        return [
-            'name' => 'Name',
-            'meta_title' => 'Meta Title',
-            'meta_description' => 'Meta Description',
-            'meta_keyword' => 'Meta Keyword',
-            'banner' => 'Banner',
-            'icon' => 'Icon',
-        ];
+        return UserRequestAdapter::attributes();
     }
 
     public function failedValidation($validator)

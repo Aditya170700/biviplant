@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ env('APP_NAME') }}</title>
 
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/main/app.css">
-    <link rel="stylesheet" href="/assets/css/main/app-dark.css">
     <link rel="icon" href="{{ asset('img/icons/icon-72x72.png') }}">
-    <link rel="stylesheet" href="/assets/css/shared/iconly.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -36,6 +35,7 @@
 
 <body>
     @inertia
+    <script src="/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
