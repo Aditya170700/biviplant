@@ -16,6 +16,7 @@
                                             >Nama</label
                                         >
                                         <input
+                                            type="text"
                                             class="form-control"
                                             id="name"
                                             v-model="form.name"
