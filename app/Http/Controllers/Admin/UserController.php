@@ -6,8 +6,8 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Interfaces\UserInterface;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\StoreRequest;
-use App\Http\Requests\User\UpdateRequest;
+use App\Http\Requests\Admin\User\StoreRequest;
+use App\Http\Requests\Admin\User\UpdateRequest;
 
 class UserController extends Controller
 {

@@ -1,14 +1,25 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Admin\User;
 
-use App\Classes\Adapters\Admin\User\UserRequestAdapter;
 use App\Services\File;
+use App\Interfaces\UserInterface;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
+use App\Classes\Adapters\Admin\User\UserRequestAdapter;
 
-class StoreRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
+    public function __construct(UserInterface $userInterface)
+    {
+        $this->repository = $userInterface;
+    }
+
+    public function getModelById()
+    {
+        return $this->repository->getById($this->id);
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,18 +37,22 @@ class StoreRequest extends FormRequest
      */
     public function rules()
     {
-        return UserRequestAdapter::rulesCreated();
+        return UserRequestAdapter::rulesUpdated($this->id);
     }
 
     public function profilePhotoPath()
     {
-        return File::upload('users/profile_photo_path', $this->file('photo'));
+        if ($this->hasFile('photo')) {
+            return File::upload('users/profile_photo_path', $this->file('photo'));
+        }
+
+        return $this->getModelById()->profile_photo_path;
     }
 
     public function data()
     {
         return UserRequestAdapter::transform($this->all() + [
-            'password_adapter' => bcrypt($this->password),
+            'password_adapter' => $this->password ? bcrypt($this->password) : $this->getModelById()->password,
             'photo_url_adapter' => $this->profilePhotoPath(),
         ]);
     }

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Banner\StoreRequest;
-use App\Http\Requests\Banner\UpdateRequest;
+use App\Http\Requests\Admin\Banner\StoreRequest;
+use App\Http\Requests\Admin\Banner\UpdateRequest;
 use App\Interfaces\BannerInterface;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
