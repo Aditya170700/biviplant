@@ -91,11 +91,15 @@
                                         <label for="banner" class="form-label"
                                             >Banner</label
                                         >
+                                        <div class="mb-3">
+                                            <img class="img rounded fluid" alt="" :src="banner" style="width: 200px">
+                                        </div>
                                         <input
                                             type="file"
                                             class="form-control"
                                             id="banner"
-                                            @change="
+                                            @change="setBanner"
+                                            @input="
                                                 form.banner =
                                                     $event.target.files[0]
                                             "
@@ -112,11 +116,15 @@
                                         <label for="icon" class="form-label"
                                             >Ikon</label
                                         >
+                                        <div class="mb-3">
+                                            <img class="img rounded fluid" alt="" :src="icon" style="width: 200px">
+                                        </div>
                                         <input
                                             type="file"
                                             class="form-control"
                                             id="icon"
-                                            @change="
+                                            @change="setIcon"
+                                            @input="
                                                 form.icon =
                                                     $event.target.files[0]
                                             "
@@ -165,6 +173,8 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
+import { ref } from '@vue/reactivity';
+import { imageReader } from '../../../utils';
 
 export default {
     components: { Layout, Link, SpinnerProcessing, FormText },
@@ -174,7 +184,9 @@ export default {
     },
     setup(props) {
         const form = useForm(props.result);
-
+        const banner = ref(props.result.banner_url);
+        const icon = ref(props.result.icon_url);
+        
         function submit() {
             let data = form.data();
             Inertia.post(
@@ -188,9 +200,21 @@ export default {
             );
         }
 
+        const setBanner = (e) => {
+            imageReader(form.banner, banner)
+        }
+
+        const setIcon = (e) => {
+            imageReader(form.icon, icon)
+        }
+
         return {
             form,
             submit,
+            setBanner,
+            setIcon,
+            banner,
+            icon
         };
     },
 };

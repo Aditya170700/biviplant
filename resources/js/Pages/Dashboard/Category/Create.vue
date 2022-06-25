@@ -93,10 +93,14 @@
                                         <label for="banner" class="form-label"
                                             >Banner</label
                                         >
+                                        <div class="mb-3">
+                                            <img class="img rounded fluid" alt="" :src="banner" style="width: 200px">
+                                        </div>
                                         <input
                                             type="file"
                                             class="form-control"
                                             id="banner"
+                                            @change="setBanner"
                                             @input="
                                                 form.banner =
                                                     $event.target.files[0]
@@ -114,10 +118,14 @@
                                         <label for="icon" class="form-label"
                                             >Ikon</label
                                         >
+                                        <div class="mb-3">
+                                            <img class="img rounded fluid" alt="" :src="icon" style="width: 200px">
+                                        </div>
                                         <input
                                             type="file"
                                             class="form-control"
                                             id="icon"
+                                            @change="setIcon"
                                             @input="
                                                 form.icon =
                                                     $event.target.files[0]
@@ -166,6 +174,8 @@ import { Link } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
+import { ref } from '@vue/reactivity';
+import { imageReader } from '../../../utils';
 
 export default {
     components: { Layout, Link, SpinnerProcessing, FormText },
@@ -181,6 +191,8 @@ export default {
             banner: "",
             icon: "",
         });
+        const banner = ref('');
+        const icon = ref('');
 
         function submit() {
             form.transform((data) => ({
@@ -188,9 +200,21 @@ export default {
             })).post(route("admin.categories.store"));
         }
 
+        const setBanner = (e) => {
+            imageReader(form.banner, banner)
+        }
+
+        const setIcon = (e) => {
+            imageReader(form.icon, icon)
+        }
+
         return {
             form,
             submit,
+            setBanner,
+            setIcon,
+            banner,
+            icon
         };
     },
 };
