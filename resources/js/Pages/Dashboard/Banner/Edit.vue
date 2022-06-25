@@ -69,10 +69,14 @@
                                         <label for="banner" class="form-label"
                                             >Banner</label
                                         >
+                                        <div class="mb-3">
+                                            <img class="img rounded fluid" alt="" :src="banner" style="width: 200px">
+                                        </div>
                                         <input
                                             type="file"
                                             class="form-control"
                                             id="banner"
+                                            @change="setBanner"
                                             @input="
                                                 form.path =
                                                     $event.target.files[0]
@@ -122,6 +126,8 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
+import { ref } from '@vue/reactivity';
+import { imageReader } from '../../../utils';
 
 export default {
     components: { Layout, Link, SpinnerProcessing, FormText },
@@ -131,7 +137,7 @@ export default {
     },
     setup(props) {
         const form = useForm(props.result);
-
+        const banner = ref(props.result.path_url);
         function submit() {
             let data = form.data();
             Inertia.post(
@@ -145,9 +151,15 @@ export default {
             );
         }
 
+        const setBanner = (e) => {
+            imageReader(form.path, banner)
+        }
+
         return {
             form,
             submit,
+            setBanner,
+            banner
         };
     },
 };
