@@ -5,6 +5,7 @@ namespace App\Http\Requests\Admin\Event;
 use App\Classes\Adapters\Admin\Event\EventRequestAdapter;
 use App\Interfaces\BannerInterface;
 use App\Models\Banner;
+use App\Models\Event;
 use App\Services\File;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
@@ -33,7 +34,7 @@ class UpdateRequest extends FormRequest
 
     public function banner()
     {
-        return Banner::find($this->id);
+        return Event::find($this->id);
     }
 
     public function path()
@@ -47,7 +48,7 @@ class UpdateRequest extends FormRequest
 
     public function data()
     {
-        $data = $this->all() + ['path_url' => $this->path()];
+        $data = array_merge($this->all(), ['path_url' => $this->path()]);
         return EventRequestAdapter::transform($data);
     }
 
