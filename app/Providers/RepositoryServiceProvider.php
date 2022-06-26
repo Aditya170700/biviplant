@@ -7,10 +7,12 @@ use App\Interfaces\BannerInterface;
 use App\Repositories\UserRepository;
 use App\Interfaces\CategoryInterface;
 use App\Interfaces\EventInterface;
+use App\Interfaces\VoucherInterface;
 use App\Repositories\BannerRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\CategoryRepository;
 use App\Repositories\EventRepository;
+use App\Repositories\VoucherRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(BannerInterface::class, BannerRepository::class);
         $this->app->bind(UserInterface::class, UserRepository::class);
         $this->app->bind(EventInterface::class, EventRepository::class);
+        $this->app->bind(VoucherInterface::class, VoucherRepository::class);
     }
 
     /**
