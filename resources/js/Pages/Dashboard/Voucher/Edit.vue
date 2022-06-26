@@ -1,8 +1,8 @@
 <template>
     <Layout
-        :title="'Ubah Banner'"
+        :title="'Ubah Voucher'"
         :typeButton="'back'"
-        :href="route('admin.banners.index')"
+        :href="route('admin.vouchers.index')"
     >
         <div class="row">
             <div class="col-md-12 grid-margin">
@@ -12,80 +12,117 @@
                             <div class="row">
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
-                                        <label for="title" class="form-label"
-                                            >Judul</label
+                                        <label for="code" class="form-label"
+                                            >Code</label
                                         >
                                         <input
                                             class="form-control"
-                                            id="title"
-                                            v-model="form.title"
+                                            id="code"
+                                            v-model="form.code"
                                         />
                                         <FormText
-                                            :id="'title'"
-                                            :message="errors.title"
-                                            v-if="errors.title"
+                                            :id="'code'"
+                                            :message="errors.code"
+                                            v-if="errors.code"
                                         />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
                                         <label
-                                            for="sub_title"
+                                            for="limit"
                                             class="form-label"
-                                            >Sub Judul</label
+                                            >Limit</label
                                         >
                                         <input
+                                            type="number"
                                             class="form-control"
-                                            id="sub_title"
-                                            v-model="form.sub_title"
+                                            id="limit"
+                                            v-model="form.limit"
                                         />
                                         <FormText
-                                            :id="'sub_title'"
-                                            :message="errors.sub_title"
-                                            v-if="errors.sub_title"
+                                            :id="'limit'"
+                                            :message="errors.limit"
+                                            v-if="errors.limit"
                                         />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
-                                        <label for="link" class="form-label"
-                                            >Link</label
+                                        <label
+                                            for="expired_at"
+                                            class="form-label"
+                                            >Waktu Berakhir</label
                                         >
-                                        <textarea
+                                        <input
                                             class="form-control"
-                                            id="link"
-                                            rows="3"
-                                            v-model="form.link"
-                                        ></textarea>
+                                            id="expired_at"
+                                            v-model="form.expired_at"
+                                        />
                                         <FormText
-                                            :id="'link'"
-                                            :message="errors.link"
-                                            v-if="errors.link"
+                                            :id="'expired_at'"
+                                            :message="errors.expired_at"
+                                            v-if="errors.expired_at"
                                         />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
-                                        <label for="banner" class="form-label"
-                                            >Banner</label
+                                        <label
+                                            for="min_order"
+                                            class="form-label"
+                                            >Minimal Order</label
                                         >
-                                        <div class="mb-3">
-                                            <img class="img rounded fluid" alt="" :src="banner" style="width: 200px">
-                                        </div>
                                         <input
-                                            type="file"
+                                            type="number"
                                             class="form-control"
-                                            id="banner"
-                                            @change="setBanner"
-                                            @input="
-                                                form.path =
-                                                    $event.target.files[0]
-                                            "
+                                            id="min_order"
+                                            v-model="form.min_order"
                                         />
                                         <FormText
-                                            :id="'banner'"
-                                            :message="errors.path"
-                                            v-if="errors.path"
+                                            :id="'min_order'"
+                                            :message="errors.min_order"
+                                            v-if="errors.min_order"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="discount"
+                                            class="form-label"
+                                            >Diskon</label
+                                        >
+                                        <input
+                                            type="number"
+                                            class="form-control"
+                                            id="discount"
+                                            v-model="form.discount"
+                                        />
+                                        <FormText
+                                            :id="'discount'"
+                                            :message="errors.discount"
+                                            v-if="errors.discount"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="max_discount"
+                                            class="form-label"
+                                            >Maksimal Diskon</label
+                                        >
+                                        <input
+                                            type="number"
+                                            class="form-control"
+                                            id="max_discount"
+                                            v-model="form.max_discount"
+                                        />
+                                        <FormText
+                                            :id="'max_discount'"
+                                            :message="errors.max_discount"
+                                            v-if="errors.max_discount"
                                         />
                                     </div>
                                 </div>
@@ -126,8 +163,6 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
-import { ref } from '@vue/reactivity';
-import { imageReader } from '../../../utils';
 
 export default {
     components: { Layout, Link, SpinnerProcessing, FormText },
@@ -137,11 +172,10 @@ export default {
     },
     setup(props) {
         const form = useForm(props.result);
-        const banner = ref(props.result.path_url);
         function submit() {
             let data = form.data();
             Inertia.post(
-                route("admin.banners.update", {
+                route("admin.vouchers.update", {
                     id: props.result.id,
                 }),
                 {
@@ -150,16 +184,9 @@ export default {
                 }
             );
         }
-
-        const setBanner = (e) => {
-            imageReader(form.path, banner)
-        }
-
         return {
             form,
             submit,
-            setBanner,
-            banner
         };
     },
 };

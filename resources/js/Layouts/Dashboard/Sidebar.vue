@@ -122,6 +122,22 @@
                             <span>Event</span>
                         </Link>
                     </li>
+                    <li
+                        :class="[
+                            'sidebar-item',
+                            route().current().includes('admin.vouchers.')
+                                ? 'active'
+                                : '',
+                        ]"
+                    >
+                        <Link
+                            :href="route('admin.vouchers.index')"
+                            class="sidebar-link"
+                        >
+                            <i class="fas fa-money-bill"></i>
+                            <span>Voucher</span>
+                        </Link>
+                    </li>
                     <li class="sidebar-title">Lainnya</li>
 
                     <li class="sidebar-item">
