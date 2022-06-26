@@ -1,8 +1,8 @@
 <template>
     <Layout
-        :title="'Detail Banner'"
+        :title="'Detail Event'"
         :typeButton="'back'"
-        :href="route('admin.banners.index')"
+        :href="route('admin.events.index')"
     >
         <div class="row">
             <div class="col-md-12 grid-margin">
@@ -19,14 +19,11 @@
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-lg-2">Link</div>
-                            <div class="col-lg-10">: {{ result.link }}</div>
-                        </div>
-                        <div class="row mt-3">
                             <div class="col-lg-2">Banner</div>
                             <div class="col-lg-10">
                                 <img
                                     :src="result.path_url"
+                                    class="fluid rounded"
                                     alt=""
                                     style="width: 200px"
                                 />

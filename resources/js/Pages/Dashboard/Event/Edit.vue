@@ -1,8 +1,8 @@
 <template>
     <Layout
-        :title="'Ubah Banner'"
+        :title="'Ubah Event'"
         :typeButton="'back'"
-        :href="route('admin.banners.index')"
+        :href="route('admin.events.index')"
     >
         <div class="row">
             <div class="col-md-12 grid-margin">
@@ -48,31 +48,17 @@
                                 </div>
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
-                                        <label for="link" class="form-label"
-                                            >Link</label
-                                        >
-                                        <textarea
-                                            class="form-control"
-                                            id="link"
-                                            rows="3"
-                                            v-model="form.link"
-                                        ></textarea>
-                                        <FormText
-                                            :id="'link'"
-                                            :message="form.errors.link"
-                                            v-if="form.errors.link"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-3">
-                                    <div class="mb-3">
                                         <label for="banner" class="form-label"
                                             >Banner</label
                                         >
+                                        <div class="mb-3">
+                                            <img class="img rounded fluid" alt="" :src="banner" style="width: 200px">
+                                        </div>
                                         <input
                                             type="file"
                                             class="form-control"
                                             id="banner"
+                                            @change="setBanner"
                                             @input="
                                                 form.path =
                                                     $event.target.files[0]
@@ -122,6 +108,8 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
+import { ref } from '@vue/reactivity';
+import { imageReader } from '../../../utils'
 
 export default {
     components: { Layout, Link, SpinnerProcessing, FormText },
@@ -131,11 +119,11 @@ export default {
     },
     setup(props) {
         const form = useForm(props.result);
-
+        const banner = ref(props.result.path_url);
         function submit() {
             let data = form.data();
             Inertia.post(
-                route("admin.banners.update", {
+                route("admin.events.update", {
                     id: props.result.id,
                 }),
                 {
@@ -145,9 +133,15 @@ export default {
             );
         }
 
+        const setBanner = (e) => {
+            imageReader(form.path, banner)
+        }
+
         return {
             form,
             submit,
+            banner,
+            setBanner
         };
     },
 };

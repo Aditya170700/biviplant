@@ -124,10 +124,14 @@
                                         <label for="photo" class="form-label"
                                             >Foto Profil</label
                                         >
+                                        <div class="mb-3">
+                                            <img class="img rounded fluid" alt="" :src="photo" style="width: 200px">
+                                        </div>
                                         <input
                                             type="file"
                                             class="form-control"
                                             id="photo"
+                                            @change="setPhoto"
                                             @input="
                                                 form.photo =
                                                     $event.target.files[0]
@@ -177,6 +181,8 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
+import { ref } from '@vue/reactivity';
+import { imageReader } from '../../../utils';
 
 export default {
     components: { Layout, Link, SpinnerProcessing, FormText },
@@ -191,6 +197,7 @@ export default {
             password: "",
             password_confirmation: "",
         });
+        const photo = ref(props.result.profile_photo_path_url);
 
         function submit() {
             let data = form.data();
@@ -205,9 +212,15 @@ export default {
             );
         }
 
+        const setPhoto = (e) => {
+            imageReader(form.photo, photo)
+        }
+
         return {
             form,
             submit,
+            setPhoto,
+            photo
         };
     },
 };
