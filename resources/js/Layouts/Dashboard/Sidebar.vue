@@ -1,5 +1,5 @@
 <template>
-    <div id="sidebar" class="active">
+    <div id="sidebar" :class="sidebar">
         <div class="sidebar-wrapper active">
             <div class="sidebar-header position-relative">
                 <div class="d-flex justify-content-between align-items-center">
@@ -32,7 +32,7 @@
                         ></i>
                     </div>
                     <div class="sidebar-toggler x">
-                        <a href="#" class="sidebar-hide d-xl-none d-block"
+                        <a href="#" @click="setSidebar" class="sidebar-hide d-xl-none d-block"
                             ><i class="fas fa-xmark"></i
                         ></a>
                     </div>
@@ -143,19 +143,63 @@
 <script>
 import { Inertia } from "@inertiajs/inertia";
 import { Link } from "@inertiajs/inertia-vue3";
+import { ref, toRef } from '@vue/reactivity';
 
 export default {
     components: {
         Link,
     },
-    setup() {
+    props: {
+        sidebar: String
+    },
+    setup(props, {emit}) {
         const logout = () => {
             Inertia.post(route("logout"));
         };
 
+        const setSidebar = () => {
+            emit('changeSidebar', '')
+            sidebar.value = ''
+            console.log(sidebar.value)
+        }
+
         return {
             logout,
+            setSidebar
         };
     },
 };
 </script>
+
+<style lang="scss" scoped>
+    #sidebar {
+        &.active {
+            .sidebar-wrapper {
+                margin-left: 0 !important;
+            }
+        }
+        &:not(.active) {
+            .sidebar-wrapper {
+                margin-left: -300px;
+            }
+            & ~ #main {
+                margin-left: 0;
+            }
+        }
+    }
+    @media screen and (max-width: 1199px) {
+        .sidebar-wrapper {
+            position:absolute;
+            margin-left: -300px !important;
+            .sidebar-toggler.x  {
+                display:block;
+            }
+        }
+    }
+    @media screen and (min-width: 1199px) {
+        .sidebar-wrapper {
+            margin-left: 0 !important;
+        }
+    }
+</style>
+    

@@ -15,20 +15,9 @@ createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => require(`./Pages/${name}.vue`),
     setup({ el, app, props, plugin }) {
-        const myApp = createApp({ render: () => h(app, props) })
+        return createApp({ render: () => h(app, props) })
             .use(plugin)
-            .mixin({ methods: { route } });
-
-        // global function for helper
-
-        /**
-         * Image Reader
-         */
-        myApp.config.globalProperties.$imageReader = imageReader;
-        myApp.provide('imageReader', imageReader);
-
-
-        myApp.mount(el);
-        return myApp;
+            .mixin({ methods: { route } })
+            .mount(el);
     },
 });

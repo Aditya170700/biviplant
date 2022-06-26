@@ -1,9 +1,9 @@
 <template>
     <div id="app">
-        <Sidebar />
+        <Sidebar :sidebar="sidebar" @changeSidebar="changeSidebar"/>
         <div id="main">
             <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
+                <a href="#" @click="setSidebar" class="burger-btn d-block">
                     <i class="fas fa-bars"></i>
                 </a>
             </header>
@@ -48,7 +48,7 @@
 import Sidebar from "../../Layouts/Dashboard/Sidebar.vue";
 import Footer from "../../Layouts/Dashboard/Footer.vue";
 import { usePage, Link } from "@inertiajs/inertia-vue3";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 export default {
     components: { Sidebar, Footer, Link },
@@ -66,15 +66,35 @@ export default {
             required: false,
         },
     },
+    emits: ['changeSidebar'],
     setup() {
         const shared = computed(() => usePage().props.value);
-
+        const sidebar = ref('active');
         if (shared.value.flash.success) {
             success(shared.value.flash.success);
         }
 
         if (shared.value.flash.failed) {
             failed(shared.value.flash.failed);
+        }
+
+        const changeSidebar = (e) => {
+            sidebar.value = e
+        }
+
+        const setSidebar = () => {
+            if(sidebar.value == '') {
+                sidebar.value = 'active'
+            }else{
+                sidebar.value = ''
+            }
+            console.log(sidebar.value)
+        }
+
+        return {
+            sidebar,
+            setSidebar,
+            changeSidebar
         }
     },
 };
