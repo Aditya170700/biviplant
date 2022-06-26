@@ -22,8 +22,8 @@
                                         />
                                         <FormText
                                             :id="'title'"
-                                            :message="form.errors.title"
-                                            v-if="form.errors.title"
+                                            :message="errors.title"
+                                            v-if="errors.title"
                                         />
                                     </div>
                                 </div>
@@ -41,8 +41,8 @@
                                         />
                                         <FormText
                                             :id="'sub_title'"
-                                            :message="form.errors.sub_title"
-                                            v-if="form.errors.sub_title"
+                                            :message="errors.sub_title"
+                                            v-if="errors.sub_title"
                                         />
                                     </div>
                                 </div>
@@ -59,8 +59,8 @@
                                         ></textarea>
                                         <FormText
                                             :id="'link'"
-                                            :message="form.errors.link"
-                                            v-if="form.errors.link"
+                                            :message="errors.link"
+                                            v-if="errors.link"
                                         />
                                     </div>
                                 </div>
@@ -84,8 +84,8 @@
                                         />
                                         <FormText
                                             :id="'banner'"
-                                            :message="form.errors.path"
-                                            v-if="form.errors.path"
+                                            :message="errors.path"
+                                            v-if="errors.path"
                                         />
                                     </div>
                                 </div>
