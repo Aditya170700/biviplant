@@ -72,6 +72,7 @@
                                         <div class="mb-3">
                                             <img class="img rounded fluid" alt="" :src="banner" style="width: 200px">
                                         </div>
+                                        <vue-anka-cropper></vue-anka-cropper>
                                         <input
                                             type="file"
                                             class="form-control"
@@ -127,9 +128,10 @@ import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
 import { ref } from '@vue/reactivity';
 import { imageReader } from '../../../utils';
+import vueAnkaCropper from 'vue-anka-cropper'
 
 export default {
-    components: { Layout, Link, SpinnerProcessing, FormText },
+    components: { Layout, Link, SpinnerProcessing, FormText, vueAnkaCropper },
     props: {
         errors: Object,
     },
