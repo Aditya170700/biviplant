@@ -30,14 +30,6 @@
                                 </select>
                             </div>
                         </div>
-                        <div
-                            v-if="$page.props.flash.success_delete"
-                            class="alert alert-success"
-                            role="alert"
-                        >
-                            <i class="fas fa-check me-2"></i
-                            >{{ $page.props.flash.success_delete }}
-                        </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="table-dark">
@@ -79,8 +71,7 @@
                                                     v-if="
                                                         params.direction ==
                                                             'asc' &&
-                                                        params.field ==
-                                                            'limit'
+                                                        params.field == 'limit'
                                                     "
                                                     class="fa-solid fa-arrow-down-a-z"
                                                 ></i>
@@ -88,8 +79,7 @@
                                                     v-if="
                                                         params.direction ==
                                                             'desc' &&
-                                                        params.field ==
-                                                            'limit'
+                                                        params.field == 'limit'
                                                     "
                                                     class="fa-solid fa-arrow-up-z-a"
                                                 ></i>
@@ -189,7 +179,10 @@
                                         <td>{{ result.limit }}</td>
                                         <td>{{ result.expired_at }}</td>
                                         <td>{{ result.min_order }}</td>
-                                        <td>{{ result.discount }} - {{ result.max_discount }}</td>
+                                        <td>
+                                            {{ result.discount }} -
+                                            {{ result.max_discount }}
+                                        </td>
                                         <td class="d-flex justify-content-end">
                                             <Link
                                                 :href="

@@ -13,10 +13,7 @@ class LoginResponse implements LoginResponseContract
     public function toResponse($request)
     {
         $isAdmin = auth()->user()->is_admin;
-        if ($isAdmin) {
-            cache(['refreshPage' => true], now()->addMinutes(5));
-        }
 
-        return redirect()->intended($isAdmin ? '/admin' : '/');
+        return redirect()->intended($isAdmin ? '/admin' : '/')->with('login', true);
     }
 }

@@ -94,7 +94,7 @@ class BannerController extends Controller
             $this->bannerInterface->delete($this->bannerInterface->getById($id));
 
             return redirect()->route('admin.banners.index')
-                ->with('success_delete', 'Berhasil hapus data');
+                ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
             throw $th;
         }

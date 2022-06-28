@@ -17,7 +17,7 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next, $role)
     {
         if (!in_array($request->user()->role, explode('|', $role))) {
-            return redirect()->back()->with('message', 'You are not authorized to access this page.');
+            return redirect()->back()->with('failed', 'You are not authorized to access this page.');
         }
 
         return $next($request);

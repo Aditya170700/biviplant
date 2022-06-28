@@ -93,7 +93,7 @@ class EventController extends Controller
             $this->eventInterface->delete($this->eventInterface->getById($id));
 
             return redirect()->route('admin.events.index')
-                ->with('success_delete', 'Berhasil hapus data');
+                ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
             throw $th;
         }

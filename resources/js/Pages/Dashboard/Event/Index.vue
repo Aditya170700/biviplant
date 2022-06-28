@@ -30,14 +30,6 @@
                                 </select>
                             </div>
                         </div>
-                        <div
-                            v-if="$page.props.flash.success_delete"
-                            class="alert alert-success"
-                            role="alert"
-                        >
-                            <i class="fas fa-check me-2"></i
-                            >{{ $page.props.flash.success_delete }}
-                        </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="table-dark">
@@ -109,12 +101,9 @@
                                         <td class="d-flex justify-content-end">
                                             <Link
                                                 :href="
-                                                    route(
-                                                        'admin.events.show',
-                                                        {
-                                                            id: result.id,
-                                                        }
-                                                    )
+                                                    route('admin.events.show', {
+                                                        id: result.id,
+                                                    })
                                                 "
                                                 class="btn btn-sm btn-primary me-2 rounded-custom"
                                             >
@@ -122,12 +111,9 @@
                                             </Link>
                                             <Link
                                                 :href="
-                                                    route(
-                                                        'admin.events.edit',
-                                                        {
-                                                            id: result.id,
-                                                        }
-                                                    )
+                                                    route('admin.events.edit', {
+                                                        id: result.id,
+                                                    })
                                                 "
                                                 class="btn btn-sm btn-warning me-2 rounded-custom"
                                             >

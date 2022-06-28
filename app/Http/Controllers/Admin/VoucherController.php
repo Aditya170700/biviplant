@@ -81,7 +81,7 @@ class VoucherController extends Controller
         try {
             $this->voucherInterface->delete($this->voucherInterface->getById($id));
             return redirect()->route('admin.vouchers.index')
-                ->with('success_delete', 'Berhasil hapus data');
+                ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
             throw $th;
         }

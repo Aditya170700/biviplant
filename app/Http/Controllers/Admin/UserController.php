@@ -134,7 +134,7 @@ class UserController extends Controller
             $this->userInterface->delete($this->userInterface->getById($id));
 
             return redirect()->route('admin.users.index')
-                ->with('success_delete', 'Berhasil hapus data');
+                ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
             throw $th;
         }

@@ -11,13 +11,7 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         try {
-            if ($request->refreshPage) {
-                cache()->flush();
-            }
-
-            return Inertia::render('Dashboard/Index', [
-                'refreshPage' => cache('refreshPage'),
-            ]);
+            return Inertia::render('Dashboard/Index');
         } catch (\Throwable $th) {
             throw $th;
         }

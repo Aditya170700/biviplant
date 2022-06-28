@@ -93,7 +93,7 @@ class CategoryController extends Controller
             $this->categoryInterface->delete($this->categoryInterface->getById($id));
 
             return redirect()->route('admin.categories.index')
-                ->with('success_delete', 'Berhasil hapus data');
+                ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
             throw $th;
         }

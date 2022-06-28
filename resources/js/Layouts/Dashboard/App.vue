@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <Sidebar :sidebar="sidebar" @changeSidebar="changeSidebar"/>
+        <Sidebar :sidebar="sidebar" @changeSidebar="changeSidebar" />
         <div id="main">
             <header class="mb-3">
                 <a href="#" @click="setSidebar" class="burger-btn d-block">
@@ -66,36 +66,27 @@ export default {
             required: false,
         },
     },
-    emits: ['changeSidebar'],
+    emits: ["changeSidebar"],
     setup() {
         const shared = computed(() => usePage().props.value);
-        const sidebar = ref('active');
-        if (shared.value.flash.success) {
-            success(shared.value.flash.success);
-        }
-
-        if (shared.value.flash.failed) {
-            failed(shared.value.flash.failed);
-        }
-
+        const sidebar = ref("active");
         const changeSidebar = (e) => {
-            sidebar.value = e
-        }
+            sidebar.value = e;
+        };
 
         const setSidebar = () => {
-            if(sidebar.value == '') {
-                sidebar.value = 'active'
-            }else{
-                sidebar.value = ''
+            if (sidebar.value == "") {
+                sidebar.value = "active";
+            } else {
+                sidebar.value = "";
             }
-            console.log(sidebar.value)
-        }
+        };
 
         return {
             sidebar,
             setSidebar,
-            changeSidebar
-        }
+            changeSidebar,
+        };
     },
 };
 </script>
