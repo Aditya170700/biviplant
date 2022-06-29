@@ -12,7 +12,7 @@ class VoucherRequestAdapter implements DataRequestAdapterInterface
         return [
             'code' => 'required|string|max:255',
             'limit' => 'required|integer',
-            'expired_at' => 'required|date_format:Y-m-d H:i:s',
+            'expired_at' => 'required|date',
             'min_order' => 'required|integer|min:1',
             'discount' => 'required|integer|min:1|lt:max_discount',
             'max_discount' => 'required|integer|min:1|gt:discount'
@@ -24,7 +24,7 @@ class VoucherRequestAdapter implements DataRequestAdapterInterface
         return [
             'code' => 'required|string|max:255',
             'limit' => 'required|integer',
-            'expired_at' => 'required|date_format:Y-m-d H:i:s',
+            'expired_at' => 'required|date',
             'min_order' => 'required|integer|min:1',
             'discount' => 'required|integer|min:1|lt:max_discount',
             'max_discount' => 'required|integer|min:1|gt:discount'
