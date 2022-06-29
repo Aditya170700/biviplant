@@ -36,7 +36,7 @@ class UpdateRequest extends FormRequest
         return Banner::find($this->id);
     }
 
-    public function path()
+    public function pathUrl()
     {
         if ($this->hasFile('path')) {
             return File::upload('banners', $this->file('path'));
@@ -47,7 +47,7 @@ class UpdateRequest extends FormRequest
 
     public function data()
     {
-        $data = $this->all() + ['path_url' => $this->path()];
+        $data = array_merge($this->all(), ['path_url' => $this->pathUrl()]);
         return BannerRequestAdapter::transform($data);
     }
 
