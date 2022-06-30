@@ -7,7 +7,7 @@ import { imageReader } from './utils';
 import { createToast } from 'mosha-vue-toastify'
 import 'mosha-vue-toastify/dist/style.css'
 
-const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Biviplant';
 
 InertiaProgress.init({
     color: '#4B5563',
