@@ -1,5 +1,9 @@
 <template>
     <div>
+        <Head>
+            <title>Jual Tanaman Hias dan Buah Dalam Pot</title>
+            <meta head-key="description" name="description" content="Jual Tanaman Hias dan Buah Dalam Pot" />
+        </Head>
         <Header></Header>
         <Sidebar></Sidebar>
         <div
@@ -1312,6 +1316,8 @@ import { Link } from "@inertiajs/inertia-vue3";
 import Header from "./../Shared/Homepage/Header.vue";
 import Sidebar from "./../Shared/Homepage/Sidebar.vue";
 import Footer from "./../Shared/Footer.vue";
+import { Head } from '@inertiajs/inertia-vue3'
+
 
 export default {
     components: {
@@ -1319,6 +1325,7 @@ export default {
         Header,
         Sidebar,
         Footer,
+        Head
     },
 };
 </script>
