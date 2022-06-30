@@ -9,3 +9,7 @@ Instalation
 `php artisan serve`
 `npm run watch`
 `node public/js/ssr.js`
+
+Sync Raja Ongkir
+
+`php artisan sync:ro`
