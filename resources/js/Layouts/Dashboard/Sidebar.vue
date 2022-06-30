@@ -40,6 +40,7 @@
             </div>
             <div class="sidebar-menu">
                 <ul class="menu">
+                    <!-- DASHBOARD -->
                     <li
                         :class="[
                             'sidebar-item',
@@ -56,88 +57,116 @@
                             <span>Dashboard</span>
                         </Link>
                     </li>
-                    <li class="sidebar-title">Data Master</li>
 
-                    <li
-                        :class="[
+                    <!-- DATA MASTER -->
+                    <li :class="[
                             'sidebar-item',
-                            route().current().includes('admin.categories.')
-                                ? 'active'
-                                : '',
-                        ]"
-                    >
-                        <Link
-                            :href="route('admin.categories.index')"
-                            class="sidebar-link"
-                        >
-                            <i class="fas fa-boxes"></i>
-                            <span>Kategori</span>
-                        </Link>
+                            'has-sub',
+                            route().current().includes('admin.categories') ||
+                            route().current().includes('admin.banners') ||
+                            route().current().includes('admin.users') ||
+                            route().current().includes('admin.events') ||
+                            route().current().includes('admin.vouchers')
+                                    ? 'active'
+                                    : '',
+                        ]">
+                        <a href="#" class="sidebar-link" @click="menuColapse($event)">
+                            <i class="fas fa-book"></i>
+                            <span>Data Master</span>
+                        </a>
+                        <ul 
+                            :class="[
+                                'submenu',
+                                'has-sub',
+                                route().current().includes('admin')
+                                        ? 'active'
+                                        : '',
+                        ]">
+                            <li
+                                :class="[
+                                    'submenu-item',
+                                    route().current().includes('admin.categories.')
+                                        ? 'active'
+                                        : '',
+                                ]"
+                            >
+                                <Link
+                                    :href="route('admin.categories.index')"
+                                    class="sidebar-link"
+                                >
+                                    <i class="fas fa-boxes"></i>
+                                    <span>Kategori</span>
+                                </Link>
+                            </li>
+                            <li
+                                :class="[
+                                    'submenu-item',
+                                    route().current().includes('admin.banners.')
+                                        ? 'active'
+                                        : '',
+                                ]"
+                            >
+                                <Link
+                                    :href="route('admin.banners.index')"
+                                    class="sidebar-link"
+                                >
+                                    <i class="fas fa-images"></i>
+                                    <span>Banner</span>
+                                </Link>
+                            </li>
+                            <li
+                                :class="[
+                                    'submenu-item',
+                                    route().current().includes('admin.users.')
+                                        ? 'active'
+                                        : '',
+                                ]"
+                            >
+                                <Link
+                                    :href="route('admin.users.index')"
+                                    class="sidebar-link"
+                                >
+                                    <i class="fas fa-users"></i>
+                                    <span>Pengguna</span>
+                                </Link>
+                            </li>
+                            <li
+                                :class="[
+                                    'submenu-item',
+                                    route().current().includes('admin.events.')
+                                        ? 'active'
+                                        : '',
+                                ]"
+                            >
+                                <Link
+                                    :href="route('admin.events.index')"
+                                    class="sidebar-link"
+                                >
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Event</span>
+                                </Link>
+                            </li>
+                            <li
+                                :class="[
+                                    'submenu-item',
+                                    route().current().includes('admin.vouchers.')
+                                        ? 'active'
+                                        : '',
+                                ]"
+                            >
+                                <Link
+                                    :href="route('admin.vouchers.index')"
+                                    class="sidebar-link"
+                                >
+                                    <i class="fas fa-money-bill"></i>
+                                    <span>Voucher</span>
+                                </Link>
+                            </li>
+                        </ul>
                     </li>
-                    <li
-                        :class="[
-                            'sidebar-item',
-                            route().current().includes('admin.banners.')
-                                ? 'active'
-                                : '',
-                        ]"
-                    >
-                        <Link
-                            :href="route('admin.banners.index')"
-                            class="sidebar-link"
-                        >
-                            <i class="fas fa-images"></i>
-                            <span>Banner</span>
-                        </Link>
-                    </li>
-                    <li
-                        :class="[
-                            'sidebar-item',
-                            route().current().includes('admin.users.')
-                                ? 'active'
-                                : '',
-                        ]"
-                    >
-                        <Link
-                            :href="route('admin.users.index')"
-                            class="sidebar-link"
-                        >
-                            <i class="fas fa-users"></i>
-                            <span>Pengguna</span>
-                        </Link>
-                    </li>
-                    <li
-                        :class="[
-                            'sidebar-item',
-                            route().current().includes('admin.events.')
-                                ? 'active'
-                                : '',
-                        ]"
-                    >
-                        <Link
-                            :href="route('admin.events.index')"
-                            class="sidebar-link"
-                        >
-                            <i class="fas fa-calendar"></i>
-                            <span>Event</span>
-                        </Link>
-                    </li>
-                    <li
-                        :class="[
-                            'sidebar-item',
-                            route().current().includes('admin.vouchers.')
-                                ? 'active'
-                                : '',
-                        ]"
-                    >
-                        <Link
-                            :href="route('admin.vouchers.index')"
-                            class="sidebar-link"
-                        >
-                            <i class="fas fa-money-bill"></i>
-                            <span>Voucher</span>
-                        </Link>
-                    </li>
+                    
+                    <!-- OTHERS -->
+                    
                     <li class="sidebar-title">Lainnya</li>
 
                     <li class="sidebar-item">
@@ -169,9 +198,16 @@ export default {
         sidebar: String
     },
     setup(props, {emit}) {
+        const colapse = ref(null);
         const logout = () => {
             Inertia.post(route("logout"));
         };
+
+        const menuColapse = (e) => {
+            let $parent = e.target.closest('.sidebar-item')
+            let $child = $parent.querySelector('.submenu');
+            $child.style.display === "none" ? $child.style.display = "block" : $child.style.display = "none"
+        }
 
         const setSidebar = () => {
             emit('changeSidebar', '')
@@ -181,13 +217,16 @@ export default {
 
         return {
             logout,
-            setSidebar
+            setSidebar,
+            colapse,
+            menuColapse
         };
     },
 };
 </script>
 
 <style lang="scss" scoped>
+    
     #sidebar {
         &.active {
             .sidebar-wrapper {
