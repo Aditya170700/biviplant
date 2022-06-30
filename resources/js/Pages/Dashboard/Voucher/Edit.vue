@@ -54,11 +54,11 @@
                                             class="form-label"
                                             >Waktu Berakhir</label
                                         >
-                                        <input
-                                            class="form-control"
-                                            id="expired_at"
+                                        <Datepicker 
                                             v-model="form.expired_at"
-                                        />
+                                            id="expired_at"
+                                        >
+                                        </Datepicker>
                                         <FormText
                                             :id="'expired_at'"
                                             :message="errors.expired_at"
@@ -163,16 +163,21 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
+import Datepicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+import moment from 'moment';
 
 export default {
-    components: { Layout, Link, SpinnerProcessing, FormText },
+    components: { Layout, Link, SpinnerProcessing, FormText, Datepicker },
     props: {
         errors: Object,
         result: Object,
     },
     setup(props) {
         const form = useForm(props.result);
+        form.expired_at = moment(form.expired_at)
         function submit() {
+            form.expired_at = moment(new Date(form.expired_at)).format('YYYY-MM-DD HH:mm');
             let data = form.data();
             Inertia.post(
                 route("admin.vouchers.update", {

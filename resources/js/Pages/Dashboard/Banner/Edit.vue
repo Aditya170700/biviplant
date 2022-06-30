@@ -69,19 +69,24 @@
                                         <label for="banner" class="form-label"
                                             >Banner</label
                                         >
+                                        <crop 
+                                            field="img"
+                                            :langType="'en'"
+                                            @crop-success="cropSuccess"
+                                            :width="744"
+                                            :height="300"
+                                            v-model="showCroper">
+                                        </crop>
                                         <div class="mb-3">
                                             <img class="img rounded fluid" alt="" :src="banner" style="width: 200px">
                                         </div>
-                                        <input
-                                            type="file"
-                                            class="form-control"
-                                            id="banner"
-                                            @change="setBanner"
-                                            @input="
-                                                form.path =
-                                                    $event.target.files[0]
-                                            "
-                                        />
+                                        <a
+                                            @click="showCroper = true"
+                                            class="btn btn-success btn-sm rounded-custom"
+                                            :disabled="form.processing"
+                                        >
+                                            <span><i class="fas fa-upload me-2"></i>Pilih</span>
+                                        </a>
                                         <FormText
                                             :id="'banner'"
                                             :message="errors.path"
@@ -127,10 +132,11 @@ import { Inertia } from "@inertiajs/inertia";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
 import { ref } from '@vue/reactivity';
-import { imageReader } from '../../../utils';
+import { dataURLtoFile } from '../../../utils';
+import Cropper from 'vue-image-crop-upload';
 
 export default {
-    components: { Layout, Link, SpinnerProcessing, FormText },
+    components: { Layout, Link, SpinnerProcessing, FormText, 'crop': Cropper },
     props: {
         errors: Object,
         result: Object,
@@ -138,6 +144,8 @@ export default {
     setup(props) {
         const form = useForm(props.result);
         const banner = ref(props.result.path_url);
+        const showCroper = ref(false);
+
         function submit() {
             let data = form.data();
             Inertia.post(
@@ -151,15 +159,23 @@ export default {
             );
         }
 
-        const setBanner = (e) => {
-            imageReader(form.path, banner)
+       /**
+         * crop success
+         *
+         * [param] imgDataUrl
+         * [param] field
+         */
+        function cropSuccess(imgDataUrl, field){
+            form.path = dataURLtoFile(imgDataUrl)
+            banner.value = imgDataUrl
         }
 
         return {
             form,
             submit,
-            setBanner,
-            banner
+            cropSuccess,
+            banner,
+            showCroper
         };
     },
 };
