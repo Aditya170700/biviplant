@@ -91,23 +91,39 @@
                                         <label for="banner" class="form-label"
                                             >Banner</label
                                         >
+                                        <crop
+                                            field="img"
+                                            :langType="'en'"
+                                            @crop-success="cropBannerSuccess"
+                                            :width="744"
+                                            :height="300"
+                                            v-model="showBannerCroper"
+                                        >
+                                        </crop>
                                         <div class="mb-3">
-                                            <img class="img rounded fluid" alt="" :src="banner" style="width: 200px">
+                                            <img
+                                                class="img rounded fluid"
+                                                alt=""
+                                                :src="banner"
+                                                style="width: 200px"
+                                            />
                                         </div>
-                                        <input
-                                            type="file"
-                                            class="form-control"
-                                            id="banner"
-                                            @change="setBanner"
-                                            @input="
-                                                form.banner =
-                                                    $event.target.files[0]
-                                            "
-                                        />
+                                        <a
+                                            @click="showBannerCroper = true"
+                                            class="btn btn-success btn-sm rounded-custom"
+                                            :disabled="form.processing"
+                                        >
+                                            <span
+                                                ><i
+                                                    class="fas fa-upload me-2"
+                                                ></i
+                                                >Pilih</span
+                                            >
+                                        </a>
                                         <FormText
                                             :id="'banner'"
-                                            :message="errors.banner"
-                                            v-if="errors.banner"
+                                            :message="form.errors.banner"
+                                            v-if="form.errors.banner"
                                         />
                                     </div>
                                 </div>
@@ -116,23 +132,39 @@
                                         <label for="icon" class="form-label"
                                             >Ikon</label
                                         >
+                                        <crop
+                                            field="img"
+                                            :langType="'en'"
+                                            @crop-success="cropIconSuccess"
+                                            :width="100"
+                                            :height="100"
+                                            v-model="showIconCroper"
+                                        >
+                                        </crop>
                                         <div class="mb-3">
-                                            <img class="img rounded fluid" alt="" :src="icon" style="width: 200px">
+                                            <img
+                                                class="img rounded fluid"
+                                                alt=""
+                                                :src="icon"
+                                                style="width: 200px"
+                                            />
                                         </div>
-                                        <input
-                                            type="file"
-                                            class="form-control"
-                                            id="icon"
-                                            @change="setIcon"
-                                            @input="
-                                                form.icon =
-                                                    $event.target.files[0]
-                                            "
-                                        />
+                                        <a
+                                            @click="showIconCroper = true"
+                                            class="btn btn-success btn-sm rounded-custom"
+                                            :disabled="form.processing"
+                                        >
+                                            <span
+                                                ><i
+                                                    class="fas fa-upload me-2"
+                                                ></i
+                                                >Pilih</span
+                                            >
+                                        </a>
                                         <FormText
                                             :id="'icon'"
-                                            :message="errors.icon"
-                                            v-if="errors.icon"
+                                            :message="form.errors.icon"
+                                            v-if="form.errors.icon"
                                         />
                                     </div>
                                 </div>
@@ -173,11 +205,12 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
-import { ref } from '@vue/reactivity';
-import { imageReader } from '../../../utils';
+import { ref } from "@vue/reactivity";
+import { imageReader, dataURLtoFile } from "../../../utils";
+import Cropper from "vue-image-crop-upload";
 
 export default {
-    components: { Layout, Link, SpinnerProcessing, FormText },
+    components: { Layout, Link, SpinnerProcessing, FormText, crop: Cropper },
     props: {
         errors: Object,
         result: Object,
@@ -185,8 +218,10 @@ export default {
     setup(props) {
         const form = useForm(props.result);
         const banner = ref(props.result.banner_url);
+        const showBannerCroper = ref(false);
         const icon = ref(props.result.icon_url);
-        
+        const showIconCroper = ref(false);
+
         function submit() {
             let data = form.data();
             Inertia.post(
@@ -201,11 +236,21 @@ export default {
         }
 
         const setBanner = (e) => {
-            imageReader(form.banner, banner)
-        }
+            imageReader(form.banner, banner);
+        };
 
         const setIcon = (e) => {
-            imageReader(form.icon, icon)
+            imageReader(form.icon, icon);
+        };
+
+        function cropBannerSuccess(imgDataUrl, field) {
+            form.banner = dataURLtoFile(imgDataUrl);
+            banner.value = imgDataUrl;
+        }
+
+        function cropIconSuccess(imgDataUrl, field) {
+            form.icon = dataURLtoFile(imgDataUrl);
+            icon.value = imgDataUrl;
         }
 
         return {
@@ -214,7 +259,11 @@ export default {
             setBanner,
             setIcon,
             banner,
-            icon
+            showBannerCroper,
+            cropBannerSuccess,
+            icon,
+            showIconCroper,
+            cropIconSuccess,
         };
     },
 };
