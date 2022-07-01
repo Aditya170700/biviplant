@@ -177,11 +177,19 @@
                                         <td>{{ result.weight }}gr</td>
                                         <td>{{ result.stock }}</td>
                                         <td class="d-flex justify-content-end">
-                                            <button
+                                            <Link
+                                                :href="
+                                                    route(
+                                                        'admin.products.files',
+                                                        {
+                                                            id: result.id,
+                                                        }
+                                                    )
+                                                "
                                                 class="btn btn-sm btn-info me-2 rounded-custom"
                                             >
                                                 <i class="fas fa-images"></i>
-                                            </button>
+                                            </Link>
                                             <Link
                                                 :href="
                                                     route(

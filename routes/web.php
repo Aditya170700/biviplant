@@ -30,6 +30,13 @@ Route::middleware(['auth', 'role:admin'])
             ->group(function () {
                 Route::get('/', 'index')->name('dashboard');
             });
+        Route::controller(ProductController::class)
+            ->name('products.')
+            ->group(function () {
+                Route::get('/products/{id}/files', 'files')->name('files');
+                Route::post('/products/{id}/files', 'storeFiles')->name('files.store');
+                Route::delete('/products/{id}/files/{fileId}', 'destroyFiles')->name('files.destroy');
+            });
         Route::resources([
             'categories' => CategoryController::class,
             'users' => UserController::class,
