@@ -40,6 +40,7 @@
         "mosha-vue-toastify": "^1.0.23",
         "node-sass": "^7.0.1",
         "vue": "^3.2.36",
+        "vue-currency-input": "^2.5.1",
         "vue-image-crop-upload": "^3.0.3",
         "vue-sweetalert2": "^5.0.5",
         "vue-toast-notification": "^3.0.4"

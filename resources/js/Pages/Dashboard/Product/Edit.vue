@@ -154,10 +154,10 @@
                                         <label for="price" class="form-label"
                                             >Harga</label
                                         >
-                                        <input
-                                            class="form-control"
+                                        <CurrencyInput
                                             id="price"
                                             v-model="form.price"
+                                            :options="{ currency: 'IDR' }"
                                         />
                                         <FormText
                                             :id="'price'"
@@ -173,10 +173,10 @@
                                             class="form-label"
                                             >Harga Coret</label
                                         >
-                                        <input
-                                            class="form-control"
+                                        <CurrencyInput
                                             id="strike_price"
                                             v-model="form.strike_price"
+                                            :options="{ currency: 'IDR' }"
                                         />
                                         <FormText
                                             :id="'strike_price'"
@@ -257,9 +257,10 @@ import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
 import { slugify } from "../../../utils";
 import { Inertia } from "@inertiajs/inertia";
+import CurrencyInput from "../../../Shared/Form/CurrencyInput";
 
 export default {
-    components: { Layout, Link, SpinnerProcessing, FormText },
+    components: { Layout, Link, SpinnerProcessing, FormText, CurrencyInput },
     props: {
         errors: Object,
         categories: Array,
