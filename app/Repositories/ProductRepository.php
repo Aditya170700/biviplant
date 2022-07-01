@@ -30,6 +30,7 @@ class ProductRepository implements ProductInterface
     public function getById(string $id)
     {
         return $this->model
+            ->with('category', 'files')
             ->findOrFail($id);
     }
 

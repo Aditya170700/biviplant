@@ -35,4 +35,14 @@ class Product extends Model
             get: fn ($value, $attributes) => "Rp." . number_format($attributes['strike_price'], 0, ',', '.'),
         );
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
 }
