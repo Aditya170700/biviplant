@@ -146,7 +146,7 @@
                                                 class="img rounded fluid"
                                                 alt=""
                                                 :src="icon"
-                                                style="width: 200px"
+                                                style="width: 50px"
                                             />
                                         </div>
                                         <a

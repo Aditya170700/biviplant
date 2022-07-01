@@ -36,7 +36,7 @@
                                 <img
                                     :src="result.icon_url"
                                     alt=""
-                                    style="width: 100px"
+                                    style="width: 50px"
                                 />
                             </div>
                         </div>
