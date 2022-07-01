@@ -26,14 +26,14 @@ class Category extends Model
     protected function bannerUrl(): Attribute
     {
         return Attribute::make(
-            get: fn ($value, $attributes) => File::show($attributes['banner']),
+            get: fn ($value, $attributes) => File::show($attributes['banner'] ?? ''),
         );
     }
 
     protected function iconUrl(): Attribute
     {
         return Attribute::make(
-            get: fn ($value, $attributes) => File::show($attributes['icon']),
+            get: fn ($value, $attributes) => File::show($attributes['icon'] ?? ''),
         );
     }
 }

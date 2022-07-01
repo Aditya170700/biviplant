@@ -32,7 +32,10 @@
                         ></i>
                     </div>
                     <div class="sidebar-toggler x">
-                        <a href="#" @click="setSidebar" class="sidebar-hide d-xl-none d-block"
+                        <a
+                            href="#"
+                            @click="setSidebar"
+                            class="sidebar-hide d-xl-none d-block"
                             ><i class="fas fa-xmark"></i
                         ></a>
                     </div>
@@ -138,6 +141,22 @@
                             <span>Voucher</span>
                         </Link>
                     </li>
+                    <li
+                        :class="[
+                            'sidebar-item',
+                            route().current().includes('admin.products.')
+                                ? 'active'
+                                : '',
+                        ]"
+                    >
+                        <Link
+                            :href="route('admin.products.index')"
+                            class="sidebar-link"
+                        >
+                            <i class="fas fa-cubes"></i>
+                            <span>Produk</span>
+                        </Link>
+                    </li>
                     <li class="sidebar-title">Lainnya</li>
 
                     <li class="sidebar-item">
@@ -159,63 +178,62 @@
 <script>
 import { Inertia } from "@inertiajs/inertia";
 import { Link } from "@inertiajs/inertia-vue3";
-import { ref, toRef } from '@vue/reactivity';
+import { ref, toRef } from "@vue/reactivity";
 
 export default {
     components: {
         Link,
     },
     props: {
-        sidebar: String
+        sidebar: String,
     },
-    setup(props, {emit}) {
+    setup(props, { emit }) {
         const logout = () => {
             Inertia.post(route("logout"));
         };
 
         const setSidebar = () => {
-            emit('changeSidebar', '')
-            sidebar.value = ''
-            console.log(sidebar.value)
-        }
+            emit("changeSidebar", "");
+            sidebar.value = "";
+            console.log(sidebar.value);
+        };
 
         return {
             logout,
-            setSidebar
+            setSidebar,
         };
     },
 };
 </script>
 
 <style lang="scss" scoped>
-    #sidebar {
-        &.active {
-            .sidebar-wrapper {
-                margin-left: 0 !important;
-            }
-        }
-        &:not(.active) {
-            .sidebar-wrapper {
-                margin-left: -300px;
-            }
-            & ~ #main {
-                margin-left: 0;
-            }
-        }
-    }
-    @media screen and (max-width: 1199px) {
-        .sidebar-wrapper {
-            position:absolute;
-            margin-left: -300px !important;
-            .sidebar-toggler.x  {
-                display:block;
-            }
-        }
-    }
-    @media screen and (min-width: 1199px) {
+#sidebar {
+    &.active {
         .sidebar-wrapper {
             margin-left: 0 !important;
         }
     }
+    &:not(.active) {
+        .sidebar-wrapper {
+            margin-left: -300px;
+        }
+        & ~ #main {
+            margin-left: 0;
+        }
+    }
+}
+@media screen and (max-width: 1199px) {
+    .sidebar-wrapper {
+        position: absolute;
+        margin-left: -300px !important;
+        .sidebar-toggler.x {
+            display: block;
+        }
+    }
+}
+@media screen and (min-width: 1199px) {
+    .sidebar-wrapper {
+        margin-left: 0 !important;
+    }
+}
 </style>
-    

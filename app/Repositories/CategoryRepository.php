@@ -27,6 +27,17 @@ class CategoryRepository implements CategoryInterface
             ->paginate($request->limit ?? 25);
     }
 
+    public function getAll($request)
+    {
+        return $this->model
+            ->select('id', 'name')
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%");
+            })
+            ->latest()
+            ->get();
+    }
+
     public function getById(string $id)
     {
         return $this->model
