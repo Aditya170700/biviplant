@@ -87,19 +87,18 @@
                                         />
                                     </div>
                                 </div>
-                                <div class="col-lg-4 mb-3">
+                                <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
                                         <label
                                             for="meta_description"
                                             class="form-label"
                                             >Meta Description</label
                                         >
-                                        <textarea
-                                            class="form-control"
-                                            id="meta_description"
-                                            rows="3"
-                                            v-model="form.meta_description"
-                                        ></textarea>
+                                        <QuillEditor
+                                            theme="snow"
+                                            v-model:content="form.description"
+                                            contentType="html"
+                                        />
                                         <FormText
                                             :id="'meta_description'"
                                             :message="
@@ -109,7 +108,7 @@
                                         />
                                     </div>
                                 </div>
-                                <div class="col-lg-4 mb-3">
+                                <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
                                         <label
                                             for="meta_keyword"
@@ -129,19 +128,18 @@
                                         />
                                     </div>
                                 </div>
-                                <div class="col-lg-4 mb-3">
+                                <div class="col-lg-12 mb-3">
                                     <div class="mb-3">
                                         <label
                                             for="description"
                                             class="form-label"
                                             >Deskripsi</label
                                         >
-                                        <textarea
-                                            class="form-control"
-                                            id="description"
-                                            rows="3"
-                                            v-model="form.description"
-                                        ></textarea>
+                                        <QuillEditor
+                                            theme="snow"
+                                            v-model:content="form.description"
+                                            contentType="html"
+                                        />
                                         <FormText
                                             :id="'description'"
                                             :message="form.errors.description"
@@ -258,9 +256,18 @@ import FormText from "../../../Shared/Form/FormText";
 import { slugify } from "../../../utils";
 import { Inertia } from "@inertiajs/inertia";
 import CurrencyInput from "../../../Shared/Form/CurrencyInput";
+import { QuillEditor } from "@vueup/vue-quill";
+import "@vueup/vue-quill/dist/vue-quill.snow.css";
 
 export default {
-    components: { Layout, Link, SpinnerProcessing, FormText, CurrencyInput },
+    components: {
+        Layout,
+        Link,
+        SpinnerProcessing,
+        FormText,
+        CurrencyInput,
+        QuillEditor,
+    },
     props: {
         errors: Object,
         categories: Array,
