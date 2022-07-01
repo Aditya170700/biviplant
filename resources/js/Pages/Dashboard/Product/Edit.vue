@@ -94,11 +94,12 @@
                                             class="form-label"
                                             >Meta Description</label
                                         >
-                                        <QuillEditor
-                                            theme="snow"
-                                            v-model:content="form.description"
-                                            contentType="html"
-                                        />
+                                        <textarea
+                                            class="form-control"
+                                            id="meta_description"
+                                            rows="3"
+                                            v-model="form.meta_description"
+                                        ></textarea>
                                         <FormText
                                             :id="'meta_description'"
                                             :message="
