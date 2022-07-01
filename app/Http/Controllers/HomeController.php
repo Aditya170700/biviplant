@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Interfaces\BannerInterface;
+use App\Interfaces\CategoryInterface;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -12,11 +13,13 @@ class HomeController extends Controller
 {
     public function __construct(
         Request $request,
-        BannerInterface $bannerInterface
+        BannerInterface $bannerInterface,
+        CategoryInterface $categoryInterface
     )
     {
         $this->request = $request;
         $this->bannerInterface = $bannerInterface;
+        $this->categoryInterface = $categoryInterface;
     }
     
     public function index()
@@ -24,6 +27,7 @@ class HomeController extends Controller
         try {
             return Inertia::render('Homepage', [
                 'banners' => $this->bannerInterface->getPaginated($this->request),
+                'categories' => $this->categoryInterface->getPaginated($this->request),
                 'meta_title' => 'Jual Tanaman Hias dan Buah Dalam Pot',
                 'meta_description' => 'Jual Tanaman Hias dan Buah Dalam Pot',
                 'meta_keyword' => 'Keyword',
