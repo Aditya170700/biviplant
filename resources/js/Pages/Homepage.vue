@@ -1,8 +1,9 @@
 <template>
     <div>
         <Head>
-            <title>Jual Tanaman Hias dan Buah Dalam Pot</title>
-            <meta head-key="description" name="description" content="Jual Tanaman Hias dan Buah Dalam Pot" />
+            <title>{{ metaTitle }}</title>
+            <meta head-key="description" name="description" :content="metaDescription" />
+            <meta head-key="keyword" name="keyword" :content="metaKeyword" />
         </Head>
         <Header></Header>
         <Sidebar></Sidebar>
@@ -45,32 +46,26 @@
                             <button
                                 type="button"
                                 data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide-to="0"
-                                class="active"
-                                aria-current="true"
-                                aria-label="Slide 1"
-                            ></button>
-                            <button
-                                type="button"
-                                data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide-to="1"
-                                aria-label="Slide 2"
-                            ></button>
-                            <button
-                                type="button"
-                                data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide-to="2"
-                                aria-label="Slide 3"
+                                :data-bs-slide-to="i"
+                                :class="(i == 0) ? 'active' : ''"
+                                :aria-current="(i == 0) ? true : false"
+                                :aria-label="`Slide ${i+1}`"
+                                v-for="(banner, i) in banners.data" :key="i"
                             ></button>
                         </div>
                         <div class="carousel-inner">
-                            <div class="carousel-item">
+                            <div 
+                                :class="[
+                                    'carousel-item',
+                                    (i == 0) ? 'active' : ''
+                                ]" 
+                                v-for="(banner, i) in banners.data" :key="i">
                                 <div
                                     class="single-hero-slide"
-                                    style="
-                                        background-image: url('img/bg-img/1.jpg');
-                                        width: 100% !important;
-                                    "
+                                    :style="{
+                                        backgroundImage: `url('${banner.path_url}')`,
+                                        width: '100% !important'
+                                    }"
                                 >
                                     <div
                                         class="slide-content h-100 d-flex align-items-center"
@@ -82,7 +77,7 @@
                                                 data-delay="100ms"
                                                 data-duration="1000ms"
                                             >
-                                                Amazon Echo
+                                                {{ banner.title }}
                                             </h4>
                                             <p
                                                 class="text-white"
@@ -90,93 +85,15 @@
                                                 data-delay="400ms"
                                                 data-duration="1000ms"
                                             >
-                                                3rd Generation, Charcoal
+                                                {{ banner.sub_title }}
                                             </p>
                                             <a
                                                 class="btn btn-primary btn-sm"
-                                                href="#"
+                                                :href="banner.link"
                                                 data-animation="fadeInUp"
                                                 data-delay="800ms"
                                                 data-duration="1000ms"
-                                                >Buy Now</a
-                                            >
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div
-                                    class="single-hero-slide"
-                                    style="
-                                        background-image: url('img/bg-img/2.jpg');
-                                    "
-                                >
-                                    <div
-                                        class="slide-content h-100 d-flex align-items-center"
-                                    >
-                                        <div class="slide-text">
-                                            <h4
-                                                class="text-white mb-0"
-                                                data-animation="fadeInUp"
-                                                data-delay="100ms"
-                                                data-duration="1000ms"
-                                            >
-                                                Light Candle
-                                            </h4>
-                                            <p
-                                                class="text-white"
-                                                data-animation="fadeInUp"
-                                                data-delay="400ms"
-                                                data-duration="1000ms"
-                                            >
-                                                Now only $22
-                                            </p>
-                                            <a
-                                                class="btn btn-success btn-sm"
-                                                href="#"
-                                                data-animation="fadeInUp"
-                                                data-delay="500ms"
-                                                data-duration="1000ms"
-                                                >Buy Now</a
-                                            >
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item active">
-                                <div
-                                    class="single-hero-slide"
-                                    style="
-                                        background-image: url('img/bg-img/3.jpg');
-                                    "
-                                >
-                                    <div
-                                        class="slide-content h-100 d-flex align-items-center"
-                                    >
-                                        <div class="slide-text">
-                                            <h4
-                                                class="text-white mb-0"
-                                                data-animation="fadeInUp"
-                                                data-delay="100ms"
-                                                data-duration="1000ms"
-                                            >
-                                                Best Furniture
-                                            </h4>
-                                            <p
-                                                class="text-white"
-                                                data-animation="fadeInUp"
-                                                data-delay="400ms"
-                                                data-duration="1000ms"
-                                            >
-                                                3 years warranty
-                                            </p>
-                                            <a
-                                                class="btn btn-danger btn-sm"
-                                                href="#"
-                                                data-animation="fadeInUp"
-                                                data-delay="800ms"
-                                                data-duration="1000ms"
-                                                >Buy Now</a
+                                                >Lihat</a
                                             >
                                         </div>
                                     </div>
@@ -1311,21 +1228,24 @@
     </div>
 </template>
 
-<script>
-import { Link } from "@inertiajs/inertia-vue3";
-import Header from "./../Shared/Homepage/Header.vue";
-import Sidebar from "./../Shared/Homepage/Sidebar.vue";
-import Footer from "./../Shared/Footer.vue";
-import { Head } from '@inertiajs/inertia-vue3'
+<script setup>
+    import { Link } from "@inertiajs/inertia-vue3";
+    import Header from "./../Shared/Homepage/Header.vue";
+    import Sidebar from "./../Shared/Homepage/Sidebar.vue";
+    import Footer from "./../Shared/Footer.vue";
+    import { Head } from '@inertiajs/inertia-vue3'
+    import { reactive, ref } from "@vue/reactivity";
+import { onMounted } from "@vue/runtime-core";
 
+    const props = defineProps({
+        meta_title: String,
+        meta_description: String,
+        meta_keyword: String,
+        banners: Object
+    })
 
-export default {
-    components: {
-        Link,
-        Header,
-        Sidebar,
-        Footer,
-        Head
-    },
-};
+    const metaTitle = ref(props.meta_title)
+    const metaDescription = ref(props.meta_description)
+    const metaKeyword = ref(props.meta_keyword)
+
 </script>
