@@ -313,65 +313,6 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div
-                    class="section-heading d-flex align-items-center justify-content-between"
-                >
-                    <h6>Collections</h6>
-                    <a class="btn" href="#">View All</a>
-                </div>
-                <div class="collection-slide owl-carousel">
-                    <div class="card collection-card">
-                        <a href="single-product.html"
-                            ><img src="img/product/17.jpg" alt=""
-                        /></a>
-                        <div class="collection-title">
-                            <span>Women</span><span>9 new items</span>
-                        </div>
-                    </div>
-                    <div class="card collection-card">
-                        <a href="single-product.html"
-                            ><img src="img/product/19.jpg" alt=""
-                        /></a>
-                        <div class="collection-title">
-                            <span>Men</span><span>29 items</span>
-                        </div>
-                    </div>
-                    <div class="card collection-card">
-                        <a href="single-product.html"
-                            ><img src="img/product/21.jpg" alt=""
-                        /></a>
-                        <div class="collection-title">
-                            <span>Kids</span><span>4 new items</span>
-                        </div>
-                    </div>
-                    <div class="card collection-card">
-                        <a href="single-product.html"
-                            ><img src="img/product/22.jpg" alt=""
-                        /></a>
-                        <div class="collection-title">
-                            <span>Gadget</span><span>11 items</span>
-                        </div>
-                    </div>
-                    <div class="card collection-card">
-                        <a href="single-product.html"
-                            ><img src="img/product/23.jpg" alt=""
-                        /></a>
-                        <div class="collection-title">
-                            <span>Foods</span><span>2 new items</span>
-                        </div>
-                    </div>
-                    <div class="card collection-card">
-                        <a href="single-product.html"
-                            ><img src="img/product/24.jpg" alt=""
-                        /></a>
-                        <div class="collection-title">
-                            <span>Sports</span><span>5 items</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="pb-3"></div>
-            </div>
         </div>
         <div class="internet-connection-status" id="internetStatus"></div>
         <Footer></Footer>
