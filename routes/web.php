@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController as HomeProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,9 +67,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/products', function () {
-    return Inertia::render('Products');
-});
+Route::get('/products', [HomeProductController::class, 'index']);
 
 Route::get('/products/{product}', function () {
     return Inertia::render('Product');
