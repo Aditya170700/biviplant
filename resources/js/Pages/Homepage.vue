@@ -326,7 +326,7 @@
     import Footer from "./../Shared/Footer.vue";
     import { Head } from '@inertiajs/inertia-vue3'
     import { reactive, ref } from "@vue/reactivity";
-import { onMounted } from "@vue/runtime-core";
+    import { onMounted } from "@vue/runtime-core";
 
     const props = defineProps({
         meta_title: String,

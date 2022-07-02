@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <title>{{ metaTitle }}</title>
+            <meta head-key="description" name="description" :content="metaDescription" />
+            <meta head-key="keyword" name="keyword" :content="metaKeyword" />
+        </Head>
         <Header></Header>
         <Sidebar></Sidebar>
         <div
@@ -35,7 +40,7 @@
                     <div
                         class="section-heading d-flex align-items-center justify-content-between"
                     >
-                        <h6>All Products</h6>
+                        <h6>Semua Produk</h6>
                         <div class="select-product-catagory">
                             <select
                                 class="form-select"
@@ -43,7 +48,7 @@
                                 name="selectProductCatagory"
                                 aria-label="Default select example"
                             >
-                                <option selected>Short by</option>
+                                <option selected>Urutkan</option>
                                 <option value="1">Newest</option>
                                 <option value="2">Popular</option>
                                 <option value="3">Ratings</option>
@@ -52,775 +57,41 @@
                     </div>
                     <div class="product-catagories">
                         <div class="row g-3">
-                            <div class="col-4">
-                                <a class="shadow-sm" href="#"
-                                    ><img
-                                        src="img/product/5.png"
-                                        alt=""
-                                    />Furniture</a
-                                >
-                            </div>
-                            <div class="col-4">
-                                <a class="shadow-sm" href="#"
-                                    ><img
-                                        src="img/product/9.png"
-                                        alt=""
-                                    />Shoes</a
-                                >
-                            </div>
-                            <div class="col-4">
-                                <a class="shadow-sm" href="#"
-                                    ><img
-                                        src="img/product/4.png"
-                                        alt=""
-                                    />Dress</a
-                                >
+                            <div class="col-4" v-for="(category, i) in categories.data" :key="i">
+                                <a class="shadow-sm" href="#">
+                                    <img :src="category.icon_url" alt="" class="mb-2">
+                                    {{ category.name }}
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="row g-3">
-                        <div class="col-6 col-md-4 col-lg-3">
+                        <div class="col-6 col-md-4 col-lg-3" v-for="(product, i) in products.data" :key="i">
                             <div class="card product-card">
                                 <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-warning"
-                                        >Sale</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><Link
+                                    <span class="badge rounded-pill badge-warning">
+                                        Sale
+                                    </span>
+                                    <a class="wishlist-btn" href="#">
+                                        <i class="lni lni-heart"> </i>
+                                    </a>
+                                    <Link
                                         class="product-thumbnail d-block"
                                         href="/products/beach-cap"
                                         ><img
                                             class="mb-2"
-                                            src="img/product/11.png"
-                                            alt=""
+                                            :src="product.files[0]?.src"
+                                            :alt="product.files[0]?.alt"
                                         />
-                                        <ul
-                                            class="offer-countdown-timer d-flex align-items-center shadow-sm"
-                                            data-countdown="2021/12/31 23:59:59"
-                                        >
-                                            <li>
-                                                <span class="days">0</span>d
-                                            </li>
-                                            <li>
-                                                <span class="hours">0</span>h
-                                            </li>
-                                            <li>
-                                                <span class="minutes">0</span>m
-                                            </li>
-                                            <li>
-                                                <span class="seconds">0</span>s
-                                            </li>
-                                        </ul></Link
-                                    ><Link
+                                    </Link>
+                                    <Link
                                         class="product-title d-block"
                                         href="/products/beach-cap"
-                                        >Beach Cap</Link
                                     >
+                                        {{ product.name }}
+                                    </Link>
                                     <p class="sale-price">
-                                        $13<span>$42</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-success"
-                                        >New</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><Link
-                                        class="product-thumbnail d-block"
-                                        href="/products/wooden-sofa"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/5.png"
-                                            alt="" /></Link
-                                    ><Link
-                                        class="product-title d-block"
-                                        href="/products/wooden-sofa"
-                                        >Wooden Sofa</Link
-                                    >
-                                    <p class="sale-price">
-                                        $74<span>$99</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-success"
-                                        >Sale</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/6.png"
-                                            alt="" /></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Roof Lamp</a
-                                    >
-                                    <p class="sale-price">
-                                        $99<span>$113</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-danger"
-                                        >-18%</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/9.png"
-                                            alt=""
-                                        />
-                                        <ul
-                                            class="offer-countdown-timer d-flex align-items-center shadow-sm"
-                                            data-countdown="2021/11/23 23:21:29"
-                                        >
-                                            <li>
-                                                <span class="days">0</span>d
-                                            </li>
-                                            <li>
-                                                <span class="hours">0</span>h
-                                            </li>
-                                            <li>
-                                                <span class="minutes">0</span>m
-                                            </li>
-                                            <li>
-                                                <span class="seconds">0</span>s
-                                            </li>
-                                        </ul></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Sneaker Shoes</a
-                                    >
-                                    <p class="sale-price">
-                                        $87<span>$92</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-danger"
-                                        >-11%</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"></i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/8.png"
-                                            alt="" /></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Wooden Chair</a
-                                    >
-                                    <p class="sale-price">
-                                        $21<span>$25</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-warning"
-                                        >On Sale</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"></i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/4.png"
-                                            alt="" /></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Polo Shirts</a
-                                    >
-                                    <p class="sale-price">
-                                        $38<span>$41</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-warning"
-                                        >Sale</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/11.png"
-                                            alt=""
-                                        />
-                                        <ul
-                                            class="offer-countdown-timer d-flex align-items-center shadow-sm"
-                                            data-countdown="2021/12/31 23:59:59"
-                                        >
-                                            <li>
-                                                <span class="days">0</span>d
-                                            </li>
-                                            <li>
-                                                <span class="hours">0</span>h
-                                            </li>
-                                            <li>
-                                                <span class="minutes">0</span>m
-                                            </li>
-                                            <li>
-                                                <span class="seconds">0</span>s
-                                            </li>
-                                        </ul></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Beach Cap</a
-                                    >
-                                    <p class="sale-price">
-                                        $13<span>$42</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-success"
-                                        >New</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/5.png"
-                                            alt="" /></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Wooden Sofa</a
-                                    >
-                                    <p class="sale-price">
-                                        $74<span>$99</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-success"
-                                        >Sale</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/6.png"
-                                            alt="" /></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Roof Lamp</a
-                                    >
-                                    <p class="sale-price">
-                                        $99<span>$113</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-danger"
-                                        >-18%</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/9.png"
-                                            alt=""
-                                        />
-                                        <ul
-                                            class="offer-countdown-timer d-flex align-items-center shadow-sm"
-                                            data-countdown="2021/11/23 23:21:29"
-                                        >
-                                            <li>
-                                                <span class="days">0</span>d
-                                            </li>
-                                            <li>
-                                                <span class="hours">0</span>h
-                                            </li>
-                                            <li>
-                                                <span class="minutes">0</span>m
-                                            </li>
-                                            <li>
-                                                <span class="seconds">0</span>s
-                                            </li>
-                                        </ul></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Sneaker Shoes</a
-                                    >
-                                    <p class="sale-price">
-                                        $87<span>$92</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-danger"
-                                        >-11%</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"></i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/8.png"
-                                            alt="" /></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Wooden Chair</a
-                                    >
-                                    <p class="sale-price">
-                                        $21<span>$25</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-warning"
-                                        >On Sale</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"></i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/4.png"
-                                            alt="" /></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Polo Shirts</a
-                                    >
-                                    <p class="sale-price">
-                                        $38<span>$41</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-warning"
-                                        >Sale</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/11.png"
-                                            alt=""
-                                        />
-                                        <ul
-                                            class="offer-countdown-timer d-flex align-items-center shadow-sm"
-                                            data-countdown="2021/12/31 23:59:59"
-                                        >
-                                            <li>
-                                                <span class="days">0</span>d
-                                            </li>
-                                            <li>
-                                                <span class="hours">0</span>h
-                                            </li>
-                                            <li>
-                                                <span class="minutes">0</span>m
-                                            </li>
-                                            <li>
-                                                <span class="seconds">0</span>s
-                                            </li>
-                                        </ul></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Beach Cap</a
-                                    >
-                                    <p class="sale-price">
-                                        $13<span>$42</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-success"
-                                        >New</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/5.png"
-                                            alt="" /></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Wooden Sofa</a
-                                    >
-                                    <p class="sale-price">
-                                        $74<span>$99</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-success"
-                                        >Sale</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/6.png"
-                                            alt="" /></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Roof Lamp</a
-                                    >
-                                    <p class="sale-price">
-                                        $99<span>$113</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-danger"
-                                        >-18%</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/9.png"
-                                            alt=""
-                                        />
-                                        <ul
-                                            class="offer-countdown-timer d-flex align-items-center shadow-sm"
-                                            data-countdown="2021/11/23 23:21:29"
-                                        >
-                                            <li>
-                                                <span class="days">0</span>d
-                                            </li>
-                                            <li>
-                                                <span class="hours">0</span>h
-                                            </li>
-                                            <li>
-                                                <span class="minutes">0</span>m
-                                            </li>
-                                            <li>
-                                                <span class="seconds">0</span>s
-                                            </li>
-                                        </ul></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Sneaker Shoes</a
-                                    >
-                                    <p class="sale-price">
-                                        $87<span>$92</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-danger"
-                                        >-11%</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"></i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/8.png"
-                                            alt="" /></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Wooden Chair</a
-                                    >
-                                    <p class="sale-price">
-                                        $21<span>$25</span>
-                                    </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-warning"
-                                        >On Sale</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"></i></a
-                                    ><a
-                                        class="product-thumbnail d-block"
-                                        href="single-product.html"
-                                        ><img
-                                            class="mb-2"
-                                            src="img/product/4.png"
-                                            alt="" /></a
-                                    ><a
-                                        class="product-title d-block"
-                                        href="single-product.html"
-                                        >Polo Shirts</a
-                                    >
-                                    <p class="sale-price">
-                                        $38<span>$41</span>
+                                        {{ product.price_rp }}<br/><span>{{ product.strike_price_rp }}</span>
                                     </p>
                                     <div class="product-rating">
                                         <i class="lni lni-star-filled"></i
@@ -844,18 +115,24 @@
     </div>
 </template>
 
-<script>
-import { Link } from "@inertiajs/inertia-vue3";
-import Header from "./../Shared/Products/Header.vue";
-import Sidebar from "./../Shared/Products/Sidebar.vue";
-import Footer from "./../Shared/Footer.vue";
+<script setup>
+    import { Link } from "@inertiajs/inertia-vue3";
+    import Header from "./../Shared/Products/Header.vue";
+    import Sidebar from "./../Shared/Products/Sidebar.vue";
+    import Footer from "./../Shared/Footer.vue";
+    import { Head } from '@inertiajs/inertia-vue3'
+    import { ref } from "@vue/reactivity";
 
-export default {
-    components: {
-        Link,
-        Header,
-        Sidebar,
-        Footer,
-    },
-};
+    const props = defineProps({
+        meta_title: String,
+        meta_description: String,
+        meta_keyword: String,
+        categories: Object,
+        products: Object
+    })
+
+    const metaTitle = ref(props.meta_title)
+    const metaDescription = ref(props.meta_description)
+    const metaKeyword = ref(props.meta_keyword)
+
 </script>

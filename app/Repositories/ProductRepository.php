@@ -15,6 +15,7 @@ class ProductRepository implements ProductInterface
     public function getPaginated($request)
     {
         return $this->model
+            ->with('files')
             ->when($request->search, function ($query) use ($request) {
                 $query->where('name', 'like', "%$request->search%");
             })
