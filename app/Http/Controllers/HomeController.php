@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\BannerInterface;
 use App\Interfaces\CategoryInterface;
+use App\Interfaces\EventInterface;
+use App\Interfaces\ProductInterface;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -13,12 +15,16 @@ class HomeController extends Controller
 {
     public function __construct(
         Request $request,
+        EventInterface $eventInterface,
         BannerInterface $bannerInterface,
+        ProductInterface $productInterface,
         CategoryInterface $categoryInterface
     )
     {
         $this->request = $request;
+        $this->eventInterface = $eventInterface;
         $this->bannerInterface = $bannerInterface;
+        $this->productInterface = $productInterface;
         $this->categoryInterface = $categoryInterface;
     }
     
@@ -28,6 +34,8 @@ class HomeController extends Controller
             return Inertia::render('Homepage', [
                 'banners' => $this->bannerInterface->getPaginated($this->request),
                 'categories' => $this->categoryInterface->getPaginated($this->request),
+                'event' => $this->eventInterface->getOne(),
+                'products' => $this->productInterface->featuredProducts(),
                 'meta_title' => 'Jual Tanaman Hias dan Buah Dalam Pot',
                 'meta_description' => 'Jual Tanaman Hias dan Buah Dalam Pot',
                 'meta_keyword' => 'Keyword',

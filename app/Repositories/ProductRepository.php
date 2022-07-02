@@ -27,6 +27,13 @@ class ProductRepository implements ProductInterface
             ->paginate($request->limit ?? 25);
     }
 
+    public function featuredProducts()
+    {
+        return $this->model
+            ->with('files')
+            ->paginate(10);
+    }
+
     public function getById(string $id, array $with = [])
     {
         return $this->model
