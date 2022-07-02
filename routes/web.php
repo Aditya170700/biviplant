@@ -1,10 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\DashboardController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\VoucherController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,20 +28,31 @@ Route::middleware(['auth', 'role:admin'])
             ->group(function () {
                 Route::get('/', 'index')->name('dashboard');
             });
-        Route::controller(CategoryController::class)
+        Route::controller(ProductController::class)
+            ->name('products.')
             ->group(function () {
-                Route::resource('categories', CategoryController::class);
+                Route::get('/products/{id}/files', 'files')->name('files');
+                Route::post('/products/{id}/files', 'storeFiles')->name('files.store');
+                Route::delete('/products/{id}/files/{fileId}', 'destroyFiles')->name('files.destroy');
             });
+        Route::controller(ProductController::class)
+            ->name('products.')
+            ->group(function () {
+                Route::get('/products/{id}/origins', 'origins')->name('origins');
+                Route::post('/products/{id}/origins', 'storeOrigins')->name('origins.store');
+                Route::delete('/products/{id}/origins/{originId}', 'destroyOrigins')->name('origins.destroy');
+            });
+        Route::resources([
+            'categories' => CategoryController::class,
+            'users' => UserController::class,
+            'banners' => BannerController::class,
+            'events' => EventController::class,
+            'vouchers' => VoucherController::class,
+            'products' => ProductController::class,
+        ]);
     });
 
-Route::get('/', function () {
-    return Inertia::render('Homepage', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('homepage');
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
 Route::middleware([
     'auth:sanctum',

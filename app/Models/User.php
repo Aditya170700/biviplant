@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Traits\Uuid;
+use App\Services\File;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
@@ -13,22 +15,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens;
-    use HasFactory;
-    use HasProfilePhoto;
-    use Notifiable;
-    use TwoFactorAuthenticatable;
+    use HasApiTokens, HasFactory, HasProfilePhoto, Notifiable, TwoFactorAuthenticatable, Uuid;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -48,6 +42,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
+        'id' => 'string',
         'email_verified_at' => 'datetime',
     ];
 
@@ -57,18 +52,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $appends = [
-        'profile_photo_url',
+        'profile_photo_path_url',
         'is_admin',
     ];
 
-    // override profile photo url
-    protected function defaultProfilePhotoUrl()
+    protected function profilePhotoPathUrl(): Attribute
     {
-        // $name = trim(collect(explode(' ', $this->name))->map(function ($segment) {
-        //     return mb_substr($segment, 0, 1);
-        // })->join(' '));
-
-        return "https://ui-avatars.com/api/?name={$this->name}&color=50D048&background=C0D276&size=500";
+        return Attribute::make(
+            get: fn ($value, $attributes) => File::show($attributes['profile_photo_path']),
+        );
     }
 
     protected function isAdmin(): Attribute

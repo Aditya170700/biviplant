@@ -17,6 +17,10 @@ return new class extends Migration
             $table->char('id', 36)->change();
             $table->string('phone');
         });
+        Schema::table('sessions', function (Blueprint $table) {
+            $table->char('user_id', 36)->change();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+        });
     }
 
     /**

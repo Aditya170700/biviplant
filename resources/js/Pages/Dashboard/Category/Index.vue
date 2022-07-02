@@ -1,6 +1,6 @@
 <template>
     <Layout
-        :title="'Category'"
+        :title="'Kategori'"
         :typeButton="'create'"
         :href="route('admin.categories.create')"
     >
@@ -13,7 +13,7 @@
                                 <div class="mb-3">
                                     <input
                                         class="form-control"
-                                        placeholder="Search..."
+                                        placeholder="Cari..."
                                         v-model="params.search"
                                     />
                                 </div>
@@ -23,34 +23,25 @@
                                     class="form-control mb-3"
                                     v-model="params.limit"
                                 >
-                                    <option value="25">Show 25 data</option>
-                                    <option value="50">Show 50 data</option>
-                                    <option value="100">Show 100 data</option>
-                                    <option value="200">Show 200 data</option>
+                                    <option value="25">Lihat 25 data</option>
+                                    <option value="50">Lihat 50 data</option>
+                                    <option value="100">Lihat 100 data</option>
+                                    <option value="200">Lihat 200 data</option>
                                 </select>
                             </div>
-                        </div>
-                        <div
-                            v-if="$page.props.flash.success_delete"
-                            class="alert alert-success"
-                            role="alert"
-                        >
-                            <i class="fas fa-check me-2"></i
-                            >{{ $page.props.flash.success_delete }}
                         </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="table-dark">
                                     <tr>
-                                        <th>No</th>
-                                        <th>ICON</th>
+                                        <th>NO</th>
                                         <th>
                                             <span
                                                 @click="sort('name')"
                                                 class="d-flex justify-content-between"
                                                 style="cursor: pointer"
                                             >
-                                                NAME
+                                                NAMA
                                                 <i
                                                     v-if="
                                                         params.direction ==
@@ -105,14 +96,6 @@
                                         :key="i"
                                     >
                                         <td>{{ i + 1 }}</td>
-                                        <td>
-                                            <img
-                                                :src="result.icon_url"
-                                                alt=""
-                                                class="img-fluid"
-                                                style="width: 50px"
-                                            />
-                                        </td>
                                         <td>{{ result.name }}</td>
                                         <td>{{ result.meta_title }}</td>
                                         <td class="d-flex justify-content-end">
@@ -196,7 +179,9 @@ export default {
         };
 
         let destroy = (id) => {
-            confirmation("This action will delete this data").then((res) => {
+            confirmation(
+                "Tindakan ini akan menghapus data secara permanen"
+            ).then((res) => {
                 if (res) {
                     Inertia.delete(
                         route("admin.categories.destroy", { id: id })

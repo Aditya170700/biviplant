@@ -7,7 +7,8 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production --mix-config=webpack.ssr.mix.js && mix --production"
+        "production": "mix --production --mix-config=webpack.ssr.mix.js && mix --production",
+        "ssr-dev": "mix watch && mix --mix-config=webpack.ssr.mix.js"
     },
     "devDependencies": {
         "@inertiajs/inertia": "^0.11.0",
@@ -18,11 +19,13 @@
         "@tailwindcss/typography": "^0.5.2",
         "@vue/compiler-sfc": "^3.2.31",
         "@vue/server-renderer": "^3.2.31",
-        "axios": "^0.25",
+        "axios": "^0.25.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "postcss-import": "^14.0.2",
+        "sass": "^1.53.0",
+        "sass-loader": "^10.3.0",
         "tailwindcss": "^3.0.0",
         "vue": "^3.2.31",
         "vue-loader": "^17.0.0",
@@ -32,10 +35,18 @@
         "@inertiajs/inertia": "^0.11.0",
         "@inertiajs/inertia-vue3": "^0.6.0",
         "@inertiajs/server": "^0.1.0",
-        "@vue/server-renderer": "^3.2.36",
+        "@vue/server-renderer": "^3.2.37",
+        "@vuepic/vue-datepicker": "^3.2.2",
+        "@vueup/vue-quill": "^1.0.0-beta.8",
+        "moment": "^2.29.3",
+        "mosha-vue-toastify": "^1.0.23",
+        "node-sass": "^7.0.1",
         "vue": "^3.2.36",
+        "vue-cool-lightbox": "^2.7.5",
+        "vue-currency-input": "^2.5.1",
+        "vue-easy-lightbox": "^1.4.1",
+        "vue-image-crop-upload": "^3.0.3",
         "vue-sweetalert2": "^5.0.5",
-        "vue-toast-notification": "^3.0.4",
-        "webpack-node-externals": "^3.0.0"
+        "vue-toast-notification": "^3.0.4"
     }
 }

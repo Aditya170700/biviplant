@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Http\Request;
 use Laravel\Fortify\Fortify;
-use App\Http\Responses\LoginResponse;
 use App\Actions\Fortify\CreateNewUser;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -12,8 +11,10 @@ use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use Illuminate\Support\Facades\RateLimiter;
 use App\Actions\Fortify\UpdateUserProfileInformation;
-use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
-use Laravel\Fortify\Http\Responses\LoginResponse as ResponsesLoginResponse;
+use App\Http\Responses\LoginResponse as ResponsesLoginResponse;
+use App\Http\Responses\LogoutResponse as ResponsesLogoutResponse;
+use Laravel\Fortify\Contracts\LoginResponse;
+use Laravel\Fortify\Contracts\LogoutResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -49,6 +50,7 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-        $this->app->singleton(LoginResponseContract::class, LoginResponse::class);
+        $this->app->singleton(LoginResponse::class, ResponsesLoginResponse::class);
+        $this->app->singleton(LogoutResponse::class, ResponsesLogoutResponse::class);
     }
 }

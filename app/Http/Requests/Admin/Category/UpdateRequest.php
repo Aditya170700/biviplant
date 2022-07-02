@@ -1,13 +1,26 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\Admin\Category;
 
 use App\Services\File;
+use App\Models\Category;
+use App\Interfaces\CategoryInterface;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
+use App\Classes\Adapters\Admin\Category\CategoryRequestAdapter;
 
 class UpdateRequest extends FormRequest
 {
+    public function __construct(CategoryInterface $categoryInterface)
+    {
+        $this->repository = $categoryInterface;
+    }
+
+    public function getModelById()
+    {
+        return $this->repository->getById($this->id);
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,12 +38,7 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|string|max:255',
-            'meta_title' => 'required|string|max:255',
-            'meta_description' => 'required|string|max:255',
-            'meta_keyword' => 'required|string|max:255',
-        ];
+        return CategoryRequestAdapter::rulesUpdated($this->id);
     }
 
     public function banner()
@@ -39,7 +47,7 @@ class UpdateRequest extends FormRequest
             return File::upload('categories/banners', $this->file('banner'));
         }
 
-        return NULL;
+        return $this->getModelById()->banner;
     }
 
     public function icon()
@@ -48,17 +56,20 @@ class UpdateRequest extends FormRequest
             return File::upload('categories/icons', $this->file('icon'));
         }
 
-        return NULL;
+        return $this->getModelById()->icon;
+    }
+
+    public function data()
+    {
+        return CategoryRequestAdapter::transform($this->all() + [
+            'banner_url_adapter' => $this->banner(),
+            'icon_url_adapter' => $this->icon(),
+        ]);
     }
 
     public function attributes()
     {
-        return [
-            'name' => 'Name',
-            'meta_title' => 'Meta Title',
-            'meta_description' => 'Meta Description',
-            'meta_keyword' => 'Meta Keyword',
-        ];
+        return CategoryRequestAdapter::attributes();
     }
 
     public function failedValidation($validator)

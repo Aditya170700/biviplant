@@ -24,7 +24,18 @@ class CategoryRepository implements CategoryInterface
             ->when(!$request->field || !$request->direction, function ($query) use ($request) {
                 $query->latest();
             })
-            ->paginate($request->limit ?? 2);
+            ->paginate($request->limit ?? 25);
+    }
+
+    public function getAll($request)
+    {
+        return $this->model
+            ->select('id', 'name')
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%");
+            })
+            ->latest()
+            ->get();
     }
 
     public function getById(string $id)

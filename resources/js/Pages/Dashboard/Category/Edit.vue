@@ -1,6 +1,6 @@
 <template>
     <Layout
-        :title="'Edit Category'"
+        :title="'Ubah Kategori'"
         :typeButton="'back'"
         :href="route('admin.categories.index')"
     >
@@ -13,7 +13,7 @@
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
                                         <label for="name" class="form-label"
-                                            >Name</label
+                                            >Nama</label
                                         >
                                         <input
                                             class="form-control"
@@ -22,8 +22,8 @@
                                         />
                                         <FormText
                                             :id="'name'"
-                                            :message="form.errors.name"
-                                            v-if="form.errors.name"
+                                            :message="errors.name"
+                                            v-if="errors.name"
                                         />
                                     </div>
                                 </div>
@@ -41,8 +41,8 @@
                                         />
                                         <FormText
                                             :id="'meta_title'"
-                                            :message="form.errors.meta_title"
-                                            v-if="form.errors.meta_title"
+                                            :message="errors.meta_title"
+                                            v-if="errors.meta_title"
                                         />
                                     </div>
                                 </div>
@@ -61,10 +61,8 @@
                                         ></textarea>
                                         <FormText
                                             :id="'meta_description'"
-                                            :message="
-                                                form.errors.meta_description
-                                            "
-                                            v-if="form.errors.meta_description"
+                                            :message="errors.meta_description"
+                                            v-if="errors.meta_description"
                                         />
                                     </div>
                                 </div>
@@ -83,8 +81,8 @@
                                         ></textarea>
                                         <FormText
                                             :id="'meta_keyword'"
-                                            :message="form.errors.meta_keyword"
-                                            v-if="form.errors.meta_keyword"
+                                            :message="errors.meta_keyword"
+                                            v-if="errors.meta_keyword"
                                         />
                                     </div>
                                 </div>
@@ -93,15 +91,35 @@
                                         <label for="banner" class="form-label"
                                             >Banner</label
                                         >
-                                        <input
-                                            type="file"
-                                            class="form-control"
-                                            id="banner"
-                                            @change="
-                                                form.banner =
-                                                    $event.target.files[0]
-                                            "
-                                        />
+                                        <crop
+                                            field="img"
+                                            :langType="'en'"
+                                            @crop-success="cropBannerSuccess"
+                                            :width="744"
+                                            :height="300"
+                                            v-model="showBannerCroper"
+                                        >
+                                        </crop>
+                                        <div class="mb-3">
+                                            <img
+                                                class="img rounded fluid"
+                                                alt=""
+                                                :src="banner"
+                                                style="width: 200px"
+                                            />
+                                        </div>
+                                        <a
+                                            @click="showBannerCroper = true"
+                                            class="btn btn-success btn-sm rounded-custom"
+                                            :disabled="form.processing"
+                                        >
+                                            <span
+                                                ><i
+                                                    class="fas fa-upload me-2"
+                                                ></i
+                                                >Pilih</span
+                                            >
+                                        </a>
                                         <FormText
                                             :id="'banner'"
                                             :message="form.errors.banner"
@@ -112,17 +130,37 @@
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
                                         <label for="icon" class="form-label"
-                                            >Icon</label
+                                            >Ikon</label
                                         >
-                                        <input
-                                            type="file"
-                                            class="form-control"
-                                            id="icon"
-                                            @change="
-                                                form.icon =
-                                                    $event.target.files[0]
-                                            "
-                                        />
+                                        <crop
+                                            field="img"
+                                            :langType="'en'"
+                                            @crop-success="cropIconSuccess"
+                                            :width="50"
+                                            :height="50"
+                                            v-model="showIconCroper"
+                                        >
+                                        </crop>
+                                        <div class="mb-3">
+                                            <img
+                                                class="img rounded fluid"
+                                                alt=""
+                                                :src="icon"
+                                                style="width: 50px"
+                                            />
+                                        </div>
+                                        <a
+                                            @click="showIconCroper = true"
+                                            class="btn btn-success btn-sm rounded-custom"
+                                            :disabled="form.processing"
+                                        >
+                                            <span
+                                                ><i
+                                                    class="fas fa-upload me-2"
+                                                ></i
+                                                >Pilih</span
+                                            >
+                                        </a>
                                         <FormText
                                             :id="'icon'"
                                             :message="form.errors.icon"
@@ -146,7 +184,7 @@
                                             />
                                             <span
                                                 ><i class="fas fa-save me-2"></i
-                                                >Save</span
+                                                >Simpan</span
                                             >
                                         </div>
                                     </button>
@@ -167,15 +205,22 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
+import { ref } from "@vue/reactivity";
+import { imageReader, dataURLtoFile } from "../../../utils";
+import Cropper from "vue-image-crop-upload";
 
 export default {
-    components: { Layout, Link, SpinnerProcessing, FormText },
+    components: { Layout, Link, SpinnerProcessing, FormText, crop: Cropper },
     props: {
         errors: Object,
         result: Object,
     },
     setup(props) {
         const form = useForm(props.result);
+        const banner = ref(props.result.banner_url);
+        const showBannerCroper = ref(false);
+        const icon = ref(props.result.icon_url);
+        const showIconCroper = ref(false);
 
         function submit() {
             let data = form.data();
@@ -190,9 +235,35 @@ export default {
             );
         }
 
+        const setBanner = (e) => {
+            imageReader(form.banner, banner);
+        };
+
+        const setIcon = (e) => {
+            imageReader(form.icon, icon);
+        };
+
+        function cropBannerSuccess(imgDataUrl, field) {
+            form.banner = dataURLtoFile(imgDataUrl);
+            banner.value = imgDataUrl;
+        }
+
+        function cropIconSuccess(imgDataUrl, field) {
+            form.icon = dataURLtoFile(imgDataUrl);
+            icon.value = imgDataUrl;
+        }
+
         return {
             form,
             submit,
+            setBanner,
+            setIcon,
+            banner,
+            showBannerCroper,
+            cropBannerSuccess,
+            icon,
+            showIconCroper,
+            cropIconSuccess,
         };
     },
 };

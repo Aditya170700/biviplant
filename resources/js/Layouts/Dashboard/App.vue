@@ -1,9 +1,9 @@
 <template>
     <div id="app">
-        <Sidebar />
+        <Sidebar :sidebar="sidebar" @changeSidebar="changeSidebar" />
         <div id="main">
             <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
+                <a href="#" @click="setSidebar" class="burger-btn d-block">
                     <i class="fas fa-bars"></i>
                 </a>
             </header>
@@ -21,14 +21,15 @@
                                     class="btn btn-secondary btn-sm rounded-custom"
                                     :href="href"
                                 >
-                                    <i class="fas fa-arrow-left me-2"></i> Back
+                                    <i class="fas fa-arrow-left me-2"></i>
+                                    Kembali
                                 </Link>
                                 <Link
                                     v-if="typeButton == 'create'"
                                     class="btn btn-success btn-sm rounded-custom"
                                     :href="href"
                                 >
-                                    <i class="fas fa-plus me-2"></i> Create
+                                    <i class="fas fa-plus me-2"></i> Tambah
                                 </Link>
                             </div>
                         </div>
@@ -47,7 +48,7 @@
 import Sidebar from "../../Layouts/Dashboard/Sidebar.vue";
 import Footer from "../../Layouts/Dashboard/Footer.vue";
 import { usePage, Link } from "@inertiajs/inertia-vue3";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 export default {
     components: { Sidebar, Footer, Link },
@@ -65,16 +66,27 @@ export default {
             required: false,
         },
     },
+    emits: ["changeSidebar"],
     setup() {
         const shared = computed(() => usePage().props.value);
+        const sidebar = ref("active");
+        const changeSidebar = (e) => {
+            sidebar.value = e;
+        };
 
-        if (shared.value.flash.success) {
-            success(shared.value.flash.success);
-        }
+        const setSidebar = () => {
+            if (sidebar.value == "") {
+                sidebar.value = "active";
+            } else {
+                sidebar.value = "";
+            }
+        };
 
-        if (shared.value.flash.failed) {
-            failed(shared.value.flash.failed);
-        }
+        return {
+            sidebar,
+            setSidebar,
+            changeSidebar,
+        };
     },
 };
 </script>
