@@ -6,6 +6,7 @@ use App\Interfaces\BannerInterface;
 use App\Interfaces\CategoryInterface;
 use App\Interfaces\EventInterface;
 use App\Interfaces\ProductInterface;
+use App\Interfaces\VoucherInterface;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,7 @@ class HomeController extends Controller
         EventInterface $eventInterface,
         BannerInterface $bannerInterface,
         ProductInterface $productInterface,
+        VoucherInterface $voucherInterface,
         CategoryInterface $categoryInterface
     )
     {
@@ -25,6 +27,7 @@ class HomeController extends Controller
         $this->eventInterface = $eventInterface;
         $this->bannerInterface = $bannerInterface;
         $this->productInterface = $productInterface;
+        $this->voucherInterface = $voucherInterface;
         $this->categoryInterface = $categoryInterface;
     }
     
@@ -36,6 +39,7 @@ class HomeController extends Controller
                 'categories' => $this->categoryInterface->getPaginated($this->request),
                 'event' => $this->eventInterface->getOne(),
                 'products' => $this->productInterface->featuredProducts(),
+                'vouchers' => $this->voucherInterface->getPaginated($this->request),
                 'meta_title' => 'Jual Tanaman Hias dan Buah Dalam Pot',
                 'meta_description' => 'Jual Tanaman Hias dan Buah Dalam Pot',
                 'meta_keyword' => 'Keyword',

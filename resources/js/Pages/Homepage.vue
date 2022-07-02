@@ -251,18 +251,16 @@
             <div class="container">
                 <div class="card discount-coupon-card">
                     <div class="card-body">
+                        <h2 class="text-white">Gunakan Code Voucher saat checkout ya!</h2>
                         <div
                             class="coupon-text-wrap d-flex align-items-center p-3"
+                            v-for="(voucher, i) in vouchers.data"
+                            :key="i"
                         >
                             <h4 class="text-white pe-3 mb-0">
-                                Get 20% <br />
-                                discount
+                                <strong>{{ voucher.code }}</strong>
                             </h4>
-                            <p class="text-white ps-3 mb-0">
-                                To get discount, enter the<strong class="px-1"
-                                    >GET20</strong
-                                >code on the checkout page.
-                            </p>
+                            <p class="text-white ps-3 mb-0">{{ voucher.desc }}</p>
                         </div>
                     </div>
                 </div>
@@ -396,7 +394,8 @@ import { onMounted } from "@vue/runtime-core";
         banners: Object,
         categories: Object,
         event: Object,
-        products: Object
+        products: Object,
+        vouchers: Object
     })
 
     const metaTitle = ref(props.meta_title)
