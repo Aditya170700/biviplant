@@ -6,20 +6,23 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\File\StoreRequest as FileStoreRequest;
+use App\Http\Requests\Admin\Origin\StoreRequest as OriginStoreRequest;
 use App\Http\Requests\Admin\Product\StoreRequest;
 use App\Http\Requests\Admin\Product\UpdateRequest;
 use App\Interfaces\CategoryInterface;
 use App\Interfaces\FileInterface;
+use App\Interfaces\OriginInterface;
 use App\Interfaces\ProductInterface;
 
 class ProductController extends Controller
 {
-    public function __construct(Request $request, ProductInterface $productInterface, CategoryInterface $categoryInterface, FileInterface $fileInterface)
+    public function __construct(Request $request, ProductInterface $productInterface, CategoryInterface $categoryInterface, FileInterface $fileInterface, OriginInterface $originInterface)
     {
         $this->request = $request;
         $this->productInterface = $productInterface;
         $this->categoryInterface = $categoryInterface;
         $this->fileInterface = $fileInterface;
+        $this->originInterface = $originInterface;
     }
 
     public function index()
@@ -62,7 +65,14 @@ class ProductController extends Controller
     {
         try {
             return Inertia::render('Dashboard/Product/Show', [
-                'result' => $this->productInterface->getById($id),
+                'result' => $this->productInterface->getById($id, [
+                    'category' => function ($query) {
+                        $query->select('id', 'name');
+                    },
+                    'files' => function ($query) {
+                        $query->select('id', 'path', 'product_id');
+                    },
+                ]),
             ]);
         } catch (\Throwable $th) {
             throw $th;
@@ -106,13 +116,14 @@ class ProductController extends Controller
         }
     }
 
-    public function files(Request $request, $id)
+    public function files($id)
     {
         try {
-            $request->product_id = $id;
+            $result = $this->productInterface->getById($id);
+            $result->setRelation('files', $result->files()->paginate(12));
+
             return Inertia::render('Dashboard/Product/File', [
-                'results' => $this->fileInterface->getPaginated($request),
-                'product' => $this->productInterface->getById($id),
+                'result' => $result,
             ]);
         } catch (\Throwable $th) {
             throw $th;
@@ -135,7 +146,48 @@ class ProductController extends Controller
     public function destroyFiles($id, $fileId)
     {
         try {
-            $this->fileInterface->delete($this->fileInterface->getById($fileId));
+            $this->fileInterface
+                ->delete($this->fileInterface->getById($fileId));
+
+            return redirect()->back()
+                ->with('success', 'Berhasil tambah data');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function origins($id)
+    {
+        try {
+            $result = $this->productInterface->getById($id);
+            $result->setRelation('origins', $result->origins()->with('subdistrict.city.province')->paginate(10));
+
+            return Inertia::render('Dashboard/Product/Origin', [
+                'result' => $result,
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function storeOrigins(OriginStoreRequest $request, $id)
+    {
+        try {
+            $this->originInterface
+                ->create($request->data());
+
+            return redirect()->back()
+                ->with('success', 'Berhasil tambah data');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function destroyOrigins($id, $originId)
+    {
+        try {
+            $this->originInterface
+                ->delete($this->originInterface->getById($originId));
 
             return redirect()->back()
                 ->with('success', 'Berhasil tambah data');

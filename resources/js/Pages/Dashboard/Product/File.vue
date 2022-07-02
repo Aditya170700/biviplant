@@ -182,7 +182,7 @@
                         <div class="row">
                             <div
                                 class="col-lg-3"
-                                v-for="(image, i) in results.data"
+                                v-for="(image, i) in result.files.data"
                                 :key="i"
                             >
                                 <div class="card bg-dark text-white">
@@ -197,10 +197,10 @@
                         </div>
                         <Pagination
                             class="mt-2"
-                            :links="results.links"
-                            :from="results.from"
-                            :to="results.to"
-                            :total="results.total"
+                            :links="result.files.links"
+                            :from="result.files.from"
+                            :to="result.files.to"
+                            :total="result.files.total"
                         />
                     </div>
                 </div>
@@ -231,8 +231,7 @@ export default {
     },
     props: {
         errors: Object,
-        results: Object,
-        product: Object,
+        result: Object,
     },
     setup(props) {
         const path = ref("");
@@ -248,7 +247,7 @@ export default {
             alt: "",
             description: "",
             path: "",
-            product_id: props.product.id,
+            product_id: props.result.id,
         });
 
         function cropSuccess(imgDataUrl, field) {
@@ -259,7 +258,7 @@ export default {
         function submit() {
             form.transform((data) => ({
                 ...data,
-            })).post(route("admin.products.files.store", props.product.id), {
+            })).post(route("admin.products.files.store", props.result.id), {
                 onSuccess: () => {
                     form.reset("name", "alt", "description", "path");
                     path.value = "";
@@ -285,7 +284,7 @@ export default {
                 if (res) {
                     Inertia.delete(
                         route("admin.products.files.destroy", {
-                            id: props.product.id,
+                            id: props.result.id,
                             fileId: id,
                         })
                     );

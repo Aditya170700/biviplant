@@ -1,15 +1,15 @@
 <?php
 
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\EventController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\VoucherController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +36,13 @@ Route::middleware(['auth', 'role:admin'])
                 Route::get('/products/{id}/files', 'files')->name('files');
                 Route::post('/products/{id}/files', 'storeFiles')->name('files.store');
                 Route::delete('/products/{id}/files/{fileId}', 'destroyFiles')->name('files.destroy');
+            });
+        Route::controller(ProductController::class)
+            ->name('products.')
+            ->group(function () {
+                Route::get('/products/{id}/origins', 'origins')->name('origins');
+                Route::post('/products/{id}/origins', 'storeOrigins')->name('origins.store');
+                Route::delete('/products/{id}/origins/{originId}', 'destroyOrigins')->name('origins.destroy');
             });
         Route::resources([
             'categories' => CategoryController::class,

@@ -45,4 +45,9 @@ class Product extends Model
     {
         return $this->hasMany(File::class);
     }
+
+    public function origins()
+    {
+        return $this->hasMany(Origin::class);
+    }
 }

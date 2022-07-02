@@ -180,6 +180,21 @@
                                             <Link
                                                 :href="
                                                     route(
+                                                        'admin.products.origins',
+                                                        {
+                                                            id: result.id,
+                                                        }
+                                                    )
+                                                "
+                                                class="btn btn-sm btn-success me-2 rounded-custom"
+                                            >
+                                                <i
+                                                    class="fas fa-location-arrow"
+                                                ></i>
+                                            </Link>
+                                            <Link
+                                                :href="
+                                                    route(
                                                         'admin.products.files',
                                                         {
                                                             id: result.id,
