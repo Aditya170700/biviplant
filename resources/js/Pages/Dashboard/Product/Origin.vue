@@ -273,6 +273,13 @@
                                     class="d-flex justify-content-between align-items-center mb-3"
                                 >
                                     <div class="h5">Preview Suplier</div>
+                                    <a
+                                        :href="`https://www.google.com/maps/?q=${other.preview.latitude},${other.preview.longitude}`"
+                                        target="_blank"
+                                        class="btn btn-primary btn-sm rounded-custom"
+                                    >
+                                        <i class="fas fa-location-arrow"></i>
+                                    </a>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-4">Pengirim</div>
