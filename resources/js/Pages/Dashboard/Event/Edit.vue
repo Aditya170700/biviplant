@@ -55,8 +55,8 @@
                                             field="img"
                                             :langType="'en'"
                                             @crop-success="cropSuccess"
-                                            :width="744"
-                                            :height="300"
+                                            :width="1200"
+                                            :height="800"
                                             v-model="showCroper">
                                         </crop>
                                         <div class="mb-3">

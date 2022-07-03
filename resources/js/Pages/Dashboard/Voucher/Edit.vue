@@ -29,6 +29,23 @@
                                 </div>
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
+                                        <label for="desc" class="form-label"
+                                            >Deskripsi</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="desc"
+                                            v-model="form.desc"
+                                        />
+                                        <FormText
+                                            :id="'desc'"
+                                            :message="form.errors.desc"
+                                            v-if="errors.desc"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
                                         <label
                                             for="limit"
                                             class="form-label"

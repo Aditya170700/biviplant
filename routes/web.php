@@ -2,14 +2,15 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\VoucherController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController as HomeProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,14 +55,7 @@ Route::middleware(['auth', 'role:admin'])
         ]);
     });
 
-Route::get('/', function () {
-    return Inertia::render('Homepage', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('homepage');
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
 Route::middleware([
     'auth:sanctum',
@@ -73,9 +67,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/products', function () {
-    return Inertia::render('Products');
-});
+Route::get('/products', [HomeProductController::class, 'index']);
 
 Route::get('/products/{product}', function () {
     return Inertia::render('Product');

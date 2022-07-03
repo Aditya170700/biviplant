@@ -15,6 +15,7 @@ class ProductRepository implements ProductInterface
     public function getPaginated($request)
     {
         return $this->model
+            ->with('files')
             ->when($request->search, function ($query) use ($request) {
                 $query->where('name', 'like', "%$request->search%");
             })
@@ -25,6 +26,13 @@ class ProductRepository implements ProductInterface
                 $query->latest();
             })
             ->paginate($request->limit ?? 25);
+    }
+
+    public function featuredProducts()
+    {
+        return $this->model
+            ->with('files')
+            ->paginate(10);
     }
 
     public function getById(string $id, array $with = [])

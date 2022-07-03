@@ -11,6 +11,7 @@ class VoucherRequestAdapter implements DataRequestAdapterInterface
     {
         return [
             'code' => 'required|string|max:255',
+            'desc' => 'required|string|max:255',
             'limit' => 'required|integer',
             'expired_at' => 'required|date',
             'min_order' => 'required|integer|min:1',
@@ -23,6 +24,7 @@ class VoucherRequestAdapter implements DataRequestAdapterInterface
     {
         return [
             'code' => 'required|string|max:255',
+            'desc' => 'required|string|max:255',
             'limit' => 'required|integer',
             'expired_at' => 'required|date',
             'min_order' => 'required|integer|min:1',
@@ -35,6 +37,7 @@ class VoucherRequestAdapter implements DataRequestAdapterInterface
     {
         return [
             'code' => $data['code'],
+            'desc' => $data['desc'],
             'limit' => $data['limit'],
             'expired_at' => $data['expired_at'],
             'min_order' => $data['min_order'],
@@ -47,6 +50,7 @@ class VoucherRequestAdapter implements DataRequestAdapterInterface
     {
         return [
             'code' => 'Kode',
+            'desc' => 'Deskripsi',
             'limit' => 'Batas',
             'min_order' => 'Minimal Order',
             'expired_at' => 'Tanggal Berakhir Voucher',

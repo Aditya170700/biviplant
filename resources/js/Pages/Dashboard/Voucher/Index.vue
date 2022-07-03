@@ -62,6 +62,31 @@
                                         </th>
                                         <th>
                                             <span
+                                                @click="sort('desc')"
+                                                class="d-flex justify-content-between"
+                                                style="cursor: pointer"
+                                            >
+                                                DESKRIPSI
+                                                <i
+                                                    v-if="
+                                                        params.direction ==
+                                                            'asc' &&
+                                                        params.field == 'desc'
+                                                    "
+                                                    class="fa-solid fa-arrow-down-a-z"
+                                                ></i>
+                                                <i
+                                                    v-if="
+                                                        params.direction ==
+                                                            'desc' &&
+                                                        params.field == 'desc'
+                                                    "
+                                                    class="fa-solid fa-arrow-up-z-a"
+                                                ></i>
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span
                                                 @click="sort('limit')"
                                                 class="d-flex justify-content-between"
                                                 style="cursor: pointer"
@@ -176,6 +201,7 @@
                                     >
                                         <td>{{ i + 1 }}</td>
                                         <td>{{ result.code }}</td>
+                                        <td>{{ result.desc }}</td>
                                         <td>{{ result.limit }}</td>
                                         <td>{{ result.expired_at }}</td>
                                         <td>{{ result.min_order }}</td>

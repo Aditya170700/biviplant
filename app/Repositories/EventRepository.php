@@ -27,6 +27,11 @@ class EventRepository implements EventInterface
             ->paginate($request->limit ?? 25);
     }
 
+    public function getOne()
+    {
+        return $this->model->latest()->first();
+    }
+
     public function getById(string $id)
     {
         return $this->model
