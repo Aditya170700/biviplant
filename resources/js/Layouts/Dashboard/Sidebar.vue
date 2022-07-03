@@ -62,7 +62,8 @@
                     </li>
 
                     <!-- DATA MASTER -->
-                    <li :class="[
+                    <li
+                        :class="[
                             'sidebar-item',
                             'has-sub',
                             route().current().includes('admin.categories') ||
@@ -70,25 +71,33 @@
                             route().current().includes('admin.users') ||
                             route().current().includes('admin.events') ||
                             route().current().includes('admin.vouchers')
-                                    ? 'active'
-                                    : '',
-                        ]">
-                        <a href="#" class="sidebar-link" @click="menuColapse($event)">
+                                ? 'active'
+                                : '',
+                        ]"
+                    >
+                        <a
+                            href="#"
+                            class="sidebar-link"
+                            @click="menuColapse($event)"
+                        >
                             <i class="fas fa-book"></i>
                             <span>Data Master</span>
                         </a>
-                        <ul 
+                        <ul
                             :class="[
                                 'submenu',
                                 'has-sub',
                                 route().current().includes('admin')
-                                        ? 'active'
-                                        : '',
-                        ]">
+                                    ? 'active'
+                                    : '',
+                            ]"
+                        >
                             <li
                                 :class="[
                                     'submenu-item',
-                                    route().current().includes('admin.categories.')
+                                    route()
+                                        .current()
+                                        .includes('admin.categories.')
                                         ? 'active'
                                         : '',
                                 ]"
@@ -97,7 +106,7 @@
                                     :href="route('admin.categories.index')"
                                     class="sidebar-link"
                                 >
-                                    <i class="fas fa-boxes"></i>
+                                    <i class="fas fa-o"></i>
                                     <span>Kategori</span>
                                 </Link>
                             </li>
@@ -113,7 +122,7 @@
                                     :href="route('admin.banners.index')"
                                     class="sidebar-link"
                                 >
-                                    <i class="fas fa-images"></i>
+                                    <i class="fas fa-o"></i>
                                     <span>Banner</span>
                                 </Link>
                             </li>
@@ -129,7 +138,7 @@
                                     :href="route('admin.users.index')"
                                     class="sidebar-link"
                                 >
-                                    <i class="fas fa-users"></i>
+                                    <i class="fas fa-o"></i>
                                     <span>Pengguna</span>
                                 </Link>
                             </li>
@@ -145,14 +154,16 @@
                                     :href="route('admin.events.index')"
                                     class="sidebar-link"
                                 >
-                                    <i class="fas fa-calendar"></i>
+                                    <i class="fas fa-o"></i>
                                     <span>Event</span>
                                 </Link>
                             </li>
                             <li
                                 :class="[
                                     'submenu-item',
-                                    route().current().includes('admin.vouchers.')
+                                    route()
+                                        .current()
+                                        .includes('admin.vouchers.')
                                         ? 'active'
                                         : '',
                                 ]"
@@ -161,7 +172,7 @@
                                     :href="route('admin.vouchers.index')"
                                     class="sidebar-link"
                                 >
-                                    <i class="fas fa-money-bill"></i>
+                                    <i class="fas fa-o"></i>
                                     <span>Voucher</span>
                                 </Link>
                             </li>
@@ -183,9 +194,9 @@
                             <span>Produk</span>
                         </Link>
                     </li>
-                    
+
                     <!-- OTHERS -->
-                    
+
                     <li class="sidebar-title">Lainnya</li>
 
                     <li class="sidebar-item">
@@ -216,17 +227,19 @@ export default {
     props: {
         sidebar: String,
     },
-    setup(props, {emit}) {
+    setup(props, { emit }) {
         const colapse = ref(null);
         const logout = () => {
             Inertia.post(route("logout"));
         };
 
         const menuColapse = (e) => {
-            let $parent = e.target.closest('.sidebar-item')
-            let $child = $parent.querySelector('.submenu');
-            $child.style.display === "none" ? $child.style.display = "block" : $child.style.display = "none"
-        }
+            let $parent = e.target.closest(".sidebar-item");
+            let $child = $parent.querySelector(".submenu");
+            $child.style.display === "none"
+                ? ($child.style.display = "block")
+                : ($child.style.display = "none");
+        };
 
         const setSidebar = () => {
             emit("changeSidebar", "");
@@ -238,7 +251,7 @@ export default {
             logout,
             setSidebar,
             colapse,
-            menuColapse
+            menuColapse,
         };
     },
 };
