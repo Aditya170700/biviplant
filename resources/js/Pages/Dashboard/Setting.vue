@@ -315,20 +315,20 @@ export default {
     },
     setup(props) {
         const form = useForm({
-            owner: props.result.owner ?? "",
-            meta_title: props.result.meta_title ?? "",
-            meta_description: props.result.meta_description ?? "",
-            meta_keyword: props.result.meta_keyword ?? "",
-            facebook: props.result.facebook ?? "",
-            ig: props.result.ig ?? "",
-            tiktok: props.result.tiktok ?? "",
-            email: props.result.email ?? "",
-            phone: props.result.phone ?? "",
-            about_us: props.result.about_us ?? "",
-            privacy_policy: props.result.privacy_policy ?? "",
+            owner: props.result?.owner ?? "",
+            meta_title: props.result?.meta_title ?? "",
+            meta_description: props.result?.meta_description ?? "",
+            meta_keyword: props.result?.meta_keyword ?? "",
+            facebook: props.result?.facebook ?? "",
+            ig: props.result?.ig ?? "",
+            tiktok: props.result?.tiktok ?? "",
+            email: props.result?.email ?? "",
+            phone: props.result?.phone ?? "",
+            about_us: props.result?.about_us ?? "",
+            privacy_policy: props.result?.privacy_policy ?? "",
             logo: "",
         });
-        const logo = ref(props.result.logo_url ?? "");
+        const logo = ref(props.result?.logo_url ?? "");
         const showLogoCroper = ref(false);
 
         function submit() {
