@@ -49,7 +49,6 @@
         "vue-easy-lightbox": "^1.4.1",
         "vue-image-crop-upload": "^3.0.3",
         "vue-sweetalert2": "^5.0.5",
-        "vue-toast-notification": "^3.0.4",
-        "vue3-tel-input": "^1.0.4"
+        "vue-toast-notification": "^3.0.4"
     }
 }
