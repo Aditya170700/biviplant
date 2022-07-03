@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->text('about_us');
+            $table->text('logo');
             $table->unsignedBigInteger('subdistrict_id')->index();
             $table->string('banner_id');
             $table->timestamps();

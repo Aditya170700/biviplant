@@ -2,43 +2,48 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Interfaces\SettingInterface;
+use App\Http\Requests\Admin\Setting\StoreRequest;
 
 class SettingController extends Controller
 {
+    public function __construct(Request $request, SettingInterface $settingInterface)
+    {
+        $this->request = $request;
+        $this->settingInterface = $settingInterface;
+    }
+
     public function index()
     {
-        //
+        try {
+            return Inertia::render('Dashboard/Setting', [
+                'result' => $this->settingInterface->getOne(),
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
-    public function create()
+    public function store(StoreRequest $request)
     {
-        //
-    }
+        try {
+            $setting = $this->settingInterface->getOne();
 
-    public function store(Request $request)
-    {
-        //
-    }
+            if ($setting) {
+                $this->settingInterface
+                    ->update($setting, $request->data());
+            } else {
+                $this->settingInterface
+                    ->create($request->data());
+            }
 
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+            return redirect()->back()
+                ->with('success', 'Berhasil ubah data');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

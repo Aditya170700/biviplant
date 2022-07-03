@@ -12,6 +12,7 @@ use App\Interfaces\FileInterface;
 use App\Interfaces\OriginInterface;
 use App\Interfaces\ProductInterface;
 use App\Interfaces\ProvinceInterface;
+use App\Interfaces\SettingInterface;
 use App\Interfaces\SubdistrictInterface;
 use App\Interfaces\VoucherInterface;
 use App\Repositories\BannerRepository;
@@ -23,6 +24,7 @@ use App\Repositories\FileRepository;
 use App\Repositories\OriginRepository;
 use App\Repositories\ProductRepository;
 use App\Repositories\ProvinceRepository;
+use App\Repositories\SettingRepository;
 use App\Repositories\SubdistrictRepository;
 use App\Repositories\VoucherRepository;
 
@@ -46,6 +48,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(ProvinceInterface::class, ProvinceRepository::class);
         $this->app->bind(CityInterface::class, CityRepository::class);
         $this->app->bind(SubdistrictInterface::class, SubdistrictRepository::class);
+        $this->app->bind(SettingInterface::class, SettingRepository::class);
     }
 
     /**

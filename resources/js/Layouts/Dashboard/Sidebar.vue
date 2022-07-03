@@ -199,6 +199,22 @@
 
                     <li class="sidebar-title">Lainnya</li>
 
+                    <li
+                        :class="[
+                            'sidebar-item',
+                            route().current().includes('admin.settings.')
+                                ? 'active'
+                                : '',
+                        ]"
+                    >
+                        <Link
+                            :href="route('admin.settings.index')"
+                            class="sidebar-link"
+                        >
+                            <i class="fas fa-cog"></i>
+                            <span>Pengaturan</span>
+                        </Link>
+                    </li>
                     <li class="sidebar-item">
                         <a
                             href="#"

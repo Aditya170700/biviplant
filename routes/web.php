@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController as HomeProductController;
@@ -44,6 +45,12 @@ Route::middleware(['auth', 'role:admin'])
                 Route::get('/products/{id}/origins', 'origins')->name('origins');
                 Route::post('/products/{id}/origins', 'storeOrigins')->name('origins.store');
                 Route::delete('/products/{id}/origins/{originId}', 'destroyOrigins')->name('origins.destroy');
+            });
+        Route::controller(SettingController::class)
+            ->name('settings.')
+            ->group(function () {
+                Route::get('/settings', 'index')->name('index');
+                Route::post('/settings', 'store')->name('store');
             });
         Route::resources([
             'categories' => CategoryController::class,
