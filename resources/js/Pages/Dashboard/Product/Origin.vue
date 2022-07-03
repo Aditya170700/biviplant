@@ -10,6 +10,42 @@
                     <div class="card-body">
                         <form @submit.prevent="submit">
                             <div class="row">
+                                <div class="col-1g-12 mb-3">
+                                    <div
+                                        style="
+                                            height: 75vh;
+                                            width: 100%;
+                                            z-index: 1 !important;
+                                        "
+                                    >
+                                        <l-map
+                                            v-model="map.zoom"
+                                            v-model:zoom="map.zoom"
+                                            :center="[
+                                                form.latitude,
+                                                form.longitude,
+                                            ]"
+                                        >
+                                            <l-tile-layer
+                                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                            ></l-tile-layer>
+                                            <l-marker
+                                                :lat-lng="[
+                                                    form.latitude,
+                                                    form.longitude,
+                                                ]"
+                                                draggable
+                                                @moveend="log"
+                                            >
+                                                <l-tooltip>
+                                                    {{
+                                                        `Lat: ${form.latitude} Lng: ${form.longitude}`
+                                                    }}
+                                                </l-tooltip>
+                                            </l-marker>
+                                        </l-map>
+                                    </div>
+                                </div>
                                 <div class="col-lg-6 mb-3">
                                     <div class="mb-3">
                                         <label
@@ -21,6 +57,7 @@
                                             class="form-control"
                                             id="longitude"
                                             v-model="form.longitude"
+                                            disabled
                                         />
                                         <FormText
                                             :id="'longitude'"
@@ -38,6 +75,7 @@
                                             class="form-control"
                                             id="latitude"
                                             v-model="form.latitude"
+                                            disabled
                                         />
                                         <FormText
                                             :id="'latitude'"
@@ -70,7 +108,7 @@
                                         >
                                         <input
                                             class="form-control"
-                                            id="phone"
+                                            id="sender"
                                             v-model="form.phone"
                                         />
                                         <FormText
@@ -385,8 +423,21 @@ import { useForm, Link } from "@inertiajs/inertia-vue3";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
 import { Inertia } from "@inertiajs/inertia";
-import { onMounted, reactive } from "vue";
+import { ref, onMounted, reactive } from "vue";
 import axios from "axios";
+import {
+    LMap,
+    LIcon,
+    LTileLayer,
+    LMarker,
+    LControlLayers,
+    LTooltip,
+    LPopup,
+    LPolyline,
+    LPolygon,
+    LRectangle,
+} from "@vue-leaflet/vue-leaflet";
+import "leaflet/dist/leaflet.css";
 
 export default {
     components: {
@@ -395,19 +446,33 @@ export default {
         SpinnerProcessing,
         FormText,
         Pagination,
+        LMap,
+        LIcon,
+        LTileLayer,
+        LMarker,
+        LControlLayers,
+        LTooltip,
+        LPopup,
+        LPolyline,
+        LPolygon,
+        LRectangle,
     },
     props: {
         errors: Object,
         result: Object,
     },
     setup(props) {
+        let map = reactive({
+            zoom: 15,
+        });
+
         const form = useForm({
             product_id: props.result.id,
             province_id: "",
             city_id: "",
             subdistrict_id: "",
-            longitude: "",
-            latitude: "",
+            longitude: 0,
+            latitude: 0,
             sender: "",
             phone: "",
             postal_code: "",
@@ -473,8 +538,20 @@ export default {
                 });
         };
 
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    form.latitude = position.coords.latitude;
+                    form.longitude = position.coords.longitude;
+                });
+            } else {
+                console.log("Geolocation is not supported by this browser.");
+            }
+        }
+
         onMounted(() => {
             getProvince();
+            getLocation();
         });
 
         function submit() {
@@ -512,6 +589,12 @@ export default {
             });
         };
 
+        function log(ev) {
+            let loc = ev.target.getLatLng();
+            form.longitude = loc.lng;
+            form.latitude = loc.lat;
+        }
+
         return {
             other,
             getCity,
@@ -520,6 +603,8 @@ export default {
             preview,
             submit,
             destroy,
+            map,
+            log,
         };
     },
 };

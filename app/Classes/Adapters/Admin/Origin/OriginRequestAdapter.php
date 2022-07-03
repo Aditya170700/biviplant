@@ -11,8 +11,8 @@ class OriginRequestAdapter implements DataRequestAdapterInterface
         return [
             'product_id' => 'required|string',
             'subdistrict_id' => 'required',
-            'longitude' => 'required|string',
-            'latitude' => 'required|string',
+            'longitude' => 'required',
+            'latitude' => 'required',
             'sender' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'postal_code' => 'required|string|max:6',
