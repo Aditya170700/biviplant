@@ -178,16 +178,42 @@
                                         <label for="about_us" class="form-label"
                                             >Tentang Kami</label
                                         >
-                                        <textarea
-                                            class="form-control"
-                                            id="about_us"
-                                            rows="3"
-                                            v-model="form.about_us"
-                                        ></textarea>
+
+                                        <QuillEditor
+                                            theme="snow"
+                                            v-model:content="form.about_us"
+                                            contentType="html"
+                                            style="height: 100px"
+                                        />
                                         <FormText
                                             :id="'about_us'"
                                             :message="form.errors.about_us"
                                             v-if="form.errors.about_us"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="privacy_policy"
+                                            class="form-label"
+                                            >Kebijakan Privasi</label
+                                        >
+
+                                        <QuillEditor
+                                            theme="snow"
+                                            v-model:content="
+                                                form.privacy_policy
+                                            "
+                                            contentType="html"
+                                            style="height: 100px"
+                                        />
+                                        <FormText
+                                            :id="'privacy_policy'"
+                                            :message="
+                                                form.errors.privacy_policy
+                                            "
+                                            v-if="form.errors.privacy_policy"
                                         />
                                     </div>
                                 </div>
@@ -271,9 +297,18 @@ import FormText from "../../Shared/Form/FormText";
 import { ref } from "@vue/reactivity";
 import { imageReader, dataURLtoFile } from "../../utils";
 import Cropper from "vue-image-crop-upload";
+import { QuillEditor } from "@vueup/vue-quill";
+import "@vueup/vue-quill/dist/vue-quill.snow.css";
 
 export default {
-    components: { Layout, Link, SpinnerProcessing, FormText, crop: Cropper },
+    components: {
+        Layout,
+        Link,
+        SpinnerProcessing,
+        FormText,
+        crop: Cropper,
+        QuillEditor,
+    },
     props: {
         errors: Object,
         result: Object,
@@ -290,6 +325,7 @@ export default {
             email: props.result.email ?? "",
             phone: props.result.phone ?? "",
             about_us: props.result.about_us ?? "",
+            privacy_policy: props.result.privacy_policy ?? "",
             logo: "",
         });
         const logo = ref(props.result.logo_url ?? "");

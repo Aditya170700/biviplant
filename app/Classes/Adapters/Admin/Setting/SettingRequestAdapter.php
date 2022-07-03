@@ -19,6 +19,7 @@ class SettingRequestAdapter implements DataRequestAdapterInterface
             'email' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'about_us' => 'required|string',
+            'privacy_policy' => 'required|string',
         ];
     }
 
@@ -40,6 +41,7 @@ class SettingRequestAdapter implements DataRequestAdapterInterface
             'email' => $data['email'],
             'phone' => $data['phone'],
             'about_us' => $data['about_us'],
+            'privacy_policy' => $data['privacy_policy'],
             'logo' => $data['logo_url_adapter'],
         ];
     }
@@ -57,6 +59,7 @@ class SettingRequestAdapter implements DataRequestAdapterInterface
             'email' => 'Email',
             'phone' => 'No HP',
             'about_us' => 'Tentang Kami',
+            'privacy_policy' => 'Kebijakan Pribadi',
             'logo' => 'Logo',
         ];
     }
