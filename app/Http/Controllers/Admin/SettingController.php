@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Interfaces\SettingInterface;
 use App\Http\Requests\Admin\Setting\StoreRequest;
+use Illuminate\Support\Facades\Cache;
 
 class SettingController extends Controller
 {
@@ -30,6 +31,20 @@ class SettingController extends Controller
     public function store(StoreRequest $request)
     {
         try {
+            Cache::flush();
+
+            Cache::rememberForever('meta_title', function () use ($request) {
+                return $request->meta_title;
+            });
+
+            Cache::rememberForever('meta_description', function () use ($request) {
+                return $request->meta_description;
+            });
+
+            Cache::rememberForever('meta_keyword', function () use ($request) {
+                return $request->meta_keyword;
+            });
+
             $setting = $this->settingInterface->getOne();
 
             if ($setting) {

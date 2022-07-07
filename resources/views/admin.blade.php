@@ -3,6 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ env('APP_NAME') }}</title>
 
@@ -35,178 +38,216 @@
     @inertia
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script>
-        function slideToggle(t,e,o){0===t.clientHeight?j(t,e,o,!0):j(t,e,o)}function slideUp(t,e,o){j(t,e,o)}function slideDown(t,e,o){j(t,e,o,!0)}function j(t,e,o,i){void 0===e&&(e=400),void 0===i&&(i=!1),t.style.overflow="hidden",i&&(t.style.display="block");var p,l=window.getComputedStyle(t),n=parseFloat(l.getPropertyValue("height")),a=parseFloat(l.getPropertyValue("padding-top")),s=parseFloat(l.getPropertyValue("padding-bottom")),r=parseFloat(l.getPropertyValue("margin-top")),d=parseFloat(l.getPropertyValue("margin-bottom")),g=n/e,y=a/e,m=s/e,u=r/e,h=d/e;window.requestAnimationFrame(function l(x){void 0===p&&(p=x);var f=x-p;i?(t.style.height=g*f+"px",t.style.paddingTop=y*f+"px",t.style.paddingBottom=m*f+"px",t.style.marginTop=u*f+"px",t.style.marginBottom=h*f+"px"):(t.style.height=n-g*f+"px",t.style.paddingTop=a-y*f+"px",t.style.paddingBottom=s-m*f+"px",t.style.marginTop=r-u*f+"px",t.style.marginBottom=d-h*f+"px"),f>=e?(t.style.height="",t.style.paddingTop="",t.style.paddingBottom="",t.style.marginTop="",t.style.marginBottom="",t.style.overflow="",i||(t.style.display="none"),"function"==typeof o&&o()):window.requestAnimationFrame(l)})}
+        function slideToggle(t, e, o) {
+            0 === t.clientHeight ? j(t, e, o, !0) : j(t, e, o)
+        }
 
-/**
- * a Sidebar component
- * @param  {HTMLElement} el - sidebar element
- * @param  {object} options={} - options
- */
-class Sidebar {
-  constructor(el, options = {}) {
-    this.sidebarEL = el instanceof HTMLElement ? el : document.querySelector(el)
-    this.options = options
-    this.init()
-  }
-  
-  /**
-   * initialize the sidebar
-   */
-  init() {
-    // add event listener to sidebar
-    document.querySelectorAll('.burger-btn').forEach(el => el.addEventListener('click', this.toggle.bind(this)))
-    document.querySelectorAll('.sidebar-hide').forEach(el => el.addEventListener('click', this.toggle.bind(this)))
-    window.addEventListener('resize', this.onResize.bind(this));
+        function slideUp(t, e, o) {
+            j(t, e, o)
+        }
 
-    // 
-    let sidebarItems = document.querySelectorAll('.sidebar-item.has-sub');
-    for(var i = 0; i < sidebarItems.length; i++) {
-        let sidebarItem = sidebarItems[i];
-      sidebarItems[i].querySelector('.sidebar-link').addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            let submenu = sidebarItem.querySelector('.submenu');
-            if( submenu.classList.contains('active') ) submenu.style.display = "block"
+        function slideDown(t, e, o) {
+            j(t, e, o, !0)
+        }
 
-            if( submenu.style.display == "none" ) submenu.classList.add('active')
-            else submenu.classList.remove('active')
-            slideToggle(submenu, 300, () => this.forceElementVisibility(sidebarItem))
-        })
-    }
+        function j(t, e, o, i) {
+            void 0 === e && (e = 400), void 0 === i && (i = !1), t.style.overflow = "hidden", i && (t.style.display =
+                "block");
+            var p, l = window.getComputedStyle(t),
+                n = parseFloat(l.getPropertyValue("height")),
+                a = parseFloat(l.getPropertyValue("padding-top")),
+                s = parseFloat(l.getPropertyValue("padding-bottom")),
+                r = parseFloat(l.getPropertyValue("margin-top")),
+                d = parseFloat(l.getPropertyValue("margin-bottom")),
+                g = n / e,
+                y = a / e,
+                m = s / e,
+                u = r / e,
+                h = d / e;
+            window.requestAnimationFrame(function l(x) {
+                void 0 === p && (p = x);
+                var f = x - p;
+                i ? (t.style.height = g * f + "px", t.style.paddingTop = y * f + "px", t.style.paddingBottom = m *
+                    f + "px", t.style.marginTop = u * f + "px", t.style.marginBottom = h * f + "px") : (t.style
+                    .height = n - g * f + "px", t.style.paddingTop = a - y * f + "px", t.style.paddingBottom =
+                    s - m * f + "px", t.style.marginTop = r - u * f + "px", t.style.marginBottom = d - h * f +
+                    "px"), f >= e ? (t.style.height = "", t.style.paddingTop = "", t.style.paddingBottom = "", t
+                    .style.marginTop = "", t.style.marginBottom = "", t.style.overflow = "", i || (t.style
+                        .display = "none"), "function" == typeof o && o()) : window.requestAnimationFrame(l)
+            })
+        }
 
-    // Perfect Scrollbar Init
-    if(typeof PerfectScrollbar == 'function') {
-      const container = document.querySelector(".sidebar-wrapper");
-      const ps = new PerfectScrollbar(container, {
-          wheelPropagation: false
-      });
-    }
+        /**
+         * a Sidebar component
+         * @param  {HTMLElement} el - sidebar element
+         * @param  {object} options={} - options
+         */
+        class Sidebar {
+            constructor(el, options = {}) {
+                this.sidebarEL = el instanceof HTMLElement ? el : document.querySelector(el)
+                this.options = options
+                this.init()
+            }
 
-    // Scroll into active sidebar
-    setTimeout(() => document.querySelector('.sidebar-item.active')?.scrollIntoView(false), 100);
+            /**
+             * initialize the sidebar
+             */
+            init() {
+                // add event listener to sidebar
+                document.querySelectorAll('.burger-btn').forEach(el => el.addEventListener('click', this.toggle.bind(
+                    this)))
+                document.querySelectorAll('.sidebar-hide').forEach(el => el.addEventListener('click', this.toggle.bind(
+                    this)))
+                window.addEventListener('resize', this.onResize.bind(this));
 
-    // check responsive
-    this.onFirstLoad();
-  }
+                //
+                let sidebarItems = document.querySelectorAll('.sidebar-item.has-sub');
+                for (var i = 0; i < sidebarItems.length; i++) {
+                    let sidebarItem = sidebarItems[i];
+                    sidebarItems[i].querySelector('.sidebar-link').addEventListener('click', (e) => {
+                        e.preventDefault();
 
-  /**
-   * On First Load
-   */
-  onFirstLoad() {
-    var w = window.innerWidth;
-    if(w < 1200) {
-      this.sidebarEL.classList.remove('active');
-    }
-  }
+                        let submenu = sidebarItem.querySelector('.submenu');
+                        if (submenu.classList.contains('active')) submenu.style.display = "block"
 
-  /**
-   * On Sidebar Rezise Event
-   */
-  onResize() {
-    var w = window.innerWidth
-    if(w < 1200) {
-      this.sidebarEL.classList.remove('active')
-    } else {
-      this.sidebarEL.classList.add('active')
-    }
+                        if (submenu.style.display == "none") submenu.classList.add('active')
+                        else submenu.classList.remove('active')
+                        slideToggle(submenu, 300, () => this.forceElementVisibility(sidebarItem))
+                    })
+                }
 
-    // reset 
-    this.deleteBackdrop()
-    this.toggleOverflowBody(true)
-  }
+                // Perfect Scrollbar Init
+                if (typeof PerfectScrollbar == 'function') {
+                    const container = document.querySelector(".sidebar-wrapper");
+                    const ps = new PerfectScrollbar(container, {
+                        wheelPropagation: false
+                    });
+                }
 
-  /**
-   * Toggle Sidebar
-   */
-  toggle() {
-    const sidebarState = this.sidebarEL.classList.contains('active');
-    if (sidebarState) {
-      this.hide();
-    } else {
-      this.show();
-    }
-  }
+                // Scroll into active sidebar
+                setTimeout(() => document.querySelector('.sidebar-item.active')?.scrollIntoView(false), 100);
 
-  /**
-   * Show Sidebar
-   */
-  show() {
-    this.sidebarEL.classList.add('active');
-    this.createBackdrop();
-    this.toggleOverflowBody();
-  }
+                // check responsive
+                this.onFirstLoad();
+            }
 
-  /**
-   * Hide Sidebar
-   */
-  hide() {
-    this.sidebarEL.classList.remove('active');
-    this.deleteBackdrop();
-    this.toggleOverflowBody();
-  }
+            /**
+             * On First Load
+             */
+            onFirstLoad() {
+                var w = window.innerWidth;
+                if (w < 1200) {
+                    this.sidebarEL.classList.remove('active');
+                }
+            }
+
+            /**
+             * On Sidebar Rezise Event
+             */
+            onResize() {
+                var w = window.innerWidth
+                if (w < 1200) {
+                    this.sidebarEL.classList.remove('active')
+                } else {
+                    this.sidebarEL.classList.add('active')
+                }
+
+                // reset
+                this.deleteBackdrop()
+                this.toggleOverflowBody(true)
+            }
+
+            /**
+             * Toggle Sidebar
+             */
+            toggle() {
+                const sidebarState = this.sidebarEL.classList.contains('active');
+                if (sidebarState) {
+                    this.hide();
+                } else {
+                    this.show();
+                }
+            }
+
+            /**
+             * Show Sidebar
+             */
+            show() {
+                this.sidebarEL.classList.add('active');
+                this.createBackdrop();
+                this.toggleOverflowBody();
+            }
+
+            /**
+             * Hide Sidebar
+             */
+            hide() {
+                this.sidebarEL.classList.remove('active');
+                this.deleteBackdrop();
+                this.toggleOverflowBody();
+            }
 
 
-  /**
-   * Create Sidebar Backdrop
-   */
-  createBackdrop() {
-    this.deleteBackdrop();
-    const backdrop = document.createElement('div');
-    backdrop.classList.add('sidebar-backdrop');
-    backdrop.addEventListener('click', this.hide.bind(this));
-    document.body.appendChild(backdrop);
-  }
+            /**
+             * Create Sidebar Backdrop
+             */
+            createBackdrop() {
+                this.deleteBackdrop();
+                const backdrop = document.createElement('div');
+                backdrop.classList.add('sidebar-backdrop');
+                backdrop.addEventListener('click', this.hide.bind(this));
+                document.body.appendChild(backdrop);
+            }
 
-  /**
-   * Delete Sidebar Backdrop
-   */
-  deleteBackdrop() {
-    const backdrop = document.querySelector('.sidebar-backdrop');
-    if (backdrop) {
-      backdrop.remove();
-    }
-  }
+            /**
+             * Delete Sidebar Backdrop
+             */
+            deleteBackdrop() {
+                const backdrop = document.querySelector('.sidebar-backdrop');
+                if (backdrop) {
+                    backdrop.remove();
+                }
+            }
 
-  /**
-   * Toggle Overflow Body
-   */
-  toggleOverflowBody(active) {
-    const sidebarState = this.sidebarEL.classList.contains('active');
-    const body = document.querySelector('body');
-    if (typeof active == 'undefined') {
-      body.style.overflowY = sidebarState ? 'hidden' : 'auto';
-    } else {
-      body.style.overflowY = active ? 'auto' : 'hidden';
-    }
-  }
+            /**
+             * Toggle Overflow Body
+             */
+            toggleOverflowBody(active) {
+                const sidebarState = this.sidebarEL.classList.contains('active');
+                const body = document.querySelector('body');
+                if (typeof active == 'undefined') {
+                    body.style.overflowY = sidebarState ? 'hidden' : 'auto';
+                } else {
+                    body.style.overflowY = active ? 'auto' : 'hidden';
+                }
+            }
 
-  isElementInViewport(el) {
-    var rect = el.getBoundingClientRect();
-  
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  }
-  
-  forceElementVisibility(el) {
-    if (!this.isElementInViewport(el)) {
-      el.scrollIntoView(false);
-    }
-  }
-}
+            isElementInViewport(el) {
+                var rect = el.getBoundingClientRect();
 
-/**
- * Create Sidebar Wrapper
- */
-let sidebarEl = document.getElementById("sidebar")
-if (sidebarEl) {
-  window.sidebar = new Sidebar(sidebarEl)
-}
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <=
+                    (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
 
+            forceElementVisibility(el) {
+                if (!this.isElementInViewport(el)) {
+                    el.scrollIntoView(false);
+                }
+            }
+        }
+
+        /**
+         * Create Sidebar Wrapper
+         */
+        let sidebarEl = document.getElementById("sidebar")
+        if (sidebarEl) {
+            window.sidebar = new Sidebar(sidebarEl)
+        }
     </script>
 </body>
 

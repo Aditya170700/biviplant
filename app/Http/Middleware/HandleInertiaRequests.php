@@ -54,6 +54,9 @@ class HandleInertiaRequests extends Middleware
                 'failed' => fn () => $request->session()->get('failed'),
                 'login' => fn () => $request->session()->get('login'),
                 'logout' => fn () => $request->session()->get('logout'),
+                'meta_title' => cache('meta_title'),
+                'meta_description' => cache('meta_description'),
+                'meta_keyword' => cache('meta_keyword'),
             ],
         ]);
     }

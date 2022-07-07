@@ -21,8 +21,7 @@ class HomeController extends Controller
         ProductInterface $productInterface,
         VoucherInterface $voucherInterface,
         CategoryInterface $categoryInterface
-    )
-    {
+    ) {
         $this->request = $request;
         $this->eventInterface = $eventInterface;
         $this->bannerInterface = $bannerInterface;
@@ -30,7 +29,7 @@ class HomeController extends Controller
         $this->voucherInterface = $voucherInterface;
         $this->categoryInterface = $categoryInterface;
     }
-    
+
     public function index()
     {
         try {

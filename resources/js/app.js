@@ -65,6 +65,11 @@ createInertiaApp({
                         window.location.reload();
                     }
                 },
+                mounted() {
+                    document.querySelector('meta[name="title"]').setAttribute('content', this.$page.props.meta_title ?? this.$page.props.flash.meta_title);
+                    document.querySelector('meta[name="description"]').setAttribute('content', this.$page.props.meta_description ?? this.$page.props.flash.meta_description);
+                    document.querySelector('meta[name="keyword"]').setAttribute('content', this.$page.props.meta_keyword ?? this.$page.props.flash.meta_keyword);
+                }
             })
             .mount(el);
     },
