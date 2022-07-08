@@ -263,8 +263,11 @@
                                 />
                                 <div class="quantity-button-handler">+</div>
                             </div>
+                            <button class="btn btn-success ms-3">
+                                <i class="lni lni-shopping-basket"></i>
+                            </button>
                             <button class="btn btn-danger ms-3" type="submit">
-                                Keranjang
+                                Beli Langsung
                             </button>
                         </form>
                     </div>
@@ -300,11 +303,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="related-product-wrapper mb-3">
+                <div class="related-product-wrapper bg-white mb-3">
                     <div class="container">
-                        <div
-                            class="section-heading d-flex align-items-center justify-content-between"
-                        >
+                        <div class="section-heading mb-3 mt-3 d-flex justify-content-between" style="padding-top: 1rem;">
                             <h6>Produk Terkait</h6>
                             <a class="btn" href="shop-grid.html">Lihat Semua</a>
                         </div>
@@ -451,8 +452,9 @@
                 </div>
                 <div class="rating-and-review-wrapper bg-white py-3 mb-3">
                     <div class="container">
-                        <hr />
-                        <h6>Bintang &amp; Ulasan</h6>
+                        <div class="mb-3 d-flex justify-content-between">
+                            <h6>Bintang &amp; Ulasan</h6>
+                        </div>
                         <div class="rating-review-content">
                             <ul class="ps-0">
                                 <li class="single-user-review d-flex">
@@ -544,8 +546,9 @@
                 </div>
                 <div class="ratings-submit-form bg-white py-3">
                     <div class="container">
-                        <hr />
-                        <h6>Beri Ulasan Yuk</h6>
+                        <div class="mb-3 d-flex justify-content-between">
+                            <h6>Beri Ulasan Yuk</h6>
+                        </div>
                         <form action="#" method="">
                             <div class="stars mb-3">
                                 <input
