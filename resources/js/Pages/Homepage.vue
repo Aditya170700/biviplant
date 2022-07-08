@@ -150,7 +150,7 @@
                                     ></a>
                                     <Link
                                         class="product-thumbnail d-block"
-                                        href="/products/beach-cap"
+                                        :href="route('product.show', {id: product.slug})"
                                         ><img
                                             class="mb-2"
                                             :src="product.files[0]?.src"
@@ -159,7 +159,7 @@
                                     </Link>
                                     <Link
                                         class="product-title d-block"
-                                        href="/products/beach-cap"
+                                        :href="route('product.show', {id: product.slug})"
                                         >{{ product.name }}</Link
                                     >
                                     <p class="sale-price">

@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Head>
+            <title>{{ metaTitle }}</title>
+            <meta head-key="description" name="description" :content="metaDescription" />
+            <meta head-key="keyword" name="keyword" :content="metaKeyword" />
+        </Head>
         <Header></Header>
         <Sidebar></Sidebar>
         <div
@@ -37,44 +42,27 @@
             >
                 <div class="carousel-indicators">
                     <button
+                        v-for="(file, i) in product.files" :key="i"
                         type="button"
                         data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="0"
-                        class="active"
-                        aria-current="true"
-                        aria-label="Slide 1"
-                    ></button>
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="1"
-                        aria-label="Slide 2"
-                    ></button>
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="2"
-                        aria-label="Slide 3"
+                        :data-bs-slide-to="i"
+                        :class="(i == 0) ? 'active' : ''"
+                        :aria-current="(i == 0) ? true : false"
+                        :aria-label="`Slide ${i+1}`"
                     ></button>
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item">
-                        <div
-                            class="single-product-slide"
-                            style="background-image: url('/img/bg-img/6.jpg')"
-                        ></div>
-                    </div>
-                    <div class="carousel-item">
-                        <div
-                            class="single-product-slide"
-                            style="background-image: url('/img/bg-img/10.jpg')"
-                        ></div>
-                    </div>
-                    <div class="carousel-item active">
-                        <div
-                            class="single-product-slide"
-                            style="background-image: url('/img/bg-img/11.jpg')"
-                        ></div>
+                    <div 
+                        :class="['carousel-item', (i == 0) ? 'active' : '']" 
+                        v-for="(file, i) in product.files" :key="i"
+                    >
+                        <div class="single-product-slide text-center">
+                            <img 
+                                class="rounded mx-auto d-block mb-2" 
+                                :src="file.src"
+                                :alt="file.alt"
+                            />
+                        </div>
                     </div>
                 </div>
                 <button
@@ -102,12 +90,12 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <div class="product-description pb-3">
-                <div class="product-title-meta-data bg-white py-3">
+            <div class="product-description pb-3 bg-fug">
+                <div class="product-title-meta-data bg-white py-3 mb-3">
                     <div class="container d-flex justify-content-between">
                         <div class="p-title-price">
-                            <h6 class="mb-1">Flower Ceramic Pots</h6>
-                            <p class="sale-price mb-0">$38<span>$41</span></p>
+                            <h6 class="mb-1">{{ product.name }}</h6>
+                            <p class="sale-price mb-0">{{ product.price_rp }}<span>{{ product.strike_price_rp }}</span></p>
                         </div>
                         <div class="p-wishlist-share">
                             <a href="wishlist-grid.html"
@@ -133,154 +121,133 @@
                         </div>
                     </div>
                 </div>
-                <div class="flash-sale-panel bg-white py-3">
+                <div class="flash-sale-panel bg-white py-3 mb-3">
                     <div class="container">
-                        <div
-                            class="sales-offer-content d-flex align-items-end justify-content-between"
-                        >
-                            <div class="sales-end">
+                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
+                            <div class="d-flex-30">
                                 <p class="mb-1 font-weight-bold">
-                                    <i class="lni lni-bolt"></i> Flash sale end
-                                    in
+                                    <strong>Kondisi</strong>
                                 </p>
-                                <ul
-                                    class="sales-end-timer ps-0 d-flex align-items-center"
-                                    data-countdown="2022/01/01 14:21:37"
-                                >
-                                    <li><span class="days">0</span>d</li>
-                                    <li><span class="hours">0</span>h</li>
-                                    <li><span class="minutes">0</span>m</li>
-                                    <li><span class="seconds">0</span>s</li>
-                                </ul>
                             </div>
-                            <div class="sales-volume text-end">
+                            <div class="mb-1 font-weight-bold">
+                                <p>Sudah mulai berbunga</p>
+                            </div>
+                        </div>
+                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
+                            <div class="d-flex-30">
                                 <p class="mb-1 font-weight-bold">
-                                    82% Sold Out
+                                    <strong>Berat</strong>
                                 </p>
-                                <div class="progress" style="height: 6px">
-                                    <div
-                                        class="progress-bar bg-warning"
-                                        role="progressbar"
-                                        style="width: 82%"
-                                        aria-valuenow="82"
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"
-                                    ></div>
-                                </div>
+                            </div>
+                            <div class="mb-1 font-weight-bold">
+                                <p>2000 gram</p>
+                            </div>
+                        </div>
+                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
+                            <div class="d-flex-30">
+                                <p class="mb-1 font-weight-bold">
+                                    <strong>Stok</strong>
+                                </p>
+                            </div>
+                            <div class="mb-1 font-weight-bold">
+                                <p>40</p>
+                            </div>
+                        </div>
+                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
+                            <div class="d-flex-30">
+                                <p class="mb-1 font-weight-bold">
+                                    <strong>Terjual</strong>
+                                </p>
+                            </div>
+                            <div class="mb-1 font-weight-bold">
+                                <p>39</p>
+                            </div>
+                        </div>
+                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
+                            <div class="d-flex-30">
+                                <p class="mb-1 font-weight-bold">
+                                    <strong>Kategori</strong>
+                                </p>
+                            </div>
+                            <div class="mb-1 font-weight-bold">
+                                <p>{{ product?.category?.name }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="selection-panel bg-white py-3">
+                <div class="flash-sale-panel bg-white py-3 mb-3">
+                    <div class="container">
+                        <!-- alamat -->
+                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
+                            <div class="d-flex-30">
+                                <p class="mb-1 font-weight-bold">
+                                    <strong>Dikirim ke</strong>
+                                </p>
+                            </div>
+                            <div class="mb-1 font-weight-bold">
+                                <p>Pertani Graha Gabah, Jl. Pertanian No.6, RT.6/RW.3, Duren Tiga, Kec. Pancoran, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12760</p>
+                            </div>
+                            <div class="mb-1 font-weight-bold btn-side">
+                                <p class="text-end"><i class="lni lni-chevron-right"></i></p>
+                            </div>
+                        </div>
+                        <!-- kurir -->
+                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
+                            <div class="d-flex-30">
+                                <p class="mb-1 font-weight-bold">
+                                    <strong>Kurir</strong>
+                                </p>
+                            </div>
+                            <div class="mb-1 font-weight-bold">
+                                <p>JNE Express</p>
+                                <p><strong>Rp. 20.000</strong></p>
+                            </div>
+                            <div class="mb-1 font-weight-bold btn-side">
+                                <p class="text-end"><i class="lni lni-chevron-right"></i></p>
+                            </div>
+                        </div>
+                        <!-- estimasi kirim -->
+                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
+                            <div class="d-flex-30">
+                                <p class="mb-1 font-weight-bold">
+                                    <strong>Estimasi</strong>
+                                </p>
+                            </div>
+                            <div class="mb-1 font-weight-bold">
+                                <p>3 Hari</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="selection-panel bg-white py-3 mb-3">
                     <div
                         class="container d-flex align-items-center justify-content-between"
                     >
-                        <div class="choose-color-wrapper">
-                            <p class="mb-1 font-weight-bold">Color</p>
-                            <div
-                                class="choose-color-radio d-flex align-items-center"
-                            >
-                                <div class="form-check mb-0">
-                                    <input
-                                        class="form-check-input blue"
-                                        id="colorRadio1"
-                                        type="radio"
-                                        name="colorRadio"
-                                        checked
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="colorRadio1"
-                                    ></label>
-                                </div>
-                                <div class="form-check mb-0">
-                                    <input
-                                        class="form-check-input yellow"
-                                        id="colorRadio2"
-                                        type="radio"
-                                        name="colorRadio"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="colorRadio2"
-                                    ></label>
-                                </div>
-                                <div class="form-check mb-0">
-                                    <input
-                                        class="form-check-input green"
-                                        id="colorRadio3"
-                                        type="radio"
-                                        name="colorRadio"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="colorRadio3"
-                                    ></label>
-                                </div>
-                                <div class="form-check mb-0">
-                                    <input
-                                        class="form-check-input purple"
-                                        id="colorRadio4"
-                                        type="radio"
-                                        name="colorRadio"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="colorRadio4"
-                                    ></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="choose-size-wrapper text-end">
-                            <p class="mb-1 font-weight-bold">Size</p>
-                            <div
-                                class="choose-size-radio d-flex align-items-center"
-                            >
-                                <div class="form-check mb-0 me-2">
-                                    <input
-                                        class="form-check-input"
-                                        id="sizeRadio1"
-                                        type="radio"
-                                        name="sizeRadio"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="sizeRadio1"
-                                        >S</label
-                                    >
-                                </div>
-                                <div class="form-check mb-0 me-2">
-                                    <input
-                                        class="form-check-input"
-                                        id="sizeRadio2"
-                                        type="radio"
-                                        name="sizeRadio"
-                                        checked
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="sizeRadio2"
-                                        >M</label
-                                    >
-                                </div>
-                                <div class="form-check mb-0">
-                                    <input
-                                        class="form-check-input"
-                                        id="sizeRadio3"
-                                        type="radio"
-                                        name="sizeRadio"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="sizeRadio3"
-                                        >L</label
-                                    >
-                                </div>
-                            </div>
-                        </div>
+                        <div class="container">
+                        <ul class="mb-3 ps-3">
+                            <li>
+                                <i class="lni lni-checkmark-circle"> </i> 100%
+                                Kualitas Unggul
+                            </li>
+                            <li>
+                                <i class="lni lni-checkmark-circle"> </i> 7 Hari Retur
+                            </li>
+                            <li>
+                                <i class="lni lni-checkmark-circle"> </i>
+                                Bergaransi
+                            </li>
+                            <li>
+                                <i class="lni lni-checkmark-circle"> </i> 100%
+                                Terpercaya
+                            </li>
+                        </ul>
+                        <p class="mb-0">
+                            Deskripsi untuk ajakan beli dan benefit jika membeli dan kemudahannya.
+                        </p>
+                    </div>
                     </div>
                 </div>
-                <div class="cart-form-wrapper bg-white py-3">
+                <div class="cart-form-wrapper bg-white py-3 mb-3">
                     <div class="container">
                         <form class="cart-form" action="#" method="">
                             <div
@@ -292,26 +259,20 @@
                                     type="text"
                                     step="1"
                                     name="quantity"
-                                    value="3"
+                                    value="1"
                                 />
                                 <div class="quantity-button-handler">+</div>
                             </div>
                             <button class="btn btn-danger ms-3" type="submit">
-                                Add To Cart
+                                Keranjang
                             </button>
                         </form>
                     </div>
                 </div>
-                <div class="p-specification bg-white py-3">
+                <div class="p-specification bg-white py-3 mb-3">
                     <div class="container">
-                        <h6>Specifications</h6>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Quasi, eum? Id, culpa? At officia quisquam
-                            laudantium nisi mollitia nesciunt, qui porro
-                            asperiores cum voluptates placeat similique
-                            recusandae in facere quos vitae?
-                        </p>
+                        <h6>Deskripsi</h6>
+                        <p v-html="product.description"></p>
                         <ul class="mb-3 ps-3">
                             <li>
                                 <i class="lni lni-checkmark-circle"> </i> 100%
@@ -339,14 +300,13 @@
                         </p>
                     </div>
                 </div>
-                <div class="related-product-wrapper">
+                <div class="related-product-wrapper mb-3">
                     <div class="container">
-                        <hr />
                         <div
                             class="section-heading d-flex align-items-center justify-content-between"
                         >
-                            <h6>Related Products</h6>
-                            <a class="btn" href="shop-grid.html">View All</a>
+                            <h6>Produk Terkait</h6>
+                            <a class="btn" href="shop-grid.html">Lihat Semua</a>
                         </div>
                         <div class="related-product-slide owl-carousel">
                             <div class="single-related-product-slide">
@@ -489,10 +449,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="rating-and-review-wrapper bg-white py-3">
+                <div class="rating-and-review-wrapper bg-white py-3 mb-3">
                     <div class="container">
                         <hr />
-                        <h6>Ratings &amp; Reviews</h6>
+                        <h6>Bintang &amp; Ulasan</h6>
                         <div class="rating-review-content">
                             <ul class="ps-0">
                                 <li class="single-user-review d-flex">
@@ -585,7 +545,7 @@
                 <div class="ratings-submit-form bg-white py-3">
                     <div class="container">
                         <hr />
-                        <h6>Submit A Review</h6>
+                        <h6>Beri Ulasan Yuk</h6>
                         <form action="#" method="">
                             <div class="stars mb-3">
                                 <input
@@ -638,7 +598,7 @@
                                 class="btn btn-sm btn-primary"
                                 type="submit"
                             >
-                                Save Review
+                                Kirim
                             </button>
                         </form>
                     </div>
@@ -650,16 +610,45 @@
     </div>
 </template>
 
-<script>
-import Header from "../Shared/Product/Header.vue";
-import Sidebar from "../Shared/Product/Sidebar.vue";
-import Footer from "../Shared/Footer.vue";
+<script setup>
+    import { Link } from "@inertiajs/inertia-vue3";
+    import Header from "../../Shared/Product/Header.vue";
+    import Sidebar from "../../Shared/Product/Sidebar.vue";
+    import Footer from "../../Shared/Footer.vue";
+    import { Head } from '@inertiajs/inertia-vue3'
+    import { ref } from "@vue/reactivity";
 
-export default {
-    components: {
-        Header,
-        Sidebar,
-        Footer,
-    },
-};
+    const props = defineProps({
+        meta_title: String,
+        meta_description: String,
+        meta_keyword: String,
+        categories: Object,
+        products: Object,
+        product: Object
+    })
+
+    const metaTitle = ref(props.meta_title)
+    const metaDescription = ref(props.meta_description)
+    const metaKeyword = ref(props.meta_keyword)
+
 </script>
+
+<style>
+    .btn-danger {
+        background-color: #ea4c62 !important;
+        border-color: #ea4c62 !important;
+    }
+    .btn-primary {
+        background-color: #100DD1 !important;
+        border-color: #100DD1 !important;
+    }
+    .d-flex-30 {
+        flex: 0 0 30%;
+        max-width: 60%;
+        width: 60%;
+    }
+    .btn-side {
+        max-width: 49%;
+        width: 49%;
+    }
+</style>

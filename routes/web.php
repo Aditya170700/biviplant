@@ -74,8 +74,13 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/products', [HomeProductController::class, 'index']);
-
-Route::get('/products/{product}', function () {
-    return Inertia::render('Product');
-});
+/**
+ * PRODUCT
+ */
+Route::controller(HomeProductController::class)
+    ->name('product.')
+    ->prefix('products')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/{slug}', 'show')->name('show');
+    });

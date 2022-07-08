@@ -77,7 +77,7 @@
                                     </a>
                                     <Link
                                         class="product-thumbnail d-block"
-                                        href="/products/beach-cap"
+                                        :href="route('product.show', {slug: product.slug})"
                                         ><img
                                             class="mb-2"
                                             :src="product.files[0]?.src"
@@ -86,7 +86,7 @@
                                     </Link>
                                     <Link
                                         class="product-title d-block"
-                                        href="/products/beach-cap"
+                                        :href="route('product.show', {slug: product.slug})"
                                     >
                                         {{ product.name }}
                                     </Link>
@@ -117,9 +117,9 @@
 
 <script setup>
     import { Link } from "@inertiajs/inertia-vue3";
-    import Header from "./../Shared/Products/Header.vue";
-    import Sidebar from "./../Shared/Products/Sidebar.vue";
-    import Footer from "./../Shared/Footer.vue";
+    import Header from "./../../Shared/Products/Header.vue";
+    import Sidebar from "./../../Shared/Products/Sidebar.vue";
+    import Footer from "./../../Shared/Footer.vue";
     import { Head } from '@inertiajs/inertia-vue3'
     import { ref } from "@vue/reactivity";
 
