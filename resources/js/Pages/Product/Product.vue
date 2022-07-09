@@ -285,89 +285,31 @@
                             <a class="btn" href="shop-grid.html">Lihat Semua</a>
                         </div>
                         <div class="related-product-slide owl-carousel">
-                            <div class="single-related-product-slide">
+                            <div class="single-related-product-slide" v-for="(relatedProduct, i) in related_products" :key="i">
                                 <div class="card product-card">
                                     <div class="card-body">
-                                        <span
-                                            class="badge rounded-pill badge-warning"
-                                            >Sale</span
-                                        ><a class="wishlist-btn" href="#"
-                                            ><i class="lni lni-heart"> </i></a
-                                        ><a
+                                        <span class="badge rounded-pill badge-warning">Sale</span>
+                                        <a class="wishlist-btn" href="#">
+                                            <i class="lni lni-heart"> </i>
+                                        </a>
+                                        <Link
                                             class="product-thumbnail d-block"
-                                            href="single-product.html"
-                                            ><img
-                                                class="mb-2"
-                                                src="/img/product/11.png"
-                                                alt="" /></a
-                                        ><a
-                                            class="product-title d-block"
-                                            href="single-product.html"
-                                            >Beach Cap</a
+                                            :href="route('product.show', {slug: relatedProduct.slug})"
                                         >
-                                        <p class="sale-price">
-                                            $13<span>$42</span>
-                                        </p>
-                                        <div class="product-rating">
-                                            <i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i>
-                                        </div>
-                                        <a
-                                            class="btn btn-success btn-sm"
-                                            href="#"
-                                            ><i class="lni lni-plus"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-related-product-slide">
-                                <div class="card product-card">
-                                    <div class="card-body">
-                                        <span
-                                            class="badge rounded-pill badge-success"
-                                            >New</span
-                                        ><a class="wishlist-btn" href="#"
-                                            ><i class="lni lni-heart"> </i></a
-                                        ><a
-                                            class="product-thumbnail d-block"
-                                            href="single-product.html"
-                                            ><img
+                                            <img
                                                 class="mb-2"
-                                                src="/img/product/5.png"
-                                                alt=""
+                                                :src="relatedProduct.files[0]?.src"
+                                                :alt="relatedProduct.files[0]?.alt"
                                             />
-                                            <ul
-                                                class="offer-countdown-timer d-flex align-items-center shadow-sm"
-                                                data-countdown="2021/12/31 23:59:59"
-                                            >
-                                                <li>
-                                                    <span class="days">0</span>d
-                                                </li>
-                                                <li>
-                                                    <span class="hours">0</span
-                                                    >h
-                                                </li>
-                                                <li>
-                                                    <span class="minutes"
-                                                        >0</span
-                                                    >m
-                                                </li>
-                                                <li>
-                                                    <span class="seconds"
-                                                        >0</span
-                                                    >s
-                                                </li>
-                                            </ul></a
-                                        ><a
+                                        </Link>
+                                        <Link
                                             class="product-title d-block"
-                                            href="single-product.html"
-                                            >Wooden Sofa</a
+                                            :href="route('product.show', {slug: relatedProduct.slug})"
                                         >
+                                            {{ relatedProduct.name }}
+                                        </Link>
                                         <p class="sale-price">
-                                            $74<span>$99</span>
+                                            {{ relatedProduct.price_rp }}<br/><span>{{ relatedProduct.strike_price_rp }}</span>
                                         </p>
                                         <div class="product-rating">
                                             <i class="lni lni-star-filled"></i
@@ -376,49 +318,9 @@
                                             ><i class="lni lni-star-filled"></i
                                             ><i class="lni lni-star-filled"></i>
                                         </div>
-                                        <a
-                                            class="btn btn-success btn-sm"
-                                            href="#"
-                                            ><i class="lni lni-plus"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-related-product-slide">
-                                <div class="card product-card">
-                                    <div class="card-body">
-                                        <span
-                                            class="badge rounded-pill badge-success"
-                                            >Sale</span
-                                        ><a class="wishlist-btn" href="#"
-                                            ><i class="lni lni-heart"> </i></a
-                                        ><a
-                                            class="product-thumbnail d-block"
-                                            href="single-product.html"
-                                            ><img
-                                                class="mb-2"
-                                                src="/img/product/6.png"
-                                                alt="" /></a
-                                        ><a
-                                            class="product-title d-block"
-                                            href="single-product.html"
-                                            >Roof Lamp</a
-                                        >
-                                        <p class="sale-price">
-                                            $99<span>$113</span>
-                                        </p>
-                                        <div class="product-rating">
-                                            <i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i>
-                                        </div>
-                                        <a
-                                            class="btn btn-success btn-sm"
-                                            href="#"
-                                            ><i class="lni lni-plus"></i
-                                        ></a>
+                                        <a class="btn btn-success btn-sm" href="#">
+                                            <i class="lni lni-plus"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -600,8 +502,7 @@
         meta_title: String,
         meta_description: String,
         meta_keyword: String,
-        categories: Object,
-        products: Object,
+        related_products: Object,
         product: Object
     })
 

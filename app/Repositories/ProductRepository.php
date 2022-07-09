@@ -42,6 +42,16 @@ class ProductRepository implements ProductInterface
             ->findOrFail($id);
     }
 
+    public function getRelatedProducts(string $idCategory, $exceptProductId)
+    {
+        return $this->model
+            ->with('files', 'category')
+            ->where('category_id', $idCategory)
+            ->where('id', '!=', $exceptProductId)
+            ->limit(5)
+            ->get();
+    }
+
     public function findBySlug($slug)
     {
         return $this->model

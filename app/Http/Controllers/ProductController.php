@@ -44,9 +44,8 @@ class ProductController extends Controller
         try {
             $product = $this->productInterface->findBySlug($slug);
             return Inertia::render('Product/Product', [
-                'categories' => $this->categoryInterface->getPaginated($this->request),
                 'product' => $product,
-                'products' => $this->productInterface->getPaginated($this->request),
+                'related_products' => $this->productInterface->getRelatedProducts($product->category_id, $product->id),
                 'meta_title' => $product->meta_title,
                 'meta_description' => $product->meta_description,
                 'meta_keyword' =>  $product->meta_keyword,
