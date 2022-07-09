@@ -140,7 +140,7 @@
                                 </p>
                             </div>
                             <div class="mb-1 font-weight-bold">
-                                <p>2000 gram</p>
+                                <p>{{ product.weight }} gram</p>
                             </div>
                         </div>
                         <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
@@ -150,7 +150,7 @@
                                 </p>
                             </div>
                             <div class="mb-1 font-weight-bold">
-                                <p>40</p>
+                                <p>{{ product.stock }}</p>
                             </div>
                         </div>
                         <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
@@ -276,31 +276,6 @@
                     <div class="container">
                         <h6>Deskripsi</h6>
                         <p v-html="product.description"></p>
-                        <ul class="mb-3 ps-3">
-                            <li>
-                                <i class="lni lni-checkmark-circle"> </i> 100%
-                                Good Reviews
-                            </li>
-                            <li>
-                                <i class="lni lni-checkmark-circle"> </i> 7 Days
-                                Returns
-                            </li>
-                            <li>
-                                <i class="lni lni-checkmark-circle"> </i>
-                                Warranty not Aplicable
-                            </li>
-                            <li>
-                                <i class="lni lni-checkmark-circle"> </i> 100%
-                                Brand New Product
-                            </li>
-                        </ul>
-                        <p class="mb-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Quasi, eum? Id, culpa? At officia quisquam
-                            laudantium nisi mollitia nesciunt, qui porro
-                            asperiores cum voluptates placeat similique
-                            recusandae in facere quos vitae?
-                        </p>
                     </div>
                 </div>
                 <div class="related-product-wrapper bg-white mb-3">
@@ -616,7 +591,7 @@
 <script setup>
     import { Link } from "@inertiajs/inertia-vue3";
     import Header from "../../Shared/Product/Header.vue";
-    import Sidebar from "../../Shared/Product/Sidebar.vue";
+    import Sidebar from "../../Shared/Homepage/Sidebar.vue";
     import Footer from "../../Shared/Footer.vue";
     import { Head } from '@inertiajs/inertia-vue3'
     import { ref } from "@vue/reactivity";

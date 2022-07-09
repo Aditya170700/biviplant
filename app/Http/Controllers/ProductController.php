@@ -42,13 +42,14 @@ class ProductController extends Controller
     public function show($slug)
     {
         try {
+            $product = $this->productInterface->findBySlug($slug);
             return Inertia::render('Product/Product', [
                 'categories' => $this->categoryInterface->getPaginated($this->request),
-                'product' => $this->productInterface->findBySlug($slug),
+                'product' => $product,
                 'products' => $this->productInterface->getPaginated($this->request),
-                'meta_title' => $this->setting->meta_title,
-                'meta_description' => $this->setting->meta_description,
-                'meta_keyword' => $this->setting->meta_keyword,
+                'meta_title' => $product->meta_title,
+                'meta_description' => $product->meta_description,
+                'meta_keyword' =>  $product->meta_keyword,
             ]);
         } catch (\Throwable $th) {
             throw $th;
