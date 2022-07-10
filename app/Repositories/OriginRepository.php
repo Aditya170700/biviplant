@@ -12,25 +12,26 @@ class OriginRepository implements OriginInterface
         $this->model = $model;
     }
 
-    public function getPaginated($request)
+    public function getPaginated($request, array $with = [])
     {
         return $this->model
-            ->where('product_id', $request->product_id)
+            ->with($with)
             ->when($request->search, function ($query) use ($request) {
                 $query->where('sender', 'like', "%$request->search%");
             })
             ->when($request->field && $request->direction, function ($query) use ($request) {
                 $query->orderBy($request->field, $request->direction);
             })
-            ->when(!$request->field || !$request->direction, function ($query) use ($request) {
+            ->when(!$request->field || !$request->direction, function ($query) {
                 $query->latest();
             })
-            ->paginate($request->limit ?? 10);
+            ->paginate($request->limit ?? 25);
     }
 
-    public function getById(string $id)
+    public function getById(string $id, array $with = [])
     {
         return $this->model
+            ->with($with)
             ->findOrFail($id);
     }
 

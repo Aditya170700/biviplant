@@ -9,7 +9,6 @@ class OriginRequestAdapter implements DataRequestAdapterInterface
     public static function rulesCreated(): array
     {
         return [
-            'product_id' => 'required|string',
             'subdistrict_id' => 'required',
             'longitude' => 'required',
             'latitude' => 'required',
@@ -28,7 +27,6 @@ class OriginRequestAdapter implements DataRequestAdapterInterface
     public static function transform($data)
     {
         return [
-            'product_id' => $data['product_id'],
             'subdistrict_id' => $data['subdistrict_id'],
             'longitude' => $data['longitude'],
             'latitude' => $data['latitude'],
@@ -42,7 +40,6 @@ class OriginRequestAdapter implements DataRequestAdapterInterface
     public static function attributes(): array
     {
         return [
-            'product_id' => 'Produk',
             'subdistrict_id' => 'Kecamatan',
             'longitude' => 'Longitude',
             'latitude' => 'Latitude',

@@ -176,6 +176,22 @@
                                     <span>Voucher</span>
                                 </Link>
                             </li>
+                            <li
+                                :class="[
+                                    'submenu-item',
+                                    route().current().includes('admin.origins.')
+                                        ? 'active'
+                                        : '',
+                                ]"
+                            >
+                                <Link
+                                    :href="route('admin.origins.index')"
+                                    class="sidebar-link"
+                                >
+                                    <i class="fas fa-o"></i>
+                                    <span>Suplier</span>
+                                </Link>
+                            </li>
                         </ul>
                     </li>
                     <li

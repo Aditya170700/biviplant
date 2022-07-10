@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OriginController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\VoucherController;
@@ -39,12 +40,12 @@ Route::middleware(['auth', 'role:admin'])
                 Route::post('/products/{id}/files', 'storeFiles')->name('files.store');
                 Route::delete('/products/{id}/files/{fileId}', 'destroyFiles')->name('files.destroy');
             });
-        Route::controller(ProductController::class)
-            ->name('products.')
+        Route::controller(OriginController::class)
+            ->name('origins.')
             ->group(function () {
-                Route::get('/products/{id}/origins', 'origins')->name('origins');
-                Route::post('/products/{id}/origins', 'storeOrigins')->name('origins.store');
-                Route::delete('/products/{id}/origins/{originId}', 'destroyOrigins')->name('origins.destroy');
+                Route::get('/origins', 'index')->name('index');
+                Route::post('/origins', 'store')->name('store');
+                Route::delete('/origins/{id}', 'destroy')->name('destroy');
             });
         Route::controller(SettingController::class)
             ->name('settings.')
