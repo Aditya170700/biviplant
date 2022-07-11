@@ -6,6 +6,7 @@ use App\Interfaces\BannerInterface;
 use App\Interfaces\CategoryInterface;
 use App\Interfaces\EventInterface;
 use App\Interfaces\ProductInterface;
+use App\Interfaces\SettingInterface;
 use App\Interfaces\VoucherInterface;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
@@ -20,14 +21,17 @@ class HomeController extends Controller
         BannerInterface $bannerInterface,
         ProductInterface $productInterface,
         VoucherInterface $voucherInterface,
-        CategoryInterface $categoryInterface
-    ) {
+        CategoryInterface $categoryInterface,
+        SettingInterface $settingInterface
+    )
+    {
         $this->request = $request;
         $this->eventInterface = $eventInterface;
         $this->bannerInterface = $bannerInterface;
         $this->productInterface = $productInterface;
         $this->voucherInterface = $voucherInterface;
         $this->categoryInterface = $categoryInterface;
+        $this->setting = $settingInterface->getOne();
     }
 
     public function index()
@@ -39,9 +43,9 @@ class HomeController extends Controller
                 'event' => $this->eventInterface->getOne(),
                 'products' => $this->productInterface->featuredProducts(),
                 'vouchers' => $this->voucherInterface->getPaginated($this->request),
-                'meta_title' => 'Jual Tanaman Hias dan Buah Dalam Pot',
-                'meta_description' => 'Jual Tanaman Hias dan Buah Dalam Pot',
-                'meta_keyword' => 'Keyword',
+                'meta_title' => $this->setting->meta_title,
+                'meta_description' => $this->setting->meta_description,
+                'meta_keyword' => $this->setting->meta_keyword,
                 'canLogin' => Route::has('login'),
                 'canRegister' => Route::has('register'),
                 'laravelVersion' => Application::VERSION,

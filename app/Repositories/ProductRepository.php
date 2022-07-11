@@ -31,7 +31,7 @@ class ProductRepository implements ProductInterface
     public function featuredProducts()
     {
         return $this->model
-            ->with('files')
+            ->with('files', 'category')
             ->paginate(10);
     }
 
@@ -40,6 +40,24 @@ class ProductRepository implements ProductInterface
         return $this->model
             ->with($with)
             ->findOrFail($id);
+    }
+
+    public function getRelatedProducts(string $idCategory, $exceptProductId)
+    {
+        return $this->model
+            ->with('files', 'category')
+            ->where('category_id', $idCategory)
+            ->where('id', '!=', $exceptProductId)
+            ->limit(5)
+            ->get();
+    }
+
+    public function findBySlug($slug)
+    {
+        return $this->model
+            ->with('files', 'category')
+            ->where('slug', $slug)
+            ->first();
     }
 
     public function create(array $data)

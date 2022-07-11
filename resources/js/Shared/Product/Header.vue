@@ -21,7 +21,7 @@
                 </Link>
             </div>
             <div class="page-heading">
-                <h6 class="mb-0">Product Details</h6>
+                <h6 class="mb-0">Detail Produk</h6>
             </div>
             <div
                 class="suha-navbar-toggler"
