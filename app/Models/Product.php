@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use App\Traits\Uuid;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
-    use HasFactory, Uuid;
+    use HasFactory, Uuid, Searchable;
 
     protected $guarded = [];
 
@@ -54,5 +55,12 @@ class Product extends Model
     public function origins()
     {
         return $this->belongsToMany(Origin::class);
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name,
+        ];
     }
 }

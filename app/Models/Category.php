@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
-use App\Services\File;
 use App\Traits\Uuid;
+use App\Services\File;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
-    use HasFactory, Uuid;
+    use HasFactory, Uuid, Searchable;
 
     protected $guarded = [];
 
@@ -35,5 +36,12 @@ class Category extends Model
         return Attribute::make(
             get: fn ($value, $attributes) => File::show($attributes['icon'] ?? ''),
         );
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name,
+        ];
     }
 }
