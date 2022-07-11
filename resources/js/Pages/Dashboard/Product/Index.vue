@@ -177,13 +177,21 @@
                                         <td>{{ result.weight }}gr</td>
                                         <td>{{ result.stock }}</td>
                                         <td class="d-flex justify-content-end">
-                                            <a
+                                            <Link
+                                                :href="
+                                                    route(
+                                                        'admin.products.origins',
+                                                        {
+                                                            id: result.id,
+                                                        }
+                                                    )
+                                                "
                                                 class="btn btn-sm btn-success me-2 rounded-custom"
                                             >
                                                 <i
                                                     class="fas fa-location-arrow"
                                                 ></i>
-                                            </a>
+                                            </Link>
                                             <Link
                                                 :href="
                                                     route(
@@ -241,6 +249,26 @@
                                 :total="results.total"
                             />
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="modal fade"
+            id="attachSuplier"
+            tabindex="-1"
+            aria-labelledby="attachSuplierLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content rounded-custom">
+                    <div class="modal-body">
+                        <div
+                            class="d-flex justify-content-between align-items-center mb-3"
+                        >
+                            <div class="h5">Pilih Suplier</div>
+                        </div>
+                        <div class="row"></div>
                     </div>
                 </div>
             </div>

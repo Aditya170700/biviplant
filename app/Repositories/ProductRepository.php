@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Product;
 use App\Interfaces\ProductInterface;
+use App\Models\Origin;
 
 class ProductRepository implements ProductInterface
 {
@@ -69,6 +70,16 @@ class ProductRepository implements ProductInterface
     public function update(Product $model, array $data)
     {
         return $model->update($data);
+    }
+
+    public function attachOrigins(Product $model, Origin $origin)
+    {
+        return $model->origins()->attach($origin->id);
+    }
+
+    public function detachOrigins(Product $model, Origin $origin)
+    {
+        return $model->origins()->detach($origin->id);
     }
 
     public function delete(Product $model)

@@ -40,6 +40,13 @@ Route::middleware(['auth', 'role:admin'])
                 Route::post('/products/{id}/files', 'storeFiles')->name('files.store');
                 Route::delete('/products/{id}/files/{fileId}', 'destroyFiles')->name('files.destroy');
             });
+        Route::controller(ProductController::class)
+            ->name('products.')
+            ->group(function () {
+                Route::get('/products/{id}/origins', 'origins')->name('origins');
+                Route::post('/products/{id}/origins/{originId}', 'attachOrigins')->name('origins.attach');
+                Route::delete('/products/{id}/origins/{originId}', 'detachOrigins')->name('origins.detach');
+            });
         Route::controller(OriginController::class)
             ->name('origins.')
             ->group(function () {

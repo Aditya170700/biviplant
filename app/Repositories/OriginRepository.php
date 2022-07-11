@@ -28,6 +28,13 @@ class OriginRepository implements OriginInterface
             ->paginate($request->limit ?? 25);
     }
 
+    public function getAll(array $with = [])
+    {
+        return $this->model
+            ->with($with)
+            ->get();
+    }
+
     public function getById(string $id, array $with = [])
     {
         return $this->model

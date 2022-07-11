@@ -10,16 +10,18 @@ use App\Http\Requests\Admin\Product\StoreRequest;
 use App\Http\Requests\Admin\Product\UpdateRequest;
 use App\Interfaces\CategoryInterface;
 use App\Interfaces\FileInterface;
+use App\Interfaces\OriginInterface;
 use App\Interfaces\ProductInterface;
 
 class ProductController extends Controller
 {
-    public function __construct(Request $request, ProductInterface $productInterface, CategoryInterface $categoryInterface, FileInterface $fileInterface)
+    public function __construct(Request $request, ProductInterface $productInterface, CategoryInterface $categoryInterface, FileInterface $fileInterface, OriginInterface $originInterface)
     {
         $this->request = $request;
         $this->productInterface = $productInterface;
         $this->categoryInterface = $categoryInterface;
         $this->fileInterface = $fileInterface;
+        $this->originInterface = $originInterface;
     }
 
     public function index()
@@ -148,6 +150,75 @@ class ProductController extends Controller
 
             return redirect()->back()
                 ->with('success', 'Berhasil tambah data');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function origins($id)
+    {
+        try {
+            $result = $this->productInterface->getById($id);
+            $result->setRelation('origins', $result->origins()->with([
+                'subdistrict' => function ($query) {
+                    $query->select('id', 'city_id', 'name')
+                        ->with([
+                            'city' => function ($query) {
+                                $query->select('id', 'province_id', 'name')
+                                    ->with([
+                                        'province' => function ($query) {
+                                            $query->select('id', 'name');
+                                        }
+                                    ]);
+                            }
+                        ]);
+                }
+            ])->get());
+
+            return Inertia::render('Dashboard/Product/Origin', [
+                'result' => $result,
+                'origins' => $this->originInterface->getAll([
+                    'subdistrict' => function ($query) {
+                        $query->select('id', 'city_id', 'name')
+                            ->with([
+                                'city' => function ($query) {
+                                    $query->select('id', 'province_id', 'name')
+                                        ->with([
+                                            'province' => function ($query) {
+                                                $query->select('id', 'name');
+                                            }
+                                        ]);
+                                }
+                            ]);
+                    }
+                ]),
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function attachOrigins($id, $originId)
+    {
+        try {
+            $this->productInterface
+                ->attachOrigins($this->productInterface->getById($id), $this->originInterface->getById($originId));
+
+            return redirect()->route('admin.products.origins', $id)
+                ->with('success', 'Berhasil pilih data');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function detachOrigins($id, $originId)
+    {
+        try {
+            $this->productInterface
+                ->detachOrigins($this->productInterface->getById($id), $this->originInterface->getById($originId));
+
+            return redirect()->route('admin.products.origins', $id)
+                ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
             throw $th;
         }

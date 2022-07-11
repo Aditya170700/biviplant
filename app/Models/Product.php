@@ -53,6 +53,6 @@ class Product extends Model
 
     public function origins()
     {
-        return $this->hasMany(Origin::class);
+        return $this->belongsToMany(Origin::class);
     }
 }
