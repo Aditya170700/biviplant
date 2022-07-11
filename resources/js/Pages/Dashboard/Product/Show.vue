@@ -56,6 +56,12 @@
                             <div class="col-lg-10">: {{ result.weight }}gr</div>
                         </div>
                         <div class="row mb-3">
+                            <div class="col-lg-2">Kondisi</div>
+                            <div class="col-lg-10">
+                                : {{ result.condition ?? "-" }}
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <div class="col-lg-2">Description</div>
                             <div
                                 class="col-lg-10"

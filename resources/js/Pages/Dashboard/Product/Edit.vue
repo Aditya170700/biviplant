@@ -218,6 +218,25 @@
                                         />
                                     </div>
                                 </div>
+                                <div class="col-lg-12 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="condition"
+                                            class="form-label"
+                                            >Kondisi</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="condition"
+                                            v-model="form.condition"
+                                        />
+                                        <FormText
+                                            :id="'condition'"
+                                            :message="form.errors.condition"
+                                            v-if="form.errors.condition"
+                                        />
+                                    </div>
+                                </div>
                                 <div class="col-lg-12">
                                     <button
                                         class="btn btn-primary btn-sm rounded-custom"

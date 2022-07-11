@@ -19,6 +19,7 @@ class ProductRequestAdapter implements DataRequestAdapterInterface
             'description' => 'required|string',
             'stock' => 'required|numeric',
             'weight' => 'required|numeric',
+            'condition' => 'max:255',
             'category_id' => 'required',
         ];
     }
@@ -36,6 +37,7 @@ class ProductRequestAdapter implements DataRequestAdapterInterface
             'description' => 'required|string',
             'stock' => 'required|numeric',
             'weight' => 'required|numeric',
+            'condition' => 'max:255',
             'category_id' => 'required',
         ];
     }
@@ -53,6 +55,7 @@ class ProductRequestAdapter implements DataRequestAdapterInterface
             'description' => $data['description'],
             'stock' => $data['stock'],
             'weight' => $data['weight'],
+            'condition' => $data['condition'],
             'category_id' => $data['category_id'],
         ];
     }
@@ -70,6 +73,7 @@ class ProductRequestAdapter implements DataRequestAdapterInterface
             'description' => 'Deskripsi',
             'stock' => 'Stok',
             'weight' => 'Berat (gr)',
+            'condition' => 'Kondisi',
             'category_id' => 'Kategori Produk',
         ];
     }
