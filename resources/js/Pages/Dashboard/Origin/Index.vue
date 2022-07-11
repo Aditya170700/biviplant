@@ -21,10 +21,58 @@
                                                 form.latitude,
                                                 form.longitude,
                                             ]"
+                                            @click="changeMarker"
                                         >
                                             <l-tile-layer
                                                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                             ></l-tile-layer>
+                                            <l-control position="topright">
+                                                <input
+                                                    @keyup="search"
+                                                    type="text"
+                                                    placeholder="Cari..."
+                                                    style="width: 500px"
+                                                />
+                                                <div
+                                                    class="collapse show"
+                                                    style="width: 500px"
+                                                    v-if="
+                                                        other.searchAddress
+                                                            .length > 0
+                                                    "
+                                                >
+                                                    <div
+                                                        class="card card-body rounded-0 border border-dark p-0"
+                                                    >
+                                                        <p
+                                                            style="
+                                                                cursor: pointer;
+                                                            "
+                                                            v-for="(
+                                                                addr, i
+                                                            ) in other.searchAddress"
+                                                            :key="i"
+                                                            @click="
+                                                                selectAddress(
+                                                                    addr.y,
+                                                                    addr.x
+                                                                )
+                                                            "
+                                                        >
+                                                            {{ addr.label }}
+                                                        </p>
+                                                        <p
+                                                            v-if="
+                                                                other.searchAddress <
+                                                                1
+                                                            "
+                                                        >
+                                                            Alamat tidak
+                                                            ditemukan
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </l-control>
                                             <l-marker
                                                 :lat-lng="[
                                                     form.latitude,
@@ -434,6 +482,7 @@ import {
     LIcon,
     LTileLayer,
     LMarker,
+    LControl,
     LControlLayers,
     LTooltip,
     LPopup,
@@ -442,6 +491,7 @@ import {
     LRectangle,
 } from "@vue-leaflet/vue-leaflet";
 import "leaflet/dist/leaflet.css";
+import { OpenStreetMapProvider } from "leaflet-geosearch";
 
 export default {
     components: {
@@ -454,6 +504,7 @@ export default {
         LIcon,
         LTileLayer,
         LMarker,
+        LControl,
         LControlLayers,
         LTooltip,
         LPopup,
@@ -486,6 +537,7 @@ export default {
             provinces: [],
             cities: [],
             subdistricts: [],
+            searchAddress: [],
             preview: null,
         });
 
@@ -598,6 +650,25 @@ export default {
             form.latitude = loc.lat;
         }
 
+        function changeMarker(event) {
+            form.longitude = event.latlng.lng;
+            form.latitude = event.latlng.lat;
+        }
+
+        function search(event) {
+            let provider = new OpenStreetMapProvider();
+            provider.search({ query: event.target.value }).then((res) => {
+                other.searchAddress = res;
+            });
+        }
+
+        function selectAddress(lat, lng) {
+            form.longitude = lng;
+            form.latitude = lat;
+
+            other.searchAddress = [];
+        }
+
         return {
             other,
             getCity,
@@ -608,6 +679,9 @@ export default {
             destroy,
             map,
             log,
+            changeMarker,
+            search,
+            selectAddress,
         };
     },
 };
