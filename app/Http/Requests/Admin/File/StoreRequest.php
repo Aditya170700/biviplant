@@ -31,7 +31,7 @@ class StoreRequest extends FormRequest
 
     public function path()
     {
-        return File::upload('files', $this->file('path'));
+        return File::uploadAs('files', $this->file('path'), "{$this->name}.{$this->ext}");
     }
 
     public function data()

@@ -177,21 +177,13 @@
                                         <td>{{ result.weight }}gr</td>
                                         <td>{{ result.stock }}</td>
                                         <td class="d-flex justify-content-end">
-                                            <Link
-                                                :href="
-                                                    route(
-                                                        'admin.products.origins',
-                                                        {
-                                                            id: result.id,
-                                                        }
-                                                    )
-                                                "
+                                            <a
                                                 class="btn btn-sm btn-success me-2 rounded-custom"
                                             >
                                                 <i
                                                     class="fas fa-location-arrow"
                                                 ></i>
-                                            </Link>
+                                            </a>
                                             <Link
                                                 :href="
                                                     route(

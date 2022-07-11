@@ -247,11 +247,13 @@ export default {
             alt: "",
             description: "",
             path: "",
+            ext: "",
             product_id: props.result.id,
         });
 
         function cropSuccess(imgDataUrl, field) {
             form.path = dataURLtoFile(imgDataUrl);
+            form.ext = imgDataUrl.split(";")[0].split("/")[1];
             path.value = imgDataUrl;
         }
 

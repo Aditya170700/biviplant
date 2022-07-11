@@ -9,7 +9,7 @@ class FileRequestAdapter implements DataRequestAdapterInterface
     public static function rulesCreated(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|unique:files|string|max:255',
             'alt' => 'required|string|max:255',
             'description' => 'required|string',
             'product_id' => 'required|string',
