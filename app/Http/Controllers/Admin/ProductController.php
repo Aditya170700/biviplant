@@ -204,7 +204,7 @@ class ProductController extends Controller
             $this->productInterface
                 ->attachOrigins($this->productInterface->getById($id), $this->originInterface->getById($originId));
 
-            return redirect()->route('admin.products.origins', $id)
+            return redirect()->route('admin.products.index')
                 ->with('success', 'Berhasil pilih data');
         } catch (\Throwable $th) {
             throw $th;
@@ -217,7 +217,7 @@ class ProductController extends Controller
             $this->productInterface
                 ->detachOrigins($this->productInterface->getById($id), $this->originInterface->getById($originId));
 
-            return redirect()->route('admin.products.origins', $id)
+            return redirect()->route('admin.products.index')
                 ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
             throw $th;
