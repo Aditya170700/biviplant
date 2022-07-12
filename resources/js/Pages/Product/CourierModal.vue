@@ -25,36 +25,46 @@
                             <div class="modal-body" style="border: 0px !important">
                                 <div class="list-group">
                                     <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                                        <img src="https://picsum.photos/30" alt="">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1">JNE Express</h5>
+                                        <div class="row mt-2">
+                                            <div class="col-3">
+                                                <img src="https://2.bp.blogspot.com/-PcSzxZIV0hg/Wg0iTMrXEXI/AAAAAAAAE_A/v2fMx3iHJAYPVZErFr-bSysWCNylGvVdACLcBGAs/s320/J%2B%2526%2BT.jpg" class="rounded mx-auto d-block mt-4" alt="" width="60">
+                                            </div>
+                                            <div class="col-9">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h5 class="mb-1">JNT Express</h5>
+                                                </div>
+                                                <p class="mb-1"><b>Rp. 40.000</b></p>
+                                                <p class="mb-1"><b>Estimasi : </b> 4 Hari</p>
+                                            </div>
                                         </div>
-                                        <p class="mb-1"><b>Rp. 40.000</b></p>
-                                        <p class="mb-1"><b>Estimasi : </b> 4 Hari</p>
                                     </a>
                                     <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                                        <img src="https://picsum.photos/30" alt="">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1">JNT REGULER</h5>
+                                        <div class="row mt-2">
+                                            <div class="col-3">
+                                                <img src="https://www.lintasnusantaraperdana.co.id/modules/PublicSite/themes/default//logo-lnp.png" class="rounded mx-auto d-block mt-4" alt="" width="60">
+                                            </div>
+                                            <div class="col-9">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h5 class="mb-1">LNP Kereta Api</h5>
+                                                </div>
+                                                <p class="mb-1"><b>Rp. 40.000</b></p>
+                                                <p class="mb-1"><b>Estimasi : </b> 4 Hari</p>
+                                            </div>
                                         </div>
-                                        <p class="mb-1"><b>Rp. 30.000</b></p>
-                                        <p class="mb-1"><b>Estimasi : </b> 3 Hari</p>
                                     </a>
                                     <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                                        <img src="https://picsum.photos/30" alt="">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1">Tiki REGULER</h5>
+                                        <div class="row mt-2">
+                                            <div class="col-3">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/New_Logo_JNE.png/800px-New_Logo_JNE.png" class="rounded mx-auto d-block mt-4" alt="" width="60">
+                                            </div>
+                                            <div class="col-9">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h5 class="mb-1">JNE Express</h5>
+                                                </div>
+                                                <p class="mb-1"><b>Rp. 40.000</b></p>
+                                                <p class="mb-1"><b>Estimasi : </b> 4 Hari</p>
+                                            </div>
                                         </div>
-                                        <p class="mb-1"><b>Rp. 30.000</b></p>
-                                        <p class="mb-1"><b>Estimasi : </b> 3 Hari</p>
-                                    </a>
-                                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                                        <img src="https://picsum.photos/30" alt="">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1">LNP Cargo</h5>
-                                        </div>
-                                        <p class="mb-1"><b>Rp. 30.000</b></p>
-                                        <p class="mb-1"><b>Estimasi : </b> 3 Hari</p>
                                     </a>
                                 </div>
                             </div>
@@ -96,6 +106,6 @@ export default {
     }
 
     .list-group-item.active {
-        background-color: #5fbf7f;
+        background-color: #da5353;
     }
 </style>

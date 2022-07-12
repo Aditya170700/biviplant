@@ -212,17 +212,6 @@
                                 </div>
                             </a>
                         </div>
-                        <!-- estimasi kirim -->
-                        <div class="sales-offer-content d-flex mt-2 row" style="align-items: center;">
-                            <div class="d-flex-30 col">
-                                <p class="mb-1 font-weight-bold">
-                                    <strong>Estimasi</strong>
-                                </p>
-                            </div>
-                            <div class="mb-1 font-weight-bold col">
-                                <p>3 Hari</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="selection-panel bg-white py-3 mb-3">
