@@ -7,6 +7,8 @@
         </Head>
         <Header></Header>
         <Sidebar></Sidebar>
+        <AddressModal></AddressModal>
+        <CourierModal></CourierModal>
         <div
             class="toast pwa-install-alert shadow bg-white"
             role="alert"
@@ -178,44 +180,37 @@
                 <div class="flash-sale-panel bg-white py-3 mb-3">
                     <div class="container">
                         <!-- alamat -->
-                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
-                            <div class="d-flex-30">
+                        <div class="sales-offer-content d-flex mt-2 row" style="align-items: center;">
+                            <div class="d-flex-30 col">
                                 <p class="mb-1 font-weight-bold">
                                     <strong>Dikirim ke</strong>
                                 </p>
                             </div>
-                            <div class="mb-1 font-weight-bold">
-                                <p>Pertani Graha Gabah, Jl. Pertanian No.6, RT.6/RW.3, Duren Tiga, Kec. Pancoran, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12760</p>
-                            </div>
-                            <div class="mb-1 font-weight-bold btn-side">
-                                <p class="text-end"><i class="lni lni-chevron-right"></i></p>
-                            </div>
+                            <a href="#" class="d-flex col" data-bs-toggle="offcanvas" data-bs-target="#addressModal" aria-controls="addressModal" style="align-items: center;">
+                                <div class="mb-1 font-weight-bold">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                                </div>
+                                <div class="mb-1 font-weight-bold btn-side">
+                                    <p class="text-end"><i class="lni lni-chevron-right"></i></p>
+                                </div>
+                            </a>
                         </div>
                         <!-- kurir -->
-                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
-                            <div class="d-flex-30">
+                        <div class="sales-offer-content d-flex mt-2 row" style="align-items: center;">
+                            <div class="d-flex-30 col">
                                 <p class="mb-1 font-weight-bold">
                                     <strong>Kurir</strong>
                                 </p>
                             </div>
-                            <div class="mb-1 font-weight-bold">
-                                <p>JNE Express</p>
-                                <p><strong>Rp. 20.000</strong></p>
-                            </div>
-                            <div class="mb-1 font-weight-bold btn-side">
-                                <p class="text-end"><i class="lni lni-chevron-right"></i></p>
-                            </div>
-                        </div>
-                        <!-- estimasi kirim -->
-                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
-                            <div class="d-flex-30">
-                                <p class="mb-1 font-weight-bold">
-                                    <strong>Estimasi</strong>
-                                </p>
-                            </div>
-                            <div class="mb-1 font-weight-bold">
-                                <p>3 Hari</p>
-                            </div>
+                            <a href="#" class="d-flex col" data-bs-toggle="offcanvas" data-bs-target="#courierModal" aria-controls="courierModal" style="align-items: center;">
+                                <div class="mb-1 font-weight-bold col">
+                                    <p>JNE Express</p>
+                                    <p><strong>Rp. 20.000</strong></p>
+                                </div>
+                                <div class="mb-1 font-weight-bold btn-side col">
+                                    <p class="text-end"><i class="lni lni-chevron-right"></i></p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -495,6 +490,8 @@
     import Header from "../../Shared/Product/Header.vue";
     import Sidebar from "../../Shared/Homepage/Sidebar.vue";
     import Footer from "../../Shared/Footer.vue";
+    import AddressModal from './AddressModal.vue';
+    import CourierModal from './CourierModal.vue';
     import { Head } from '@inertiajs/inertia-vue3'
     import { ref } from "@vue/reactivity";
 
