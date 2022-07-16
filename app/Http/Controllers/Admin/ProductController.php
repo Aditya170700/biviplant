@@ -83,6 +83,7 @@ class ProductController extends Controller
         try {
             return Inertia::render('Dashboard/Product/Edit', [
                 'result' => $this->productInterface->getById($id),
+                'categories' => $this->categoryInterface->getAll($this->request),
             ]);
         } catch (\Throwable $th) {
             throw $th;
