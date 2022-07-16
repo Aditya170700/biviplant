@@ -132,7 +132,7 @@
                                 </p>
                             </div>
                             <div class="mb-1 font-weight-bold">
-                                <p>Sudah mulai berbunga</p>
+                                <p>{{ product.condition }}</p>
                             </div>
                         </div>
                         <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
