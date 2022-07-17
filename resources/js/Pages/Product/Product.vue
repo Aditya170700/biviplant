@@ -132,7 +132,7 @@
                                 </p>
                             </div>
                             <div class="mb-1 font-weight-bold">
-                                <p>Sudah mulai berbunga</p>
+                                <p>{{ product.condition }}</p>
                             </div>
                         </div>
                         <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
@@ -279,46 +279,35 @@
                             <h6>Produk Terkait</h6>
                             <a class="btn" href="shop-grid.html">Lihat Semua</a>
                         </div>
-                        <div class="related-product-slide owl-carousel">
-                            <div class="single-related-product-slide" v-for="(relatedProduct, i) in related_products" :key="i">
-                                <div class="card product-card">
-                                    <div class="card-body">
-                                        <span class="badge rounded-pill badge-warning">Sale</span>
-                                        <a class="wishlist-btn" href="#">
-                                            <i class="lni lni-heart"> </i>
-                                        </a>
-                                        <Link
-                                            class="product-thumbnail d-block"
-                                            :href="route('product.show', {slug: relatedProduct.slug})"
-                                        >
-                                            <img
-                                                class="mb-2"
-                                                :src="relatedProduct.files[0]?.src"
-                                                :alt="relatedProduct.files[0]?.alt"
-                                            />
-                                        </Link>
-                                        <Link
-                                            class="product-title d-block"
-                                            :href="route('product.show', {slug: relatedProduct.slug})"
-                                        >
-                                            {{ relatedProduct.name }}
-                                        </Link>
-                                        <p class="sale-price">
-                                            {{ relatedProduct.price_rp }}<br/><span>{{ relatedProduct.strike_price_rp }}</span>
-                                        </p>
-                                        <div class="product-rating">
-                                            <i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i>
+                        <div class="related-product-slide carousel">
+                            <carousel :items-to-show="1.5">
+                                <slide class="single-related-product-slide" v-for="(relatedProduct, i) in related_products" :key="i">
+                                    <div class="card product-card">
+                                        <div class="card-body">
+                                            <span class="badge rounded-pill badge-warning">Sale</span>
+                                            <Link
+                                                class="product-thumbnail d-block"
+                                                :href="route('product.show', {slug: relatedProduct.slug})"
+                                            >
+                                                <img
+                                                    class="mb-2"
+                                                    :src="relatedProduct.files[0]?.src"
+                                                    :alt="relatedProduct.files[0]?.alt"
+                                                />
+                                            </Link>
+                                            <Link
+                                                class="product-title d-block"
+                                                :href="route('product.show', {slug: relatedProduct.slug})"
+                                            >
+                                                {{ relatedProduct.name }}
+                                            </Link>
+                                            <p class="sale-price">
+                                                {{ relatedProduct.price_rp }}<br/><span>{{ relatedProduct.strike_price_rp }}</span>
+                                            </p>
                                         </div>
-                                        <a class="btn btn-success btn-sm" href="#">
-                                            <i class="lni lni-plus"></i>
-                                        </a>
                                     </div>
-                                </div>
-                            </div>
+                                </slide>
+                            </carousel>
                         </div>
                     </div>
                 </div>
@@ -494,6 +483,8 @@
     import CourierModal from './CourierModal.vue';
     import { Head } from '@inertiajs/inertia-vue3'
     import { ref } from "@vue/reactivity";
+    import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+    import 'vue3-carousel/dist/carousel.css';
 
     const props = defineProps({
         meta_title: String,
@@ -527,4 +518,25 @@
         max-width: 49%;
         width: 49%;
     }
+
+    .carousel__item {
+        padding: 10px;
+        min-height: 200px;
+        width: 100%;
+        background-color: var(--vc-clr-primary);
+        color:  var(--vc-clr-white);
+        font-size: 20px;
+        border-radius: 8px;
+        display: flex;
+    }
+
+    .carousel__slide {
+        margin-right: 5px;
+        flex-shrink: unset;
+        position: relative;
+        display: flex;
+        justify-content: right;
+        align-items: flex-start;
+    }
+
 </style>
