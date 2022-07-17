@@ -8,6 +8,7 @@ interface CategoryInterface
 {
     public function getPaginated($request);
     public function getAll($request);
+    public function search(string $keyword);
     public function getById(string $id);
     public function create(array $data);
     public function update(Category $model, array $data);

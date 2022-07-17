@@ -44,6 +44,13 @@ class CategoryRepository implements CategoryInterface
             ->findOrFail($id);
     }
 
+    public function search(string $keyword)
+    {
+        return $this->model
+            ->search($keyword)
+            ->get();
+    }
+
     public function create(array $data)
     {
         return $this->model

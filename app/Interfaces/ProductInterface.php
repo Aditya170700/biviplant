@@ -10,6 +10,7 @@ interface ProductInterface
     public function getPaginated($request);
     public function featuredProducts();
     public function getById(string $id);
+    public function search(string $keyword);
     public function create(array $data);
     public function update(Product $model, array $data);
     public function attachOrigins(Product $model, Origin $origin);

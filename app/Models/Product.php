@@ -26,14 +26,18 @@ class Product extends Model
     protected function priceRp(): Attribute
     {
         return Attribute::make(
-            get: fn ($value, $attributes) => "Rp." . number_format($attributes['price'], 0, ',', '.'),
+            get: fn ($value, $attributes) => isset($attributes['price'])
+                ? "Rp." . number_format($attributes['price'], 0, ',', '.')
+                : ""
         );
     }
 
     protected function strikePriceRp(): Attribute
     {
         return Attribute::make(
-            get: fn ($value, $attributes) => "Rp." . number_format($attributes['strike_price'], 0, ',', '.'),
+            get: fn ($value, $attributes) => isset($attributes['strike_price'])
+                ? "Rp." . number_format($attributes['strike_price'], 0, ',', '.')
+                : "",
         );
     }
 

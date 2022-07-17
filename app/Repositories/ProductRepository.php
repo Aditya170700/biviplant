@@ -43,6 +43,13 @@ class ProductRepository implements ProductInterface
             ->findOrFail($id);
     }
 
+    public function search(string $keyword)
+    {
+        return $this->model
+            ->search($keyword)
+            ->get();
+    }
+
     public function getRelatedProducts(string $idCategory, $exceptProductId)
     {
         return $this->model
