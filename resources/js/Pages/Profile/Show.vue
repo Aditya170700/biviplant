@@ -53,7 +53,7 @@ let attrs = useAttrs();
                             >
                                 <div class="title d-flex align-items-center">
                                     <i class="lni lni-user"></i
-                                    ><span>Full Name</span>
+                                    ><span>Nama Lengkap</span>
                                 </div>
                                 <div class="data-content">
                                     {{ attrs.user.name }}
@@ -64,7 +64,7 @@ let attrs = useAttrs();
                             >
                                 <div class="title d-flex align-items-center">
                                     <i class="lni lni-phone"></i
-                                    ><span>Phone</span>
+                                    ><span>No Telepon</span>
                                 </div>
                                 <div class="data-content">
                                     {{ attrs.user.phone }}
@@ -75,18 +75,18 @@ let attrs = useAttrs();
                             >
                                 <div class="title d-flex align-items-center">
                                     <i class="lni lni-envelope"></i
-                                    ><span>Email Address</span>
+                                    ><span>Alamat Email</span>
                                 </div>
                                 <div class="data-content">
                                     {{ attrs.user.email }}
                                 </div>
                             </div>
                             <div class="edit-profile-btn mt-3">
-                                <a
+                                <Link
                                     class="btn btn-info w-100"
-                                    href="edit-profile.html"
-                                    ><i class="lni lni-pencil me-2"></i>Edit
-                                    Profile</a
+                                    :href="route('profile.edit')"
+                                    ><i class="lni lni-pencil me-2"></i>Ubah
+                                    Profil</Link
                                 >
                             </div>
                         </div>
