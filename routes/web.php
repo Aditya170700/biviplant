@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController as HomeProductController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,17 @@ Route::middleware(['auth', 'role:admin'])
     });
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
+
+Route::middleware(['auth'])
+    ->group(function () {
+        Route::controller(ProfileController::class)
+            ->name('profile.')
+            ->prefix('profile')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::put('/', 'update')->name('update');
+            });
+    });
 
 Route::middleware([
     'auth:sanctum',

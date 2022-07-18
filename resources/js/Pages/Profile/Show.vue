@@ -1,57 +1,100 @@
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
-import DeleteUserForm from '@/Pages/Profile/Partials/DeleteUserForm.vue';
-import JetSectionBorder from '@/Jetstream/SectionBorder.vue';
-import LogoutOtherBrowserSessionsForm from '@/Pages/Profile/Partials/LogoutOtherBrowserSessionsForm.vue';
-import TwoFactorAuthenticationForm from '@/Pages/Profile/Partials/TwoFactorAuthenticationForm.vue';
-import UpdatePasswordForm from '@/Pages/Profile/Partials/UpdatePasswordForm.vue';
-import UpdateProfileInformationForm from '@/Pages/Profile/Partials/UpdateProfileInformationForm.vue';
+import { Link } from "@inertiajs/inertia-vue3";
+import Header from "./../../Shared/Homepage/Header.vue";
+import Sidebar from "./../../Shared/Homepage/Sidebar.vue";
+import Footer from "./../../Shared/Footer.vue";
+import { Head } from "@inertiajs/inertia-vue3";
+import { reactive, ref } from "@vue/reactivity";
+import { onMounted, useAttrs } from "@vue/runtime-core";
 
-defineProps({
-    confirmsTwoFactorAuthentication: Boolean,
-    sessions: Array,
-});
+let attrs = useAttrs();
 </script>
 
 <template>
-    <AppLayout title="Profile">
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Profile
-            </h2>
-        </template>
-
-        <div>
-            <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                <div v-if="$page.props.jetstream.canUpdateProfileInformation">
-                    <UpdateProfileInformationForm :user="$page.props.user" />
-
-                    <JetSectionBorder />
+    <div>
+        <Head>
+            <title>{{ attrs.metaTitle }}</title>
+            <meta
+                head-key="description"
+                name="description"
+                :content="attrs.metaDescription"
+            />
+            <meta
+                head-key="keyword"
+                name="keyword"
+                :content="attrs.metaKeyword"
+            />
+        </Head>
+        <Header></Header>
+        <Sidebar></Sidebar>
+        <div class="page-content-wrapper">
+            <div class="container">
+                <div class="profile-wrapper-area py-3">
+                    <div class="card user-info-card">
+                        <div class="card-body p-4 d-flex align-items-center">
+                            <div class="user-profile me-3">
+                                <img
+                                    :src="attrs.user.profile_photo_path_url"
+                                    :alt="attrs.user.name"
+                                />
+                            </div>
+                            <div class="user-info">
+                                <p class="mb-0 text-uppercase">
+                                    {{ attrs.user.role }}
+                                </p>
+                                <h5 class="mb-0">{{ attrs.user.name }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card user-data-card">
+                        <div class="card-body">
+                            <div
+                                class="single-profile-data d-flex align-items-center justify-content-between"
+                            >
+                                <div class="title d-flex align-items-center">
+                                    <i class="lni lni-user"></i
+                                    ><span>Full Name</span>
+                                </div>
+                                <div class="data-content">
+                                    {{ attrs.user.name }}
+                                </div>
+                            </div>
+                            <div
+                                class="single-profile-data d-flex align-items-center justify-content-between"
+                            >
+                                <div class="title d-flex align-items-center">
+                                    <i class="lni lni-phone"></i
+                                    ><span>Phone</span>
+                                </div>
+                                <div class="data-content">
+                                    {{ attrs.user.phone }}
+                                </div>
+                            </div>
+                            <div
+                                class="single-profile-data d-flex align-items-center justify-content-between"
+                            >
+                                <div class="title d-flex align-items-center">
+                                    <i class="lni lni-envelope"></i
+                                    ><span>Email Address</span>
+                                </div>
+                                <div class="data-content">
+                                    {{ attrs.user.email }}
+                                </div>
+                            </div>
+                            <div class="edit-profile-btn mt-3">
+                                <a
+                                    class="btn btn-info w-100"
+                                    href="edit-profile.html"
+                                    ><i class="lni lni-pencil me-2"></i>Edit
+                                    Profile</a
+                                >
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div v-if="$page.props.jetstream.canUpdatePassword">
-                    <UpdatePasswordForm class="mt-10 sm:mt-0" />
-
-                    <JetSectionBorder />
-                </div>
-
-                <div v-if="$page.props.jetstream.canManageTwoFactorAuthentication">
-                    <TwoFactorAuthenticationForm 
-                        :requires-confirmation="confirmsTwoFactorAuthentication"
-                        class="mt-10 sm:mt-0" 
-                    />
-
-                    <JetSectionBorder />
-                </div>
-
-                <LogoutOtherBrowserSessionsForm :sessions="sessions" class="mt-10 sm:mt-0" />
-
-                <template v-if="$page.props.jetstream.hasAccountDeletionFeatures">
-                    <JetSectionBorder />
-
-                    <DeleteUserForm class="mt-10 sm:mt-0" />
-                </template>
             </div>
         </div>
-    </AppLayout>
+        <div class="internet-connection-status" id="internetStatus"></div>
+        <Footer></Footer>
+    </div>
 </template>

@@ -4,9 +4,7 @@
             class="container h-100 d-flex align-items-center justify-content-between"
         >
             <div class="logo-wrapper">
-                <a href="home.html"
-                    ><img src="img/core-img/logo-small.png" alt=""
-                /></a>
+                <a href="/"><img src="img/core-img/logo-small.png" alt="" /></a>
             </div>
             <div class="top-search-form">
                 <form action="" method="">

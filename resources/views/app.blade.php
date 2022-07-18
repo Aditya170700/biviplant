@@ -41,6 +41,11 @@
     {{-- <link rel="manifest" href="manifest.json"> --}}
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <style>
+        body,
+        html {
+            background-color: #f1f5f0 !important;
+        }
+
         .bg-fug {
             background-color: #f1f5f0 !important;
         }

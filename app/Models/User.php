@@ -59,7 +59,9 @@ class User extends Authenticatable
     protected function profilePhotoPathUrl(): Attribute
     {
         return Attribute::make(
-            get: fn ($value, $attributes) => File::show($attributes['profile_photo_path']),
+            get: fn ($value, $attributes) => $attributes['profile_photo_path']
+                ? File::show($attributes['profile_photo_path'])
+                : "https://ui-avatars.com/api/?background=00B894&color=fff&name={$attributes['name']}",
         );
     }
 

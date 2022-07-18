@@ -4,14 +4,16 @@
         tabindex="-1"
         id="suhaOffcanvas"
         aria-labelledby="suhaOffcanvasLabel"
-        style="background: rgb(0,184,148) !important; width: 250px !important"
+        style="background: rgb(0, 184, 148) !important; width: 250px !important"
     >
         <button
             class="btn-close btn-close-white text-reset"
             type="button"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-        ><i class="lni lni-close"></i></button>
+        >
+            <i class="lni lni-close"></i>
+        </button>
         <div class="offcanvas-body">
             <div class="sidenav-profile">
                 <div class="user-profile">
@@ -35,8 +37,8 @@
             </div>
             <ul class="sidenav-nav ps-0" v-if="$page.props.user">
                 <li>
-                    <a href="profile.html"
-                        ><i class="lni lni-user"></i>Profil Saya</a
+                    <Link :href="route('profile.index')"
+                        ><i class="lni lni-user"></i>Profil Saya</Link
                     >
                 </li>
                 <li>
