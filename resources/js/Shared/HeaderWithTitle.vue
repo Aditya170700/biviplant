@@ -23,7 +23,14 @@
             <div class="page-heading">
                 <h6 class="mb-0">{{ title }}</h6>
             </div>
-            <div class="filter-option"></div>
+            <div
+                class="suha-navbar-toggler"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#suhaOffcanvas"
+                aria-controls="suhaOffcanvas"
+            >
+                <span></span><span></span><span></span>
+            </div>
         </div>
     </div>
 </template>
