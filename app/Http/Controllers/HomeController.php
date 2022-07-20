@@ -55,4 +55,15 @@ class HomeController extends Controller
             throw $th;
         }
     }
+
+    public function aboutUs()
+    {
+        try {
+            return Inertia::render('Sidebar/AboutUs', [
+                'about_us' => $this->setting->about_us
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 }

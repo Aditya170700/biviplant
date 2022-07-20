@@ -74,6 +74,7 @@ Route::middleware(['auth', 'role:admin'])
     });
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
+Route::get('/tentang-kami', [HomeController::class, 'aboutUs'])->name('about_us');
 
 Route::middleware(['auth'])
     ->group(function () {

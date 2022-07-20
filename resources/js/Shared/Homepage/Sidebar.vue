@@ -65,6 +65,11 @@
                     >
                 </li>
                 <li>
+                    <Link :href="route('about_us')"
+                        ><i class="lni lni-users"></i>Tentang Kami</Link
+                    >
+                </li>
+                <li>
                     <a href="settings.html"
                         ><i class="lni lni-cog"></i>Settings</a
                     >
