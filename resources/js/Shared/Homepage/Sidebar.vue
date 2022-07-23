@@ -20,7 +20,7 @@
                     <img
                         :src="
                             $page.props.user
-                                ? $page.props.user.profile_photo_url
+                                ? $page.props.user.profile_photo_path_url
                                 : 'https://ui-avatars.com/api/?name=Guest&color=50D048&background=C0D276&size=500'
                         "
                         alt=""
