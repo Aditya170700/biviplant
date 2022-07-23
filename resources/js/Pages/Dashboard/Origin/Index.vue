@@ -610,7 +610,6 @@ export default {
         });
 
         function submit() {
-            console.log(form);
             form.transform((data) => ({
                 ...data,
             })).post(route("admin.origins.store"), {

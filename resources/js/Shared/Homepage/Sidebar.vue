@@ -42,6 +42,11 @@
                     >
                 </li>
                 <li>
+                    <Link :href="route('address.index')"
+                        ><i class="lni lni-postcard"></i>Alamat Pengiriman</Link
+                    >
+                </li>
+                <li>
                     <a href="notifications.html"
                         ><i class="lni lni-alarm lni-tada-effect"></i
                         >Notifications<span class="ms-3 badge badge-warning"

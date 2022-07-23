@@ -14,6 +14,7 @@ use App\Interfaces\ProductInterface;
 use App\Interfaces\ProvinceInterface;
 use App\Interfaces\SettingInterface;
 use App\Interfaces\SubdistrictInterface;
+use App\Interfaces\UserAddressInterface;
 use App\Interfaces\VoucherInterface;
 use App\Repositories\BannerRepository;
 use Illuminate\Support\ServiceProvider;
@@ -26,6 +27,7 @@ use App\Repositories\ProductRepository;
 use App\Repositories\ProvinceRepository;
 use App\Repositories\SettingRepository;
 use App\Repositories\SubdistrictRepository;
+use App\Repositories\UserAddressRepository;
 use App\Repositories\VoucherRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -49,6 +51,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(CityInterface::class, CityRepository::class);
         $this->app->bind(SubdistrictInterface::class, SubdistrictRepository::class);
         $this->app->bind(SettingInterface::class, SettingRepository::class);
+        $this->app->bind(UserAddressInterface::class, UserAddressRepository::class);
     }
 
     /**

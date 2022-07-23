@@ -225,16 +225,24 @@ function srcFileSet(fileName, fileType, fileSize) {
                                                     :me="'me-2'"
                                                     v-if="form.processing"
                                                 />
-                                                <span>Simpan</span>
+                                                <span
+                                                    ><i
+                                                        class="lni lni-save me-2"
+                                                    ></i
+                                                    >Simpan</span
+                                                >
                                             </div>
                                         </button>
                                     </div>
                                     <div class="col-6 d-grid">
                                         <Link
                                             :href="route('profile.index')"
-                                            class="btn btn-secondary"
+                                            class="btn btn-outline-secondary"
                                         >
-                                            Batal
+                                            <i
+                                                class="lni lni-arrow-left me-2"
+                                            ></i
+                                            >Kembali
                                         </Link>
                                     </div>
                                 </div>

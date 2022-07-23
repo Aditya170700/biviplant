@@ -85,8 +85,8 @@ let attrs = useAttrs();
                                 <Link
                                     class="btn btn-info w-100"
                                     :href="route('profile.edit')"
-                                    ><i class="lni lni-pencil me-2"></i>Ubah
-                                    Profil</Link
+                                    ><i class="lni lni-pencil me-2"></i
+                                    >Ubah</Link
                                 >
                             </div>
                         </div>

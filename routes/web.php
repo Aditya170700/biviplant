@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
@@ -82,6 +83,17 @@ Route::middleware(['auth'])
                 Route::get('/', 'index')->name('index');
                 Route::get('/edit', 'edit')->name('edit');
                 Route::put('/', 'update')->name('update');
+            });
+        Route::controller(AddressController::class)
+            ->name('address.')
+            ->prefix('address')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::put('/{id}', 'update')->name('update');
+                Route::put('/{id}/status', 'updateStatus')->name('update.status');
             });
     });
 

@@ -15,4 +15,9 @@ class UserAddress extends Model
     protected $casts = [
         'id' => 'string',
     ];
+
+    public function subdistrict()
+    {
+        return $this->belongsTo(Subdistrict::class);
+    }
 }
