@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Interfaces\CategoryInterface;
 use App\Interfaces\ProductInterface;
 use App\Interfaces\SettingInterface;
+use App\Interfaces\UserAddressInterface;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -15,13 +16,15 @@ class ProductController extends Controller
         Request $request,
         ProductInterface $productInterface,
         CategoryInterface $categoryInterface,
-        SettingInterface $settingInterface
+        SettingInterface $settingInterface,
+        UserAddressInterface $userAddressInterface
     )
     {
         $this->request = $request;
         $this->productInterface = $productInterface;
         $this->categoryInterface = $categoryInterface;
         $this->setting = $settingInterface->getOne();
+        $this->userAddressInterface = $userAddressInterface;
     }
 
     public function index()
@@ -49,6 +52,22 @@ class ProductController extends Controller
                 'meta_title' => $product->meta_title,
                 'meta_description' => $product->meta_description,
                 'meta_keyword' =>  $product->meta_keyword,
+                'user_addresses' => $this->userAddressInterface->getPaginated($this->request, [
+                    'subdistrict' => function ($query) {
+                        $query->select('id', 'name', 'city_id')
+                            ->with([
+                                'city' => function ($query) {
+                                    $query->select('id', 'name', 'province_id')
+                                        ->with([
+                                            'province' => function ($query) {
+                                                $query->select('id', 'name');
+                                            }
+                                        ]);
+                                }
+                            ]);
+                    },
+                ]),
+                'primary_address' => $this->userAddressInterface->getPrimary()
             ]);
         } catch (\Throwable $th) {
             throw $th;
