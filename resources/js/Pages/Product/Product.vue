@@ -7,7 +7,7 @@
         </Head>
         <Header></Header>
         <Sidebar></Sidebar>
-        <AddressModal></AddressModal>
+        <AddressModal :user_addresses="user_addresses"></AddressModal>
         <CourierModal></CourierModal>
         <div
             class="toast pwa-install-alert shadow bg-white"
@@ -188,7 +188,8 @@
                             </div>
                             <a href="#" class="d-flex col" data-bs-toggle="offcanvas" data-bs-target="#addressModal" aria-controls="addressModal" style="align-items: center;">
                                 <div class="mb-1 font-weight-bold">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                                    <p v-if="primary_address">{{ `${primary_address.subdistrict.name}, ${primary_address.subdistrict.city.name}, ${primary_address.subdistrict.city.province.name}, ${primary_address.postal_code}` }}</p>
+                                    <p v-else>Belum Ada Alamat</p>
                                 </div>
                                 <div class="mb-1 font-weight-bold btn-side">
                                     <p class="text-end"><i class="lni lni-chevron-right"></i></p>
@@ -491,7 +492,9 @@
         meta_description: String,
         meta_keyword: String,
         related_products: Object,
-        product: Object
+        product: Object,
+        user_addresses: Object,
+        primary_address: Object
     })
 
     const metaTitle = ref(props.meta_title)

@@ -49,6 +49,15 @@ class UserAddressRepository implements UserAddressInterface
         return $model->update($data);
     }
 
+    public function getPrimary()
+    {
+        return $this->model
+            ->with('subdistrict.city.province')
+            ->where('user_id', auth()->user()->id)
+            ->where('is_primary', 1)
+            ->first();
+    }
+
     public function makePrimary(UserAddress $model)
     {
         return $model->update([
