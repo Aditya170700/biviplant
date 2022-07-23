@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderCotroller;
 use App\Http\Controllers\ProductController as HomeProductController;
 use App\Http\Controllers\ProfileController;
 
@@ -94,6 +95,12 @@ Route::middleware(['auth'])
                 Route::get('/{id}/edit', 'edit')->name('edit');
                 Route::put('/{id}', 'update')->name('update');
                 Route::put('/{id}/status', 'updateStatus')->name('update.status');
+            });
+        Route::controller(OrderCotroller::class)
+            ->name('orders.')
+            ->prefix('orders')
+            ->group(function () {
+                Route::get('/history', 'history')->name('history');
             });
     });
 

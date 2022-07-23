@@ -47,6 +47,11 @@
                     >
                 </li>
                 <li>
+                    <Link :href="route('orders.history')"
+                        ><i class="lni lni-package"></i>Riwayat Pesanan</Link
+                    >
+                </li>
+                <li>
                     <a href="notifications.html"
                         ><i class="lni lni-alarm lni-tada-effect"></i
                         >Notifications<span class="ms-3 badge badge-warning"
