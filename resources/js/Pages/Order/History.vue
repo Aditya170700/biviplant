@@ -187,11 +187,14 @@ let status = ref(null);
                                         <div class="small opacity-25">
                                             Belum Dinilai
                                         </div>
-                                        <button
-                                            class="btn btn-sm btn-warning px-2 text-white"
+                                        <Link
+                                            :href="
+                                                route('orders.detail', `uuid`)
+                                            "
+                                            class="btn btn-sm btn-light px-2"
                                         >
-                                            TRACK
-                                        </button>
+                                            LIHAT DETAIL
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -247,9 +250,9 @@ let status = ref(null);
                                             Belum Dinilai
                                         </div>
                                         <button
-                                            class="btn btn-sm btn-warning px-2 text-white"
+                                            class="btn btn-sm btn-light px-2"
                                         >
-                                            TRACK
+                                            LIHAT DETAIL
                                         </button>
                                     </div>
                                 </div>
@@ -306,9 +309,9 @@ let status = ref(null);
                                             Belum Dinilai
                                         </div>
                                         <button
-                                            class="btn btn-sm btn-info px-2 text-white"
+                                            class="btn btn-sm btn-light px-2"
                                         >
-                                            TRACK
+                                            LIHAT DETAIL
                                         </button>
                                     </div>
                                 </div>
@@ -365,9 +368,9 @@ let status = ref(null);
                                             Belum Dinilai
                                         </div>
                                         <button
-                                            class="btn btn-sm btn-success px-2"
+                                            class="btn btn-sm btn-light px-2"
                                         >
-                                            BELI LAGI
+                                            LIHAT DETAIL
                                         </button>
                                     </div>
                                 </div>
@@ -424,9 +427,9 @@ let status = ref(null);
                                             Belum Dinilai
                                         </div>
                                         <button
-                                            class="btn btn-sm btn-danger px-2"
+                                            class="btn btn-sm btn-light px-2"
                                         >
-                                            BELI LAGI
+                                            LIHAT DETAIL
                                         </button>
                                     </div>
                                 </div>
@@ -483,9 +486,9 @@ let status = ref(null);
                                             Belum Dinilai
                                         </div>
                                         <button
-                                            class="btn btn-sm btn-danger px-2"
+                                            class="btn btn-sm btn-light px-2"
                                         >
-                                            TRACK
+                                            LIHAT DETAIL
                                         </button>
                                     </div>
                                 </div>

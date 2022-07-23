@@ -1,9 +1,32 @@
+import { createToast } from 'mosha-vue-toastify'
+import 'mosha-vue-toastify/dist/style.css'
+
 export const imageReader = (files, target) => {
     const reader = new FileReader
     reader.onload = e => {
         target.value = e.target.result;
     }
     reader.readAsDataURL(files)
+}
+
+export const toastSuccess = (message) => {
+    createToast(message, {
+        type: 'success',
+        timeout: 3000,
+        position: 'top-right',
+        showIcon: true,
+        toastBackgroundColor: '#188753',
+    });
+}
+
+export const toastError = (message) => {
+    createToast(message, {
+        type: 'danger',
+        timeout: 3000,
+        position: 'top-right',
+        showIcon: true,
+        toastBackgroundColor: '#ff4560',
+    });
 }
 
 export  const dataURLtoFile = (dataurl) => {

@@ -20,4 +20,22 @@ class OrderCotroller extends Controller
             throw $th;
         }
     }
+
+    public function detail(string $id)
+    {
+        try {
+            return Inertia::render('Order/Detail');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function track(string $id)
+    {
+        try {
+            return Inertia::render('Order/Track');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 }

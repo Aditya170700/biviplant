@@ -101,6 +101,8 @@ Route::middleware(['auth'])
             ->prefix('orders')
             ->group(function () {
                 Route::get('/history', 'history')->name('history');
+                Route::get('/{id}/detail', 'detail')->name('detail');
+                Route::get('/{id}/track', 'track')->name('track');
             });
     });
 

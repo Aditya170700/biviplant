@@ -3,9 +3,7 @@ require('./bootstrap');
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
-import { imageReader } from './utils';
-import { createToast } from 'mosha-vue-toastify'
-import 'mosha-vue-toastify/dist/style.css'
+import { imageReader, toastError, toastSuccess } from './utils';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Biviplant';
 
@@ -37,23 +35,11 @@ createInertiaApp({
                 },
                 updated() {
                     if (this.$page.props.flash.success) {
-                        createToast(this.$page.props.flash.success, {
-                        type: 'success',
-                        timeout: 3000,
-                        position: 'top-right',
-                        showIcon: true,
-                        toastBackgroundColor: '#188753',
-                        })
+                        toastSuccess(this.$page.props.flash.success);
                         this.$page.props.flash.success = "";
                     }
                     if (this.$page.props.flash.failed) {
-                        createToast(this.$page.props.flash.failed, {
-                        type: 'danger',
-                        timeout: 3000,
-                        position: 'top-right',
-                        showIcon: true,
-                        toastBackgroundColor: '#ff4560',
-                        })
+                        toastError(this.$page.props.flash.failed);
                         this.$page.props.flash.failed = "";
                     }
                     if (this.$page.props.flash.login) {
