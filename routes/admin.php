@@ -66,6 +66,3 @@ Route::middleware(['auth', 'role:admin'])
             'products' => ProductController::class,
         ]);
     });
-
-Route::get('/', [HomeController::class, 'index'])->name('homepage');
-Route::get('/tentang-kami', [HomeController::class, 'aboutUs'])->name('about_us');
