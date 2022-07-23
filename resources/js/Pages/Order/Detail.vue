@@ -148,22 +148,6 @@ let attrs = useAttrs();
                                         <div class="small">Rp. 17.000</div>
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2 align-items-center"
-                                    >
-                                        <div>Faktur</div>
-                                        <Link
-                                            :href="
-                                                route('orders.detail', `uuid`)
-                                            "
-                                            class="btn btn-sm btn-light px-2"
-                                        >
-                                            LIHAT
-                                        </Link>
-                                    </div>
-                                </div>
                                 <div class="col-lg-12 py-2">
                                     <hr class="mb-2" />
                                     <div
