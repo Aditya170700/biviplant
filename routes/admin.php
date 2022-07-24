@@ -24,7 +24,6 @@ use App\Http\Controllers\Admin\VoucherController;
 
 Route::middleware(['auth', 'role:admin'])
     ->name('admin.')
-    ->prefix('admin')
     ->group(function () {
         Route::controller(DashboardController::class)
             ->group(function () {

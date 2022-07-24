@@ -44,4 +44,14 @@ class Category extends Model
             'name' => $this->name,
         ];
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function scopeFindBySlug($query, $slug)
+    {
+        return $query->where('slug', $slug);
+    }
 }

@@ -1,11 +1,12 @@
 <?php
 
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\CategoryController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderCotroller;
-use App\Http\Controllers\ProductController as HomeProductController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -66,10 +67,20 @@ Route::middleware([
 /**
  * PRODUCT
  */
-Route::controller(HomeProductController::class)
+Route::controller(ProductController::class)
     ->name('product.')
     ->prefix('products')
     ->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::get('/{slug}', 'show')->name('show');
+    });
+
+/**
+ * CATEGORY
+ */
+Route::controller(CategoryController::class)
+    ->name('category.')
+    ->prefix('kategori')
+    ->group(function() {
         Route::get('/{slug}', 'show')->name('show');
     });

@@ -113,15 +113,15 @@
                             <div class="col-4" v-for="(category, i) in categories.data" :key="i">
                                 <div class="card catagory-card">
                                     <div class="card-body">
-                                        <a
+                                        <Link
                                             class="text-danger"
-                                            href="catagory.html"
+                                            :href="route('category.show', {slug: category.name})"
                                         >
                                             <div class="d-flex justify-content-center">
                                                 <img :src="category.icon_url" alt="" class="mb-2">
                                             </div>
                                             <span>{{ category.name }}</span>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
