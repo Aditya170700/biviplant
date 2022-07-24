@@ -115,7 +115,7 @@
                                     <div class="card-body">
                                         <Link
                                             class="text-danger"
-                                            :href="route('category.show', {slug: category.name})"
+                                            :href="route('category.show', {slug: category.slug})"
                                         >
                                             <div class="d-flex justify-content-center">
                                                 <img :src="category.icon_url" alt="" class="mb-2">

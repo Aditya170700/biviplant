@@ -38,10 +38,10 @@ class CategoryRepository implements CategoryInterface
             ->get();
     }
 
-    public function getBySlug($slug)
+    public function getBySlug($slug, array $with = [])
     {
         return $this->model
-            ->with('products')
+            ->with($with)
             ->findBySlug($slug);
     }
 
