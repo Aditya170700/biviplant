@@ -24,7 +24,7 @@ class SettingController extends Controller
                 'result' => $this->settingInterface->getOne(),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -58,7 +58,7 @@ class SettingController extends Controller
             return redirect()->back()
                 ->with('success', 'Berhasil ubah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }

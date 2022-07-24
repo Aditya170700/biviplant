@@ -26,7 +26,7 @@ class BannerController extends Controller
                 'filters' => $this->request->all(['search', 'field', 'direction', 'limit']),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -35,7 +35,7 @@ class BannerController extends Controller
         try {
             return Inertia::render('Dashboard/Banner/Create');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -48,7 +48,7 @@ class BannerController extends Controller
             return redirect()->route('admin.banners.index')
                 ->with('success', 'Berhasil tambah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -59,7 +59,7 @@ class BannerController extends Controller
                 'result' => $this->bannerInterface->getById($id),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -70,7 +70,7 @@ class BannerController extends Controller
                 'result' => $this->bannerInterface->getById($id),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -84,7 +84,7 @@ class BannerController extends Controller
             return redirect()->route('admin.banners.index')
                 ->with('success', 'Berhasil ubah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -96,7 +96,7 @@ class BannerController extends Controller
             return redirect()->route('admin.banners.index')
                 ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }

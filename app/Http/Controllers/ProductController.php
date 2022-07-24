@@ -38,7 +38,7 @@ class ProductController extends Controller
                 'meta_keyword' => $this->setting->meta_keyword,
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -70,7 +70,7 @@ class ProductController extends Controller
                 'primary_address' => $this->userAddressInterface->getPrimary()
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }

@@ -52,7 +52,7 @@ class HomeController extends Controller
                 'phpVersion' => PHP_VERSION,
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -63,7 +63,7 @@ class HomeController extends Controller
                 'about_us' => $this->setting->about_us
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }

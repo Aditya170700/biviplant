@@ -32,6 +32,7 @@ class CategoryRequestAdapter implements DataRequestAdapterInterface
     {
         return [
             'name' => $data['name'],
+            'slug' => $data['slug'],
             'meta_title' => $data['meta_title'],
             'meta_description' => $data['meta_description'],
             'meta_keyword' => $data['meta_keyword'],

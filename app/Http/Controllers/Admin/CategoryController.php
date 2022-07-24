@@ -25,7 +25,7 @@ class CategoryController extends Controller
                 'filters' => $this->request->all(['search', 'field', 'direction', 'limit']),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -34,7 +34,7 @@ class CategoryController extends Controller
         try {
             return Inertia::render('Dashboard/Category/Create');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -47,7 +47,7 @@ class CategoryController extends Controller
             return redirect()->route('admin.categories.index')
                 ->with('success', 'Berhasil tambah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -58,7 +58,7 @@ class CategoryController extends Controller
                 'result' => $this->categoryInterface->getById($id),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -69,7 +69,7 @@ class CategoryController extends Controller
                 'result' => $this->categoryInterface->getById($id),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -83,7 +83,7 @@ class CategoryController extends Controller
             return redirect()->route('admin.categories.index')
                 ->with('success', 'Berhasil ubah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -95,7 +95,7 @@ class CategoryController extends Controller
             return redirect()->route('admin.categories.index')
                 ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }

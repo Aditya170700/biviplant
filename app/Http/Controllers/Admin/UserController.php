@@ -30,7 +30,7 @@ class UserController extends Controller
                 'filters' => $this->request->all(['search', 'field', 'direction', 'limit']),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -44,7 +44,7 @@ class UserController extends Controller
         try {
             return Inertia::render('Dashboard/User/Create');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -63,7 +63,7 @@ class UserController extends Controller
             return redirect()->route('admin.users.index')
                 ->with('success', 'Berhasil tambah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -80,7 +80,7 @@ class UserController extends Controller
                 'result' => $this->userInterface->getById($id),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -97,7 +97,7 @@ class UserController extends Controller
                 'result' => $this->userInterface->getById($id),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -118,7 +118,7 @@ class UserController extends Controller
             return redirect()->route('admin.users.index')
                 ->with('success', 'Berhasil ubah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -136,7 +136,7 @@ class UserController extends Controller
             return redirect()->route('admin.users.index')
                 ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }

@@ -19,11 +19,29 @@
                                             class="form-control"
                                             id="name"
                                             v-model="form.name"
+                                            @keyup="changeName"
                                         />
                                         <FormText
                                             :id="'name'"
                                             :message="form.errors.name"
                                             v-if="form.errors.name"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label for="slug" class="form-label"
+                                            >Slug</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="slug"
+                                            v-model="form.slug"
+                                        />
+                                        <FormText
+                                            :id="'slug'"
+                                            :message="form.errors.slug"
+                                            v-if="form.errors.slug"
                                         />
                                     </div>
                                 </div>
@@ -206,6 +224,7 @@ import { Link } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
 import FormText from "../../../Shared/Form/FormText";
+import { slugify } from "../../../utils";
 import { ref } from "@vue/reactivity";
 import { imageReader, dataURLtoFile } from "../../../utils";
 import Cropper from "vue-image-crop-upload";
@@ -218,6 +237,7 @@ export default {
     setup() {
         const form = useForm({
             name: "",
+            slug: "",
             meta_title: "",
             meta_description: "",
             meta_keyword: "",
@@ -253,11 +273,16 @@ export default {
             icon.value = imgDataUrl;
         }
 
+        function changeName() {
+            form.slug = slugify(form.name);
+        }
+
         return {
             form,
             submit,
             setBanner,
             setIcon,
+            changeName,
             banner,
             showBannerCroper,
             cropBannerSuccess,
