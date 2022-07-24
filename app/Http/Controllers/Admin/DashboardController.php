@@ -13,7 +13,7 @@ class DashboardController extends Controller
         try {
             return Inertia::render('Dashboard/Index');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }

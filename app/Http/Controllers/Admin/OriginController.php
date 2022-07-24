@@ -39,7 +39,7 @@ class OriginController extends Controller
                 'result' => $result,
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -52,7 +52,7 @@ class OriginController extends Controller
             return redirect()->back()
                 ->with('success', 'Berhasil tambah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -65,7 +65,7 @@ class OriginController extends Controller
             return redirect()->back()
                 ->with('success', 'Berhasil tambah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }

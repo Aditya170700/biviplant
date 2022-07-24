@@ -17,7 +17,7 @@ class OrderCotroller extends Controller
         try {
             return Inertia::render('Order/History');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -26,7 +26,7 @@ class OrderCotroller extends Controller
         try {
             return Inertia::render('Order/Detail');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -35,7 +35,7 @@ class OrderCotroller extends Controller
         try {
             return Inertia::render('Order/Track');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }
