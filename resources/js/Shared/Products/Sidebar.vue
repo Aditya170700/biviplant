@@ -4,20 +4,22 @@
         tabindex="-1"
         id="suhaFilterOffcanvas"
         aria-labelledby="suhaFilterOffcanvasLabel"
-        style="background: linear-gradient(to left, #fff, #fff) !important"
+        style="background: linear-gradient(to left, #fff, #fff) !important; width: 250px !important;"
     >
         <button
             class="btn-close text-reset"
             type="button"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-        ></button>
+        >
+            <i class="lni lni-close"></i>
+        </button>
         <div class="offcanvas-body py-5">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="widget catagory mb-4">
-                            <h6 class="widget-title mb-2">Brand</h6>
+                            <h6 class="widget-title mb-2">Jenis Tanaman</h6>
                             <div class="widget-desc">
                                 <div class="form-check">
                                     <input
@@ -76,128 +78,8 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="widget color mb-4">
-                            <h6 class="widget-title mb-2">Color Family</h6>
-                            <div class="widget-desc">
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="Purple"
-                                        type="checkbox"
-                                        checked
-                                    />
-                                    <label class="form-check-label" for="Purple"
-                                        >Purple</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="Black"
-                                        type="checkbox"
-                                    />
-                                    <label class="form-check-label" for="Black"
-                                        >Black</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="White"
-                                        type="checkbox"
-                                    />
-                                    <label class="form-check-label" for="White"
-                                        >White</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="Red"
-                                        type="checkbox"
-                                    />
-                                    <label class="form-check-label" for="Red"
-                                        >Red</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="Pink"
-                                        type="checkbox"
-                                    />
-                                    <label class="form-check-label" for="Pink"
-                                        >Pink</label
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="widget size mb-4">
-                            <h6 class="widget-title mb-2">Size</h6>
-                            <div class="widget-desc">
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="XtraLarge"
-                                        type="checkbox"
-                                        checked
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="XtraLarge"
-                                        >Xtra Large</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="Large"
-                                        type="checkbox"
-                                    />
-                                    <label class="form-check-label" for="Large"
-                                        >Large</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="medium"
-                                        type="checkbox"
-                                    />
-                                    <label class="form-check-label" for="medium"
-                                        >Medium</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="Small"
-                                        type="checkbox"
-                                    />
-                                    <label class="form-check-label" for="Small"
-                                        >Small</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="ExtraSmall"
-                                        type="checkbox"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="ExtraSmall"
-                                        >Extra Small</label
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
                         <div class="widget ratings mb-4">
-                            <h6 class="widget-title mb-2">Ratings</h6>
+                            <h6 class="widget-title mb-2">Bintang</h6>
                             <div class="widget-desc">
                                 <div class="form-check">
                                     <input
@@ -324,102 +206,29 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="widget payment-type mb-4">
-                            <h6 class="widget-title mb-2">Payment Type</h6>
+                        <div class="widget catagory mb-4">
+                            <h6 class="widget-title mb-2">Urutkan</h6>
                             <div class="widget-desc">
                                 <div class="form-check">
                                     <input
                                         class="form-check-input"
-                                        id="cod"
+                                        id="zara"
                                         type="checkbox"
                                         checked
                                     />
-                                    <label class="form-check-label" for="cod"
-                                        >Cash On Delivery</label
+                                    <label class="form-check-label" for="zara"
+                                        >Harga Termurah</label
                                     >
                                 </div>
                                 <div class="form-check">
                                     <input
                                         class="form-check-input"
-                                        id="paypal"
+                                        id="Gucci"
                                         type="checkbox"
                                     />
-                                    <label class="form-check-label" for="paypal"
-                                        >Paypal</label
+                                    <label class="form-check-label" for="Gucci"
+                                        >Harga Termahal</label
                                     >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="checkpayment"
-                                        type="checkbox"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="checkpayment"
-                                        >Check Payment</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="payonner"
-                                        type="checkbox"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="payonner"
-                                        >Payonner</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="mobbanking"
-                                        type="checkbox"
-                                    />
-                                    <label
-                                        class="form-check-label"
-                                        for="mobbanking"
-                                        >Mobile Banking</label
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="widget price-range mb-4">
-                            <h6 class="widget-title mb-2">Price Range</h6>
-                            <div class="widget-desc">
-                                <div class="row g-3">
-                                    <div class="col-6">
-                                        <div class="form-floating">
-                                            <input
-                                                class="form-control"
-                                                id="floatingInput"
-                                                type="text"
-                                                placeholder="1"
-                                                value="1"
-                                            />
-                                            <label for="floatingInput"
-                                                >Min</label
-                                            >
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-floating">
-                                            <input
-                                                class="form-control"
-                                                id="floatingInput"
-                                                type="text"
-                                                placeholder="1"
-                                                value="5000"
-                                            />
-                                            <label for="floatingInput"
-                                                >Max</label
-                                            >
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -427,7 +236,7 @@
                     <div class="col-12">
                         <div class="apply-filter-btn">
                             <a class="btn btn-success w-100" href=""
-                                >Apply Filter</a
+                                >Terapkan Filer</a
                             >
                         </div>
                     </div>
