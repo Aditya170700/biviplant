@@ -75,7 +75,7 @@ class ProductRepository implements ProductInterface
             ->whereHas('category', function ($q) use ($slug) {
                 $q->where('slug', $slug);
             })
-            ->paginate(10);
+            ->paginate(3);
     }
 
     public function create(array $data)
