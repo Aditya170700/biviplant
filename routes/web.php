@@ -127,3 +127,25 @@ Route::controller(HomeProductController::class)
         Route::get('/', 'index')->name('index');
         Route::get('/{slug}', 'show')->name('show');
     });
+
+Route::get('/testing/wkwk/wkwk', function () {
+    try {
+        dd(
+            \App\Models\Origin::select(
+                "origins.id",
+                \DB::raw("6371 * acos(cos(radians(-7.8684362))
+                        * cos(radians(origins.latitude))
+                        * cos(radians(origins.longitude) - radians(110.6883991))
+                        + sin(radians(-7.8684362))
+                        * sin(radians(origins.latitude))) AS distance")
+            )
+                ->whereHas('products', function ($q) {
+                    $q->where('product_id', 'b5d92a70-4860-4359-a3fa-fc127b79caaf');
+                })
+                ->orderBy('distance')
+                ->first()
+        );
+    } catch (\Throwable $th) {
+        dd($th);
+    }
+});

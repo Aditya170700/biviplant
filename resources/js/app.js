@@ -3,6 +3,7 @@ require('./bootstrap');
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
+import { createStore } from 'vuex';
 import { imageReader, toastError, toastSuccess } from './utils';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Biviplant';
@@ -11,12 +12,30 @@ InertiaProgress.init({
     color: '#4B5563',
     showSpinner: true,
 });
+
+let store = createStore({
+    state: {
+        courier: null,
+    },
+    mutations: {
+        setCourier(state, courier) {
+            state.courier = courier;
+        }
+    },
+    getters: {
+        courier(state) {
+            return state.courier;
+        }
+    }
+});
+
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => require(`./Pages/${name}.vue`),
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
             .use(plugin)
+            .use(store)
             .mixin({
                 methods: {
                     route,

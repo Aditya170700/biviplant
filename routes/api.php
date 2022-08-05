@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\ProvinceController;
 use App\Http\Controllers\Api\SearchController;
+use App\Http\Controllers\Api\ShippingCostController;
 use App\Http\Controllers\Api\SubdistrictController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +28,16 @@ Route::resource('provinces', ProvinceController::class)->only(['index']);
 Route::resource('cities', CityController::class)->only(['index']);
 Route::resource('subdistricts', SubdistrictController::class)->only(['index']);
 Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+Route::controller(CartController::class)
+    ->prefix('carts')
+    ->group(function () {
+        Route::post('/', 'store');
+        Route::put('/', 'update');
+    });
+
+Route::controller(ShippingCostController::class)
+    ->prefix('shipping-costs')
+    ->group(function () {
+        Route::get('/get-nearest', 'getNearest');
+    });
