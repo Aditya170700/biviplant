@@ -63,6 +63,8 @@ createInertiaApp({
                     }
                     if (this.$page.props.flash.login) {
                         this.$page.props.flash.login = false;
+                        localStorage.removeItem("address");
+                        localStorage.removeItem("primary_address");
                         window.location.reload();
                     }
                     if (this.$page.props.flash.logout) {

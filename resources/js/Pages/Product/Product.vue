@@ -11,8 +11,9 @@ import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 import axios from "axios";
 import { toastError, toastSuccess } from "../../utils";
-import { useAttrs, watch } from "@vue/runtime-core";
+import { onMounted, useAttrs, watch } from "@vue/runtime-core";
 import { useStore } from "vuex";
+import AddressModalGuest from "./AddressModalGuest.vue";
 
 let attrs = useAttrs();
 let store = useStore();
@@ -27,10 +28,15 @@ let props = defineProps({
     primary_address: Object,
 });
 
+let primary_address = reactive(
+    props.primary_address ?? JSON.parse(localStorage.getItem("primary_address"))
+);
+
 let form = reactive({
     user_id: attrs.user?.id,
     product_id: props.product.id,
     user_address_id: props.primary_address?.id,
+    user_address: null,
     courier: null,
     shipping_service: null,
     shipping_cost: null,
@@ -76,6 +82,23 @@ function storeCart() {
     }
 }
 
+function storeCartGuest() {
+    if (store.getters.courier == null) {
+        toastError("Silahkan pilih kurir terlebih dahulu");
+        return;
+    }
+
+    form.user_id = null;
+    form.courier = store.getters.courier.name;
+    form.shipping_service = store.getters.courier.service;
+    form.shipping_cost = store.getters.courier.value;
+    form.shipping_etd = store.getters.courier.etd;
+    form.user_address = primary_address;
+
+    localStorage.setItem("cart", JSON.stringify(form));
+    toastSuccess("Produk berhasil ditambahkan ke keranjang");
+}
+
 watch(
     () => store.getters.courier,
     (val) => {
@@ -105,6 +128,7 @@ watch(
             :user_addresses="user_addresses"
             v-if="user_addresses != null"
         ></AddressModal>
+        <AddressModalGuest v-else></AddressModalGuest>
         <CourierModal
             :primary_address="primary_address"
             :product="product"
@@ -123,8 +147,19 @@ watch(
                         <i class="lni lni-comments" style="font-size: 25px"></i>
                     </div>
                     <div
+                        v-if="attrs.user"
                         class="col-3 text-center bg-fug-2 p-3 text-white border-start"
                         @click="storeCart"
+                    >
+                        <i
+                            class="lni lni-cart-full"
+                            style="font-size: 25px"
+                        ></i>
+                    </div>
+                    <div
+                        v-else
+                        class="col-3 text-center bg-fug-2 p-3 text-white border-start"
+                        @click="storeCartGuest"
                     >
                         <i
                             class="lni lni-cart-full"
