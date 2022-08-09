@@ -1,1 +1,0 @@
-import{_ as t,o as r,f as s,t as n,n as a}from"./app.b8fedaf9.js";const i={props:{message:{type:String,required:!0},type:{type:String},id:{type:String,required:!0}},setup(){}},o=["id"];function c(d,_,e,p,m,u){return r(),s("div",{id:e.id,class:a(["form-text",e.type?e.type:"text-danger"])},n(e.message),11,o)}const g=t(i,[["render",c]]);export{g as F};
