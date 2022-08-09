@@ -65,6 +65,7 @@ createInertiaApp({
                         this.$page.props.flash.login = false;
                         localStorage.removeItem("address");
                         localStorage.removeItem("primary_address");
+                        localStorage.removeItem("cart");
                         window.location.reload();
                     }
                     if (this.$page.props.flash.logout) {
