@@ -67,4 +67,9 @@ class Product extends Model
             'name' => $this->name,
         ];
     }
+
+    public function cart_user()
+    {
+        return $this->hasOne(Cart::class)->where('user_id', auth()->id());
+    }
 }

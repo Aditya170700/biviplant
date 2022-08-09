@@ -49,6 +49,40 @@
         .bg-fug {
             background-color: #f1f5f0 !important;
         }
+
+        .bg-fug-2 {
+            background-color: #00b894 !important;
+        }
+
+        .bg-fug-3 {
+            background-color: #100DD1 !important;
+        }
+
+        .blink {
+            animation: blinkingText 1s infinite;
+        }
+
+        @keyframes blinkingText {
+            0% {
+                opacity: 0;
+            }
+
+            25% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 0.75;
+            }
+
+            75% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
     </style>
     @routes
     <script src="{{ mix('/js/app.js') }}" defer></script>

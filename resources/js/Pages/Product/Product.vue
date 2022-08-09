@@ -1,14 +1,180 @@
+<script setup>
+import { Link } from "@inertiajs/inertia-vue3";
+import Header from "../../Shared/Product/Header.vue";
+import Sidebar from "../../Shared/Homepage/Sidebar.vue";
+import Footer from "../../Shared/Footer.vue";
+import AddressModal from "./AddressModal.vue";
+import CourierModal from "./CourierModal.vue";
+import { Head } from "@inertiajs/inertia-vue3";
+import { reactive, ref } from "@vue/reactivity";
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+import "vue3-carousel/dist/carousel.css";
+import axios from "axios";
+import { toastError, toastSuccess } from "../../utils";
+import { onMounted, useAttrs, watch } from "@vue/runtime-core";
+import { useStore } from "vuex";
+import AddressModalGuest from "./AddressModalGuest.vue";
+
+let attrs = useAttrs();
+let store = useStore();
+
+let props = defineProps({
+    meta_title: String,
+    meta_description: String,
+    meta_keyword: String,
+    related_products: Object,
+    product: Object,
+    user_addresses: Object,
+    primary_address: Object,
+});
+
+let primary_address = reactive(
+    props.primary_address ?? JSON.parse(localStorage.getItem("primary_address"))
+);
+
+let form = reactive({
+    user_id: attrs.user?.id,
+    product_id: props.product.id,
+    user_address_id: props.primary_address?.id,
+    user_address: null,
+    courier: null,
+    shipping_service: null,
+    shipping_cost: null,
+    shipping_etd: null,
+    qty: props.product.cart_user?.qty ?? 0 + 1,
+});
+
+const metaTitle = ref(props.meta_title);
+const metaDescription = ref(props.meta_description);
+const metaKeyword = ref(props.meta_keyword);
+
+function storeCart() {
+    if (store.getters.courier == null) {
+        toastError("Silahkan pilih kurir terlebih dahulu");
+        return;
+    }
+
+    form.courier = store.getters.courier.name;
+    form.shipping_service = store.getters.courier.service;
+    form.shipping_cost = store.getters.courier.value;
+    form.shipping_etd = store.getters.courier.etd;
+
+    if (props.product.cart_user == null) {
+        axios
+            .post("/api/carts", form)
+            .then((res) => {
+                props.product.cart_user = res.data.data;
+                toastSuccess(res.data.message);
+            })
+            .catch((err) => {
+                toastError(err.response.data.message);
+            });
+    } else {
+        axios
+            .put("/api/carts", form)
+            .then((res) => {
+                props.product.cart_user = res.data.data;
+                toastSuccess(res.data.message);
+            })
+            .catch((err) => {
+                toastError(err.response.data.message);
+            });
+    }
+}
+
+function storeCartGuest() {
+    if (store.getters.courier == null) {
+        toastError("Silahkan pilih kurir terlebih dahulu");
+        return;
+    }
+
+    form.user_id = null;
+    form.courier = store.getters.courier.name;
+    form.shipping_service = store.getters.courier.service;
+    form.shipping_cost = store.getters.courier.value;
+    form.shipping_etd = store.getters.courier.etd;
+    form.user_address = primary_address;
+
+    localStorage.setItem("cart", JSON.stringify(form));
+    toastSuccess("Produk berhasil ditambahkan ke keranjang");
+}
+
+watch(
+    () => store.getters.courier,
+    (val) => {
+        form.courier = val?.name ?? null;
+        form.shipping_service = val?.service ?? null;
+        form.shipping_cost = val?.value ?? null;
+        form.shipping_etd = val?.etd ?? null;
+        form.qty = val?.qty ?? 0;
+    }
+);
+</script>
+
 <template>
     <div>
         <Head>
             <title>{{ metaTitle }}</title>
-            <meta head-key="description" name="description" :content="metaDescription" />
+            <meta
+                head-key="description"
+                name="description"
+                :content="metaDescription"
+            />
             <meta head-key="keyword" name="keyword" :content="metaKeyword" />
         </Head>
         <Header></Header>
         <Sidebar></Sidebar>
-        <AddressModal :user_addresses="user_addresses"></AddressModal>
-        <CourierModal></CourierModal>
+        <AddressModal
+            :user_addresses="user_addresses"
+            v-if="user_addresses != null"
+        ></AddressModal>
+        <AddressModalGuest v-else></AddressModalGuest>
+        <CourierModal
+            :primary_address="primary_address"
+            :product="product"
+            :qty="form.qty"
+            v-if="primary_address != null"
+        ></CourierModal>
+        <div
+            class="card fixed-bottom rounded-0 shadow-0 bg-fug"
+            style="bottom: 58px"
+        >
+            <div class="card-body p-0">
+                <div class="d-flex justify-content-start align-items-center">
+                    <div
+                        class="col-3 text-center bg-fug-2 p-3 text-white border-end"
+                    >
+                        <i class="lni lni-comments" style="font-size: 25px"></i>
+                    </div>
+                    <div
+                        v-if="attrs.user"
+                        class="col-3 text-center bg-fug-2 p-3 text-white border-start"
+                        @click="storeCart"
+                    >
+                        <i
+                            class="lni lni-cart-full"
+                            style="font-size: 25px"
+                        ></i>
+                    </div>
+                    <div
+                        v-else
+                        class="col-3 text-center bg-fug-2 p-3 text-white border-start"
+                        @click="storeCartGuest"
+                    >
+                        <i
+                            class="lni lni-cart-full"
+                            style="font-size: 25px"
+                        ></i>
+                    </div>
+                    <div
+                        class="col-6 text-center bg-fug-3 p-3 text-white"
+                        style="font-size: 18px"
+                    >
+                        Beli Sekarang
+                    </div>
+                </div>
+            </div>
+        </div>
         <div
             class="toast pwa-install-alert shadow bg-white"
             role="alert"
@@ -44,23 +210,25 @@
             >
                 <div class="carousel-indicators">
                     <button
-                        v-for="(file, i) in product.files" :key="i"
+                        v-for="(file, i) in product.files"
+                        :key="i"
                         type="button"
                         data-bs-target="#carouselExampleIndicators"
                         :data-bs-slide-to="i"
-                        :class="(i == 0) ? 'active' : ''"
-                        :aria-current="(i == 0) ? true : false"
-                        :aria-label="`Slide ${i+1}`"
+                        :class="i == 0 ? 'active' : ''"
+                        :aria-current="i == 0 ? true : false"
+                        :aria-label="`Slide ${i + 1}`"
                     ></button>
                 </div>
                 <div class="carousel-inner">
-                    <div 
-                        :class="['carousel-item', (i == 0) ? 'active' : '']" 
-                        v-for="(file, i) in product.files" :key="i"
+                    <div
+                        :class="['carousel-item', i == 0 ? 'active' : '']"
+                        v-for="(file, i) in product.files"
+                        :key="i"
                     >
                         <div class="single-product-slide text-center">
-                            <img 
-                                class="rounded mx-auto d-block mb-2" 
+                            <img
+                                class="rounded mx-auto d-block mb-2"
                                 :src="file.src"
                                 :alt="file.alt"
                             />
@@ -92,12 +260,15 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <div class="product-description pb-3 bg-fug">
-                <div class="product-title-meta-data bg-white py-3 mb-3">
+            <div class="product-description bg-fug">
+                <div class="product-title-meta-data bg-white py-3">
                     <div class="container d-flex justify-content-between">
                         <div class="p-title-price">
                             <h6 class="mb-1">{{ product.name }}</h6>
-                            <p class="sale-price mb-0">{{ product.price_rp }}<span>{{ product.strike_price_rp }}</span></p>
+                            <p class="sale-price mb-0">
+                                {{ product.price_rp
+                                }}<span>{{ product.strike_price_rp }}</span>
+                            </p>
                         </div>
                         <div class="p-wishlist-share">
                             <a href="wishlist-grid.html"
@@ -122,350 +293,450 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="flash-sale-panel bg-white py-3 mb-3">
-                    <div class="container">
-                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
-                            <div class="d-flex-30">
-                                <p class="mb-1 font-weight-bold">
+                    <div class="container my-2">
+                        <hr />
+                        <div class="sales-offer-content d-flex mt-2">
+                            <div class="col-3">
+                                <p class="mb-1 fw-bold">
                                     <strong>Kondisi</strong>
                                 </p>
                             </div>
-                            <div class="mb-1 font-weight-bold">
-                                <p>{{ product.condition }}</p>
+                            <div class="col-9 fw-bold">
+                                <p>{{ product.condition ?? "-" }}</p>
                             </div>
                         </div>
-                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
-                            <div class="d-flex-30">
-                                <p class="mb-1 font-weight-bold">
-                                    <strong>Berat</strong>
-                                </p>
+                        <div class="sales-offer-content d-flex mt-2">
+                            <div class="col-3">
+                                <p class="mb-1 fw-bold">Berat</p>
                             </div>
-                            <div class="mb-1 font-weight-bold">
+                            <div class="col-9 fw-bold">
                                 <p>{{ product.weight }} gram</p>
                             </div>
                         </div>
-                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
-                            <div class="d-flex-30">
-                                <p class="mb-1 font-weight-bold">
-                                    <strong>Stok</strong>
-                                </p>
+                        <div class="sales-offer-content d-flex mt-2">
+                            <div class="col-3">
+                                <p class="mb-1 fw-bold">Stok</p>
                             </div>
-                            <div class="mb-1 font-weight-bold">
+                            <div class="col-9 fw-bold">
                                 <p>{{ product.stock }}</p>
                             </div>
                         </div>
-                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
-                            <div class="d-flex-30">
-                                <p class="mb-1 font-weight-bold">
-                                    <strong>Terjual</strong>
-                                </p>
+                        <div class="sales-offer-content d-flex mt-2">
+                            <div class="col-3">
+                                <p class="mb-1 fw-bold">Terjual</p>
                             </div>
-                            <div class="mb-1 font-weight-bold">
-                                <p>39</p>
+                            <div class="col-9 fw-bold">
+                                <p>390</p>
                             </div>
                         </div>
-                        <div class="sales-offer-content d-flex mt-2" style="align-items: center;">
-                            <div class="d-flex-30">
-                                <p class="mb-1 font-weight-bold">
-                                    <strong>Kategori</strong>
-                                </p>
+                        <div class="sales-offer-content d-flex mt-2">
+                            <div class="col-3">
+                                <p class="mb-1 fw-bold">Kategori</p>
                             </div>
-                            <div class="mb-1 font-weight-bold">
+                            <div class="col-9 fw-bold">
                                 <p>{{ product?.category?.name }}</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="flash-sale-panel bg-white py-3 mb-3">
-                    <div class="container">
-                        <!-- alamat -->
-                        <div class="sales-offer-content d-flex mt-2 row" style="align-items: center;">
-                            <div class="d-flex-30 col">
-                                <p class="mb-1 font-weight-bold">
-                                    <strong>Dikirim ke</strong>
-                                </p>
+                        <div class="sales-offer-content d-flex mt-2">
+                            <div class="col-3">
+                                <p class="mb-1 fw-bold">Dikirim ke</p>
                             </div>
-                            <a href="#" class="d-flex col" data-bs-toggle="offcanvas" data-bs-target="#addressModal" aria-controls="addressModal" style="align-items: center;">
-                                <div class="mb-1 font-weight-bold">
-                                    <p v-if="primary_address">{{ `${primary_address.subdistrict.name}, ${primary_address.subdistrict.city.name}, ${primary_address.subdistrict.city.province.name}, ${primary_address.postal_code}` }}</p>
-                                    <p v-else>Belum Ada Alamat</p>
-                                </div>
-                                <div class="mb-1 font-weight-bold btn-side">
-                                    <p class="text-end"><i class="lni lni-chevron-right"></i></p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- kurir -->
-                        <div class="sales-offer-content d-flex mt-2 row" style="align-items: center;">
-                            <div class="d-flex-30 col">
-                                <p class="mb-1 font-weight-bold">
-                                    <strong>Kurir</strong>
-                                </p>
+                            <div class="col-9">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="offcanvas"
+                                    data-bs-target="#addressModal"
+                                    aria-controls="addressModal"
+                                    style="align-items: center"
+                                >
+                                    <div
+                                        class="d-flex justify-content-between align-items-center"
+                                    >
+                                        <p v-if="primary_address">
+                                            {{
+                                                `${primary_address.subdistrict.name}, ${primary_address.subdistrict.city.name}, ${primary_address.subdistrict.city.province.name}, ${primary_address.postal_code}`
+                                            }}
+                                        </p>
+                                        <p v-else>Belum Ada Alamat</p>
+                                        <i
+                                            class="lni lni-chevron-right small"
+                                        ></i>
+                                    </div>
+                                </a>
                             </div>
-                            <a href="#" class="d-flex col" data-bs-toggle="offcanvas" data-bs-target="#courierModal" aria-controls="courierModal" style="align-items: center;">
-                                <div class="mb-1 font-weight-bold col">
-                                    <p>JNE Express</p>
-                                    <p><strong>Rp. 20.000</strong></p>
-                                </div>
-                                <div class="mb-1 font-weight-bold btn-side col">
-                                    <p class="text-end"><i class="lni lni-chevron-right"></i></p>
-                                </div>
-                            </a>
                         </div>
-                    </div>
-                </div>
-                <div class="selection-panel bg-white py-3 mb-3">
-                    <div
-                        class="container d-flex align-items-center justify-content-between"
-                    >
-                        <div class="container">
-                        <ul class="mb-3 ps-3">
-                            <li>
-                                <i class="lni lni-checkmark-circle"> </i> 100%
-                                Kualitas Unggul
-                            </li>
-                            <li>
-                                <i class="lni lni-checkmark-circle"> </i> 7 Hari Retur
-                            </li>
-                            <li>
-                                <i class="lni lni-checkmark-circle"> </i>
-                                Bergaransi
-                            </li>
-                            <li>
-                                <i class="lni lni-checkmark-circle"> </i> 100%
-                                Terpercaya
-                            </li>
-                        </ul>
-                        <p class="mb-0">
-                            Deskripsi untuk ajakan beli dan benefit jika membeli dan kemudahannya.
-                        </p>
-                    </div>
-                    </div>
-                </div>
-                <div class="cart-form-wrapper bg-white py-3 mb-3">
-                    <div class="container">
-                        <form class="cart-form" action="#" method="">
-                            <div
-                                class="order-plus-minus d-flex align-items-center"
-                            >
-                                <div class="quantity-button-handler">-</div>
-                                <input
-                                    class="form-control cart-quantity-input"
-                                    type="text"
-                                    step="1"
-                                    name="quantity"
-                                    value="1"
-                                />
-                                <div class="quantity-button-handler">+</div>
+                        <div class="sales-offer-content d-flex mt-2">
+                            <div class="col-3">
+                                <p class="mb-1 fw-bold">Kurir</p>
                             </div>
-                            <button class="btn btn-success ms-3">
-                                <i class="lni lni-shopping-basket"></i>
-                            </button>
-                            <button class="btn btn-danger ms-3" type="submit">
-                                Beli Langsung
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                <div class="p-specification bg-white py-3 mb-3">
-                    <div class="container">
-                        <h6>Deskripsi</h6>
-                        <p v-html="product.description"></p>
-                    </div>
-                </div>
-                <div class="related-product-wrapper bg-white mb-3">
-                    <div class="container">
-                        <div class="section-heading mb-3 mt-3 d-flex justify-content-between" style="padding-top: 1rem;">
-                            <h6>Produk Terkait</h6>
-                            <a class="btn" href="shop-grid.html">Lihat Semua</a>
-                        </div>
-                        <div class="related-product-slide carousel">
-                            <carousel :items-to-show="1.5">
-                                <slide class="single-related-product-slide" v-for="(relatedProduct, i) in related_products" :key="i">
-                                    <div class="card product-card">
-                                        <div class="card-body">
-                                            <span class="badge rounded-pill badge-warning">Sale</span>
-                                            <Link
-                                                class="product-thumbnail d-block"
-                                                :href="route('product.show', {slug: relatedProduct.slug})"
-                                            >
-                                                <img
-                                                    class="mb-2"
-                                                    :src="relatedProduct.files[0]?.src"
-                                                    :alt="relatedProduct.files[0]?.alt"
-                                                />
-                                            </Link>
-                                            <Link
-                                                class="product-title d-block"
-                                                :href="route('product.show', {slug: relatedProduct.slug})"
-                                            >
-                                                {{ relatedProduct.name }}
-                                            </Link>
-                                            <p class="sale-price">
-                                                {{ relatedProduct.price_rp }}<br/><span>{{ relatedProduct.strike_price_rp }}</span>
+                            <div class="col-9">
+                                <a
+                                    href="#"
+                                    data-bs-toggle="offcanvas"
+                                    data-bs-target="#courierModal"
+                                    aria-controls="courierModal"
+                                    style="align-items: center"
+                                    v-if="primary_address"
+                                >
+                                    <div
+                                        class="d-flex justify-content-between align-items-center"
+                                    >
+                                        <div v-if="form.courier">
+                                            <p class="small">
+                                                {{ form.courier }}
+                                            </p>
+                                            <p class="small">
+                                                {{ form.shipping_service }}
+                                            </p>
+                                            <p class="small">
+                                                Rp. {{ form.shipping_cost }}
+                                            </p>
+                                            <p class="small">
+                                                {{ form.shipping_etd }} hari
+                                            </p>
+                                            <p class="small">
+                                                {{ form.qty }} pcs
                                             </p>
                                         </div>
+                                        <div v-else>
+                                            <p>Belum pilih kurir</p>
+                                        </div>
+                                        <i
+                                            class="lni lni-chevron-right small"
+                                        ></i>
                                     </div>
-                                </slide>
-                            </carousel>
+                                </a>
+                                <a
+                                    href="#"
+                                    style="align-items: center"
+                                    @click.prevent="
+                                        toastError(
+                                            'Belum pilih alamat pengiriman'
+                                        )
+                                    "
+                                    v-else
+                                >
+                                    <div
+                                        class="d-flex justify-content-between align-items-center"
+                                    >
+                                        <div>
+                                            <p>Belum pilih alamat pengiriman</p>
+                                        </div>
+                                        <i
+                                            class="lni lni-chevron-right small"
+                                        ></i>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="rating-and-review-wrapper bg-white py-3 mb-3">
-                    <div class="container">
-                        <div class="mb-3 d-flex justify-content-between">
-                            <h6>Bintang &amp; Ulasan</h6>
-                        </div>
-                        <div class="rating-review-content">
-                            <ul class="ps-0">
-                                <li class="single-user-review d-flex">
-                                    <div class="user-thumbnail">
-                                        <img src="/img/bg-img/7.jpg" alt="" />
-                                    </div>
-                                    <div class="rating-comment">
-                                        <div class="rating">
-                                            <i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i>
-                                        </div>
-                                        <p class="comment mb-0">
-                                            Very good product. It's just
-                                            amazing!
-                                        </p>
-                                        <span class="name-date"
-                                            >Designing World 12 Dec 2021</span
-                                        ><a
-                                            class="review-image mt-2 border rounded"
-                                            href="/img/product/3.png"
-                                            ><img
-                                                class="rounded-3"
-                                                src="/img/product/3.png"
-                                                alt=""
-                                        /></a>
-                                    </div>
+                        <div class="sales-offer-content mb-2">
+                            <hr class="my-2" />
+                            <ul class="mb-2">
+                                <li>
+                                    <i class="lni lni-checkmark-circle"> </i>
+                                    100% Kualitas Unggul
                                 </li>
-                                <li class="single-user-review d-flex">
-                                    <div class="user-thumbnail">
-                                        <img src="/img/bg-img/8.jpg" alt="" />
-                                    </div>
-                                    <div class="rating-comment">
-                                        <div class="rating">
-                                            <i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i>
-                                        </div>
-                                        <p class="comment mb-0">
-                                            Very excellent product. Love it.
-                                        </p>
-                                        <span class="name-date"
-                                            >Designing World 8 Dec 2021</span
-                                        ><a
-                                            class="review-image mt-2 border rounded"
-                                            href="/img/product/4.png"
-                                            ><img
-                                                class="rounded-3"
-                                                src="/img/product/4.png"
-                                                alt="" /></a
-                                        ><a
-                                            class="review-image mt-2 border rounded"
-                                            href="/img/product/6.png"
-                                            ><img
-                                                class="rounded-3"
-                                                src="/img/product/6.png"
-                                                alt=""
-                                        /></a>
-                                    </div>
+                                <li>
+                                    <i class="lni lni-checkmark-circle"> </i> 7
+                                    Hari Retur
                                 </li>
-                                <li class="single-user-review d-flex">
-                                    <div class="user-thumbnail">
-                                        <img src="/img/bg-img/9.jpg" alt="" />
-                                    </div>
-                                    <div class="rating-comment">
-                                        <div class="rating">
-                                            <i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i
-                                            ><i class="lni lni-star-filled"></i>
-                                        </div>
-                                        <p class="comment mb-0">
-                                            What a nice product it is. I am
-                                            looking it's.
-                                        </p>
-                                        <span class="name-date"
-                                            >Designing World 28 Nov 2021</span
-                                        >
-                                    </div>
+                                <li>
+                                    <i class="lni lni-checkmark-circle"> </i>
+                                    Bergaransi
+                                </li>
+                                <li>
+                                    <i class="lni lni-checkmark-circle"> </i>
+                                    100% Terpercaya
                                 </li>
                             </ul>
+                            <p>
+                                Deskripsi untuk ajakan beli dan benefit jika
+                                membeli dan kemudahannya.
+                            </p>
                         </div>
-                    </div>
-                </div>
-                <div class="ratings-submit-form bg-white py-3">
-                    <div class="container">
-                        <div class="mb-3 d-flex justify-content-between">
-                            <h6>Beri Ulasan Yuk</h6>
+                        <div class="sales-offer-content mb-2">
+                            <hr class="my-2" />
+                            <h6 class="mb-2">Deskripsi</h6>
+                            <p v-html="product.description"></p>
                         </div>
-                        <form action="#" method="">
-                            <div class="stars mb-3">
-                                <input
-                                    class="star-1"
-                                    type="radio"
-                                    name="star"
-                                    id="star1"
-                                />
-                                <label class="star-1" for="star1"></label>
-                                <input
-                                    class="star-2"
-                                    type="radio"
-                                    name="star"
-                                    id="star2"
-                                />
-                                <label class="star-2" for="star2"></label>
-                                <input
-                                    class="star-3"
-                                    type="radio"
-                                    name="star"
-                                    id="star3"
-                                />
-                                <label class="star-3" for="star3"></label>
-                                <input
-                                    class="star-4"
-                                    type="radio"
-                                    name="star"
-                                    id="star4"
-                                />
-                                <label class="star-4" for="star4"></label>
-                                <input
-                                    class="star-5"
-                                    type="radio"
-                                    name="star"
-                                    id="star5"
-                                />
-                                <label class="star-5" for="star5"></label
-                                ><span></span>
-                            </div>
-                            <textarea
-                                class="form-control mb-3"
-                                id="comments"
-                                name="comment"
-                                cols="30"
-                                rows="10"
-                                data-max-length="200"
-                                placeholder="Write your review..."
-                            ></textarea>
-                            <button
-                                class="btn btn-sm btn-primary"
-                                type="submit"
+                        <div class="sales-offer-content my-5">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
                             >
-                                Kirim
-                            </button>
-                        </form>
+                                <h6>Produk Terkait</h6>
+                                <a class="btn btn-light" href="/"
+                                    >Lihat Semua</a
+                                >
+                            </div>
+                            <div class="related-product-slide carousel">
+                                <carousel :items-to-show="1.5">
+                                    <slide
+                                        class="single-related-product-slide"
+                                        v-for="(
+                                            relatedProduct, i
+                                        ) in related_products"
+                                        :key="i"
+                                    >
+                                        <div class="card product-card">
+                                            <div class="card-body">
+                                                <span
+                                                    class="badge rounded-pill badge-warning"
+                                                    >Sale</span
+                                                >
+                                                <Link
+                                                    class="product-thumbnail d-block"
+                                                    :href="
+                                                        route('product.show', {
+                                                            slug: relatedProduct.slug,
+                                                        })
+                                                    "
+                                                >
+                                                    <img
+                                                        class="mb-2"
+                                                        :src="
+                                                            relatedProduct
+                                                                .files[0]?.src
+                                                        "
+                                                        :alt="
+                                                            relatedProduct
+                                                                .files[0]?.alt
+                                                        "
+                                                    />
+                                                </Link>
+                                                <Link
+                                                    class="product-title d-block"
+                                                    :href="
+                                                        route('product.show', {
+                                                            slug: relatedProduct.slug,
+                                                        })
+                                                    "
+                                                >
+                                                    {{ relatedProduct.name }}
+                                                </Link>
+                                                <p class="sale-price">
+                                                    {{ relatedProduct.price_rp
+                                                    }}<br /><span>{{
+                                                        relatedProduct.strike_price_rp
+                                                    }}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </slide>
+                                </carousel>
+                            </div>
+                        </div>
+                        <div class="sales-offer-content my-5">
+                            <div
+                                class="d-flex justify-content-between align-items-center mb-2"
+                            >
+                                <h6>Bintang & Ulasan</h6>
+                            </div>
+                            <div class="rating-review-content">
+                                <ul class="ps-0">
+                                    <li class="single-user-review d-flex">
+                                        <div class="user-thumbnail">
+                                            <img
+                                                src="/img/bg-img/7.jpg"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <div class="rating-comment">
+                                            <div class="rating">
+                                                <i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i>
+                                            </div>
+                                            <p class="comment mb-0">
+                                                Very good product. It's just
+                                                amazing!
+                                            </p>
+                                            <span class="name-date"
+                                                >Designing World 12 Dec
+                                                2021</span
+                                            ><a
+                                                class="review-image mt-2 border rounded"
+                                                href="/img/product/3.png"
+                                                ><img
+                                                    class="rounded-3"
+                                                    src="/img/product/3.png"
+                                                    alt=""
+                                            /></a>
+                                        </div>
+                                    </li>
+                                    <li class="single-user-review d-flex">
+                                        <div class="user-thumbnail">
+                                            <img
+                                                src="/img/bg-img/8.jpg"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <div class="rating-comment">
+                                            <div class="rating">
+                                                <i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i>
+                                            </div>
+                                            <p class="comment mb-0">
+                                                Very excellent product. Love it.
+                                            </p>
+                                            <span class="name-date"
+                                                >Designing World 8 Dec
+                                                2021</span
+                                            ><a
+                                                class="review-image mt-2 border rounded"
+                                                href="/img/product/4.png"
+                                                ><img
+                                                    class="rounded-3"
+                                                    src="/img/product/4.png"
+                                                    alt="" /></a
+                                            ><a
+                                                class="review-image mt-2 border rounded"
+                                                href="/img/product/6.png"
+                                                ><img
+                                                    class="rounded-3"
+                                                    src="/img/product/6.png"
+                                                    alt=""
+                                            /></a>
+                                        </div>
+                                    </li>
+                                    <li class="single-user-review d-flex">
+                                        <div class="user-thumbnail">
+                                            <img
+                                                src="/img/bg-img/9.jpg"
+                                                alt=""
+                                            />
+                                        </div>
+                                        <div class="rating-comment">
+                                            <div class="rating">
+                                                <i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i
+                                                ><i
+                                                    class="lni lni-star-filled"
+                                                ></i>
+                                            </div>
+                                            <p class="comment mb-0">
+                                                What a nice product it is. I am
+                                                looking it's.
+                                            </p>
+                                            <span class="name-date"
+                                                >Designing World 28 Nov
+                                                2021</span
+                                            >
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sales-offer-content mt-2 mb-5">
+                            <hr class="mt-4 mb-2" />
+                            <h6 class="mb-2">Beri Ulasan Yuk</h6>
+                            <div class="ratings-submit-form bg-white py-3">
+                                <form action="#" method="">
+                                    <div class="stars mb-3">
+                                        <input
+                                            class="star-1"
+                                            type="radio"
+                                            name="star"
+                                            id="star1"
+                                        />
+                                        <label
+                                            class="star-1"
+                                            for="star1"
+                                        ></label>
+                                        <input
+                                            class="star-2"
+                                            type="radio"
+                                            name="star"
+                                            id="star2"
+                                        />
+                                        <label
+                                            class="star-2"
+                                            for="star2"
+                                        ></label>
+                                        <input
+                                            class="star-3"
+                                            type="radio"
+                                            name="star"
+                                            id="star3"
+                                        />
+                                        <label
+                                            class="star-3"
+                                            for="star3"
+                                        ></label>
+                                        <input
+                                            class="star-4"
+                                            type="radio"
+                                            name="star"
+                                            id="star4"
+                                        />
+                                        <label
+                                            class="star-4"
+                                            for="star4"
+                                        ></label>
+                                        <input
+                                            class="star-5"
+                                            type="radio"
+                                            name="star"
+                                            id="star5"
+                                        />
+                                        <label
+                                            class="star-5"
+                                            for="star5"
+                                        ></label
+                                        ><span></span>
+                                    </div>
+                                    <textarea
+                                        class="form-control mb-3"
+                                        id="comments"
+                                        name="comment"
+                                        cols="30"
+                                        rows="10"
+                                        data-max-length="200"
+                                        placeholder="Write your review..."
+                                    ></textarea>
+                                    <button
+                                        class="btn btn-sm btn-primary"
+                                        type="submit"
+                                    >
+                                        Kirim
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -475,71 +746,42 @@
     </div>
 </template>
 
-<script setup>
-    import { Link } from "@inertiajs/inertia-vue3";
-    import Header from "../../Shared/Product/Header.vue";
-    import Sidebar from "../../Shared/Homepage/Sidebar.vue";
-    import Footer from "../../Shared/Footer.vue";
-    import AddressModal from './AddressModal.vue';
-    import CourierModal from './CourierModal.vue';
-    import { Head } from '@inertiajs/inertia-vue3'
-    import { ref } from "@vue/reactivity";
-    import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-    import 'vue3-carousel/dist/carousel.css';
-
-    const props = defineProps({
-        meta_title: String,
-        meta_description: String,
-        meta_keyword: String,
-        related_products: Object,
-        product: Object,
-        user_addresses: Object,
-        primary_address: Object
-    })
-
-    const metaTitle = ref(props.meta_title)
-    const metaDescription = ref(props.meta_description)
-    const metaKeyword = ref(props.meta_keyword)
-
-</script>
-
 <style>
-    .btn-danger {
-        background-color: #ea4c62 !important;
-        border-color: #ea4c62 !important;
-    }
-    .btn-primary {
-        background-color: #100DD1 !important;
-        border-color: #100DD1 !important;
-    }
-    .d-flex-30 {
-        flex: 0 0 30%;
-        max-width: 60%;
-        width: 60%;
-    }
-    .btn-side {
-        max-width: 49%;
-        width: 49%;
-    }
+.btn-danger {
+    background-color: #ea4c62 !important;
+    border-color: #ea4c62 !important;
+}
+.btn-primary {
+    background-color: #100dd1 !important;
+    border-color: #100dd1 !important;
+}
+.d-flex-30 {
+    flex: 0 0 30%;
+    max-width: 60%;
+    width: 60%;
+}
+.btn-side {
+    max-width: 49%;
+    width: 49%;
+}
 
-    .carousel__item {
-        padding: 10px;
-        min-height: 200px;
-        width: 100%;
-        background-color: var(--vc-clr-primary);
-        color:  var(--vc-clr-white);
-        font-size: 20px;
-        border-radius: 8px;
-        display: flex;
-    }
+.carousel__item {
+    padding: 10px;
+    min-height: 200px;
+    width: 100%;
+    background-color: var(--vc-clr-primary);
+    color: var(--vc-clr-white);
+    font-size: 20px;
+    border-radius: 8px;
+    display: flex;
+}
 
-    .carousel__slide {
-        margin-right: 5px;
-        flex-shrink: unset;
-        position: relative;
-        display: flex;
-        justify-content: right;
-        align-items: flex-start;
-    }
-
+.carousel__slide {
+    margin-right: 5px;
+    flex-shrink: unset;
+    position: relative;
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+}
 </style>

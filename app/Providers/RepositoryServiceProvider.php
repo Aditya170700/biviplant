@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Interfaces\UserInterface;
 use App\Interfaces\BannerInterface;
+use App\Interfaces\CartInterface;
 use App\Repositories\UserRepository;
 use App\Interfaces\CategoryInterface;
 use App\Interfaces\CityInterface;
@@ -17,6 +18,7 @@ use App\Interfaces\SubdistrictInterface;
 use App\Interfaces\UserAddressInterface;
 use App\Interfaces\VoucherInterface;
 use App\Repositories\BannerRepository;
+use App\Repositories\CartRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\CategoryRepository;
 use App\Repositories\CityRepository;
@@ -52,6 +54,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(SubdistrictInterface::class, SubdistrictRepository::class);
         $this->app->bind(SettingInterface::class, SettingRepository::class);
         $this->app->bind(UserAddressInterface::class, UserAddressRepository::class);
+        $this->app->bind(CartInterface::class, CartRepository::class);
     }
 
     /**

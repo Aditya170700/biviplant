@@ -20,4 +20,9 @@ class Origin extends Model
     {
         return $this->belongsTo(Subdistrict::class);
     }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }

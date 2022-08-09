@@ -60,10 +60,10 @@ class ProductRepository implements ProductInterface
             ->get();
     }
 
-    public function findBySlug($slug)
+    public function findBySlug($slug, $with = [])
     {
         return $this->model
-            ->with('files', 'category')
+            ->with($with)
             ->where('slug', $slug)
             ->first();
     }

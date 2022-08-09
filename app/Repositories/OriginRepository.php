@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Origin;
 use App\Interfaces\OriginInterface;
+use Illuminate\Support\Facades\DB;
 
 class OriginRepository implements OriginInterface
 {
@@ -40,6 +41,32 @@ class OriginRepository implements OriginInterface
         return $this->model
             ->with($with)
             ->findOrFail($id);
+    }
+
+    public function getNearest(string $lat, string $lng, string $productId)
+    {
+        return $this->model
+            ->with('subdistrict')
+            ->select(
+                "origins.id",
+                "origins.subdistrict_id",
+                "origins.latitude",
+                "origins.longitude",
+                "origins.sender",
+                "origins.phone",
+                "origins.postal_code",
+                "origins.detail",
+                DB::raw("6371 * acos(cos(radians({$lat}))
+                        * cos(radians(origins.latitude))
+                        * cos(radians(origins.longitude) - radians({$lng}))
+                        + sin(radians({$lat}))
+                        * sin(radians(origins.latitude))) AS distance")
+            )
+            ->whereHas('products', function ($q) use ($productId) {
+                $q->where('product_id', $productId);
+            })
+            ->orderBy('distance')
+            ->first();
     }
 
     public function create(array $data)

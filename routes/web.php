@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AddressGuestController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -52,6 +53,15 @@ Route::middleware(['auth'])
                 Route::get('/{id}/detail', 'detail')->name('detail');
                 Route::get('/{id}/track', 'track')->name('track');
             });
+    });
+
+Route::controller(AddressGuestController::class)
+    ->name('address-guest.')
+    ->prefix('address-guest')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::get('/{id}/edit', 'edit')->name('edit');
     });
 
 Route::middleware([

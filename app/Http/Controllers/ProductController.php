@@ -18,8 +18,7 @@ class ProductController extends Controller
         CategoryInterface $categoryInterface,
         SettingInterface $settingInterface,
         UserAddressInterface $userAddressInterface
-    )
-    {
+    ) {
         $this->request = $request;
         $this->productInterface = $productInterface;
         $this->categoryInterface = $categoryInterface;
@@ -45,14 +44,19 @@ class ProductController extends Controller
     public function show($slug)
     {
         try {
-            $product = $this->productInterface->findBySlug($slug);
+            $product = $this->productInterface->findBySlug($slug, [
+                'files',
+                'category',
+                'cart_user',
+            ]);
+
             return Inertia::render('Product/Product', [
                 'product' => $product,
                 'related_products' => $this->productInterface->getRelatedProducts($product->category_id, $product->id),
                 'meta_title' => $product->meta_title,
                 'meta_description' => $product->meta_description,
                 'meta_keyword' =>  $product->meta_keyword,
-                'user_addresses' => $this->userAddressInterface->getPaginated($this->request, [
+                'user_addresses' => auth()->user() ? $this->userAddressInterface->getPaginated($this->request, [
                     'subdistrict' => function ($query) {
                         $query->select('id', 'name', 'city_id')
                             ->with([
@@ -66,8 +70,8 @@ class ProductController extends Controller
                                 }
                             ]);
                     },
-                ]),
-                'primary_address' => $this->userAddressInterface->getPrimary()
+                ]) : null,
+                'primary_address' => auth()->user() ? $this->userAddressInterface->getPrimary() : null,
             ]);
         } catch (\Throwable $th) {
             panic($th);
