@@ -68,6 +68,16 @@ class ProductRepository implements ProductInterface
             ->first();
     }
 
+    public function getBySlugCategory($slug)
+    {
+        return $this->model
+            ->with('files', 'category')
+            ->whereHas('category', function ($q) use ($slug) {
+                $q->where('slug', $slug);
+            })
+            ->paginate(10);
+    }
+
     public function create(array $data)
     {
         return $this->model

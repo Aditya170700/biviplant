@@ -32,7 +32,7 @@ class ProductController extends Controller
                 'filters' => $this->request->all(['search', 'field', 'direction', 'limit']),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -43,7 +43,7 @@ class ProductController extends Controller
                 'categories' => $this->categoryInterface->getAll($this->request),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -56,7 +56,7 @@ class ProductController extends Controller
             return redirect()->route('admin.products.index')
                 ->with('success', 'Berhasil tambah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -74,7 +74,7 @@ class ProductController extends Controller
                 ]),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -86,7 +86,7 @@ class ProductController extends Controller
                 'categories' => $this->categoryInterface->getAll($this->request),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -100,7 +100,7 @@ class ProductController extends Controller
             return redirect()->route('admin.products.index')
                 ->with('success', 'Berhasil ubah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -112,7 +112,7 @@ class ProductController extends Controller
             return redirect()->route('admin.products.index')
                 ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -126,7 +126,7 @@ class ProductController extends Controller
                 'result' => $result,
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -139,7 +139,7 @@ class ProductController extends Controller
             return redirect()->back()
                 ->with('success', 'Berhasil tambah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -152,7 +152,7 @@ class ProductController extends Controller
             return redirect()->back()
                 ->with('success', 'Berhasil tambah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -195,7 +195,7 @@ class ProductController extends Controller
                 ]),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -208,7 +208,7 @@ class ProductController extends Controller
             return redirect()->route('admin.products.index')
                 ->with('success', 'Berhasil pilih data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -221,7 +221,7 @@ class ProductController extends Controller
             return redirect()->route('admin.products.index')
                 ->with('success', 'Berhasil hapus data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }

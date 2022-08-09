@@ -28,7 +28,9 @@ return new class extends Migration
     public function down()
     {
         Schema::table('user_addresses', function (Blueprint $table) {
-            //
+            $table->dropColumn('latitude');
+            $table->dropColumn('longitude');
+            $table->dropColumn('is_primary');
         });
     }
 };

@@ -8,6 +8,7 @@ use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Category extends Model
 {
@@ -43,5 +44,21 @@ class Category extends Model
         return [
             'name' => $this->name,
         ];
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function scopeFindBySlug($query, $slug)
+    {
+        $model = $query->where('slug', $slug)->first();
+
+        if (empty($model)) {
+            throw new ModelNotFoundException();
+        }
+
+        return $model;
     }
 }

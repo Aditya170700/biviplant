@@ -38,7 +38,7 @@ class AddressController extends Controller
                 'filters' => $this->request->all(['search', 'field', 'direction', 'limit']),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -47,7 +47,7 @@ class AddressController extends Controller
         try {
             return Inertia::render('Address/Create');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -60,7 +60,7 @@ class AddressController extends Controller
             return redirect()->route('address.index')
                 ->with('success', 'Berhasil tambah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -80,7 +80,7 @@ class AddressController extends Controller
                 ]),
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -94,7 +94,7 @@ class AddressController extends Controller
             return redirect()->route('address.index')
                 ->with('success', 'Berhasil ubah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -110,7 +110,7 @@ class AddressController extends Controller
             return redirect()->back()
                 ->with('success', 'Berhasil ubah data');
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }
