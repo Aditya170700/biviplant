@@ -20,7 +20,7 @@ class ProfileController extends Controller
         try {
             return Inertia::render('Profile/Show');
         } catch (\Throwable $th) {
-            throw $th;
+           panic($th);
         }
     }
 
@@ -29,7 +29,7 @@ class ProfileController extends Controller
         try {
             return Inertia::render('Profile/Edit');
         } catch (\Throwable $th) {
-            throw $th;
+           panic($th);
         }
     }
 
@@ -43,7 +43,7 @@ class ProfileController extends Controller
             return redirect()->back()
                 ->with('success', 'Berhasil ubah data');
         } catch (\Throwable $th) {
-            throw $th;
+           panic($th);
         }
     }
 }

@@ -37,7 +37,7 @@ class ProductController extends Controller
                 'meta_keyword' => $this->setting->meta_keyword,
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 
@@ -74,7 +74,7 @@ class ProductController extends Controller
                 'primary_address' => auth()->user() ? $this->userAddressInterface->getPrimary() : null,
             ]);
         } catch (\Throwable $th) {
-            throw $th;
+            panic($th);
         }
     }
 }
