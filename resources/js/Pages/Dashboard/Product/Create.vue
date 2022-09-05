@@ -225,11 +225,19 @@
                                             class="form-label"
                                             >Kondisi</label
                                         >
-                                        <input
-                                            class="form-control"
-                                            id="condition"
+                                        <select
+                                            class="form-control mb-3"
                                             v-model="form.condition"
-                                        />
+                                            id=""
+                                        >
+                                            <option
+                                                :value="i"
+                                                v-for="(productCondition, i) in product_conditions"
+                                                :key="i"
+                                            >
+                                                {{ productCondition }}
+                                            </option>
+                                        </select>
                                         <FormText
                                             :id="'condition'"
                                             :message="form.errors.condition"
@@ -290,6 +298,7 @@ export default {
     props: {
         errors: Object,
         categories: Array,
+        product_conditions: Array
     },
     setup() {
         const form = useForm({
