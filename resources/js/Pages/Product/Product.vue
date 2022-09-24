@@ -14,6 +14,7 @@ import { toastError, toastSuccess } from "../../utils";
 import { onMounted, useAttrs, watch } from "@vue/runtime-core";
 import { useStore } from "vuex";
 import AddressModalGuest from "./AddressModalGuest.vue";
+import { Inertia } from "@inertiajs/inertia";
 
 let attrs = useAttrs();
 let store = useStore();
@@ -47,6 +48,20 @@ let form = reactive({
 const metaTitle = ref(props.meta_title);
 const metaDescription = ref(props.meta_description);
 const metaKeyword = ref(props.meta_keyword);
+
+function buyNow() {
+    if (store.getters.courier == null) {
+        toastError("Silahkan pilih kurir terlebih dahulu");
+        return;
+    }
+
+    form.courier = store.getters.courier.name;
+    form.shipping_service = store.getters.courier.service;
+    form.shipping_cost = store.getters.courier.value;
+    form.shipping_etd = store.getters.courier.etd;
+
+    Inertia.post(route("cart.store"), form);
+}
 
 function storeCart() {
     if (store.getters.courier == null) {
@@ -169,6 +184,7 @@ watch(
                     <div
                         class="col-6 text-center bg-fug-3 p-3 text-white"
                         style="font-size: 18px"
+                        @click="buyNow"
                     >
                         Beli Sekarang
                     </div>

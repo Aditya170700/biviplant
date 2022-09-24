@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Front\Cart\StoreRequest;
 use App\Http\Requests\Front\Cart\UpdateRequest;
 use App\Interfaces\CartInterface;
 use App\Interfaces\SettingInterface;
@@ -53,6 +54,13 @@ class CartController extends Controller
         } catch (\Throwable $th) {
             panic($th);
         }
+    }
+
+    public function store(StoreRequest $request)
+    {
+        $this->cartInterface->create($request->data());
+
+        return redirect()->route('cart.index');
     }
 
     public function update(UpdateRequest $request, $id)
