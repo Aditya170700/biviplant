@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AddressGuestController;
+use App\Http\Controllers\CartController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -86,11 +87,22 @@ Route::controller(ProductController::class)
     });
 
 /**
+ * CART
+ */
+Route::controller(CartController::class)
+    ->name('cart.')
+    ->prefix('carts')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::put('/{id}', 'update')->name('update');
+    });
+
+/**
  * CATEGORY
  */
 Route::controller(CategoryController::class)
     ->name('category.')
     ->prefix('kategori')
-    ->group(function() {
+    ->group(function () {
         Route::get('/{slug}', 'show')->name('show');
     });

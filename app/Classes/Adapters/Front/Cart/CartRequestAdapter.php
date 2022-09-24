@@ -27,10 +27,10 @@ class CartRequestAdapter implements DataRequestAdapterInterface
             'product_id' => 'required',
             'user_address_id' => 'required',
             'qty' => 'required',
-            'courier' => 'required',
-            'shipping_service' => 'required',
-            'shipping_cost' => 'required',
-            'shipping_etd' => 'required',
+            // 'courier' => 'required',
+            // 'shipping_service' => 'required',
+            // 'shipping_cost' => 'required',
+            // 'shipping_etd' => 'required',
         ];
     }
 
@@ -41,10 +41,10 @@ class CartRequestAdapter implements DataRequestAdapterInterface
             'product_id' => $data['product_id'],
             'user_address_id' => $data['user_address_id'],
             'qty' => $data['qty'],
-            'courier' => $data['courier'],
-            'shipping_service' => $data['shipping_service'],
-            'shipping_cost' => $data['shipping_cost'],
-            'shipping_etd' => $data['shipping_etd'],
+            'courier' => $data['courier'] ?? null,
+            'shipping_service' => $data['shipping_service'] ?? null,
+            'shipping_cost' => $data['shipping_cost'] ?? null,
+            'shipping_etd' => $data['shipping_etd'] ?? null,
         ];
     }
 

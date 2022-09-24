@@ -17,14 +17,15 @@ class CartRepository implements CartInterface
         return $this->model
             ->where('user_id', auth()->id())
             ->with([
+                'user_address.subdistrict.city.province',
                 'product' => function ($query) {
-                    $query->select('id', 'name', 'price', 'strike_price')
+                    $query->select('id', 'name', 'price', 'strike_price', 'category_id', 'slug', 'stock', 'weight')
                         ->with([
                             'category' => function ($query) {
-                                $query->select('name');
+                                $query->select('id', 'name');
                             },
                             'files' => function ($query) {
-                                $query->select('path');
+                                $query->select('path', 'product_id');
                             }
                         ]);
                 }

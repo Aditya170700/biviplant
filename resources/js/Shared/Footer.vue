@@ -1,3 +1,7 @@
+<script setup>
+import { Link } from "@inertiajs/inertia-vue3";
+</script>
+
 <template>
     <div class="footer-nav-area" id="footerNav">
         <div class="container h-100 px-0">
@@ -14,8 +18,8 @@
                         >
                     </li>
                     <li>
-                        <a href="cart.html"
-                            ><i class="lni lni-shopping-basket"></i>Cart</a
+                        <Link :href="route('cart.index')"
+                            ><i class="lni lni-shopping-basket"></i>Cart</Link
                         >
                     </li>
                     <li>
