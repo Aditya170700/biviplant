@@ -62,7 +62,7 @@ function total() {
         let strikePrice = cart.product.strike_price;
         let price = parseInt(cart.product.price);
         let qty = parseInt(cart.qty);
-        let shippingCost = parseInt(cart.shipping_cost);
+        let shippingCost = parseInt(cart.shipping_cost ?? 0);
 
         res += price * qty + shippingCost;
         strikeRes += strikePrice * qty + shippingCost;
