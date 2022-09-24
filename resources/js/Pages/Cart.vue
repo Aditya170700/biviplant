@@ -6,7 +6,7 @@ import Footer from "./../Shared/Footer.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { reactive, ref } from "@vue/reactivity";
 import { onMounted, useAttrs } from "@vue/runtime-core";
-import { toastError } from "../utils";
+import { rupiah, toastError } from "../utils";
 import AddressModal from "./AddressModal.vue";
 import CourierModal from "./CourierModal.vue";
 import { Inertia } from "@inertiajs/inertia";
@@ -21,6 +21,7 @@ const props = defineProps({
 const metaTitle = ref(props.meta_title);
 const metaDescription = ref(props.meta_description);
 const metaKeyword = ref(props.meta_keyword);
+const voucher = ref(0);
 
 function changeQty(cart, val) {
     let res = cart.qty + val;
@@ -53,10 +54,31 @@ function changeQty(cart, val) {
     );
 }
 
+function total() {
+    let res = 0;
+    let strikeRes = 0;
+
+    attrs.carts.forEach((cart) => {
+        let strikePrice = cart.product.strike_price;
+        let price = parseInt(cart.product.price);
+        let qty = parseInt(cart.qty);
+        let shippingCost = parseInt(cart.shipping_cost);
+
+        res += price * qty + shippingCost;
+        strikeRes += strikePrice * qty + shippingCost;
+    });
+
+    return { res, strikeRes };
+}
+
 function destroy(id) {
     Inertia.delete(route("cart.destroy", id), {
         _method: "delete",
     });
+}
+
+function checkVoucher() {
+    //
 }
 </script>
 
@@ -285,14 +307,23 @@ function destroy(id) {
                                 <div class="col-12 mt-3"><hr /></div>
                             </div>
                             <div class="row">
+                                <div class="col-12">
+                                    <span>Voucher : </span>
+                                    <span
+                                        class="small text-muted text-decoration-line-through"
+                                        >{{ rupiah(voucher) }}</span
+                                    >
+                                </div>
                                 <div class="col-12 mb-3">
                                     <span class="me-2">Total :</span
                                     ><span
                                         class="small text-muted text-decoration-line-through me-2"
-                                        >Rp. 1.900.000</span
-                                    ><span class="text-primary fw-bold"
-                                        >Rp. 1.000.000</span
-                                    >
+                                        >{{
+                                            rupiah(total().strikeRes - voucher)
+                                        }}</span
+                                    ><span class="text-primary fw-bold">{{
+                                        rupiah(total().res - voucher)
+                                    }}</span>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-success">
