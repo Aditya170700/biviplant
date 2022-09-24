@@ -95,6 +95,7 @@ Route::controller(CartController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::put('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
     });
 
 /**

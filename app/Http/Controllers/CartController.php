@@ -61,4 +61,11 @@ class CartController extends Controller
 
         return redirect()->route('cart.index');
     }
+
+    public function destroy($id)
+    {
+        $this->cartInterface->delete($this->cartInterface->getById($id));
+
+        return redirect()->route('cart.index')->with('success', 'Berhasil menghapus item dari keranjang');
+    }
 }

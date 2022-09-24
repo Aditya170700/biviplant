@@ -52,6 +52,12 @@ function changeQty(cart, val) {
         }
     );
 }
+
+function destroy(id) {
+    Inertia.delete(route("cart.destroy", id), {
+        _method: "delete",
+    });
+}
 </script>
 
 <template>
@@ -171,7 +177,11 @@ function changeQty(cart, val) {
                                     </div>
                                 </div>
                                 <div class="col-2 text-end">
-                                    <a href="#" style="font-size: 20px">
+                                    <a
+                                        href="#"
+                                        @click.prevent="destroy(cart.id)"
+                                        style="font-size: 20px"
+                                    >
                                         <i
                                             class="lni lni-cross-circle text-danger"
                                         ></i>
