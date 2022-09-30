@@ -55,6 +55,7 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $e)
     {
+        dd($e);
         if (in_array('api', $request->route()->middleware())) {
             $code = 500;
             $message = $e->getMessage();
