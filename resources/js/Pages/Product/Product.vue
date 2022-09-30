@@ -302,7 +302,7 @@ watch(
                                 </p>
                             </div>
                             <div class="col-9 fw-bold">
-                                <p>{{ product.condition ?? "-" }}</p>
+                                <p>{{ product.text_condition ?? "-" }}</p>
                             </div>
                         </div>
                         <div class="sales-offer-content d-flex mt-2">

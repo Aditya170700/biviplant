@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\Constants\ProductCondition;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -41,6 +42,7 @@ class ProductController extends Controller
         try {
             return Inertia::render('Dashboard/Product/Create', [
                 'categories' => $this->categoryInterface->getAll($this->request),
+                'product_conditions' => ProductCondition::labels()
             ]);
         } catch (\Throwable $th) {
             panic($th);
@@ -84,6 +86,7 @@ class ProductController extends Controller
             return Inertia::render('Dashboard/Product/Edit', [
                 'result' => $this->productInterface->getById($id),
                 'categories' => $this->categoryInterface->getAll($this->request),
+                'product_conditions' => ProductCondition::labels()
             ]);
         } catch (\Throwable $th) {
             panic($th);

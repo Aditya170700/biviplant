@@ -2,20 +2,13 @@
 
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AddressGuestController;
+use App\Http\Controllers\CategoryController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\EventController;
-use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\OriginController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\VoucherController;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderCotroller;
-use App\Http\Controllers\ProductController as HomeProductController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 
 /*

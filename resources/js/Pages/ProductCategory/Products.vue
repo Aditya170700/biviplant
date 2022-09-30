@@ -1,19 +1,56 @@
 <script setup>
-import { Link, useForm } from "@inertiajs/inertia-vue3";
-import Header from "./../../Shared/HeaderWithTitle.vue";
-import Sidebar from "./../../Shared/Homepage/Sidebar.vue";
-import { Head } from "@inertiajs/inertia-vue3";
-import { reactive, ref } from "@vue/reactivity";
-import { onMounted, useAttrs } from "@vue/runtime-core";
-import { Inertia } from "@inertiajs/inertia";
-import Footer from "./../../Shared/Footer.vue";
+    import { Link, useForm } from "@inertiajs/inertia-vue3";
+    import Header from "./../../Shared/HeaderWithTitle.vue";
+    import Sidebar from "./../../Shared/Homepage/Sidebar.vue";
+    import { Head } from "@inertiajs/inertia-vue3";
+    import { ref } from "@vue/reactivity";
+    import {useAttrs } from "@vue/runtime-core";
+    import { Inertia } from "@inertiajs/inertia";
+    import Footer from "./../../Shared/Footer.vue";
+    import { onMounted } from 'vue'
 
-let attrs = useAttrs();
+    let attrs = useAttrs();
+
+    const isLoading = ref(false)
+    const dataProducts = ref(attrs.products)
+    const listProducts = ref(attrs.products.data)
+
+    const metaTitle = ref(attrs.meta_title)
+    const metaDescription = ref(attrs.meta_description)
+    const metaKeyword = ref(attrs.meta_keyword)
+
+    const nextProduct = () => {
+        window.onscroll = () => {
+            let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+            if (bottomOfWindow && dataProducts.value.next_page_url) {
+                isLoading.value = true
+                Inertia.get(dataProducts.value.next_page_url, {}, {
+                    preserveState: true,
+                    preserveScroll: true,
+                    only: ['products'],
+                    onSuccess: (res) => {
+                        dataProducts.value = res.props.products
+                        listProducts.value = [...listProducts.value, ...res.props.products.data]
+                        isLoading.value = false
+                    }
+                })
+            }
+        }
+    }
+
+    onMounted(() => {
+        nextProduct()
+    })
 
 </script>
 
 <template>
     <div>
+        <Head>
+            <title>{{ metaTitle }}</title>
+            <meta head-key="description" name="description" :content="metaDescription" />
+            <meta head-key="keyword" name="keyword" :content="metaKeyword" />
+        </Head>
         <Header :link_back="'/'" :title="attrs.category.name"></Header>
         <Sidebar></Sidebar>
         <div class="page-content-wrapper">
@@ -31,7 +68,7 @@ let attrs = useAttrs();
                         
                     </div>
                     <div class="row g-3">
-                        <div class="col-6 col-md-4 col-lg-3" v-for="(product, i) in attrs.products.data" :key="i">
+                        <div class="col-6 col-md-4 col-lg-3" v-for="(product, i) in listProducts" :key="i">
                             <div class="card product-card">
                                 <div class="card-body">
                                     <span class="badge rounded-pill badge-warning">
@@ -70,6 +107,11 @@ let attrs = useAttrs();
                                     ></a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3 g-3" v-if="isLoading">
+                        <div class="col text-center">
+                            <span style="color: blue;">Sedang memuat ...</span>
                         </div>
                     </div>
                 </div>
