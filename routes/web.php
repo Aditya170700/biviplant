@@ -1,13 +1,13 @@
 <?php
 
 use App\Http\Controllers\AddressController;
-use App\Http\Controllers\AddressGuestController;
-use App\Http\Controllers\CategoryController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AddressGuestController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\OrderCotroller;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 
@@ -46,10 +46,14 @@ Route::middleware(['auth'])
                 Route::put('/{id}', 'update')->name('update');
                 Route::put('/{id}/status', 'updateStatus')->name('update.status');
             });
-        Route::controller(OrderCotroller::class)
+        Route::controller(OrderController::class)
             ->name('orders.')
             ->prefix('orders')
             ->group(function () {
+                Route::get('/', 'store')->name('store');
+                Route::get('/notify', 'notify')->name('notify');
+                Route::get('/return', 'return')->name('return');
+                Route::get('/cancel', 'cancel')->name('cancel');
                 Route::get('/history', 'history')->name('history');
                 Route::get('/{id}/detail', 'detail')->name('detail');
                 Route::get('/{id}/track', 'track')->name('track');
@@ -84,6 +88,19 @@ Route::controller(ProductController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/{slug}', 'show')->name('show');
+    });
+
+/**
+ * CART
+ */
+Route::controller(CartController::class)
+    ->name('cart.')
+    ->prefix('carts')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+        Route::put('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
     });
 
 /**

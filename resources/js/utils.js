@@ -57,3 +57,10 @@ export const slugify = (text, ampersand = 'and') => {
     .replace(/--+/g, '-')
     .replace(/^-+|-+$/g, '')
 }
+
+export const rupiah = (number)=>{
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR"
+    }).format(number);
+}

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CityController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProvinceController;
 use App\Http\Controllers\Api\SearchController;
 use App\Http\Controllers\Api\ShippingCostController;
@@ -40,4 +41,10 @@ Route::controller(ShippingCostController::class)
     ->prefix('shipping-costs')
     ->group(function () {
         Route::get('/get-nearest', 'getNearest');
+    });
+
+Route::controller(OrderController::class)
+    ->prefix('orders')
+    ->group(function () {
+        Route::get('/list-payment-method', 'listPaymentMethod');
     });

@@ -21,8 +21,13 @@ class Cart extends Model
         return $this->hasOne(User::class);
     }
 
+    public function user_address()
+    {
+        return $this->hasOne(UserAddress::class, 'id', 'user_address_id');
+    }
+
     public function product()
     {
-        return $this->hasOne(Product::class);
+        return $this->hasOne(Product::class, 'id', 'product_id');
     }
 }

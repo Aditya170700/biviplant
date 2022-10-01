@@ -11,31 +11,4 @@ class OrderCotroller extends Controller
     {
         $this->request = $request;
     }
-
-    public function history()
-    {
-        try {
-            return Inertia::render('Order/History');
-        } catch (\Throwable $th) {
-            panic($th);
-        }
-    }
-
-    public function detail(string $id)
-    {
-        try {
-            return Inertia::render('Order/Detail');
-        } catch (\Throwable $th) {
-            panic($th);
-        }
-    }
-
-    public function track(string $id)
-    {
-        try {
-            return Inertia::render('Order/Track');
-        } catch (\Throwable $th) {
-            panic($th);
-        }
-    }
 }
