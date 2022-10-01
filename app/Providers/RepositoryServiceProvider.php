@@ -2,35 +2,39 @@
 
 namespace App\Providers;
 
-use App\Interfaces\UserInterface;
-use App\Interfaces\BannerInterface;
 use App\Interfaces\CartInterface;
-use App\Repositories\UserRepository;
-use App\Interfaces\CategoryInterface;
 use App\Interfaces\CityInterface;
-use App\Interfaces\EventInterface;
 use App\Interfaces\FileInterface;
+use App\Interfaces\UserInterface;
+use App\Interfaces\EventInterface;
+use App\Interfaces\OrderInterface;
+use App\Interfaces\BannerInterface;
 use App\Interfaces\OriginInterface;
 use App\Interfaces\ProductInterface;
-use App\Interfaces\ProvinceInterface;
 use App\Interfaces\SettingInterface;
-use App\Interfaces\SubdistrictInterface;
-use App\Interfaces\UserAddressInterface;
 use App\Interfaces\VoucherInterface;
-use App\Repositories\BannerRepository;
 use App\Repositories\CartRepository;
-use Illuminate\Support\ServiceProvider;
-use App\Repositories\CategoryRepository;
 use App\Repositories\CityRepository;
-use App\Repositories\EventRepository;
 use App\Repositories\FileRepository;
+use App\Repositories\UserRepository;
+use App\Interfaces\CategoryInterface;
+use App\Interfaces\ProvinceInterface;
+use App\Repositories\EventRepository;
+use App\Repositories\OrderRepository;
+use App\Repositories\BannerRepository;
 use App\Repositories\OriginRepository;
 use App\Repositories\ProductRepository;
-use App\Repositories\ProvinceRepository;
 use App\Repositories\SettingRepository;
+use App\Repositories\VoucherRepository;
+use Illuminate\Support\ServiceProvider;
+use App\Interfaces\OrderDetailInterface;
+use App\Interfaces\SubdistrictInterface;
+use App\Interfaces\UserAddressInterface;
+use App\Repositories\CategoryRepository;
+use App\Repositories\ProvinceRepository;
+use App\Repositories\OrderDetailRepository;
 use App\Repositories\SubdistrictRepository;
 use App\Repositories\UserAddressRepository;
-use App\Repositories\VoucherRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -55,6 +59,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(SettingInterface::class, SettingRepository::class);
         $this->app->bind(UserAddressInterface::class, UserAddressRepository::class);
         $this->app->bind(CartInterface::class, CartRepository::class);
+        $this->app->bind(OrderInterface::class, OrderRepository::class);
+        $this->app->bind(OrderDetailInterface::class, OrderDetailRepository::class);
     }
 
     /**

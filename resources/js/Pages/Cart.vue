@@ -150,7 +150,18 @@ function checkout() {
         }
     });
 
-    toastSuccess("Fitur checkout belum selesai");
+    Inertia.post(
+        route("orders.store"),
+        {
+            carts: attrs.carts,
+            payment_method: paymentMethod.selected,
+            voucher: voucher.value,
+            total: total(),
+        },
+        {
+            _method: "post",
+        }
+    );
 }
 </script>
 
@@ -586,7 +597,13 @@ function checkout() {
                                         >Metode Pembayaran</span
                                     >
                                     <span
-                                        class="small text-muted text-uppercase"
+                                        class="small text-success text-uppercase"
+                                        v-if="
+                                            paymentMethod.selected
+                                                .paymentMethod &&
+                                            paymentMethod.selected
+                                                .paymentChannel
+                                        "
                                         >{{
                                             paymentMethod.selected
                                                 .paymentMethod
@@ -595,12 +612,15 @@ function checkout() {
                                                 .paymentChannel
                                         }})</span
                                     >
+                                    <span class="small text-danger" v-else
+                                        >Belum memilih</span
+                                    >
                                 </div>
                                 <div
                                     class="col-12 d-flex justify-content-between"
                                 >
                                     <span class="small fw-bold">Voucher</span>
-                                    <span class="small text-muted">{{
+                                    <span class="small text-success">{{
                                         rupiah(voucher)
                                     }}</span>
                                 </div>
@@ -637,13 +657,15 @@ function checkout() {
                                     >
                                 </div>
                                 <div class="col-12">
-                                    <button
-                                        class="btn btn-success"
-                                        @click="checkout"
-                                    >
-                                        <i class="lni lni-postcard me-2"></i
-                                        >Checkout
-                                    </button>
+                                    <div class="d-grid">
+                                        <button
+                                            class="btn btn-success btn-sm"
+                                            @click="checkout"
+                                        >
+                                            <i class="lni lni-postcard me-2"></i
+                                            >Checkout
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

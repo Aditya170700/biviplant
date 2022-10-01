@@ -1,5 +1,7 @@
 <?php
 
+use Ramsey\Uuid\Uuid as Generator;
+
 if (!function_exists('panic')) {
     function panic($info)
     {
@@ -8,5 +10,12 @@ if (!function_exists('panic')) {
         } else {
             throw $info;
         }
+    }
+}
+
+if (!function_exists('generateUuid')) {
+    function generateUuid()
+    {
+        return Generator::uuid4()->toString();
     }
 }
