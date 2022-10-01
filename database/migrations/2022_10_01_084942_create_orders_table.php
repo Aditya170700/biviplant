@@ -22,9 +22,11 @@ return new class extends Migration
             $table->string('pg_fee_type');
             $table->string('payment_method');
             $table->string('payment_channel');
+            $table->string('payment_id');
             $table->text('payment_no');
             $table->text('payment_name');
             $table->string('payment_expired');
+            $table->string('payment_status')->default('Pending');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

@@ -110,7 +110,7 @@ class OrderController extends Controller
             throw $th;
         }
 
-        return redirect()->route('homepage')->with('success', 'Order berhasil');
+        return redirect()->route('orders.detail', $uuid)->with('success', 'Order berhasil');
     }
 
     public function history()
