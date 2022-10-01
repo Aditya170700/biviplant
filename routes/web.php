@@ -50,7 +50,7 @@ Route::middleware(['auth'])
             ->name('orders.')
             ->prefix('orders')
             ->group(function () {
-                Route::get('/', 'store')->name('store');
+                Route::post('/', 'store')->name('store');
                 Route::get('/notify', 'notify')->name('notify');
                 Route::get('/return', 'return')->name('return');
                 Route::get('/cancel', 'cancel')->name('cancel');
