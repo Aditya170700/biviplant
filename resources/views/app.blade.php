@@ -83,6 +83,41 @@
                 opacity: 0;
             }
         }
+
+        .one-line {
+            display: -webkit-box;
+            overflow: hidden !important;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+
+        .two-line {
+            display: -webkit-box;
+            overflow: hidden !important;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .three-line {
+            display: -webkit-box;
+            overflow: hidden !important;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .four-line {
+            display: -webkit-box;
+            overflow: hidden !important;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+
+        .five-line {
+            display: -webkit-box;
+            overflow: hidden !important;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+        }
     </style>
     @routes
     <script src="{{ mix('/js/app.js') }}" defer></script>

@@ -5,11 +5,12 @@ import Sidebar from "./../Shared/Homepage/Sidebar.vue";
 import Footer from "./../Shared/Footer.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { reactive, ref } from "@vue/reactivity";
-import { onMounted, useAttrs } from "@vue/runtime-core";
-import { rupiah, toastError } from "../utils";
+import { onBeforeMount, onMounted, useAttrs } from "@vue/runtime-core";
+import { rupiah, toastError, toastSuccess } from "../utils";
 import AddressModal from "./AddressModal.vue";
 import CourierModal from "./CourierModal.vue";
 import { Inertia } from "@inertiajs/inertia";
+import axios from "axios";
 
 let attrs = useAttrs();
 const props = defineProps({
@@ -22,6 +23,30 @@ const metaTitle = ref(props.meta_title);
 const metaDescription = ref(props.meta_description);
 const metaKeyword = ref(props.meta_keyword);
 const voucher = ref(0);
+const paymentMethod = reactive({
+    data: [],
+    selected: {
+        paymentMethod: null,
+        paymentChannel: null,
+        fee: 0,
+        feeType: 0,
+    },
+    loading: false,
+});
+
+onBeforeMount(() => {
+    paymentMethod.loading = true;
+    axios
+        .get("/api/orders/list-payment-method")
+        .then((res) => {
+            paymentMethod.data = res.data.data;
+            paymentMethod.loading = false;
+        })
+        .catch((err) => {
+            paymentMethod.loading = false;
+            toastError(err);
+        });
+});
 
 function changeQty(cart, val) {
     let res = cart.qty + val;
@@ -57,18 +82,20 @@ function changeQty(cart, val) {
 function total() {
     let res = 0;
     let strikeRes = 0;
+    let shippingCost = 0;
 
     attrs.carts.forEach((cart) => {
         let strikePrice = cart.product.strike_price;
         let price = parseInt(cart.product.price);
         let qty = parseInt(cart.qty);
-        let shippingCost = parseInt(cart.shipping_cost ?? 0);
+        let ongkir = parseInt(cart.shipping_cost ?? 0);
 
-        res += price * qty + shippingCost;
-        strikeRes += strikePrice * qty + shippingCost;
+        res += price * qty + ongkir;
+        strikeRes += strikePrice * qty + ongkir;
+        shippingCost += ongkir;
     });
 
-    return { res, strikeRes };
+    return { res, strikeRes, shippingCost };
 }
 
 function destroy(id) {
@@ -77,8 +104,53 @@ function destroy(id) {
     });
 }
 
+function selectPaymentMethod(ipm, imethod) {
+    let pm = paymentMethod.data[ipm];
+    let method = null;
+    if (pm.Code == "va") {
+        method = pm.Channels[imethod];
+    } else {
+        method = pm.PaymentMethod[imethod];
+    }
+
+    paymentMethod.selected.paymentMethod = pm.Code;
+    paymentMethod.selected.paymentChannel = method.Code;
+    paymentMethod.selected.fee = method.TransactionFee?.ActualFee ?? 0;
+    paymentMethod.selected.feeType = method.TransactionFee?.ActualFeeType ?? 0;
+}
+
 function checkVoucher() {
     //
+}
+
+function checkout() {
+    if (
+        !paymentMethod.selected.paymentMethod ||
+        !paymentMethod.selected.paymentChannel
+    ) {
+        toastError("Belum memilih metode pembayaran");
+        return false;
+    }
+
+    attrs.carts.forEach((cart) => {
+        if (
+            "".includes[
+                (cart.courier,
+                cart.shipping_cost,
+                cart.shipping_etd,
+                cart.shipping_service)
+            ]
+        ) {
+            toastError("Belum memilih kurir");
+            return false;
+        }
+        if ("".includes[cart.user_address_id]) {
+            toastError("Belum memilih alamat pengiriman");
+            return false;
+        }
+    });
+
+    toastSuccess("Fitur checkout belum selesai");
 }
 </script>
 
@@ -288,11 +360,10 @@ function checkVoucher() {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12"><hr /></div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-12">
-                                    <h6 class="mb-0">Voucher</h6>
+                                    <h6 class="fw-bold mb-0">Voucher</h6>
                                     <p class="mb-2">
                                         Masukkan kode voucher dan dapatkan
                                         diskon
@@ -304,29 +375,272 @@ function checkVoucher() {
                                         placeholder="KODE-1234"
                                     />
                                 </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h6 class="fw-bold mb-0">Pembayaran</h6>
+                                    <p class="mb-2">
+                                        Pilih metode pembayaran yang kamu
+                                        inginkan
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                    <ul class="list-group">
+                                        <li
+                                            class="list-group-item small border-danger"
+                                            v-if="paymentMethod.loading"
+                                        >
+                                            <span
+                                                class="small blink text-danger"
+                                                >Sedang memuat metode
+                                                pembayaran...</span
+                                            >
+                                        </li>
+                                        <li
+                                            class="list-group-item small border-danger small text-danger"
+                                            v-if="
+                                                !paymentMethod.loading &&
+                                                paymentMethod.data.length == 0
+                                            "
+                                        >
+                                            Metode pembayaran tidak ditemukan
+                                        </li>
+                                    </ul>
+                                    <ul
+                                        class="list-group"
+                                        v-if="
+                                            !paymentMethod.loading &&
+                                            paymentMethod.data.length > 0
+                                        "
+                                    >
+                                        <li
+                                            class="list-group-item small"
+                                            v-for="(
+                                                pm, ipm
+                                            ) in paymentMethod.data"
+                                            :key="ipm"
+                                        >
+                                            <a
+                                                data-bs-toggle="collapse"
+                                                :href="`#collapse-pm-${ipm}`"
+                                                role="button"
+                                                aria-expanded="false"
+                                                :aria-controls="`collapse-pm-${ipm}`"
+                                                class="text-decoration-none text-dark d-flex justify-content-between align-items-center"
+                                            >
+                                                {{ pm.Description }}
+                                                <i
+                                                    class="lni lni-chevron-right"
+                                                ></i
+                                            ></a>
+                                            <div
+                                                class="collapse pt-3"
+                                                :id="`collapse-pm-${ipm}`"
+                                            >
+                                                <div
+                                                    class="row"
+                                                    v-if="pm.Code != 'va'"
+                                                >
+                                                    <div
+                                                        class="col-6 mb-3"
+                                                        v-for="(
+                                                            method, imethod
+                                                        ) in pm.PaymentMethod"
+                                                        :key="imethod"
+                                                    >
+                                                        <div
+                                                            :class="`rounded text-center border py-2 ${
+                                                                paymentMethod
+                                                                    .selected
+                                                                    .paymentMethod ==
+                                                                    pm.Code &&
+                                                                paymentMethod
+                                                                    .selected
+                                                                    .paymentChannel ==
+                                                                    method.Code
+                                                                    ? 'border-success'
+                                                                    : ''
+                                                            }`"
+                                                            @click="
+                                                                selectPaymentMethod(
+                                                                    ipm,
+                                                                    imethod
+                                                                )
+                                                            "
+                                                        >
+                                                            <div
+                                                                :class="`h6 one-line fw-bold text-uppercase ${
+                                                                    paymentMethod
+                                                                        .selected
+                                                                        .paymentMethod ==
+                                                                        pm.Code &&
+                                                                    paymentMethod
+                                                                        .selected
+                                                                        .paymentChannel ==
+                                                                        method.Code
+                                                                        ? 'text-success'
+                                                                        : 'opacity-25'
+                                                                }`"
+                                                            >
+                                                                {{
+                                                                    method.Code
+                                                                }}
+                                                            </div>
+                                                            <span
+                                                                :class="`small one-line ${
+                                                                    paymentMethod
+                                                                        .selected
+                                                                        .paymentMethod ==
+                                                                        pm.Code &&
+                                                                    paymentMethod
+                                                                        .selected
+                                                                        .paymentChannel ==
+                                                                        method.Code
+                                                                        ? 'text-success'
+                                                                        : 'opacity-25'
+                                                                }`"
+                                                                >{{
+                                                                    method.Description
+                                                                }}</span
+                                                            >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" v-else>
+                                                    <div
+                                                        class="col-6 mb-3"
+                                                        v-for="(
+                                                            method, imethod
+                                                        ) in pm.Channels"
+                                                        :key="imethod"
+                                                    >
+                                                        <div
+                                                            :class="`rounded text-center border py-2 ${
+                                                                paymentMethod
+                                                                    .selected
+                                                                    .paymentMethod ==
+                                                                    pm.Code &&
+                                                                paymentMethod
+                                                                    .selected
+                                                                    .paymentChannel ==
+                                                                    method.Code
+                                                                    ? 'border-success'
+                                                                    : ''
+                                                            }`"
+                                                            @click="
+                                                                selectPaymentMethod(
+                                                                    ipm,
+                                                                    imethod
+                                                                )
+                                                            "
+                                                        >
+                                                            <div
+                                                                :class="`h6 one-line fw-bold text-uppercase ${
+                                                                    paymentMethod
+                                                                        .selected
+                                                                        .paymentMethod ==
+                                                                        pm.Code &&
+                                                                    paymentMethod
+                                                                        .selected
+                                                                        .paymentChannel ==
+                                                                        method.Code
+                                                                        ? 'text-success'
+                                                                        : 'opacity-25'
+                                                                }`"
+                                                            >
+                                                                {{
+                                                                    method.Code
+                                                                }}
+                                                            </div>
+                                                            <span
+                                                                :class="`small one-line ${
+                                                                    paymentMethod
+                                                                        .selected
+                                                                        .paymentMethod ==
+                                                                        pm.Code &&
+                                                                    paymentMethod
+                                                                        .selected
+                                                                        .paymentChannel ==
+                                                                        method.Code
+                                                                        ? 'text-success'
+                                                                        : 'opacity-25'
+                                                                }`"
+                                                                >{{
+                                                                    method.Description
+                                                                }}</span
+                                                            >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                                 <div class="col-12 mt-3"><hr /></div>
                             </div>
                             <div class="row">
-                                <div class="col-12">
-                                    <span>Voucher : </span>
+                                <div
+                                    class="col-12 d-flex justify-content-between"
+                                >
+                                    <span class="small fw-bold"
+                                        >Metode Pembayaran</span
+                                    >
                                     <span
-                                        class="small text-muted text-decoration-line-through"
-                                        >{{ rupiah(voucher) }}</span
+                                        class="small text-muted text-uppercase"
+                                        >{{
+                                            paymentMethod.selected
+                                                .paymentMethod
+                                        }}({{
+                                            paymentMethod.selected
+                                                .paymentChannel
+                                        }})</span
                                     >
                                 </div>
-                                <div class="col-12 mb-3">
-                                    <span class="me-2">Total :</span
-                                    ><span
-                                        class="small text-muted text-decoration-line-through me-2"
+                                <div
+                                    class="col-12 d-flex justify-content-between"
+                                >
+                                    <span class="small fw-bold">Voucher</span>
+                                    <span class="small text-muted">{{
+                                        rupiah(voucher)
+                                    }}</span>
+                                </div>
+                                <div
+                                    class="col-12 d-flex justify-content-between"
+                                >
+                                    <span class="small fw-bold"
+                                        >Ongkos Kirim
+                                    </span>
+                                    <span
+                                        class="small text-muted text-decoration-line-through"
                                         >{{
-                                            rupiah(total().strikeRes - voucher)
+                                            rupiah(total().shippingCost)
                                         }}</span
-                                    ><span class="text-primary fw-bold">{{
+                                    >
+                                </div>
+                                <div
+                                    class="col-12 d-flex justify-content-between"
+                                >
+                                    <span class="small fw-bold">Total</span>
+                                    <span class="text-success fw-bold">{{
                                         rupiah(total().res - voucher)
                                     }}</span>
                                 </div>
+                                <div
+                                    class="col-12 mb-3 d-flex justify-content-between"
+                                >
+                                    <span class="small fw-bold">Hemat</span>
+                                    <span
+                                        class="small text-muted text-decoration-line-through"
+                                        >{{
+                                            rupiah(total().strikeRes - voucher)
+                                        }}</span
+                                    >
+                                </div>
                                 <div class="col-12">
-                                    <button class="btn btn-success">
+                                    <button
+                                        class="btn btn-success"
+                                        @click="checkout"
+                                    >
                                         <i class="lni lni-postcard me-2"></i
                                         >Checkout
                                     </button>
