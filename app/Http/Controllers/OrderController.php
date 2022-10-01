@@ -14,8 +14,9 @@ use Inertia\Inertia;
 
 class OrderController extends Controller
 {
-    public function __construct(OrderInterface $orderInterface, OrderDetailInterface $orderDetailInterface, CartInterface $cartInterface)
+    public function __construct(Request $request, OrderInterface $orderInterface, OrderDetailInterface $orderDetailInterface, CartInterface $cartInterface)
     {
+        $this->request = $request;
         $this->orderInterface = $orderInterface;
         $this->orderDetailInterface = $orderDetailInterface;
         $this->cartInterface = $cartInterface;
@@ -116,7 +117,10 @@ class OrderController extends Controller
     public function history()
     {
         try {
-            return Inertia::render('Order/History');
+            return Inertia::render('Order/History', [
+                'order' => $this->orderInterface->getByUser($this->request, auth()->user()->id),
+                'status' => $this->request->status,
+            ]);
         } catch (\Throwable $th) {
             panic($th);
         }
