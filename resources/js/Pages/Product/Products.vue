@@ -58,10 +58,10 @@
                     <div class="product-catagories">
                         <div class="row g-3">
                             <div class="col-4" v-for="(category, i) in categories.data" :key="i">
-                                <a class="shadow-sm" href="#">
+                                <Link class="shadow-sm" :href="route('product.index', {category: category.slug})">
                                     <img :src="category.icon_url" alt="" class="mb-2">
                                     {{ category.name }}
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
