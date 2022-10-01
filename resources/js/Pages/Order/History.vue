@@ -7,10 +7,9 @@ import { Head } from "@inertiajs/inertia-vue3";
 import { reactive, ref } from "@vue/reactivity";
 import { onMounted, useAttrs } from "@vue/runtime-core";
 import { Inertia } from "@inertiajs/inertia";
+import { rupiah } from "../../utils";
 
 let attrs = useAttrs();
-
-let status = ref(null);
 </script>
 
 <template>
@@ -44,466 +43,269 @@ let status = ref(null);
                             <div
                                 class="d-flex align-items-center justify-content-between mb-3 overflow-auto"
                             >
-                                <div
+                                <Link
                                     :class="`col-5 text-center py-2 rounded ${
-                                        status == null ? 'text-white' : ''
+                                        attrs.status == null ? 'text-white' : ''
                                     }`"
                                     :style="`${
-                                        status == null
+                                        attrs.status == null
                                             ? 'background-color: #00b893 !important'
                                             : ''
                                     }`"
-                                    @click="status = null"
+                                    :href="
+                                        route('orders.history', {
+                                            status: null,
+                                        })
+                                    "
                                 >
                                     Semua
-                                </div>
-                                <div
+                                </Link>
+                                <Link
                                     :class="`col-5 text-center py-2 rounded ${
-                                        status == 0 ? 'text-white' : ''
+                                        attrs.status == 'Pending'
+                                            ? 'text-white'
+                                            : ''
                                     }`"
                                     :style="`${
-                                        status == 0
+                                        attrs.status == 'Pending'
                                             ? 'background-color: #00b893 !important'
                                             : ''
                                     }`"
-                                    @click="status = 0"
+                                    :href="
+                                        route('orders.history', {
+                                            status: 'Pending',
+                                        })
+                                    "
                                 >
-                                    Belum Bayar
-                                </div>
-                                <div
+                                    Pending
+                                </Link>
+                                <Link
                                     :class="`col-5 text-center py-2 rounded ${
-                                        status == 1 ? 'text-white' : ''
+                                        attrs.status == 'Dikemas'
+                                            ? 'text-white'
+                                            : ''
                                     }`"
                                     :style="`${
-                                        status == 1
+                                        attrs.status == 'Dikemas'
                                             ? 'background-color: #00b893 !important'
                                             : ''
                                     }`"
-                                    @click="status = 1"
+                                    :href="
+                                        route('orders.history', {
+                                            status: 'Dikemas',
+                                        })
+                                    "
                                 >
                                     Dikemas
-                                </div>
-                                <div
+                                </Link>
+                                <Link
                                     :class="`col-5 text-center py-2 rounded ${
-                                        status == 2 ? 'text-white' : ''
+                                        attrs.status == 'Dikirim'
+                                            ? 'text-white'
+                                            : ''
                                     }`"
                                     :style="`${
-                                        status == 2
+                                        attrs.status == 'Dikirim'
                                             ? 'background-color: #00b893 !important'
                                             : ''
                                     }`"
-                                    @click="status = 2"
+                                    :href="
+                                        route('orders.history', {
+                                            status: 'Dikirim',
+                                        })
+                                    "
                                 >
                                     Dikirim
-                                </div>
-                                <div
+                                </Link>
+                                <Link
                                     :class="`col-5 text-center py-2 rounded ${
-                                        status == 3 ? 'text-white' : ''
+                                        attrs.status == 'Selesai'
+                                            ? 'text-white'
+                                            : ''
                                     }`"
                                     :style="`${
-                                        status == 3
+                                        attrs.status == 'Selesai'
                                             ? 'background-color: #00b893 !important'
                                             : ''
                                     }`"
-                                    @click="status = 3"
+                                    :href="
+                                        route('orders.history', {
+                                            status: 'Selesai',
+                                        })
+                                    "
                                 >
                                     Selesai
-                                </div>
-                                <div
+                                </Link>
+                                <Link
                                     :class="`col-5 text-center py-2 rounded ${
-                                        status == 4 ? 'text-white' : ''
+                                        attrs.status == 'Dibatalkan'
+                                            ? 'text-white'
+                                            : ''
                                     }`"
                                     :style="`${
-                                        status == 4
+                                        attrs.status == 'Dibatalkan'
                                             ? 'background-color: #00b893 !important'
                                             : ''
                                     }`"
-                                    @click="status = 4"
+                                    :href="
+                                        route('orders.history', {
+                                            status: 'Dibatalkan',
+                                        })
+                                    "
                                 >
                                     Dibatalkan
-                                </div>
-                                <div
+                                </Link>
+                                <Link
                                     :class="`col-5 text-center py-2 rounded ${
-                                        status == 5 ? 'text-white' : ''
+                                        attrs.status == 'Pengembalian'
+                                            ? 'text-white'
+                                            : ''
                                     }`"
                                     :style="`${
-                                        status == 5
+                                        attrs.status == 'Pengembalian'
                                             ? 'background-color: #00b893 !important'
                                             : ''
                                     }`"
-                                    @click="status = 5"
+                                    :href="
+                                        route('orders.history', {
+                                            status: 'Pengembalian',
+                                        })
+                                    "
                                 >
                                     Pengembalian
-                                </div>
+                                </Link>
                             </div>
-                            <div class="row mb-2" v-if="status == null">
-                                <div class="col-lg-12 mb-2">
-                                    <div class="d-flex justify-content-start">
-                                        <img
-                                            src="https://1.bp.blogspot.com/-BTgclWrOs2g/UoD9qBE5McI/AAAAAAAAZz0/tUMAGpA-x2o/s1600/kendall+charcoal+HC-166.jpg"
-                                            alt=""
-                                            style="width: 100px"
-                                            class="rounded me-2"
-                                        />
-                                        <div>
-                                            <span
-                                                class="text-warning rounded small"
-                                                >BELUM BAYAR</span
-                                            >
-                                            <div class="h6">
-                                                Sandal Jepit Sun Swallow Hitam
-                                            </div>
-                                            <div
-                                                class="d-flex justify-content-between"
-                                            >
-                                                <div class="small">1 pcs</div>
-                                                <div class="small">
-                                                    <span
-                                                        class="opacity-25 text-decoration-line-through"
-                                                        >Rp. 20.000</span
-                                                    >
-                                                    Rp. 10.000
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2"
-                                    >
-                                        <div class="small">1 produk</div>
-                                        <div class="small">
-                                            Total Pesanan: Rp. 10.000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2 align-items-center"
-                                    >
-                                        <div class="small opacity-25">
-                                            Belum Dinilai
-                                        </div>
-                                        <Link
-                                            :href="
-                                                route('orders.detail', `uuid`)
-                                            "
-                                            class="btn btn-sm btn-light px-2"
-                                        >
-                                            LIHAT DETAIL
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-2" v-if="status == null">
-                                <div class="col-lg-12 mb-2">
-                                    <div class="d-flex justify-content-start">
-                                        <img
-                                            src="https://1.bp.blogspot.com/-BTgclWrOs2g/UoD9qBE5McI/AAAAAAAAZz0/tUMAGpA-x2o/s1600/kendall+charcoal+HC-166.jpg"
-                                            alt=""
-                                            style="width: 100px"
-                                            class="rounded me-2"
-                                        />
-                                        <div>
-                                            <span
-                                                class="text-warning rounded small"
-                                                >DIKEMAS</span
-                                            >
-                                            <div class="h6">
-                                                Sandal Jepit Sun Swallow Hitam
-                                            </div>
-                                            <div
-                                                class="d-flex justify-content-between"
-                                            >
-                                                <div class="small">1 pcs</div>
-                                                <div class="small">
-                                                    <span
-                                                        class="opacity-25 text-decoration-line-through"
-                                                        >Rp. 20.000</span
-                                                    >
-                                                    Rp. 10.000
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2"
-                                    >
-                                        <div class="small">1 produk</div>
-                                        <div class="small">
-                                            Total Pesanan: Rp. 10.000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2 align-items-center"
-                                    >
-                                        <div class="small opacity-25">
-                                            Belum Dinilai
-                                        </div>
-                                        <button
-                                            class="btn btn-sm btn-light px-2"
-                                        >
-                                            LIHAT DETAIL
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-2" v-if="status == null">
-                                <div class="col-lg-12 mb-2">
-                                    <div class="d-flex justify-content-start">
-                                        <img
-                                            src="https://1.bp.blogspot.com/-BTgclWrOs2g/UoD9qBE5McI/AAAAAAAAZz0/tUMAGpA-x2o/s1600/kendall+charcoal+HC-166.jpg"
-                                            alt=""
-                                            style="width: 100px"
-                                            class="rounded me-2"
-                                        />
-                                        <div>
-                                            <span
-                                                class="text-info rounded small"
-                                                >DIKIRIM</span
-                                            >
-                                            <div class="h6">
-                                                Sandal Jepit Sun Swallow Hitam
-                                            </div>
-                                            <div
-                                                class="d-flex justify-content-between"
-                                            >
-                                                <div class="small">1 pcs</div>
-                                                <div class="small">
-                                                    <span
-                                                        class="opacity-25 text-decoration-line-through"
-                                                        >Rp. 20.000</span
-                                                    >
-                                                    Rp. 10.000
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2"
-                                    >
-                                        <div class="small">1 produk</div>
-                                        <div class="small">
-                                            Total Pesanan: Rp. 10.000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2 align-items-center"
-                                    >
-                                        <div class="small opacity-25">
-                                            Belum Dinilai
-                                        </div>
-                                        <button
-                                            class="btn btn-sm btn-light px-2"
-                                        >
-                                            LIHAT DETAIL
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-2" v-if="status == null">
-                                <div class="col-lg-12 mb-2">
-                                    <div class="d-flex justify-content-start">
-                                        <img
-                                            src="https://1.bp.blogspot.com/-BTgclWrOs2g/UoD9qBE5McI/AAAAAAAAZz0/tUMAGpA-x2o/s1600/kendall+charcoal+HC-166.jpg"
-                                            alt=""
-                                            style="width: 100px"
-                                            class="rounded me-2"
-                                        />
-                                        <div>
-                                            <span
-                                                class="text-success rounded small"
-                                                >SELESAI</span
-                                            >
-                                            <div class="h6">
-                                                Sandal Jepit Sun Swallow Hitam
-                                            </div>
-                                            <div
-                                                class="d-flex justify-content-between"
-                                            >
-                                                <div class="small">1 pcs</div>
-                                                <div class="small">
-                                                    <span
-                                                        class="opacity-25 text-decoration-line-through"
-                                                        >Rp. 20.000</span
-                                                    >
-                                                    Rp. 10.000
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2"
-                                    >
-                                        <div class="small">1 produk</div>
-                                        <div class="small">
-                                            Total Pesanan: Rp. 10.000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2 align-items-center"
-                                    >
-                                        <div class="small opacity-25">
-                                            Belum Dinilai
-                                        </div>
-                                        <button
-                                            class="btn btn-sm btn-light px-2"
-                                        >
-                                            LIHAT DETAIL
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-2" v-if="status == null">
-                                <div class="col-lg-12 mb-2">
-                                    <div class="d-flex justify-content-start">
-                                        <img
-                                            src="https://1.bp.blogspot.com/-BTgclWrOs2g/UoD9qBE5McI/AAAAAAAAZz0/tUMAGpA-x2o/s1600/kendall+charcoal+HC-166.jpg"
-                                            alt=""
-                                            style="width: 100px"
-                                            class="rounded me-2"
-                                        />
-                                        <div>
-                                            <span
-                                                class="text-danger rounded small"
-                                                >DIBATALKAN</span
-                                            >
-                                            <div class="h6">
-                                                Sandal Jepit Sun Swallow Hitam
-                                            </div>
-                                            <div
-                                                class="d-flex justify-content-between"
-                                            >
-                                                <div class="small">1 pcs</div>
-                                                <div class="small">
-                                                    <span
-                                                        class="opacity-25 text-decoration-line-through"
-                                                        >Rp. 20.000</span
-                                                    >
-                                                    Rp. 10.000
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2"
-                                    >
-                                        <div class="small">1 produk</div>
-                                        <div class="small">
-                                            Total Pesanan: Rp. 10.000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2 align-items-center"
-                                    >
-                                        <div class="small opacity-25">
-                                            Belum Dinilai
-                                        </div>
-                                        <button
-                                            class="btn btn-sm btn-light px-2"
-                                        >
-                                            LIHAT DETAIL
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-2" v-if="status == null">
-                                <div class="col-lg-12 mb-2">
-                                    <div class="d-flex justify-content-start">
-                                        <img
-                                            src="https://1.bp.blogspot.com/-BTgclWrOs2g/UoD9qBE5McI/AAAAAAAAZz0/tUMAGpA-x2o/s1600/kendall+charcoal+HC-166.jpg"
-                                            alt=""
-                                            style="width: 100px"
-                                            class="rounded me-2"
-                                        />
-                                        <div>
-                                            <span
-                                                class="text-danger rounded small"
-                                                >PENGEMBALIAN</span
-                                            >
-                                            <div class="h6">
-                                                Sandal Jepit Sun Swallow Hitam
-                                            </div>
-                                            <div
-                                                class="d-flex justify-content-between"
-                                            >
-                                                <div class="small">1 pcs</div>
-                                                <div class="small">
-                                                    <span
-                                                        class="opacity-25 text-decoration-line-through"
-                                                        >Rp. 20.000</span
-                                                    >
-                                                    Rp. 10.000
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2"
-                                    >
-                                        <div class="small">1 produk</div>
-                                        <div class="small">
-                                            Total Pesanan: Rp. 10.000
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <hr />
-                                    <div
-                                        class="d-flex justify-content-between my-2 align-items-center"
-                                    >
-                                        <div class="small opacity-25">
-                                            Belum Dinilai
-                                        </div>
-                                        <button
-                                            class="btn btn-sm btn-light px-2"
-                                        >
-                                            LIHAT DETAIL
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row" v-else>
-                                <div class="col-lg-12 py-2">
-                                    <div class="border rounded">
+                            <div v-if="attrs.order.data.length > 0">
+                                <div
+                                    class="row mb-5"
+                                    v-for="(order, iorder) in attrs.order.data"
+                                    :key="iorder"
+                                >
+                                    <div class="col-lg-12 mb-2">
                                         <div
-                                            class="d-flex justify-content-center align-items-center my-2"
+                                            class="d-flex justify-content-start"
                                         >
-                                            <span class="small"
-                                                >Belum ada pesanan</span
-                                            >
+                                            <img
+                                                :src="`${order.order_details[0].product.files[0].src}`"
+                                                alt=""
+                                                style="width: 100px"
+                                                class="rounded me-2"
+                                            />
+                                            <div class="col-8">
+                                                <span
+                                                    :class="`text-warning rounded small text-uppercase`"
+                                                    >{{
+                                                        order.payment_status
+                                                    }}</span
+                                                >
+                                                <div class="h6 one-line">
+                                                    {{
+                                                        order.order_details[0]
+                                                            .product.name
+                                                    }}
+                                                </div>
+                                                <div class="small mb-3">
+                                                    {{
+                                                        order.order_details[0]
+                                                            .qty
+                                                    }}
+                                                    pcs
+                                                </div>
+                                                <div
+                                                    class="d-flex justify-content-between small"
+                                                >
+                                                    <span
+                                                        class="opacity-25 text-decoration-line-through small"
+                                                        >{{
+                                                            rupiah(
+                                                                order
+                                                                    .order_details[0]
+                                                                    .strike_price
+                                                            )
+                                                        }}</span
+                                                    >
+                                                    <span class="small">
+                                                        {{
+                                                            rupiah(
+                                                                order
+                                                                    .order_details[0]
+                                                                    .price
+                                                            )
+                                                        }}
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-12">
+                                        <hr />
+                                        <div
+                                            class="d-flex justify-content-between my-2"
+                                        >
+                                            <div class="small">
+                                                {{ order.order_details.length }}
+                                                produk
+                                            </div>
+                                            <div class="small">
+                                                Total Pesanan:
+                                                {{ rupiah(order.total) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <hr />
+                                        <div
+                                            class="d-flex justify-content-between my-2 align-items-center"
+                                        >
+                                            <div class="small opacity-25">
+                                                Belum Dinilai
+                                            </div>
+                                            <Link
+                                                :href="
+                                                    route(
+                                                        'orders.detail',
+                                                        order.id
+                                                    )
+                                                "
+                                                class="btn btn-sm btn-light px-2"
+                                            >
+                                                LIHAT DETAIL
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div v-else>
+                                <div class="row">
+                                    <div class="col-lg-12 py-2">
+                                        <div class="border rounded">
+                                            <div
+                                                class="d-flex justify-content-center align-items-center my-2"
+                                            >
+                                                <span class="small"
+                                                    >Belum ada pesanan</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div
+                                    class="col-lg-12 mb-2 text-center small text-muted"
+                                    v-if="attrs.order.data.length > 0"
+                                >
+                                    Menampilkan {{ attrs.order.from }} -
+                                    {{ attrs.order.to }} dari
+                                    {{ attrs.order.total }} data
+                                </div>
+                                <div
+                                    class="col-lg-12 py-2 text-center border rounded"
+                                    v-if="attrs.order.next_page_url"
+                                >
+                                    <Link :href="attrs.order.next_page_url">
+                                        Tampilkan Lebih Banyak
+                                    </Link>
                                 </div>
                             </div>
                         </div>
