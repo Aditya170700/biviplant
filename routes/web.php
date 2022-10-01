@@ -1,11 +1,9 @@
 <?php
 
 use App\Http\Controllers\AddressController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\AddressGuestController;
-use App\Http\Controllers\CartController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;

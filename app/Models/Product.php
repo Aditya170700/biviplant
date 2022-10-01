@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Classes\Constants\ProductCondition;
 use App\Traits\Uuid;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
@@ -21,6 +22,7 @@ class Product extends Model
     protected $appends = [
         'price_rp',
         'strike_price_rp',
+        'text_condition'
     ];
 
     protected function priceRp(): Attribute
@@ -38,6 +40,15 @@ class Product extends Model
             get: fn ($value, $attributes) => isset($attributes['strike_price'])
                 ? "Rp." . number_format($attributes['strike_price'], 0, ',', '.')
                 : "",
+        );
+    }
+
+    protected function textCondition(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value, $attributes) => isset($attributes['condition'])
+                ? ProductCondition::label($attributes['condition'])
+                : null
         );
     }
 
