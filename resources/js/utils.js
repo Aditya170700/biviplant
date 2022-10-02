@@ -1,5 +1,6 @@
 import { createToast } from 'mosha-vue-toastify'
 import 'mosha-vue-toastify/dist/style.css'
+import moment from 'moment'
 
 export const imageReader = (files, target) => {
     const reader = new FileReader
@@ -63,4 +64,8 @@ export const rupiah = (number)=>{
         style: "currency",
         currency: "IDR"
     }).format(number);
+}
+
+export const formatDate = (date, format) => {
+    return moment(date).format(format);
 }

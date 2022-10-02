@@ -41,7 +41,7 @@
         "@vueup/vue-quill": "^1.0.0-beta.8",
         "leaflet": "^1.8.0",
         "leaflet-geosearch": "^3.6.1",
-        "moment": "^2.29.3",
+        "moment": "^2.29.4",
         "mosha-vue-toastify": "^1.0.23",
         "node-sass": "^7.0.1",
         "vue": "^3.2.36",
@@ -52,6 +52,7 @@
         "vue-sweetalert2": "^5.0.5",
         "vue-toast-notification": "^3.0.4",
         "vue3-carousel": "^0.1.40",
+        "vue3-clipboard": "^1.0.0",
         "vuex": "^4.0.2"
     }
 }

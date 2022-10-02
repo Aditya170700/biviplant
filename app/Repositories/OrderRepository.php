@@ -53,4 +53,35 @@ class OrderRepository implements OrderInterface
             ->paginate(10)
             ->withQueryString();
     }
+
+    public function getById(string $id)
+    {
+        return $this->model
+            ->with([
+                'order_details' => function ($query) {
+                    $query->with([
+                        'user_address' => function ($query) {
+                            $query->select('id', 'subdistrict_id', 'postal_code', 'detail', 'receiver', 'phone', 'latitude', 'longitude')
+                                ->with([
+                                    'subdistrict' => function ($query) {
+                                        $query->select('id', 'city_id', 'name')
+                                            ->with([
+                                                'city' => function ($query) {
+                                                    $query->select('id', 'province_id', 'name')
+                                                        ->with([
+                                                            'province' => function ($query) {
+                                                                $query->select('id', 'name');
+                                                            }
+                                                        ]);
+                                                }
+                                            ]);
+                                    },
+                                ]);
+                        },
+                        'product.files',
+                    ]);
+                },
+            ])
+            ->findOrFail($id);
+    }
 }

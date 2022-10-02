@@ -7,8 +7,20 @@ import { Head } from "@inertiajs/inertia-vue3";
 import { reactive, ref } from "@vue/reactivity";
 import { onMounted, useAttrs } from "@vue/runtime-core";
 import { Inertia } from "@inertiajs/inertia";
+import { rupiah, toastError, toastSuccess, formatDate } from "../../utils";
+import { copyText } from "vue3-clipboard";
 
 let attrs = useAttrs();
+
+function copyClipboard(text, pesan) {
+    copyText(text, undefined, (error, event) => {
+        if (error) {
+            toastError(pesan);
+        } else {
+            toastSuccess(pesan);
+        }
+    });
+}
 </script>
 
 <template>
@@ -46,37 +58,55 @@ let attrs = useAttrs();
                                     Kembali
                                 </Link>
                             </div>
-                            <div class="row">
+                            <div
+                                class="row"
+                                v-for="(detail, idetail) in attrs.order
+                                    .order_details"
+                                :key="idetail"
+                            >
                                 <div class="col-lg-12 py-2">
-                                    <hr class="mb-2" />
                                     <div
                                         class="d-flex justify-content-between align-items-center"
                                     >
                                         <span class="h6">
-                                            <i class="lni lni-caravan me-2"></i>
-                                            Informasi Pengiriman
+                                            <i class="lni lni-gift me-2"></i>
+                                            Produk
                                         </span>
-                                        <Link
-                                            :href="
-                                                route('orders.track', `uuid`)
-                                            "
-                                            class="btn btn-sm btn-light"
-                                            >LIHAT</Link
-                                        >
                                     </div>
-                                    <div class="opacity-50">HEMAT</div>
-                                    <div class="opacity-50">
-                                        Anteraja Ekonomi - 19283671283121
-                                    </div>
-                                    <div class="text-success small">
-                                        Paket telah diterima Aditya
-                                    </div>
-                                    <div class="opacity-50 small">
-                                        29 Juli 2022 17:07
+                                    <div class="d-flex justify-content-start">
+                                        <img
+                                            :src="detail.product.files[0].src"
+                                            alt=""
+                                            style="width: 100px"
+                                            class="rounded me-2"
+                                        />
+                                        <div>
+                                            <div class="h6 one-line">
+                                                {{ detail.product.name }}
+                                            </div>
+                                            <div class="small mb-3">
+                                                {{ detail.qty }}
+                                                pcs
+                                            </div>
+                                            <div
+                                                class="d-flex justify-content-between small"
+                                            >
+                                                <span
+                                                    class="opacity-25 text-decoration-line-through small"
+                                                    >{{
+                                                        rupiah(
+                                                            detail.strike_price
+                                                        )
+                                                    }}</span
+                                                >
+                                                <span class="small">
+                                                    {{ rupiah(detail.price) }}
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 py-2">
-                                    <hr class="mb-2" />
                                     <div
                                         class="d-flex justify-content-between align-items-center"
                                     >
@@ -87,65 +117,70 @@ let attrs = useAttrs();
                                             Alamat Pengiriman
                                         </span>
                                     </div>
-                                    <div class="opacity-50">Aditya</div>
-                                    <div class="opacity-50">08812668976</div>
-                                    <div class="opacity-50 small">
-                                        RT 03 RW 12 Watusigar, Ngawen
+                                    <div class="opacity-50">
+                                        {{ detail.user_address.receiver }}
+                                    </div>
+                                    <div class="opacity-50">
+                                        {{ detail.user_address.phone }}
                                     </div>
                                     <div class="opacity-50 small">
-                                        Ngawen, Gunungkidul, DI Yogyakarta,
-                                        55853
+                                        {{ detail.user_address.detail }}
+                                    </div>
+                                    <div class="opacity-50 small">
+                                        {{
+                                            `${detail.user_address.subdistrict.name}, ${detail.user_address.subdistrict.city.name}, ${detail.user_address.subdistrict.city.province.name} ${detail.user_address.postal_code}`
+                                        }}
                                     </div>
                                 </div>
-                                <div class="col-lg-12 mb-2">
-                                    <hr class="mb-2" />
-                                    <div class="d-flex justify-content-start">
-                                        <img
-                                            src="https://1.bp.blogspot.com/-BTgclWrOs2g/UoD9qBE5McI/AAAAAAAAZz0/tUMAGpA-x2o/s1600/kendall+charcoal+HC-166.jpg"
-                                            alt=""
-                                            style="width: 100px"
-                                            class="rounded me-2"
-                                        />
-                                        <div>
-                                            <div class="h6">
-                                                Sandal Jepit Sun Swallow Hitam
-                                            </div>
-                                            <div
-                                                class="d-flex justify-content-between"
-                                            >
-                                                <div class="small">1 pcs</div>
-                                                <div class="small">
-                                                    <span
-                                                        class="opacity-25 text-decoration-line-through"
-                                                        >Rp. 20.000</span
-                                                    >
-                                                    Rp. 10.000
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="col-lg-12 py-2">
+                                    <div
+                                        class="d-flex justify-content-between align-items-center"
+                                    >
+                                        <span class="h6">
+                                            <i class="lni lni-caravan me-2"></i>
+                                            Informasi Pengiriman
+                                        </span>
+                                        <Link
+                                            :href="
+                                                route('orders.track', detail.id)
+                                            "
+                                            class="btn btn-sm btn-light"
+                                            >LIHAT</Link
+                                        >
                                     </div>
+                                    <div class="opacity-50">
+                                        {{ detail.courier }}
+                                    </div>
+                                    <div class="opacity-50">
+                                        {{ detail.shipping_service }} -
+                                        {{ detail.receipt ?? "Belum ada resi" }}
+                                    </div>
+                                    <div class="opacity-50 small">
+                                        {{ detail.shipping_etd }} hari
+                                    </div>
+                                    <div class="opacity-50 small">
+                                        {{ rupiah(detail.shipping_cost) }}
+                                    </div>
+                                    <hr class="my-2" />
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-lg-12">
-                                    <hr />
                                     <div
                                         class="d-flex justify-content-between opacity-50 my-2"
                                     >
-                                        <div class="small">Subtotal Produk</div>
-                                        <div class="small">Rp. 10.000</div>
-                                    </div>
-                                    <div
-                                        class="d-flex justify-content-between opacity-50 my-2"
-                                    >
+                                        <div class="small">Voucher</div>
                                         <div class="small">
-                                            Subtotal Pengiriman
+                                            {{ rupiah(attrs.order.voucher) }}
                                         </div>
-                                        <div class="small">Rp. 7.000</div>
                                     </div>
                                     <div
                                         class="d-flex justify-content-between my-2"
                                     >
-                                        <div class="small">Total Pesanan</div>
-                                        <div class="small">Rp. 17.000</div>
+                                        <div class="small">Total</div>
+                                        <div class="small">
+                                            {{ rupiah(attrs.order.total) }}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 py-2">
@@ -160,8 +195,49 @@ let attrs = useAttrs();
                                             Metode Pembayaran
                                         </span>
                                     </div>
-                                    <div class="opacity-50">
-                                        BRIVA - 91283789123679
+                                    <div class="col-lg-12">
+                                        <div
+                                            class="d-flex justify-content-between opacity-50 my-2"
+                                        >
+                                            <div class="small">Metode</div>
+                                            <div class="small text-uppercase">
+                                                {{ attrs.order.payment_method }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div
+                                            class="d-flex justify-content-between opacity-50 my-2"
+                                        >
+                                            <div class="small">Channel</div>
+                                            <div class="small text-uppercase">
+                                                {{
+                                                    attrs.order.payment_channel
+                                                }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div
+                                            class="d-flex justify-content-between opacity-50 my-2"
+                                        >
+                                            <div class="small">
+                                                Nomor Pembayaran
+                                            </div>
+                                            <div class="small text-uppercase">
+                                                {{ attrs.order.payment_no
+                                                }}<i
+                                                    class="lni lni-empty-file ms-2"
+                                                    @click="
+                                                        copyClipboard(
+                                                            attrs.order
+                                                                .payment_no,
+                                                            'VA berhasil disalin'
+                                                        )
+                                                    "
+                                                ></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 py-2">
@@ -172,8 +248,10 @@ let attrs = useAttrs();
                                         <span class="small opacity-50">
                                             No. Pesanan
                                         </span>
-                                        <span class="small opacity-50">
-                                            2198376128391283
+                                        <span
+                                            class="small opacity-50 text-uppercase"
+                                        >
+                                            {{ attrs.order.id.substr(0, 13) }}
                                         </span>
                                     </div>
                                     <div
@@ -183,7 +261,12 @@ let attrs = useAttrs();
                                             Waktu Pemesanan
                                         </span>
                                         <span class="small opacity-50">
-                                            20 Juli 2022 17:07
+                                            {{
+                                                formatDate(
+                                                    attrs.order.created_at,
+                                                    "DD MMMM YYYY HH:mm"
+                                                )
+                                            }}
                                         </span>
                                     </div>
                                     <div
@@ -192,9 +275,20 @@ let attrs = useAttrs();
                                         <span class="small opacity-50">
                                             Waktu Pembayaran
                                         </span>
-                                        <span class="small opacity-50">
-                                            20 Juli 2022 17:07
+                                        <span
+                                            class="small opacity-50"
+                                            v-if="attrs.order.paid_at"
+                                        >
+                                            {{
+                                                formatDate(
+                                                    attrs.order.paid_at,
+                                                    "DD MMMM YYYY HH:mm"
+                                                )
+                                            }}
                                         </span>
+                                        <span class="small opacity-50" v-else
+                                            >-</span
+                                        >
                                     </div>
                                     <div
                                         class="d-flex justify-content-between align-items-center"
@@ -202,9 +296,20 @@ let attrs = useAttrs();
                                         <span class="small opacity-50">
                                             Waktu Pengiriman
                                         </span>
-                                        <span class="small opacity-50">
-                                            20 Juli 2022 17:07
+                                        <span
+                                            class="small opacity-50"
+                                            v-if="attrs.order.send_at"
+                                        >
+                                            {{
+                                                formatDate(
+                                                    attrs.order.send_at,
+                                                    "DD MMMM YYYY HH:mm"
+                                                )
+                                            }}
                                         </span>
+                                        <span class="small opacity-50" v-else
+                                            >-</span
+                                        >
                                     </div>
                                     <div
                                         class="d-flex justify-content-between align-items-center"
@@ -212,21 +317,24 @@ let attrs = useAttrs();
                                         <span class="small opacity-50">
                                             Waktu Pesanan Selesai
                                         </span>
-                                        <span class="small opacity-50">
-                                            20 Juli 2022 17:07
+                                        <span
+                                            class="small opacity-50"
+                                            v-if="attrs.order.finish_at"
+                                        >
+                                            {{
+                                                formatDate(
+                                                    attrs.order.finish_at,
+                                                    "DD MMMM YYYY HH:mm"
+                                                )
+                                            }}
                                         </span>
+                                        <span class="small opacity-50" v-else
+                                            >-</span
+                                        >
                                     </div>
                                     <hr class="mt-2" />
                                 </div>
-                                <div class="col-6">
-                                    <div class="d-grid">
-                                        <button class="btn btn-sm btn-light">
-                                            <i class="lni lni-cart me-2"></i
-                                            >Beli Lagi
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-6">
+                                <div class="col-12">
                                     <div class="d-grid">
                                         <button
                                             class="btn btn-sm btn-light text-white"
