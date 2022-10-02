@@ -140,7 +140,9 @@ class OrderController extends Controller
     public function track(string $id)
     {
         try {
-            return Inertia::render('Order/Track');
+            return Inertia::render('Order/Track', [
+                'order_detail' => $this->orderDetailInterface->getById($id),
+            ]);
         } catch (\Throwable $th) {
             panic($th);
         }
