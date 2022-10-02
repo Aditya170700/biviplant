@@ -129,7 +129,9 @@ class OrderController extends Controller
     public function detail(string $id)
     {
         try {
-            return Inertia::render('Order/Detail');
+            return Inertia::render('Order/Detail', [
+                'order' => $this->orderInterface->getById($id),
+            ]);
         } catch (\Throwable $th) {
             panic($th);
         }

@@ -27,6 +27,10 @@ return new class extends Migration
             $table->text('payment_name');
             $table->string('payment_expired');
             $table->string('payment_status')->default('Pending');
+            $table->string('receipt')->nullable();
+            $table->string('paid_at')->nullable();
+            $table->string('send_at')->nullable();
+            $table->string('finish_at')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
