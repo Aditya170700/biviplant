@@ -26,4 +26,15 @@ class OrderController extends Controller
             panic($th);
         }
     }
+
+    public function show(string $id)
+    {
+        try {
+            return Inertia::render('Dashboard/Order/Show', [
+                'order' => $this->orderInterface->getById($id),
+            ]);
+        } catch (\Throwable $th) {
+            panic($th);
+        }
+    }
 }
