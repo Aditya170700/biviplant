@@ -84,4 +84,21 @@ class OrderRepository implements OrderInterface
             ])
             ->findOrFail($id);
     }
+
+    public function getPaginated($request)
+    {
+        return $this->model
+            ->with([
+                'order_details.product',
+                'user'
+            ])
+            ->when($request->search, function ($query) use ($request) {
+                $query->whereHas('user', function ($query) use ($request) {
+                    $query->where('name', 'like', '%' . $request->search . '%');
+                });
+            })
+            ->withCount('order_details')
+            ->latest()
+            ->paginate($request->limit ?? 25);
+    }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\OriginController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
@@ -35,6 +36,12 @@ Route::middleware(['auth', 'role:admin'])
                 Route::get('/products/{id}/files', 'files')->name('files');
                 Route::post('/products/{id}/files', 'storeFiles')->name('files.store');
                 Route::delete('/products/{id}/files/{fileId}', 'destroyFiles')->name('files.destroy');
+            });
+        Route::controller(OrderController::class)
+            ->name('orders.')
+            ->group(function () {
+                Route::get('/orders', 'index')->name('index');
+                Route::get('/orders/{id}', 'show')->name('show');
             });
         Route::controller(ProductController::class)
             ->name('products.')

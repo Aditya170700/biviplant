@@ -210,6 +210,22 @@
                             <span>Produk</span>
                         </Link>
                     </li>
+                    <li
+                        :class="[
+                            'sidebar-item',
+                            route().current().includes('admin.orders.')
+                                ? 'active'
+                                : '',
+                        ]"
+                    >
+                        <Link
+                            :href="route('admin.orders.index')"
+                            class="sidebar-link"
+                        >
+                            <i class="fas fa-cart-shopping"></i>
+                            <span>Pesanan</span>
+                        </Link>
+                    </li>
 
                     <!-- OTHERS -->
 
