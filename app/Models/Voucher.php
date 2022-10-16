@@ -15,4 +15,9 @@ class Voucher extends Model
     protected $casts = [
         'id' => 'string',
     ];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'voucher_code', 'code');
+    }
 }

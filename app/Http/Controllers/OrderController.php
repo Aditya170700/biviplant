@@ -75,6 +75,7 @@ class OrderController extends Controller
                 'id' => $uuid,
                 'user_id' => auth()->user()->id,
                 'total' => $request->total['res'],
+                'voucher_code' => $request->voucher_code,
                 'voucher' => $request->voucher,
                 'pg_fee' => $request->payment_method['fee'],
                 'pg_fee_type' => $request->payment_method['feeType'],

@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\ProvinceController;
 use App\Http\Controllers\Api\SearchController;
 use App\Http\Controllers\Api\ShippingCostController;
 use App\Http\Controllers\Api\SubdistrictController;
+use App\Http\Controllers\Api\VoucherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,4 +49,10 @@ Route::controller(OrderController::class)
     ->group(function () {
         Route::get('/list-payment-method', 'listPaymentMethod');
         Route::get('/track', 'track');
+    });
+
+Route::controller(VoucherController::class)
+    ->prefix('vouchers')
+    ->group(function () {
+        Route::post('/check', 'check');
     });

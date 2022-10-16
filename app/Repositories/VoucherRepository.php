@@ -33,6 +33,16 @@ class VoucherRepository implements VoucherInterface
             ->findOrFail($id);
     }
 
+    public function getByCode($request)
+    {
+        return $this->model
+            ->where('code', $request->code)
+            ->where('min_order', '<=', $request->total)
+            ->where('expired_at', '>=', now())
+            ->withCount('orders')
+            ->first();
+    }
+
     public function create(array $data)
     {
         return $this->model
