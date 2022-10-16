@@ -42,6 +42,7 @@ Route::middleware(['auth', 'role:admin'])
             ->group(function () {
                 Route::get('/orders', 'index')->name('index');
                 Route::get('/orders/{id}', 'show')->name('show');
+                Route::get('/orders/{id}/track', 'track')->name('track');
             });
         Route::controller(ProductController::class)
             ->name('products.')

@@ -102,7 +102,7 @@
                                             <Link
                                                 :href="
                                                     route(
-                                                        'orders.track',
+                                                        'admin.orders.track',
                                                         detail.id
                                                     )
                                                 "
