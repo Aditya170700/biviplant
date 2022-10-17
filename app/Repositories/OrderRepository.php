@@ -85,6 +85,13 @@ class OrderRepository implements OrderInterface
             ->findOrFail($id);
     }
 
+    public function getByTrxId(string $trxId)
+    {
+        return $this->model
+            ->where('payment_id', $trxId)
+            ->firstOrFail();
+    }
+
     public function updateStatus(string $status, Order $model)
     {
         return $model->update([
