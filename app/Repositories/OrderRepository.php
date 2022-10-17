@@ -85,6 +85,13 @@ class OrderRepository implements OrderInterface
             ->findOrFail($id);
     }
 
+    public function updateStatus(string $status, Order $model)
+    {
+        return $model->update([
+            'payment_status' => $status,
+        ]);
+    }
+
     public function getPaginated($request)
     {
         return $this->model

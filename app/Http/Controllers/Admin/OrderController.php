@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Interfaces\OrderInterface;
 use App\Http\Controllers\Controller;
 use App\Interfaces\OrderDetailInterface;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -47,6 +48,32 @@ class OrderController extends Controller
                 'order_detail' => $this->orderDetailInterface->getById($id),
             ]);
         } catch (\Throwable $th) {
+            panic($th);
+        }
+    }
+
+    public function updateReceipt(Request $request, $id)
+    {
+        try {
+            DB::beginTransaction();
+            $orderDetail = $this->orderDetailInterface->getById($id, ['order']);
+
+            $this->orderDetailInterface
+                ->updateReceipt($request, $orderDetail);
+
+            if ($this->orderDetailInterface->checkReceipt($orderDetail->order_id)) {
+                $this->orderInterface
+                    ->updateStatus('Dikirim', $orderDetail->order);
+            } else {
+                $this->orderInterface
+                    ->updateStatus('Dikemas', $orderDetail->order);
+            }
+
+            DB::commit();
+            return redirect()->back()
+                ->with('success', 'Resi berhasil diupdate');
+        } catch (\Throwable $th) {
+            DB::rollBack();
             panic($th);
         }
     }
