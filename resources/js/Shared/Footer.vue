@@ -9,13 +9,8 @@ import { Link } from "@inertiajs/inertia-vue3";
                 <ul
                     class="h-100 d-flex align-items-center justify-content-between ps-0"
                 >
-                    <li class="active">
-                        <a href="home.html"><i class="lni lni-home"></i>Home</a>
-                    </li>
                     <li>
-                        <a href="message.html"
-                            ><i class="lni lni-life-ring"></i>Support</a
-                        >
+                        <a href="/"><i class="lni lni-home"></i>Home</a>
                     </li>
                     <li>
                         <Link :href="route('cart.index')"
@@ -23,13 +18,8 @@ import { Link } from "@inertiajs/inertia-vue3";
                         >
                     </li>
                     <li>
-                        <a href="pages.html"
-                            ><i class="lni lni-heart"></i>Pages</a
-                        >
-                    </li>
-                    <li>
-                        <a href="settings.html"
-                            ><i class="lni lni-cog"></i>Settings</a
+                        <a href="https://wa.me/6283840907389" target="_blank"
+                            ><i class="lni lni-wechat"></i>Support</a
                         >
                     </li>
                 </ul>
