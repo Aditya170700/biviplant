@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\SearchController;
 use App\Http\Controllers\Api\ShippingCostController;
 use App\Http\Controllers\Api\SubdistrictController;
 use App\Http\Controllers\Api\VoucherController;
+use App\Http\Controllers\Api\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -55,4 +56,10 @@ Route::controller(VoucherController::class)
     ->prefix('vouchers')
     ->group(function () {
         Route::post('/check', 'check');
+    });
+
+Route::controller(ProductController::class)
+    ->prefix('products')
+    ->group(function () {
+        Route::get('/', 'index');
     });

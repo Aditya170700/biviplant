@@ -20,10 +20,18 @@ class ProductRepository implements ProductInterface
             ->when($request->search, function ($query) use ($request) {
                 $query->where('name', 'like', "%$request->search%");
             })
+            ->when($request->categories, function ($query) use ($request) {
+                $query->whereHas('category', function ($query) use ($request) {
+                    $query->whereIn('name', $request->categories);
+                });
+            })
+            ->when($request->sort_price, function ($query) use ($request) {
+                $query->orderBy('price', $request->sort_price);
+            })
             ->when($request->field && $request->direction, function ($query) use ($request) {
                 $query->orderBy($request->field, $request->direction);
             })
-            ->when(!$request->field || !$request->direction, function ($query) use ($request) {
+            ->when(!$request->field || !$request->direction || !$request->sort_price, function ($query) use ($request) {
                 $query->latest();
             })
             ->paginate($request->limit ?? 25);
