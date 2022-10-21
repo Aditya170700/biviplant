@@ -83,7 +83,7 @@ function isActive(name, service) {
                         <div
                             class="d-flex align-items-center justify-content-between mb-3"
                         >
-                            <span class="h6">Pilih Kurir</span>
+                            <span class="h6">Cek Ongkir</span>
                             <button
                                 class="btn btn-sm btn-light"
                                 data-bs-dismiss="offcanvas"
@@ -118,14 +118,14 @@ function isActive(name, service) {
                                 :disabled="loading"
                             >
                                 <i class="lni lni-search-alt me-2"></i>
-                                Cari Kurir
+                                Cek Ongkir
                             </button>
                         </div>
                         <div class="list-group text-center" v-if="loading">
                             <span
                                 class="list-group-item list-group-item-action blink"
                                 aria-current="true"
-                                >Mencari kurir...</span
+                                >Cek ongkir...</span
                             >
                         </div>
                         <div

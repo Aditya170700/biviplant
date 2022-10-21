@@ -64,15 +64,15 @@ function buyNow() {
 }
 
 function storeCart() {
-    if (store.getters.courier == null) {
-        toastError("Silahkan pilih kurir terlebih dahulu");
-        return;
-    }
+    // if (store.getters.courier == null) {
+    //     toastError("Silahkan pilih kurir terlebih dahulu");
+    //     return;
+    // }
 
-    form.courier = store.getters.courier.name;
-    form.shipping_service = store.getters.courier.service;
-    form.shipping_cost = store.getters.courier.value;
-    form.shipping_etd = store.getters.courier.etd;
+    // form.courier = store.getters.courier.name;
+    // form.shipping_service = store.getters.courier.service;
+    // form.shipping_cost = store.getters.courier.value;
+    // form.shipping_etd = store.getters.courier.etd;
 
     if (props.product.cart_user == null) {
         axios
@@ -383,7 +383,7 @@ watch(
                         </div>
                         <div class="sales-offer-content d-flex mt-2">
                             <div class="col-3">
-                                <p class="mb-1 fw-bold">Kurir</p>
+                                <p class="mb-1 fw-bold">Ongkir</p>
                             </div>
                             <div class="col-9">
                                 <a
@@ -415,7 +415,7 @@ watch(
                                             </p>
                                         </div>
                                         <div v-else>
-                                            <p>Belum pilih kurir</p>
+                                            <p>Cek Ongkir</p>
                                         </div>
                                         <i
                                             class="lni lni-chevron-right small"
