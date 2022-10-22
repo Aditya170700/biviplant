@@ -1,8 +1,38 @@
+<script setup>
+import { Link } from "@inertiajs/inertia-vue3";
+import Header from "./../Shared/Homepage/Header.vue";
+import Sidebar from "./../Shared/Homepage/Sidebar.vue";
+import Footer from "./../Shared/Footer.vue";
+import { Head } from "@inertiajs/inertia-vue3";
+import { reactive, ref } from "@vue/reactivity";
+import { onMounted } from "@vue/runtime-core";
+
+const props = defineProps({
+    meta_title: String,
+    meta_description: String,
+    meta_keyword: String,
+    banners: Object,
+    categories: Object,
+    event: Object,
+    products: Object,
+    product_best_sellers: Object,
+    vouchers: Object,
+});
+
+const metaTitle = ref(props.meta_title);
+const metaDescription = ref(props.meta_description);
+const metaKeyword = ref(props.meta_keyword);
+</script>
+
 <template>
     <div>
         <Head>
             <title>{{ metaTitle }}</title>
-            <meta head-key="description" name="description" :content="metaDescription" />
+            <meta
+                head-key="description"
+                name="description"
+                :content="metaDescription"
+            />
             <meta head-key="keyword" name="keyword" :content="metaKeyword" />
         </Head>
         <Header></Header>
@@ -47,24 +77,27 @@
                                 type="button"
                                 data-bs-target="#carouselExampleIndicators"
                                 :data-bs-slide-to="i"
-                                :class="(i == 0) ? 'active' : ''"
-                                :aria-current="(i == 0) ? true : false"
-                                :aria-label="`Slide ${i+1}`"
-                                v-for="(banner, i) in banners.data" :key="i"
+                                :class="i == 0 ? 'active' : ''"
+                                :aria-current="i == 0 ? true : false"
+                                :aria-label="`Slide ${i + 1}`"
+                                v-for="(banner, i) in banners.data"
+                                :key="i"
                             ></button>
                         </div>
                         <div class="carousel-inner">
-                            <div 
+                            <div
                                 :class="[
                                     'carousel-item',
-                                    (i == 0) ? 'active' : ''
-                                ]" 
-                                v-for="(banner, i) in banners.data" :key="i">
+                                    i == 0 ? 'active' : '',
+                                ]"
+                                v-for="(banner, i) in banners.data"
+                                :key="i"
+                            >
                                 <div
                                     class="single-hero-slide"
                                     :style="{
                                         backgroundImage: `url('${banner.path_url}')`,
-                                        width: '100% !important'
+                                        width: '100% !important',
                                     }"
                                 >
                                     <div
@@ -103,22 +136,40 @@
                     </div>
                 </div>
             </div>
-            <div class="product-catagories-wrapper py-3">
+            <div class="container mt-4">
+                <div
+                    class="section-heading d-flex align-items-center justify-content-between"
+                >
+                    <h6 class="fw-bold">KATEGORI</h6>
+                </div>
+            </div>
+            <div class="product-catagories-wrapper pb-3">
                 <div class="container">
-                    <div class="section-heading">
-                        <h6>Kategori</h6>
-                    </div>
                     <div class="product-catagory-wrap">
                         <div class="row g-3">
-                            <div class="col-4" v-for="(category, i) in categories.data" :key="i">
+                            <div
+                                class="col-4"
+                                v-for="(category, i) in categories.data"
+                                :key="i"
+                            >
                                 <div class="card catagory-card">
                                     <div class="card-body">
                                         <Link
                                             class="text-danger"
-                                            :href="route('category.show', {slug: category.slug})"
+                                            :href="
+                                                route('category.show', {
+                                                    slug: category.slug,
+                                                })
+                                            "
                                         >
-                                            <div class="d-flex justify-content-center">
-                                                <img :src="category.icon_url" alt="" class="mb-2">
+                                            <div
+                                                class="d-flex justify-content-center"
+                                            >
+                                                <img
+                                                    :src="category.icon_url"
+                                                    alt=""
+                                                    class="mb-2"
+                                                />
                                             </div>
                                             <span>{{ category.name }}</span>
                                         </Link>
@@ -129,17 +180,22 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="top-products-area py-3">
+            <div class="container mt-4">
+                <div
+                    class="section-heading d-flex align-items-center justify-content-between"
+                >
+                    <h6 class="fw-bold">PRODUK UNGGULAN</h6>
+                    <Link class="btn" href="/products">Lihat Semua</Link>
+                </div>
+            </div>
+            <div class="top-products-area pb-3">
                 <div class="container">
-                    <div
-                        class="section-heading d-flex align-items-center justify-content-between"
-                    >
-                        <h6>Produk Unggulan</h6>
-                        <Link class="btn" href="/products">Lihat Semua</Link>
-                    </div>
                     <div class="row g-3">
-                        <div class="col-6 col-md-4 col-lg-3" v-for="(product, i) in products.data" :key="i">
+                        <div
+                            class="col-6 col-md-4 col-lg-3"
+                            v-for="(product, i) in products.data"
+                            :key="i"
+                        >
                             <div class="card product-card">
                                 <div class="card-body">
                                     <span
@@ -150,7 +206,11 @@
                                     ></a>
                                     <Link
                                         class="product-thumbnail d-block"
-                                        :href="route('product.show', {id: product.slug})"
+                                        :href="
+                                            route('product.show', {
+                                                id: product.slug,
+                                            })
+                                        "
                                         ><img
                                             class="mb-2"
                                             :src="product.files[0]?.src"
@@ -159,11 +219,17 @@
                                     </Link>
                                     <Link
                                         class="product-title d-block"
-                                        :href="route('product.show', {id: product.slug})"
+                                        :href="
+                                            route('product.show', {
+                                                id: product.slug,
+                                            })
+                                        "
                                         >{{ product.name }}</Link
                                     >
                                     <p class="sale-price">
-                                        {{ product.price_rp }}<br/><span>{{ product.strike_price_rp }}</span>
+                                        {{ product.price_rp }}<br /><span>{{
+                                            product.strike_price_rp
+                                        }}</span>
                                     </p>
                                     <div class="product-rating">
                                         <i class="lni lni-star-filled"></i
@@ -172,20 +238,19 @@
                                         ><i class="lni lni-star-filled"></i
                                         ><i class="lni lni-star-filled"></i>
                                     </div>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="cta-area">
+            <div class="cta-area py-3">
                 <div class="container">
                     <div
                         class="cta-text p-4 p-lg-5"
-                        :style="{backgroundImage: `url('${event.banner_url}')`}"
+                        :style="{
+                            backgroundImage: `url('${event.banner_url}')`,
+                        }"
                     >
                         <h4 class="text-white">{{ event.title }}</h4>
                         <p class="text-white">
@@ -194,52 +259,66 @@
                     </div>
                 </div>
             </div>
-            <div class="weekly-best-seller-area py-3">
+            <div class="container mt-4">
+                <div
+                    class="section-heading d-flex align-items-center justify-content-between"
+                >
+                    <h6 class="fw-bold">PRODUK TERLARIS</h6>
+                </div>
+            </div>
+            <div class="weekly-best-seller-area pb-3">
                 <div class="container">
-                    <div
-                        class="section-heading d-flex align-items-center justify-content-between"
-                    >
-                        <h6>Terlaris Minggu Ini</h6>
-                    </div>
                     <div class="row g-3">
-                        <div class="col-12 col-md-6">
+                        <div
+                            class="col-12 col-md-6"
+                            v-for="(data, i) in product_best_sellers"
+                            :key="i"
+                        >
                             <div class="card horizontal-product-card">
-                                <div
-                                    class="card-body d-flex align-items-center"
-                                >
+                                <div class="card-body d-flex">
                                     <div class="product-thumbnail-side">
-                                        <span class="badge badge-success"
+                                        <span
+                                            class="badge rounded-pill badge-success"
                                             >Sale</span
                                         ><a class="wishlist-btn" href="#"
                                             ><i class="lni lni-heart"></i
                                         ></a>
-                                        <a
+                                        <Link
                                             class="product-thumbnail d-block"
-                                            href="single-product.html"
+                                            :href="
+                                                route('product.show', {
+                                                    id: data.slug,
+                                                })
+                                            "
                                             ><img
-                                                src="img/product/10.png"
-                                                alt=""
-                                        /></a>
+                                                :src="data.files[0]?.src"
+                                                :alt="data.files[0]?.alt"
+                                        /></Link>
                                     </div>
                                     <div class="product-description">
-                                        <a
+                                        <Link
                                             class="product-title d-block"
-                                            href="single-product.html"
-                                            >Modern Sofa</a
-                                        >
+                                            :href="
+                                                route('product.show', {
+                                                    id: data.slug,
+                                                })
+                                            "
+                                            >{{ data.name }}
+                                        </Link>
                                         <p class="sale-price">
-                                            <i class="lni lni-dollar"></i
-                                            >$64<span>$89</span>
+                                            {{ data.price_rp }}<br /><span>{{
+                                                data.strike_price_rp
+                                            }}</span>
                                         </p>
-                                        <div class="product-rating">
-                                            <i class="lni lni-star-filled"></i
-                                            >4.88 (39)
-                                        </div>
-                                        <a
+                                        <Link
                                             class="btn btn-danger btn-sm"
-                                            href="#"
+                                            :href="
+                                                route('product.show', {
+                                                    id: data.slug,
+                                                })
+                                            "
                                             ><i class="me-1 lni lni-cart"></i
-                                            >Buy Now</a
+                                            >Beli</Link
                                         >
                                     </div>
                                 </div>
@@ -248,68 +327,34 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="card discount-coupon-card">
-                    <div class="card-body">
-                        <h2 class="text-white">Gunakan Code Voucher saat checkout ya!</h2>
-                        <div
-                            class="coupon-text-wrap d-flex align-items-center p-3"
-                            v-for="(voucher, i) in vouchers.data"
-                            :key="i"
-                        >
-                            <h4 class="text-white pe-3 mb-0">
-                                <strong>{{ voucher.code }}</strong>
-                            </h4>
-                            <p class="text-white ps-3 mb-0">{{ voucher.desc }}</p>
-                        </div>
-                    </div>
+            <div class="container mt-4">
+                <div
+                    class="section-heading d-flex align-items-center justify-content-between"
+                >
+                    <h6 class="fw-bold">VOUCHER</h6>
                 </div>
             </div>
-            <div class="featured-products-wrapper py-3">
-                <div class="container">
-                    <div
-                        class="section-heading d-flex align-items-center justify-content-between"
-                    >
-                        <h6>Jangan Lupa Alat Bertani Anda Di Sini</h6>
-                        <a class="btn" href="featured-products.html"
-                            >Lihat Semua</a
-                        >
+            <div class="container pb-3 px-4">
+                <div
+                    class="row mb-3 shadow-sm bg-white rounded"
+                    v-for="(voucher, i) in vouchers"
+                    :key="i"
+                >
+                    <div class="col-4 bg-success rounded-start py-4">
+                        <p class="small text-white">Kode</p>
+                        <h1 class="text-white pe-3 mb-0 fw-bold">
+                            {{ voucher.code }}
+                        </h1>
                     </div>
-                    <div class="row g-3">
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card featured-product-card">
-                                <div class="card-body">
-                                    <span
-                                        class="badge badge-warning custom-badge"
-                                        ><i class="lni lni-star"></i
-                                    ></span>
-                                    <div class="product-thumbnail-side">
-                                        <a
-                                            class="wishlist-btn shadow-sm border"
-                                            href="#"
-                                            ><i class="lni lni-heart"></i
-                                        ></a>
-                                        <a
-                                            class="product-thumbnail d-block"
-                                            href="single-product.html"
-                                            ><img
-                                                src="img/product/14.png"
-                                                alt=""
-                                        /></a>
-                                    </div>
-                                    <div class="product-description">
-                                        <a
-                                            class="product-title d-block"
-                                            href="single-product.html"
-                                            >Blue Skateboard</a
-                                        >
-                                        <p class="sale-price">
-                                            $39.8<span>$89</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-8 rounded-end py-3">
+                        <span>Min. order</span>
+                        <p class="fw-bold">
+                            {{ voucher.min_order_rp }}
+                        </p>
+                        <span class="small"
+                            >Berlaku hingga:
+                            {{ voucher.expired_at_formatted }}</span
+                        >
                     </div>
                 </div>
             </div>
@@ -318,29 +363,3 @@
         <Footer></Footer>
     </div>
 </template>
-
-<script setup>
-    import { Link } from "@inertiajs/inertia-vue3";
-    import Header from "./../Shared/Homepage/Header.vue";
-    import Sidebar from "./../Shared/Homepage/Sidebar.vue";
-    import Footer from "./../Shared/Footer.vue";
-    import { Head } from '@inertiajs/inertia-vue3'
-    import { reactive, ref } from "@vue/reactivity";
-    import { onMounted } from "@vue/runtime-core";
-
-    const props = defineProps({
-        meta_title: String,
-        meta_description: String,
-        meta_keyword: String,
-        banners: Object,
-        categories: Object,
-        event: Object,
-        products: Object,
-        vouchers: Object
-    })
-
-    const metaTitle = ref(props.meta_title)
-    const metaDescription = ref(props.meta_description)
-    const metaKeyword = ref(props.meta_keyword)
-
-</script>

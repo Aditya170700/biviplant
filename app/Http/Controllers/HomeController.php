@@ -23,8 +23,7 @@ class HomeController extends Controller
         VoucherInterface $voucherInterface,
         CategoryInterface $categoryInterface,
         SettingInterface $settingInterface
-    )
-    {
+    ) {
         $this->request = $request;
         $this->eventInterface = $eventInterface;
         $this->bannerInterface = $bannerInterface;
@@ -42,7 +41,8 @@ class HomeController extends Controller
                 'categories' => $this->categoryInterface->getPaginated($this->request),
                 'event' => $this->eventInterface->getOne(),
                 'products' => $this->productInterface->featuredProducts(),
-                'vouchers' => $this->voucherInterface->getPaginated($this->request),
+                'product_best_sellers' => $this->productInterface->getBestSeller($this->request),
+                'vouchers' => $this->voucherInterface->getActive(),
                 'meta_title' => $this->setting->meta_title,
                 'meta_description' => $this->setting->meta_description,
                 'meta_keyword' => $this->setting->meta_keyword,

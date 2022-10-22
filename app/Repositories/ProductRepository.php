@@ -51,6 +51,15 @@ class ProductRepository implements ProductInterface
             ->findOrFail($id);
     }
 
+    public function getBestSeller($request)
+    {
+        return $this->model
+            ->withCount('order_details')
+            ->with('files')
+            ->orderBy('order_details_count', 'desc')
+            ->get($request->limit ?? 5);
+    }
+
     public function search(string $keyword)
     {
         return $this->model

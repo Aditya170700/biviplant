@@ -27,6 +27,15 @@ class VoucherRepository implements VoucherInterface
             ->paginate($request->limit ?? 25);
     }
 
+    public function getActive()
+    {
+        return $this->model
+            ->withCount('orders')
+            ->where('expired_at', '>=', now())
+            ->where('limit', '>', 'orders_count')
+            ->get();
+    }
+
     public function getById(string $id)
     {
         return $this->model
