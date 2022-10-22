@@ -43,6 +43,14 @@ class SettingRequestAdapter implements DataRequestAdapterInterface
             'about_us' => $data['about_us'],
             'privacy_policy' => $data['privacy_policy'],
             'logo' => $data['logo_url_adapter'],
+            'mail_mailer' => $data['mail_mailer'],
+            'mail_host' => $data['mail_host'],
+            'mail_port' => $data['mail_port'],
+            'mail_username' => $data['mail_username'],
+            'mail_password' => $data['mail_password'],
+            'mail_encryption' => $data['mail_encryption'],
+            'mail_from_address' => $data['mail_from_address'],
+            'mail_from_name' => $data['mail_from_name'],
         ];
     }
 
@@ -61,6 +69,14 @@ class SettingRequestAdapter implements DataRequestAdapterInterface
             'about_us' => 'Tentang Kami',
             'privacy_policy' => 'Kebijakan Pribadi',
             'logo' => 'Logo',
+            'mail_mailer' => 'Mail Mailer',
+            'mail_host' => 'Mail Host',
+            'mail_port' => 'Mail Port',
+            'mail_username' => 'Mail Username',
+            'mail_password' => 'Mail Password',
+            'mail_encryption' => 'Mail Encryption',
+            'mail_from_address' => 'Mail From Address',
+            'mail_from_name' => 'Mail From Name',
         ];
     }
 }
