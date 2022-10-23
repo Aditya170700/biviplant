@@ -83,6 +83,7 @@ class OrderRepository implements OrderInterface
                 },
                 'user',
             ])
+            ->withCount('feedbacks')
             ->findOrFail($id);
     }
 

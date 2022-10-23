@@ -30,6 +30,11 @@ class Order extends Model
         return $this->hasMany(OrderDetail::class);
     }
 
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class);
+    }
+
     protected function totalRp(): Attribute
     {
         return Attribute::make(

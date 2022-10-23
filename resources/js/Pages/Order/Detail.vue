@@ -367,19 +367,26 @@ function finishOrder(orderId) {
                                 <div
                                     class="col-12"
                                     v-if="
-                                        attrs.order.payment_status == 'Selesai'
+                                        attrs.order.payment_status ==
+                                            'Selesai' &&
+                                        attrs.order.feedbacks_count < 1
                                     "
                                 >
                                     <div class="d-grid">
-                                        <button
+                                        <Link
                                             class="btn btn-sm btn-light text-white"
                                             style="
                                                 background-color: #00b893 !important;
                                             "
+                                            :href="
+                                                route('rating.index', {
+                                                    id: attrs.order.id,
+                                                })
+                                            "
                                         >
                                             <i class="lni lni-pencil me-2"></i
                                             >Nilai
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

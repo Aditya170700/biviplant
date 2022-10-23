@@ -17,9 +17,9 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('user_id')->index();
             $table->uuid('product_id')->index();
-            $table->string('comment');
-            $table->tinyInteger('rating');
-            $table->integer('like');
+            $table->string('comment')->nullable();
+            $table->tinyInteger('rating')->nullable();
+            $table->integer('like')->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');
