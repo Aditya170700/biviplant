@@ -81,6 +81,7 @@ class OrderRepository implements OrderInterface
                         'product.files',
                     ]);
                 },
+                'user',
             ])
             ->findOrFail($id);
     }

@@ -22,6 +22,9 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
+Route::get('/test', function () {
+    return view('email.admin.new-order');
+});
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/tentang-kami', [HomeController::class, 'aboutUs'])->name('about_us');
 

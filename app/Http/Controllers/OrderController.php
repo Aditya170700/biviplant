@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Front\Order\StoreRequest;
-use App\Interfaces\CartInterface;
-use App\Interfaces\OrderDetailInterface;
-use App\Interfaces\OrderInterface;
-use App\Services\Order as OrderService;
 use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
+use App\Jobs\NewOrderJob;
+use Illuminate\Http\Request;
+use App\Interfaces\CartInterface;
+use App\Interfaces\OrderInterface;
+use Illuminate\Support\Facades\DB;
+use App\Services\Order as OrderService;
+use App\Interfaces\OrderDetailInterface;
+use App\Http\Requests\Front\Order\StoreRequest;
 
 class OrderController extends Controller
 {
@@ -105,8 +106,9 @@ class OrderController extends Controller
 
                 $this->cartInterface->delete($cart);
             }
-
             DB::commit();
+
+            dispatch(new NewOrderJob($this->orderInterface->getById($uuid)));
         } catch (\Throwable $th) {
             DB::rollBack();
             throw $th;
