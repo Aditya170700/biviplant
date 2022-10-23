@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Mail\Customer;
+namespace App\Mail\Admin;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewOrderMail extends Mailable
+class PaymentMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,7 +30,7 @@ class NewOrderMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.customer.new-order')
-            ->subject('Pesanan Baru');
+        return $this->view('email.admin.payment')
+            ->subject('Pembayaran Berhasil');
     }
 }

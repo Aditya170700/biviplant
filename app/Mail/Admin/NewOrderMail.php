@@ -30,6 +30,7 @@ class NewOrderMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.admin.new-order');
+        return $this->view('email.admin.new-order')
+            ->subject('Pesanan Baru');
     }
 }

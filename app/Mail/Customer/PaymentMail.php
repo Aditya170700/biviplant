@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewOrderMail extends Mailable
+class PaymentMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,7 +30,7 @@ class NewOrderMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.customer.new-order')
-            ->subject('Pesanan Baru');
+        return $this->view('email.customer.payment')
+            ->subject('Pembayaran Berhasil');
     }
 }

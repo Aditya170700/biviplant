@@ -89,6 +89,7 @@ class OrderRepository implements OrderInterface
     public function getByTrxId(string $trxId)
     {
         return $this->model
+            ->with('user')
             ->where('payment_id', $trxId)
             ->firstOrFail();
     }
