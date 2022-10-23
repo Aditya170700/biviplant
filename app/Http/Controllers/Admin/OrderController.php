@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Interfaces\OrderInterface;
 use App\Http\Controllers\Controller;
 use App\Interfaces\OrderDetailInterface;
+use App\Jobs\ShippingJob;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
@@ -60,10 +61,10 @@ class OrderController extends Controller
 
             $this->orderDetailInterface
                 ->updateReceipt($request, $orderDetail);
-
-            if ($this->orderDetailInterface->checkReceipt($orderDetail->order_id)) {
+            if (!$this->orderDetailInterface->checkReceipt($orderDetail->order_id)) {
                 $this->orderInterface
                     ->updateStatus('Dikirim', $orderDetail->order);
+                dispatch(new ShippingJob($this->orderInterface->getById($orderDetail->order_id)));
             } else {
                 $this->orderInterface
                     ->updateStatus('Dikemas', $orderDetail->order);

@@ -126,6 +126,16 @@
         margin-top: 2rem !important;
     }
 
+    .my-3 {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .my-4 {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+    }
+
     .fw-bold {
         font-weight: bold !important;
     }

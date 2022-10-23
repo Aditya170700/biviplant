@@ -57,7 +57,7 @@ class OrderDetailRepository implements OrderDetailInterface
     {
         return $this->model
             ->where('order_id', $orderId)
-            ->whereNotNull('receipt')
+            ->whereNull('receipt')
             ->exists();
     }
 }

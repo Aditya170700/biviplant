@@ -98,6 +98,7 @@ class OrderRepository implements OrderInterface
     {
         return $model->update([
             'payment_status' => $status,
+            'send_at' => $status == 'Dikirim' ? now() : null,
         ]);
     }
 
