@@ -60,6 +60,7 @@ Route::middleware(['auth'])
                 Route::get('/history', 'history')->name('history');
                 Route::get('/{id}/detail', 'detail')->name('detail');
                 Route::get('/{id}/track', 'track')->name('track');
+                Route::put('/{id}/finish', 'finish')->name('finish');
             });
     });
 

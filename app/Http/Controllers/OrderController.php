@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use App\Services\Order as OrderService;
 use App\Interfaces\OrderDetailInterface;
 use App\Http\Requests\Front\Order\StoreRequest;
+use App\Jobs\FinishJob;
 
 class OrderController extends Controller
 {
@@ -146,6 +147,25 @@ class OrderController extends Controller
             return Inertia::render('Order/Track', [
                 'order_detail' => $this->orderDetailInterface->getById($id),
             ]);
+        } catch (\Throwable $th) {
+            panic($th);
+        }
+    }
+
+    public function finish(string $id)
+    {
+        try {
+            $order = $this->orderInterface->getById($id);
+
+            if ($order->payment_status != 'Dikirim') {
+                throw new Exception('Order belum dibayar', 422);
+            }
+
+            $this->orderInterface->updateStatus('Selesai', $order);
+
+            dispatch(new FinishJob($order));
+
+            return redirect()->back()->with('success', 'Pesanan selesai');
         } catch (\Throwable $th) {
             panic($th);
         }

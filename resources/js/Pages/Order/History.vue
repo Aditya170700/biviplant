@@ -136,7 +136,7 @@ let attrs = useAttrs();
                                 >
                                     Selesai
                                 </Link>
-                                <Link
+                                <!-- <Link
                                     :class="`col-5 text-center py-2 rounded ${
                                         attrs.status == 'Dibatalkan'
                                             ? 'text-white'
@@ -173,7 +173,7 @@ let attrs = useAttrs();
                                     "
                                 >
                                     Pengembalian
-                                </Link>
+                                </Link> -->
                             </div>
                             <div v-if="attrs.order.data.length > 0">
                                 <div

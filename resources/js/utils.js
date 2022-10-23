@@ -67,5 +67,5 @@ export const rupiah = (number)=>{
 }
 
 export const formatDate = (date, format) => {
-    return moment(date).format(format);
+    return date == '-' ? date : moment(date).format(format);
 }
