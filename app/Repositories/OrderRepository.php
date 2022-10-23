@@ -96,11 +96,15 @@ class OrderRepository implements OrderInterface
 
     public function updateStatus(string $status, Order $model)
     {
+        $sendAt = $model->send_at == '-' ? NULL : $model->send_at;
+        $paidAt = $model->paid_at == '-' ? NULL : $model->paid_at;
+        $finishAt = $model->finish_at == '-' ? NULL : $model->finish_at;
+
         return $model->update([
             'payment_status' => $status,
-            'send_at' => $status == 'Dikirim' ? now() : $model->send_at,
-            'paid_at' => $status == 'Dikemas' ? now() : $model->paid_at,
-            'finish_at' => $status == 'Selesai' ? now() : $model->finish_at,
+            'send_at' => $status == 'Dikirim' ? now() : $sendAt,
+            'paid_at' => $status == 'Dikemas' ? now() : $paidAt,
+            'finish_at' => $status == 'Selesai' ? now() : $finishAt,
         ]);
     }
 

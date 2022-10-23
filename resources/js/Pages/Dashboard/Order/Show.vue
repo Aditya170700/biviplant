@@ -324,6 +324,23 @@
                                 </div>
                                 <hr class="mt-2" />
                             </div>
+                            <div
+                                class="col-12"
+                                v-if="attrs.order.payment_status == 'Dikirim'"
+                            >
+                                <div class="d-grid">
+                                    <button
+                                        class="btn btn-sm btn-light text-white"
+                                        style="
+                                            background-color: #00b893 !important;
+                                        "
+                                        @click="finishOrder(attrs.order.id)"
+                                    >
+                                        <i class="fas fa-gift me-2"></i>Pesanan
+                                        sudah diterima?
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -367,5 +384,16 @@ function updateReceipt(detail) {
             );
         }
     });
+}
+
+function finishOrder(orderId) {
+    Inertia.post(
+        route("admin.orders.finish", {
+            id: orderId,
+        }),
+        {
+            _method: "put",
+        }
+    );
 }
 </script>

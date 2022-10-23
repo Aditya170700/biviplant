@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use Inertia\Inertia;
+use App\Jobs\FinishJob;
+use App\Jobs\ShippingJob;
 use Illuminate\Http\Request;
 use App\Interfaces\OrderInterface;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Interfaces\OrderDetailInterface;
-use App\Jobs\ShippingJob;
-use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -75,6 +77,25 @@ class OrderController extends Controller
                 ->with('success', 'Resi berhasil diupdate');
         } catch (\Throwable $th) {
             DB::rollBack();
+            panic($th);
+        }
+    }
+
+    public function finish(string $id)
+    {
+        try {
+            $order = $this->orderInterface->getById($id);
+
+            if ($order->payment_status != 'Dikirim') {
+                throw new Exception('Order belum dibayar', 422);
+            }
+
+            $this->orderInterface->updateStatus('Selesai', $order);
+
+            dispatch(new FinishJob($order));
+
+            return redirect()->back()->with('success', 'Pesanan diselesaikan');
+        } catch (\Throwable $th) {
             panic($th);
         }
     }
