@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\ShippingCostController;
 use App\Http\Controllers\Api\SubdistrictController;
 use App\Http\Controllers\Api\VoucherController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\RatingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -62,4 +63,10 @@ Route::controller(ProductController::class)
     ->prefix('products')
     ->group(function () {
         Route::get('/', 'index');
+    });
+
+Route::controller(RatingController::class)
+    ->prefix('feedbacks')
+    ->group(function () {
+        Route::get('/{productId}', 'index');
     });
