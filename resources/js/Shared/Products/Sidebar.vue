@@ -99,7 +99,7 @@ let store = useStore();
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                         <div class="widget ratings mb-4">
                             <h6 class="widget-title mb-2">Bintang</h6>
                             <div class="widget-desc">
@@ -226,7 +226,7 @@ let store = useStore();
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

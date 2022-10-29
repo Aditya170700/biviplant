@@ -312,13 +312,13 @@ watch(
                                 }}<span>{{ product.strike_price_rp }}</span>
                             </p>
                         </div>
-                        <div class="p-wishlist-share">
+                        <!-- <div class="p-wishlist-share">
                             <a href="wishlist-grid.html"
                                 ><i class="lni lni-heart"></i
                             ></a>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="product-ratings">
+                    <!-- <div class="product-ratings">
                         <div
                             class="container d-flex align-items-center justify-content-between"
                         >
@@ -334,7 +334,7 @@ watch(
                                 <span>5.0</span><span>Very Good </span>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="container my-2">
                         <hr />
                         <div class="sales-offer-content d-flex mt-2">
@@ -478,10 +478,10 @@ watch(
                                     <i class="lni lni-checkmark-circle"> </i>
                                     100% Kualitas Unggul
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <i class="lni lni-checkmark-circle"> </i> 7
                                     Hari Retur
-                                </li>
+                                </li> -->
                                 <li>
                                     <i class="lni lni-checkmark-circle"> </i>
                                     Bergaransi
@@ -491,10 +491,10 @@ watch(
                                     100% Terpercaya
                                 </li>
                             </ul>
-                            <p>
+                            <!-- <p>
                                 Deskripsi untuk ajakan beli dan benefit jika
                                 membeli dan kemudahannya.
-                            </p>
+                            </p> -->
                         </div>
                         <div class="sales-offer-content mb-2">
                             <hr class="my-2" />
@@ -520,11 +520,7 @@ watch(
                                         :key="i"
                                     >
                                         <div class="card product-card">
-                                            <div class="card-body">
-                                                <span
-                                                    class="badge rounded-pill badge-warning"
-                                                    >Sale</span
-                                                >
+                                            <div class="card-body text-start">
                                                 <Link
                                                     class="product-thumbnail d-block"
                                                     :href="

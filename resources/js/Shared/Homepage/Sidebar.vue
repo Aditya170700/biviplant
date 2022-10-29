@@ -51,29 +51,29 @@
                         ><i class="lni lni-package"></i>Riwayat Pesanan</Link
                     >
                 </li>
-                <li>
+                <!-- <li>
                     <a href="notifications.html"
                         ><i class="lni lni-alarm lni-tada-effect"></i
                         >Notifications<span class="ms-3 badge badge-warning"
                             >3</span
                         ></a
                     >
-                </li>
-                <li class="suha-dropdown-menu">
+                </li> -->
+                <!-- <li class="suha-dropdown-menu">
                     <a href="wishlist-grid.html"
                         ><i class="lni lni-heart"></i>My Wishlist</a
                     >
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                     <Link :href="route('about_us')"
                         ><i class="lni lni-users"></i>Tentang Kami</Link
                     >
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                     <a href="settings.html"
                         ><i class="lni lni-cog"></i>Settings</a
                     >
-                </li>
+                </li> -->
                 <li>
                     <a href="#" @click="logout"
                         ><i class="lni lni-power-switch"></i>Sign Out</a
