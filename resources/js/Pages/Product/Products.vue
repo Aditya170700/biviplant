@@ -116,24 +116,6 @@ watch(store.state.filterProduct, (val) => {
         <div class="page-content-wrapper bg-fug">
             <div class="top-products-area py-3">
                 <div class="container">
-                    <!-- <div
-                        class="section-heading d-flex align-items-center justify-content-between"
-                    >
-                        <h6>Semua Produk</h6>
-                        <div class="select-product-catagory">
-                            <select
-                                class="form-select"
-                                id="selectProductCatagory"
-                                name="selectProductCatagory"
-                                aria-label="Default select example"
-                            >
-                                <option selected>Urutkan</option>
-                                <option value="1">Newest</option>
-                                <option value="2">Popular</option>
-                                <option value="3">Ratings</option>
-                            </select>
-                        </div>
-                    </div> -->
                     <div class="product-catagories">
                         <div class="row g-3">
                             <div
@@ -160,14 +142,6 @@ watch(store.state.filterProduct, (val) => {
                         >
                             <div class="card product-card">
                                 <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-warning"
-                                    >
-                                        Sale
-                                    </span>
-                                    <a class="wishlist-btn" href="#">
-                                        <i class="lni lni-heart"> </i>
-                                    </a>
                                     <Link
                                         class="product-thumbnail d-block"
                                         :href="
@@ -196,13 +170,6 @@ watch(store.state.filterProduct, (val) => {
                                             product.strike_price_rp
                                         }}</span>
                                     </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
                                     <a class="btn btn-success btn-sm" href="#"
                                         ><i class="lni lni-plus"></i
                                     ></a>

@@ -198,12 +198,6 @@ const metaKeyword = ref(props.meta_keyword);
                         >
                             <div class="card product-card">
                                 <div class="card-body">
-                                    <span
-                                        class="badge rounded-pill badge-warning"
-                                        >Sale</span
-                                    ><a class="wishlist-btn" href="#"
-                                        ><i class="lni lni-heart"> </i
-                                    ></a>
                                     <Link
                                         class="product-thumbnail d-block"
                                         :href="
@@ -231,13 +225,6 @@ const metaKeyword = ref(props.meta_keyword);
                                             product.strike_price_rp
                                         }}</span>
                                     </p>
-                                    <div class="product-rating">
-                                        <i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i
-                                        ><i class="lni lni-star-filled"></i>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -277,12 +264,6 @@ const metaKeyword = ref(props.meta_keyword);
                             <div class="card horizontal-product-card">
                                 <div class="card-body d-flex">
                                     <div class="product-thumbnail-side">
-                                        <span
-                                            class="badge rounded-pill badge-success"
-                                            >Sale</span
-                                        ><a class="wishlist-btn" href="#"
-                                            ><i class="lni lni-heart"></i
-                                        ></a>
                                         <Link
                                             class="product-thumbnail d-block"
                                             :href="
@@ -327,7 +308,7 @@ const metaKeyword = ref(props.meta_keyword);
                     </div>
                 </div>
             </div>
-            <div class="container mt-4">
+            <div class="container mt-4" v-if="vouchers.length > 0">
                 <div
                     class="section-heading d-flex align-items-center justify-content-between"
                 >
