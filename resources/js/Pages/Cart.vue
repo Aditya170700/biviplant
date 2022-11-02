@@ -11,6 +11,7 @@ import AddressModal from "./AddressModal.vue";
 import CourierModal from "./CourierModal.vue";
 import { Inertia } from "@inertiajs/inertia";
 import axios from "axios";
+import { throws } from "assert";
 
 let attrs = useAttrs();
 const props = defineProps({
@@ -18,7 +19,11 @@ const props = defineProps({
     meta_description: String,
     meta_keyword: String,
 });
-
+let voucherCode = reactive({
+    code: "",
+    data: null,
+    loading: false,
+});
 const metaTitle = ref(props.meta_title);
 const metaDescription = ref(props.meta_description);
 const metaKeyword = ref(props.meta_keyword);
@@ -61,6 +66,10 @@ function changeQty(cart, val) {
         return;
     }
 
+    voucherCode.code = "";
+    voucherCode.data = null;
+    voucher.value = 0;
+
     Inertia.put(
         route("cart.update", cart.id),
         {
@@ -95,6 +104,8 @@ function total() {
         shippingCost += ongkir;
     });
 
+    res -= voucher.value;
+
     return { res, strikeRes, shippingCost };
 }
 
@@ -120,7 +131,21 @@ function selectPaymentMethod(ipm, imethod) {
 }
 
 function checkVoucher() {
-    //
+    voucherCode.loading = true;
+    axios
+        .post("/api/vouchers/check", {
+            code: voucherCode.code,
+            total: total().res,
+        })
+        .then((res) => {
+            voucherCode.data = res.data.data;
+            voucher.value = (total().res * res.data.data.discount) / 100;
+            voucherCode.loading = false;
+        })
+        .catch((err) => {
+            toastError(err.response.data.message);
+            voucherCode.loading = false;
+        });
 }
 
 function checkout() {
@@ -155,6 +180,7 @@ function checkout() {
         {
             carts: attrs.carts,
             payment_method: paymentMethod.selected,
+            voucher_code: voucherCode.data?.code,
             voucher: voucher.value,
             total: total(),
         },
@@ -381,10 +407,46 @@ function checkout() {
                                     </p>
                                 </div>
                                 <div class="col-12">
-                                    <input
-                                        class="form-control"
-                                        placeholder="KODE-1234"
-                                    />
+                                    <div class="input-group mb-3">
+                                        <input
+                                            class="form-control"
+                                            placeholder="KODE"
+                                            v-model="voucherCode.code"
+                                        />
+                                        <button
+                                            class="btn btn-success"
+                                            @click="checkVoucher"
+                                            :disabled="
+                                                voucherCode.code == '' ||
+                                                voucherCode.loading
+                                            "
+                                        >
+                                            <i
+                                                class="lni lni-checkmark"
+                                                v-if="!voucherCode.loading"
+                                            ></i>
+                                            <div
+                                                class="spinner-border spinner-border-sm text-light"
+                                                role="status"
+                                                v-else
+                                            >
+                                                <span class="visually-hidden"
+                                                    >Loading...</span
+                                                >
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <span
+                                        class="small text-muted blink"
+                                        v-if="voucherCode.loading"
+                                        >Cek voucher...</span
+                                    >
+                                    <span
+                                        class="small text-success"
+                                        v-if="voucher > 0"
+                                        >Mendapat potongan sebesar
+                                        {{ rupiah(voucher) }}</span
+                                    >
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -642,7 +704,7 @@ function checkout() {
                                 >
                                     <span class="small fw-bold">Total</span>
                                     <span class="text-success fw-bold">{{
-                                        rupiah(total().res - voucher)
+                                        rupiah(total().res)
                                     }}</span>
                                 </div>
                                 <div
@@ -651,9 +713,7 @@ function checkout() {
                                     <span class="small fw-bold">Hemat</span>
                                     <span
                                         class="small text-muted text-decoration-line-through"
-                                        >{{
-                                            rupiah(total().strikeRes - voucher)
-                                        }}</span
+                                        >{{ rupiah(total().strikeRes) }}</span
                                     >
                                 </div>
                                 <div class="col-12">

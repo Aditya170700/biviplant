@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,13 @@ Route::middleware(['auth'])
                 Route::get('/edit', 'edit')->name('edit');
                 Route::put('/', 'update')->name('update');
             });
+        Route::controller(RatingController::class)
+            ->name('rating.')
+            ->prefix('rating')
+            ->group(function () {
+                Route::get('/{id}', 'index')->name('index');
+                Route::post('/store', 'store')->name('store');
+            });
         Route::controller(AddressController::class)
             ->name('address.')
             ->prefix('address')
@@ -57,6 +65,7 @@ Route::middleware(['auth'])
                 Route::get('/history', 'history')->name('history');
                 Route::get('/{id}/detail', 'detail')->name('detail');
                 Route::get('/{id}/track', 'track')->name('track');
+                Route::put('/{id}/finish', 'finish')->name('finish');
             });
     });
 

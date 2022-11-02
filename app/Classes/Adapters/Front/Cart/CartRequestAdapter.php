@@ -13,10 +13,10 @@ class CartRequestAdapter implements DataRequestAdapterInterface
             'product_id' => 'required',
             'user_address_id' => 'required',
             'qty' => 'required',
-            'courier' => 'required',
-            'shipping_service' => 'required',
-            'shipping_cost' => 'required',
-            'shipping_etd' => 'required',
+            // 'courier' => 'required',
+            // 'shipping_service' => 'required',
+            // 'shipping_cost' => 'required',
+            // 'shipping_etd' => 'required',
         ];
     }
 

@@ -6,7 +6,6 @@ use App\Interfaces\CategoryInterface;
 use App\Interfaces\ProductInterface;
 use App\Interfaces\SettingInterface;
 use App\Interfaces\UserAddressInterface;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 

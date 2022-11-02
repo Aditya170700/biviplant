@@ -28,11 +28,13 @@ use App\Repositories\SettingRepository;
 use App\Repositories\VoucherRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Interfaces\OrderDetailInterface;
+use App\Interfaces\RatingInterface;
 use App\Interfaces\SubdistrictInterface;
 use App\Interfaces\UserAddressInterface;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProvinceRepository;
 use App\Repositories\OrderDetailRepository;
+use App\Repositories\RatingRepository;
 use App\Repositories\SubdistrictRepository;
 use App\Repositories\UserAddressRepository;
 
@@ -61,6 +63,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(CartInterface::class, CartRepository::class);
         $this->app->bind(OrderInterface::class, OrderRepository::class);
         $this->app->bind(OrderDetailInterface::class, OrderDetailRepository::class);
+        $this->app->bind(RatingInterface::class, RatingRepository::class);
     }
 
     /**

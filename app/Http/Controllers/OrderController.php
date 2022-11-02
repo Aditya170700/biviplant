@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Front\Order\StoreRequest;
-use App\Interfaces\CartInterface;
-use App\Interfaces\OrderDetailInterface;
-use App\Interfaces\OrderInterface;
-use App\Services\Order as OrderService;
 use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
+use App\Jobs\NewOrderJob;
+use Illuminate\Http\Request;
+use App\Interfaces\CartInterface;
+use App\Interfaces\OrderInterface;
+use Illuminate\Support\Facades\DB;
+use App\Services\Order as OrderService;
+use App\Interfaces\OrderDetailInterface;
+use App\Http\Requests\Front\Order\StoreRequest;
+use App\Jobs\FinishJob;
 
 class OrderController extends Controller
 {
@@ -75,6 +77,7 @@ class OrderController extends Controller
                 'id' => $uuid,
                 'user_id' => auth()->user()->id,
                 'total' => $request->total['res'],
+                'voucher_code' => $request->voucher_code,
                 'voucher' => $request->voucher,
                 'pg_fee' => $request->payment_method['fee'],
                 'pg_fee_type' => $request->payment_method['feeType'],
@@ -104,8 +107,9 @@ class OrderController extends Controller
 
                 $this->cartInterface->delete($cart);
             }
-
             DB::commit();
+
+            dispatch(new NewOrderJob($this->orderInterface->getById($uuid)));
         } catch (\Throwable $th) {
             DB::rollBack();
             throw $th;
@@ -143,6 +147,25 @@ class OrderController extends Controller
             return Inertia::render('Order/Track', [
                 'order_detail' => $this->orderDetailInterface->getById($id),
             ]);
+        } catch (\Throwable $th) {
+            panic($th);
+        }
+    }
+
+    public function finish(string $id)
+    {
+        try {
+            $order = $this->orderInterface->getById($id);
+
+            if ($order->payment_status != 'Dikirim') {
+                throw new Exception('Order belum dibayar', 422);
+            }
+
+            $this->orderInterface->updateStatus('Selesai', $order);
+
+            dispatch(new FinishJob($order));
+
+            return redirect()->back()->with('success', 'Pesanan selesai');
         } catch (\Throwable $th) {
             panic($th);
         }

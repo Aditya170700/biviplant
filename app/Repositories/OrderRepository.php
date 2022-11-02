@@ -81,7 +81,48 @@ class OrderRepository implements OrderInterface
                         'product.files',
                     ]);
                 },
+                'user',
             ])
+            ->withCount('feedbacks')
             ->findOrFail($id);
+    }
+
+    public function getByTrxId(string $trxId)
+    {
+        return $this->model
+            ->with('user')
+            ->where('payment_id', $trxId)
+            ->firstOrFail();
+    }
+
+    public function updateStatus(string $status, Order $model)
+    {
+        $sendAt = $model->send_at == '-' ? NULL : $model->send_at;
+        $paidAt = $model->paid_at == '-' ? NULL : $model->paid_at;
+        $finishAt = $model->finish_at == '-' ? NULL : $model->finish_at;
+
+        return $model->update([
+            'payment_status' => $status,
+            'send_at' => $status == 'Dikirim' ? now() : $sendAt,
+            'paid_at' => $status == 'Dikemas' ? now() : $paidAt,
+            'finish_at' => $status == 'Selesai' ? now() : $finishAt,
+        ]);
+    }
+
+    public function getPaginated($request)
+    {
+        return $this->model
+            ->with([
+                'order_details.product',
+                'user'
+            ])
+            ->when($request->search, function ($query) use ($request) {
+                $query->whereHas('user', function ($query) use ($request) {
+                    $query->where('name', 'like', '%' . $request->search . '%');
+                });
+            })
+            ->withCount('order_details')
+            ->latest()
+            ->paginate($request->limit ?? 25);
     }
 }

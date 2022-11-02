@@ -1,10 +1,18 @@
+<script setup>
+import { useStore } from "vuex";
+
+let store = useStore();
+</script>
 <template>
     <div
         class="offcanvas offcanvas-start suha-filter-offcanvas-wrap"
         tabindex="-1"
         id="suhaFilterOffcanvas"
         aria-labelledby="suhaFilterOffcanvasLabel"
-        style="background: linear-gradient(to left, #fff, #fff) !important; width: 250px !important;"
+        style="
+            background: linear-gradient(to left, #fff, #fff) !important;
+            width: 250px !important;
+        "
     >
         <button
             class="btn-close text-reset"
@@ -24,60 +32,74 @@
                                 <div class="form-check">
                                     <input
                                         class="form-check-input"
-                                        id="zara"
+                                        id="pupuk"
                                         type="checkbox"
-                                        checked
+                                        value="Pupuk"
+                                        v-model="
+                                            store.state.filterProduct.categories
+                                        "
                                     />
-                                    <label class="form-check-label" for="zara"
-                                        >Zara</label
+                                    <label class="form-check-label" for="pupuk"
+                                        >Pupuk</label
                                     >
                                 </div>
                                 <div class="form-check">
                                     <input
                                         class="form-check-input"
-                                        id="Gucci"
+                                        id="tanaman"
                                         type="checkbox"
-                                    />
-                                    <label class="form-check-label" for="Gucci"
-                                        >Gucci</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="Addidas"
-                                        type="checkbox"
+                                        value="Tanaman"
+                                        v-model="
+                                            store.state.filterProduct.categories
+                                        "
                                     />
                                     <label
                                         class="form-check-label"
-                                        for="Addidas"
-                                        >Addidas</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="Nike"
-                                        type="checkbox"
-                                    />
-                                    <label class="form-check-label" for="Nike"
-                                        >Nike</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="Denim"
-                                        type="checkbox"
-                                    />
-                                    <label class="form-check-label" for="Denim"
-                                        >Denim</label
+                                        for="tanaman"
+                                        >Tanaman</label
                                     >
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
+                        <div class="widget catagory mb-4">
+                            <h6 class="widget-title mb-2">Urutkan</h6>
+                            <div class="widget-desc">
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="asc"
+                                        id="asc"
+                                        v-model="
+                                            store.state.filterProduct.sort_price
+                                        "
+                                        value="asc"
+                                    />
+                                    <label class="form-check-label" for="asc">
+                                        Harga Termurah
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="desc"
+                                        id="desc"
+                                        v-model="
+                                            store.state.filterProduct.sort_price
+                                        "
+                                        value="desc"
+                                    />
+                                    <label class="form-check-label" for="desc">
+                                        Harga Termahal
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-12">
                         <div class="widget ratings mb-4">
                             <h6 class="widget-title mb-2">Bintang</h6>
                             <div class="widget-desc">
@@ -204,42 +226,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="widget catagory mb-4">
-                            <h6 class="widget-title mb-2">Urutkan</h6>
-                            <div class="widget-desc">
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="zara"
-                                        type="checkbox"
-                                        checked
-                                    />
-                                    <label class="form-check-label" for="zara"
-                                        >Harga Termurah</label
-                                    >
-                                </div>
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        id="Gucci"
-                                        type="checkbox"
-                                    />
-                                    <label class="form-check-label" for="Gucci"
-                                        >Harga Termahal</label
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="apply-filter-btn">
-                            <a class="btn btn-success w-100" href=""
-                                >Terapkan Filer</a
-                            >
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

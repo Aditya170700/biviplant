@@ -18,7 +18,7 @@ class OrderDetailRepository implements OrderDetailInterface
             ->create($data);
     }
 
-    public function getById(string $id)
+    public function getById(string $id, $with = [])
     {
         return $this->model
             ->with([
@@ -41,7 +41,23 @@ class OrderDetailRepository implements OrderDetailInterface
                         ]);
                 },
                 'product.files',
+                ...$with,
             ])
             ->findOrFail($id);
+    }
+
+    public function updateReceipt($request, OrderDetail $model)
+    {
+        return $model->update([
+            'receipt' => $request->receipt,
+        ]);
+    }
+
+    public function checkReceipt(string $orderId)
+    {
+        return $this->model
+            ->where('order_id', $orderId)
+            ->whereNull('receipt')
+            ->exists();
     }
 }

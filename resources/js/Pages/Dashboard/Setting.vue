@@ -258,6 +258,177 @@
                                         />
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="mail_mailer"
+                                            class="form-label"
+                                            >Protokol Mail Server</label
+                                        >
+                                        <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            v-model="form.mail_mailer"
+                                        >
+                                            <option value="">Pilih</option>
+                                            <option value="smtp">SMTP</option>
+                                            <option value="imap">IMAP</option>
+                                            <option value="pop3">POP3</option>
+                                        </select>
+                                        <FormText
+                                            :id="'mail_mailer'"
+                                            :message="form.errors.mail_mailer"
+                                            v-if="form.errors.mail_mailer"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="mail_host"
+                                            class="form-label"
+                                            >Host</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="mail_host"
+                                            v-model="form.mail_host"
+                                        />
+                                        <FormText
+                                            :id="'mail_host'"
+                                            :message="form.errors.mail_host"
+                                            v-if="form.errors.mail_host"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="mail_port"
+                                            class="form-label"
+                                            >Port</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="mail_port"
+                                            v-model="form.mail_port"
+                                        />
+                                        <FormText
+                                            :id="'mail_port'"
+                                            :message="form.errors.mail_port"
+                                            v-if="form.errors.mail_port"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="mail_username"
+                                            class="form-label"
+                                            >Username</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="mail_username"
+                                            v-model="form.mail_username"
+                                        />
+                                        <FormText
+                                            :id="'mail_username'"
+                                            :message="form.errors.mail_username"
+                                            v-if="form.errors.mail_username"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="mail_password"
+                                            class="form-label"
+                                            >Password</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="mail_password"
+                                            v-model="form.mail_password"
+                                        />
+                                        <FormText
+                                            :id="'mail_password'"
+                                            :message="form.errors.mail_password"
+                                            v-if="form.errors.mail_password"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="mail_encryption"
+                                            class="form-label"
+                                            >Encryption</label
+                                        >
+                                        <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            v-model="form.mail_encryption"
+                                        >
+                                            <option value="">Pilih</option>
+                                            <option value="ssl">SSL</option>
+                                            <option value="tls">TLS</option>
+                                        </select>
+                                        <FormText
+                                            :id="'mail_encryption'"
+                                            :message="
+                                                form.errors.mail_encryption
+                                            "
+                                            v-if="form.errors.mail_encryption"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="mail_from_address"
+                                            class="form-label"
+                                            >Mail From Address</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="mail_from_address"
+                                            v-model="form.mail_from_address"
+                                        />
+                                        <FormText
+                                            :id="'mail_from_address'"
+                                            :message="
+                                                form.errors.mail_from_address
+                                            "
+                                            v-if="form.errors.mail_from_address"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="mail_from_name"
+                                            class="form-label"
+                                            >Mail From Name</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="mail_from_name"
+                                            v-model="form.mail_from_name"
+                                        />
+                                        <FormText
+                                            :id="'mail_from_name'"
+                                            :message="
+                                                form.errors.mail_from_name
+                                            "
+                                            v-if="form.errors.mail_from_name"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-lg-12">
                                     <button
                                         class="btn btn-primary btn-sm rounded-custom"
@@ -327,6 +498,14 @@ export default {
             about_us: props.result?.about_us ?? "",
             privacy_policy: props.result?.privacy_policy ?? "",
             logo: "",
+            mail_mailer: props.result?.mail_mailer ?? "smtp",
+            mail_host: props.result?.mail_host ?? "",
+            mail_port: props.result?.mail_port ?? "",
+            mail_username: props.result?.mail_username ?? "",
+            mail_password: props.result?.mail_password ?? "",
+            mail_encryption: props.result?.mail_encryption ?? "",
+            mail_from_address: props.result?.mail_from_address ?? "",
+            mail_from_name: props.result?.mail_from_name ?? "",
         });
         const logo = ref(props.result?.logo_url ?? "");
         const showLogoCroper = ref(false);

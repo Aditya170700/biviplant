@@ -31,6 +31,10 @@
         .rounded-custom {
             border-radius: .7rem;
         }
+
+        .pointer:hover {
+            cursor: pointer;
+        }
     </style>
 </head>
 

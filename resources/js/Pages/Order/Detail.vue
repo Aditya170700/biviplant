@@ -21,6 +21,17 @@ function copyClipboard(text, pesan) {
         }
     });
 }
+
+function finishOrder(orderId) {
+    Inertia.post(
+        route("orders.finish", {
+            id: orderId,
+        }),
+        {
+            _method: "put",
+        }
+    );
+}
 </script>
 
 <template>
@@ -334,17 +345,48 @@ function copyClipboard(text, pesan) {
                                     </div>
                                     <hr class="mt-2" />
                                 </div>
-                                <div class="col-12">
+                                <div
+                                    class="col-12"
+                                    v-if="
+                                        attrs.order.payment_status == 'Dikirim'
+                                    "
+                                >
                                     <div class="d-grid">
                                         <button
                                             class="btn btn-sm btn-light text-white"
                                             style="
                                                 background-color: #00b893 !important;
                                             "
+                                            @click="finishOrder(attrs.order.id)"
+                                        >
+                                            <i class="lni lni-gift me-2"></i
+                                            >Pesanan sudah diterima?
+                                        </button>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-12"
+                                    v-if="
+                                        attrs.order.payment_status ==
+                                            'Selesai' &&
+                                        attrs.order.feedbacks_count < 1
+                                    "
+                                >
+                                    <div class="d-grid">
+                                        <Link
+                                            class="btn btn-sm btn-light text-white"
+                                            style="
+                                                background-color: #00b893 !important;
+                                            "
+                                            :href="
+                                                route('rating.index', {
+                                                    id: attrs.order.id,
+                                                })
+                                            "
                                         >
                                             <i class="lni lni-pencil me-2"></i
                                             >Nilai
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

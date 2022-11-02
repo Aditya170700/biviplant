@@ -29,6 +29,10 @@ let props = defineProps({
     primary_address: Object,
 });
 
+onMounted(() => {
+    loadFeedback();
+});
+
 let primary_address = reactive(
     props.primary_address ?? JSON.parse(localStorage.getItem("primary_address"))
 );
@@ -44,6 +48,28 @@ let form = reactive({
     shipping_etd: null,
     qty: props.product.cart_user?.qty ?? 0 + 1,
 });
+
+let feedback = reactive({
+    data: [],
+    meta: null,
+    loading: false,
+    more: true,
+});
+
+function loadFeedback() {
+    axios
+        .get(`/api/feedbacks/${props.product.id}`)
+        .then((res) => {
+            feedback.data = res.data.data;
+            feedback.meta = res.data.meta;
+            feedback.loading = false;
+            // feedback.more = res.data.meta.current_page < res.data.meta.last_page;
+        })
+        .catch((err) => {
+            feedback.loading = false;
+            toastError(err.response.data.message);
+        });
+}
 
 const metaTitle = ref(props.meta_title);
 const metaDescription = ref(props.meta_description);
@@ -64,15 +90,15 @@ function buyNow() {
 }
 
 function storeCart() {
-    if (store.getters.courier == null) {
-        toastError("Silahkan pilih kurir terlebih dahulu");
-        return;
-    }
+    // if (store.getters.courier == null) {
+    //     toastError("Silahkan pilih kurir terlebih dahulu");
+    //     return;
+    // }
 
-    form.courier = store.getters.courier.name;
-    form.shipping_service = store.getters.courier.service;
-    form.shipping_cost = store.getters.courier.value;
-    form.shipping_etd = store.getters.courier.etd;
+    // form.courier = store.getters.courier.name;
+    // form.shipping_service = store.getters.courier.service;
+    // form.shipping_cost = store.getters.courier.value;
+    // form.shipping_etd = store.getters.courier.etd;
 
     if (props.product.cart_user == null) {
         axios
@@ -286,13 +312,13 @@ watch(
                                 }}<span>{{ product.strike_price_rp }}</span>
                             </p>
                         </div>
-                        <div class="p-wishlist-share">
+                        <!-- <div class="p-wishlist-share">
                             <a href="wishlist-grid.html"
                                 ><i class="lni lni-heart"></i
                             ></a>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="product-ratings">
+                    <!-- <div class="product-ratings">
                         <div
                             class="container d-flex align-items-center justify-content-between"
                         >
@@ -308,7 +334,7 @@ watch(
                                 <span>5.0</span><span>Very Good </span>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="container my-2">
                         <hr />
                         <div class="sales-offer-content d-flex mt-2">
@@ -383,7 +409,7 @@ watch(
                         </div>
                         <div class="sales-offer-content d-flex mt-2">
                             <div class="col-3">
-                                <p class="mb-1 fw-bold">Kurir</p>
+                                <p class="mb-1 fw-bold">Ongkir</p>
                             </div>
                             <div class="col-9">
                                 <a
@@ -415,7 +441,7 @@ watch(
                                             </p>
                                         </div>
                                         <div v-else>
-                                            <p>Belum pilih kurir</p>
+                                            <p>Cek Ongkir</p>
                                         </div>
                                         <i
                                             class="lni lni-chevron-right small"
@@ -452,10 +478,10 @@ watch(
                                     <i class="lni lni-checkmark-circle"> </i>
                                     100% Kualitas Unggul
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <i class="lni lni-checkmark-circle"> </i> 7
                                     Hari Retur
-                                </li>
+                                </li> -->
                                 <li>
                                     <i class="lni lni-checkmark-circle"> </i>
                                     Bergaransi
@@ -465,10 +491,10 @@ watch(
                                     100% Terpercaya
                                 </li>
                             </ul>
-                            <p>
+                            <!-- <p>
                                 Deskripsi untuk ajakan beli dan benefit jika
                                 membeli dan kemudahannya.
-                            </p>
+                            </p> -->
                         </div>
                         <div class="sales-offer-content mb-2">
                             <hr class="my-2" />
@@ -494,11 +520,7 @@ watch(
                                         :key="i"
                                     >
                                         <div class="card product-card">
-                                            <div class="card-body">
-                                                <span
-                                                    class="badge rounded-pill badge-warning"
-                                                    >Sale</span
-                                                >
+                                            <div class="card-body text-start">
                                                 <Link
                                                     class="product-thumbnail d-block"
                                                     :href="
@@ -545,133 +567,75 @@ watch(
                             <div
                                 class="d-flex justify-content-between align-items-center mb-2"
                             >
-                                <h6>Bintang & Ulasan</h6>
+                                <h6>Ulasan</h6>
                             </div>
                             <div class="rating-review-content">
                                 <ul class="ps-0">
-                                    <li class="single-user-review d-flex">
-                                        <div class="user-thumbnail">
-                                            <img
-                                                src="/img/bg-img/7.jpg"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="rating-comment">
-                                            <div class="rating">
-                                                <i
-                                                    class="lni lni-star-filled"
-                                                ></i
-                                                ><i
-                                                    class="lni lni-star-filled"
-                                                ></i
-                                                ><i
-                                                    class="lni lni-star-filled"
-                                                ></i
-                                                ><i
-                                                    class="lni lni-star-filled"
-                                                ></i
-                                                ><i
-                                                    class="lni lni-star-filled"
-                                                ></i>
-                                            </div>
-                                            <p class="comment mb-0">
-                                                Very good product. It's just
-                                                amazing!
-                                            </p>
-                                            <span class="name-date"
-                                                >Designing World 12 Dec
-                                                2021</span
-                                            ><a
-                                                class="review-image mt-2 border rounded"
-                                                href="/img/product/3.png"
-                                                ><img
-                                                    class="rounded-3"
-                                                    src="/img/product/3.png"
-                                                    alt=""
-                                            /></a>
-                                        </div>
+                                    <li
+                                        class="single-user-review d-flex"
+                                        v-if="feedback.data.length < 1"
+                                    >
+                                        Belum ada ulasan
                                     </li>
-                                    <li class="single-user-review d-flex">
+                                    <li
+                                        class="single-user-review d-flex"
+                                        v-for="(data, i) in feedback.data"
+                                        :key="i"
+                                    >
                                         <div class="user-thumbnail">
                                             <img
-                                                src="/img/bg-img/8.jpg"
+                                                :src="
+                                                    data.user
+                                                        .profile_photo_path_url
+                                                "
                                                 alt=""
                                             />
                                         </div>
                                         <div class="rating-comment">
                                             <div class="rating">
                                                 <i
-                                                    class="lni lni-star-filled"
+                                                    :class="`lni lni-star${
+                                                        data.rating >= 1
+                                                            ? '-filled'
+                                                            : ''
+                                                    }`"
                                                 ></i
                                                 ><i
-                                                    class="lni lni-star-filled"
+                                                    :class="`lni lni-star${
+                                                        data.rating >= 2
+                                                            ? '-filled'
+                                                            : ''
+                                                    }`"
                                                 ></i
                                                 ><i
-                                                    class="lni lni-star-filled"
+                                                    :class="`lni lni-star${
+                                                        data.rating >= 3
+                                                            ? '-filled'
+                                                            : ''
+                                                    }`"
                                                 ></i
                                                 ><i
-                                                    class="lni lni-star-filled"
+                                                    :class="`lni lni-star${
+                                                        data.rating >= 4
+                                                            ? '-filled'
+                                                            : ''
+                                                    }`"
                                                 ></i
                                                 ><i
-                                                    class="lni lni-star-filled"
+                                                    :class="`lni lni-star${
+                                                        data.rating >= 5
+                                                            ? '-filled'
+                                                            : ''
+                                                    }`"
                                                 ></i>
                                             </div>
-                                            <p class="comment mb-0">
-                                                Very excellent product. Love it.
-                                            </p>
-                                            <span class="name-date"
-                                                >Designing World 8 Dec
-                                                2021</span
-                                            ><a
-                                                class="review-image mt-2 border rounded"
-                                                href="/img/product/4.png"
-                                                ><img
-                                                    class="rounded-3"
-                                                    src="/img/product/4.png"
-                                                    alt="" /></a
-                                            ><a
-                                                class="review-image mt-2 border rounded"
-                                                href="/img/product/6.png"
-                                                ><img
-                                                    class="rounded-3"
-                                                    src="/img/product/6.png"
-                                                    alt=""
-                                            /></a>
-                                        </div>
-                                    </li>
-                                    <li class="single-user-review d-flex">
-                                        <div class="user-thumbnail">
-                                            <img
-                                                src="/img/bg-img/9.jpg"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="rating-comment">
-                                            <div class="rating">
-                                                <i
-                                                    class="lni lni-star-filled"
-                                                ></i
-                                                ><i
-                                                    class="lni lni-star-filled"
-                                                ></i
-                                                ><i
-                                                    class="lni lni-star-filled"
-                                                ></i
-                                                ><i
-                                                    class="lni lni-star-filled"
-                                                ></i
-                                                ><i
-                                                    class="lni lni-star-filled"
-                                                ></i>
-                                            </div>
-                                            <p class="comment mb-0">
-                                                What a nice product it is. I am
-                                                looking it's.
-                                            </p>
-                                            <span class="name-date"
-                                                >Designing World 28 Nov
-                                                2021</span
-                                            >
+                                            <p
+                                                class="comment mb-0"
+                                                v-html="data.comment"
+                                            ></p>
+                                            <span class="name-date">{{
+                                                data.created_at
+                                            }}</span>
                                         </div>
                                     </li>
                                 </ul>
@@ -679,79 +643,7 @@ watch(
                         </div>
                         <div class="sales-offer-content mt-2 mb-5">
                             <hr class="mt-4 mb-2" />
-                            <h6 class="mb-2">Beri Ulasan Yuk</h6>
-                            <div class="ratings-submit-form bg-white py-3">
-                                <form action="#" method="">
-                                    <div class="stars mb-3">
-                                        <input
-                                            class="star-1"
-                                            type="radio"
-                                            name="star"
-                                            id="star1"
-                                        />
-                                        <label
-                                            class="star-1"
-                                            for="star1"
-                                        ></label>
-                                        <input
-                                            class="star-2"
-                                            type="radio"
-                                            name="star"
-                                            id="star2"
-                                        />
-                                        <label
-                                            class="star-2"
-                                            for="star2"
-                                        ></label>
-                                        <input
-                                            class="star-3"
-                                            type="radio"
-                                            name="star"
-                                            id="star3"
-                                        />
-                                        <label
-                                            class="star-3"
-                                            for="star3"
-                                        ></label>
-                                        <input
-                                            class="star-4"
-                                            type="radio"
-                                            name="star"
-                                            id="star4"
-                                        />
-                                        <label
-                                            class="star-4"
-                                            for="star4"
-                                        ></label>
-                                        <input
-                                            class="star-5"
-                                            type="radio"
-                                            name="star"
-                                            id="star5"
-                                        />
-                                        <label
-                                            class="star-5"
-                                            for="star5"
-                                        ></label
-                                        ><span></span>
-                                    </div>
-                                    <textarea
-                                        class="form-control mb-3"
-                                        id="comments"
-                                        name="comment"
-                                        cols="30"
-                                        rows="10"
-                                        data-max-length="200"
-                                        placeholder="Write your review..."
-                                    ></textarea>
-                                    <button
-                                        class="btn btn-sm btn-primary"
-                                        type="submit"
-                                    >
-                                        Kirim
-                                    </button>
-                                </form>
-                            </div>
+                            &nbsp;
                         </div>
                     </div>
                 </div>

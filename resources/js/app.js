@@ -16,6 +16,10 @@ InertiaProgress.init({
 let store = createStore({
     state: {
         courier: null,
+        filterProduct: {
+            categories: [],
+            sort_price: "asc",
+        },
     },
     mutations: {
         setCourier(state, courier) {
