@@ -33,7 +33,14 @@ return new class extends Migration
     public function down()
     {
         Schema::table('settings', function (Blueprint $table) {
-            //
+            $table->dropColumn('mail_mailer');
+            $table->dropColumn('mail_host');
+            $table->dropColumn('mail_port');
+            $table->dropColumn('mail_username');
+            $table->dropColumn('mail_password');
+            $table->dropColumn('mail_encryption');
+            $table->dropColumn('mail_from_address');
+            $table->dropColumn('mail_from_name');
         });
     }
 };
