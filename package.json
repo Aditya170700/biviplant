@@ -11,7 +11,7 @@
         "ssr-dev": "mix watch && mix --mix-config=webpack.ssr.mix.js"
     },
     "devDependencies": {
-        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-vue3": "^0.6.0",
         "@inertiajs/progress": "^0.2.7",
         "@inertiajs/server": "^0.1.0",
@@ -32,8 +32,6 @@
         "webpack-node-externals": "^3.0.0"
     },
     "dependencies": {
-        "@inertiajs/inertia": "^0.11.0",
-        "@inertiajs/inertia-vue3": "^0.6.0",
         "@inertiajs/server": "^0.1.0",
         "@vue-leaflet/vue-leaflet": "^0.6.1",
         "@vue/server-renderer": "^3.2.37",
