@@ -231,7 +231,7 @@ const metaKeyword = ref(props.meta_keyword);
                     </div>
                 </div>
             </div>
-            <div class="cta-area py-3">
+            <div class="cta-area py-3" v-if="event">
                 <div class="container">
                     <div
                         class="cta-text p-4 p-lg-5"

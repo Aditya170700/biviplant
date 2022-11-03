@@ -31,9 +31,9 @@ class ProductController extends Controller
             return Inertia::render('Product/Products', [
                 'categories' => $this->categoryInterface->getPaginated($this->request),
                 'products' => $this->productInterface->getPaginated($this->request),
-                'meta_title' => $this->setting->meta_title,
-                'meta_description' => $this->setting->meta_description,
-                'meta_keyword' => $this->setting->meta_keyword,
+                'meta_title' => $this->setting ? $this->setting->meta_title : 'Biviplant',
+                'meta_description' => $this->setting ? $this->setting->meta_description : 'Tempat grosir tanaman buah' ,
+                'meta_keyword' => $this->setting ? $this->setting->meta_keyword : 'tanaman',
             ]);
         } catch (\Throwable $th) {
             panic($th);
