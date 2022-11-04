@@ -355,8 +355,8 @@ const metaKeyword = ref(props.meta_keyword);
                                 <p>Pembayaran Terintegrasi</p>
                             </div>
                             <div class="col">
-                                <i class="fa fa-phone"></i>
-                                <p>Pelayanan 24/7</p>
+                                <i class="fa fa-truck"></i>
+                                <p>Kirim Seluruh Indonesia</p>
                             </div>
                             <div class="col">
                                 <i class="fa fa-check"></i>

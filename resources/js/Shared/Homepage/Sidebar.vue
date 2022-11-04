@@ -64,11 +64,16 @@
                         ><i class="lni lni-heart"></i>My Wishlist</a
                     >
                 </li> -->
-                <!-- <li>
+                <li>
                     <Link :href="route('about_us')"
-                        ><i class="lni lni-users"></i>Tentang Kami</Link
+                        ><i class="fa fa-building"></i>Tentang Kami</Link
                     >
-                </li> -->
+                </li>
+                <li>
+                    <Link :href="route('privacy_policy')"
+                        ><i class="fa fa-shield"></i>Kebijakan & Privasi</Link
+                    >
+                </li>
                 <!-- <li>
                     <a href="settings.html"
                         ><i class="lni lni-cog"></i>Settings</a
@@ -76,14 +81,24 @@
                 </li> -->
                 <li>
                     <a href="#" @click="logout"
-                        ><i class="lni lni-power-switch"></i>Sign Out</a
+                        ><i class="lni lni-power-switch"></i>Log Out</a
                     >
                 </li>
             </ul>
             <ul class="sidenav-nav ps-0" v-else>
                 <li>
                     <Link :href="route('login')"
-                        ><i class="lni lni-power-switch"></i>Login</Link
+                        ><i class="lni lni-power-switch"></i>Login/Register</Link
+                    >
+                </li>
+                <li>
+                    <Link :href="route('about_us')"
+                        ><i class="fa fa-building"></i>Tentang Kami</Link
+                    >
+                </li>
+                <li>
+                    <Link :href="route('privacy_policy')"
+                        ><i class="fa fa-shield"></i>Kebijakan & Privasi</Link
                     >
                 </li>
             </ul>

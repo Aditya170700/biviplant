@@ -71,4 +71,15 @@ class HomeController extends Controller
             panic($th);
         }
     }
+
+    public function privacyPolicy()
+    {
+        try {
+            return Inertia::render('Sidebar/PrivacyPolicy', [
+                'privacy_policy' => $this->setting->privacy_policy
+            ]);
+        } catch (\Throwable $th) {
+            panic($th);
+        }
+    }
 }

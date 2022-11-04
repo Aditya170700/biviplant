@@ -25,6 +25,7 @@ use App\Http\Controllers\RatingController;
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/tentang-kami', [HomeController::class, 'aboutUs'])->name('about_us');
+Route::get('/kebijakan-dan-privasi', [HomeController::class, 'privacyPolicy'])->name('privacy_policy');
 
 Route::middleware(['auth'])
     ->group(function () {
