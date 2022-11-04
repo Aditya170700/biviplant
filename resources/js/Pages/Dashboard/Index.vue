@@ -1,6 +1,6 @@
 <template>
     <Layout :title="'Dashboard'">
-        <section class="row">
+        <!-- <section class="row">
             <div class="col-12 col-lg-9">
                 <div class="row">
                     <div class="col-6 col-lg-3 col-md-6">
@@ -154,7 +154,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
     </Layout>
 </template>
 

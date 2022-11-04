@@ -1,7 +1,7 @@
 <script setup>
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
-import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing";
-import FormText from "../../Shared/Form/FormText";
+import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing.vue";
+import FormText from "../../Shared/Form/FormText.vue";
 
 const form = useForm({
     name: "",
