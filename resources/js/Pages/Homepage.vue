@@ -17,6 +17,8 @@ const props = defineProps({
     products: Object,
     product_best_sellers: Object,
     vouchers: Object,
+    setting: Object,
+    origins: Object
 });
 
 const metaTitle = ref(props.meta_title);
@@ -121,6 +123,7 @@ const metaKeyword = ref(props.meta_keyword);
                                                 {{ banner.sub_title }}
                                             </p>
                                             <a
+                                                v-if="banner.link"
                                                 class="btn btn-primary btn-sm"
                                                 :href="banner.link"
                                                 data-animation="fadeInUp"
@@ -336,6 +339,114 @@ const metaKeyword = ref(props.meta_keyword);
                             >Berlaku hingga:
                             {{ voucher.expired_at_formatted }}</span
                         >
+                    </div>
+                </div>
+            </div>
+            <div class="container pb-3">
+                <div class="card">
+                    <div
+                        class="background-shape"
+                        style="background: rgb(80, 208, 72) !important"
+                    ></div>
+                    <div class="card-body">
+                        <div class="row mb-3 p-3 text-center">
+                            <div class="col">
+                                <i class="fa fa-money"></i>
+                                <p>Pembayaran Terintegrasi</p>
+                            </div>
+                            <div class="col">
+                                <i class="fa fa-phone"></i>
+                                <p>Pelayanan 24/7</p>
+                            </div>
+                            <div class="col">
+                                <i class="fa fa-check"></i>
+                                <p>100% Terpercaya</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mb-3 p-3">
+                            <div class="col-lg-6 my-auto">
+                                <img src="https://dn56y54v4g6fs.cloudfront.net/product/25_04_2022_10_57_10_anggur_merah.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-lg-6 my-auto">
+                                <p>Untuk menjaga agar kualitas bibit tetap terjaga, kami bekerja sama dengan ahli pembibitan dari IPB sebagai konsultan dan pelatih pelaksana di kebun bibit kami. Selain itu kami juga menerapkan standard kualitas bibit hasil kebun kami. Sehingga hanya bibit yang sesuai standard yang kami kirim ke pelanggan. Harga bibit buah yang kami tampilkan adalah harga eceran/satuan.</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-3">
+                            <div class="col-lg-6 mb-3">
+                                <div class="row">
+                                    <div class="card-title">
+                                        <strong>Kontak Kami</strong>
+                                    </div>
+                                    <div class="col-3">
+                                        <p>Email</p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p>: {{ setting.email }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p>Telepon</p>
+                                    </div>
+                                    <div class="col-9">
+                                        <p>: {{ setting.phone }}</p>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="card-title">
+                                        <strong>Temukan Kami di</strong>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-around">
+                                        <div class="img">
+                                            <a :href="setting.ig" target="_blank">
+                                                <img src="assets/images/logo/instagram.jpg" class="opacity-75" width="50" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="img">
+                                            <a :href="setting.facebook" target="_blank">
+                                                <img src="assets/images/logo/youtube.png" class="opacity-75" width="50" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="img">
+                                            <a :href="setting.tiktok" target="_blank">
+                                                <img src="assets/images/logo/tiktok.png" class="opacity-75" width="50" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="row">
+                                    <div class="card-title">
+                                        <strong>Kebun Kami</strong>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="row mb-2" v-for="(origin, i) in origins" :key="i">
+                                            <div class="col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-body d-flex">
+                                                        <div class="img">
+                                                            <img src="assets/images/logo/map-point.png" class="opacity-75" width="60" alt="">
+                                                        </div>
+                                                        <div class="tex-left">
+                                                            <p class="mb-2">{{ origin.subdistrict.city.province.name }}</p>
+                                                            <p>{{ origin.detail }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-3">
+                                <div class="text-left">
+                                    <p>All rights reserved Biviplant {{ new Date().getFullYear() }}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
