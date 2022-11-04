@@ -26,7 +26,7 @@
                                         </thead>
                                         <tbody>
                                             <tr
-                                                v-for="(origin, i) in origins"
+                                                v-for="(origin, i) in dataOrigins"
                                                 :key="i"
                                                 :class="`${
                                                     originUsed.includes(
@@ -169,22 +169,37 @@ export default {
     },
     setup(props) {
         let originUsed = props.result.origins.map((origin) => origin.id);
+        let dataOrigins = props.origins
 
         let attach = (originId) => {
-            Inertia.post(
+            Inertia.visit(
                 route("admin.products.origins.attach", {
                     id: props.result.id,
                     originId,
-                })
-            );
+                }),
+                {
+                    method: 'post',
+                    preserveState: (page) => console.log(page),
+                    onSuccess: (data) => {
+                        props = data.props
+                        originUsed = props.result.origins.map((origin) => origin.id)
+                    }
+                }
+            )
         };
 
         let detach = (originId) => {
-            Inertia.delete(
+            Inertia.visit(
                 route("admin.products.origins.detach", {
                     id: props.result.id,
                     originId,
-                })
+                }),
+                {
+                    method: 'delete',
+                    onSuccess: (data) => {
+                        dataOrigins = data.props.origins
+                    }
+                }
             );
         };
 
@@ -192,6 +207,7 @@ export default {
             originUsed,
             attach,
             detach,
+            dataOrigins
         };
     },
 };
