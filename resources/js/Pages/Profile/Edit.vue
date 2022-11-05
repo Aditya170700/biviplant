@@ -8,8 +8,8 @@ import { reactive, ref } from "@vue/reactivity";
 import { onMounted, useAttrs } from "@vue/runtime-core";
 import { Inertia } from "@inertiajs/inertia";
 import { imageReader, dataURLtoFile } from "./../../utils.js";
-import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing";
-import FormText from "../../Shared/Form/FormText";
+import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing.vue";
+import FormText from "../../Shared/Form/FormText.vue";
 import Cropper from "vue-image-crop-upload";
 
 let attrs = useAttrs();

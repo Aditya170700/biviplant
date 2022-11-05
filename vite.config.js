@@ -5,10 +5,10 @@ import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
     plugins: [
-        laravel([
-            'resources/css/app.css',
-            'resources/js/app.js',
-        ]),
+        laravel({
+            input: 'resources/js/app.js',
+            ssr: 'resources/js/ssr.mjs',
+        }),
         // react(),
         vue({
             template: {
@@ -19,6 +19,9 @@ export default defineConfig({
             },
         }),
     ],
+    ssr: {
+        noExternal: ['@inertiajs/server'],
+    },
     resolve: {
         alias: {
             '@': '/resources/js'
