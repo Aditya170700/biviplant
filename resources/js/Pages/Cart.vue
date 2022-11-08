@@ -11,7 +11,6 @@ import AddressModal from "./AddressModal.vue";
 import CourierModal from "./CourierModal.vue";
 import { Inertia } from "@inertiajs/inertia";
 import axios from "axios";
-import { throws } from "assert";
 
 let attrs = useAttrs();
 const props = defineProps({

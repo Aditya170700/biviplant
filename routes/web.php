@@ -22,7 +22,9 @@ use App\Http\Controllers\RatingController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/test', function () {
+    return Inertia::render('Test');
+});
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/tentang-kami', [HomeController::class, 'aboutUs'])->name('about_us');
 Route::get('/kebijakan-dan-privasi', [HomeController::class, 'privacyPolicy'])->name('privacy_policy');

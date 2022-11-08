@@ -41,17 +41,17 @@ let form = reactive({
     user_id: attrs.user?.id,
     product_id: props.product.id,
     user_address_id: props.primary_address?.id,
-    user_address: null,
-    courier: null,
-    shipping_service: null,
-    shipping_cost: null,
-    shipping_etd: null,
+    user_address: '',
+    courier: '',
+    shipping_service: '',
+    shipping_cost: '',
+    shipping_etd: '',
     qty: props.product.cart_user?.qty ?? 0 + 1,
 });
 
 let feedback = reactive({
     data: [],
-    meta: null,
+    meta: '',
     loading: false,
     more: true,
 });
@@ -171,10 +171,10 @@ watch(
         ></AddressModal>
         <AddressModalGuest v-else></AddressModalGuest>
         <CourierModal
+            v-if="primary_address != null"
             :primary_address="primary_address"
             :product="product"
             :qty="form.qty"
-            v-if="primary_address != null"
         ></CourierModal>
         <div
             class="card fixed-bottom rounded-0 shadow-0 bg-fug"
