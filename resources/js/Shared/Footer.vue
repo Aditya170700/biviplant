@@ -14,12 +14,12 @@ import { Link } from "@inertiajs/inertia-vue3";
                     </li>
                     <li>
                         <Link :href="route('cart.index')"
-                            ><i class="lni lni-shopping-basket"></i>Cart</Link
+                            ><i class="lni lni-shopping-basket"></i>Keranjang</Link
                         >
                     </li>
                     <li>
                         <a href="https://wa.me/6283840907389" target="_blank"
-                            ><i class="lni lni-wechat"></i>Support</a
+                            ><i class="lni lni-wechat"></i>Pesan</a
                         >
                     </li>
                 </ul>

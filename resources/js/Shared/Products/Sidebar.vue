@@ -27,7 +27,44 @@ let store = useStore();
                 <div class="row">
                     <div class="col-12">
                         <div class="widget catagory mb-4">
-                            <h6 class="widget-title mb-2">Jenis Tanaman</h6>
+                            <h6 class="widget-title mb-2">Jenis Produk</h6>
+                            <div class="widget-desc">
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        id="pupuk"
+                                        type="checkbox"
+                                        value="Pupuk"
+                                        v-model="
+                                            store.state.filterProduct.categories
+                                        "
+                                    />
+                                    <label class="form-check-label" for="pupuk"
+                                        >Pupuk</label
+                                    >
+                                </div>
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        id="tanaman"
+                                        type="checkbox"
+                                        value="Tanaman"
+                                        v-model="
+                                            store.state.filterProduct.categories
+                                        "
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="tanaman"
+                                        >Tanaman</label
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="widget catagory mb-4">
+                            <h6 class="widget-title mb-2">Kondisi Tanaman</h6>
                             <div class="widget-desc">
                                 <div class="form-check">
                                     <input

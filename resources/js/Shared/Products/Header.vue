@@ -21,7 +21,7 @@
                 </Link>
             </div>
             <div class="page-heading">
-                <h6 class="mb-0">List Product</h6>
+                <h6 class="mb-0">Semua Produk</h6>
             </div>
             <div
                 class="filter-option"
