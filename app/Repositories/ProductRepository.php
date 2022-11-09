@@ -41,6 +41,7 @@ class ProductRepository implements ProductInterface
     {
         return $this->model
             ->with('files', 'category')
+            ->where('is_featured', Product::FEATURED)
             ->paginate(10);
     }
 

@@ -21,6 +21,7 @@ class ProductRequestAdapter implements DataRequestAdapterInterface
             'weight' => 'required|numeric',
             'condition' => 'max:255',
             'category_id' => 'required',
+            'is_featured' => 'required'
         ];
     }
 
@@ -39,6 +40,7 @@ class ProductRequestAdapter implements DataRequestAdapterInterface
             'weight' => 'required|numeric',
             'condition' => 'max:255',
             'category_id' => 'required',
+            'is_featured' => 'required'
         ];
     }
 
@@ -57,6 +59,7 @@ class ProductRequestAdapter implements DataRequestAdapterInterface
             'weight' => $data['weight'],
             'condition' => $data['condition'],
             'category_id' => $data['category_id'],
+            'is_featured' => $data['is_featured']
         ];
     }
 
@@ -75,6 +78,7 @@ class ProductRequestAdapter implements DataRequestAdapterInterface
             'weight' => 'Berat (gr)',
             'condition' => 'Kondisi',
             'category_id' => 'Kategori Produk',
+            'is_featured' => 'Kondisi tampilan unggulan'
         ];
     }
 }
