@@ -70,6 +70,7 @@
                             route().current().includes('admin.banners') ||
                             route().current().includes('admin.users') ||
                             route().current().includes('admin.events') ||
+                            route().current().includes('admin.origins') ||
                             route().current().includes('admin.vouchers')
                                 ? 'active'
                                 : '',
@@ -179,7 +180,9 @@
                             <li
                                 :class="[
                                     'submenu-item',
-                                    route().current().includes('admin.origins.')
+                                    route()
+                                        .current()
+                                        .includes('admin.origins.')
                                         ? 'active'
                                         : '',
                                 ]"
