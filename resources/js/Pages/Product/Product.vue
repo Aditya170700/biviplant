@@ -506,9 +506,9 @@ watch(
                                 class="d-flex justify-content-between align-items-center"
                             >
                                 <h6>Produk Terkait</h6>
-                                <a class="btn btn-light" href="/"
-                                    >Lihat Semua</a
-                                >
+                                <Link class="btn btn-light" :href="route('category.show', {slug: product?.category?.slug})">
+                                    Lihat Semua
+                                </Link>
                             </div>
                             <div class="related-product-slide carousel">
                                 <carousel :items-to-show="1.5">
