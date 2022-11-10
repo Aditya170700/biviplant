@@ -915,6 +915,64 @@ textarea:invalid {
   -webkit-box-shadow: 0 0 8px rgba(15, 15, 15, 0.15);
           box-shadow: 0 0 8px rgba(15, 15, 15, 0.15); }
 
+.product-search-form {
+  position: relative;
+  z-index: 1; 
+}
+
+.product-search-form form {
+    position: relative;
+    z-index: 1; 
+}
+.product-search-form form .form-control {
+      max-width: 100%;
+      background-color: #ffffff;
+      height: 35px;
+      font-size: 13px;
+      padding: 10px 15px;
+      padding-left: 35px;
+      border: 1px solid #ebebeb;
+      color: #747794; 
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .product-search-form form .form-control {
+    max-width: 240px;
+    width: 240px; 
+  } 
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .product-search-form form .form-control {
+    max-width: 280px;
+    width: 280px; 
+  } 
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .product-search-form form .form-control {
+    max-width: 280px;
+    width: 280px; 
+  } 
+}
+@media only screen and (min-width: 1200px) {
+  .product-search-form form .form-control {
+    max-width: 350px;
+    width: 350px;
+  } 
+}
+.product-search-form form button {
+  background-color: transparent;
+  position: absolute;
+  top: 1px;
+  left: 10px;
+  width: 18px;
+  height: 30px;
+  border: 0;
+  z-index: 10;
+  color: #747794; 
+}
+.product-search-form form button:focus {
+  outline: none; 
+}
+
 .top-search-form {
   position: relative;
   z-index: 1; }
@@ -922,7 +980,7 @@ textarea:invalid {
     position: relative;
     z-index: 1; }
     .top-search-form form .form-control {
-      max-width: 190px;
+      max-width: 100%;
       background-color: #ffffff;
       height: 32px;
       font-size: 12px;

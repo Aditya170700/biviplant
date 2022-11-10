@@ -93,7 +93,7 @@
                 </li>
                 <li>
                     <Link :href="route('about_us')"
-                        ><i class="fa fa-building"></i>Tentang Kami</Link
+                        ><i class="lni lni-apartment"></i>Tentang Kami</Link
                     >
                 </li>
                 <li>

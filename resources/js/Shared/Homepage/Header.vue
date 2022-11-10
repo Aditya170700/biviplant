@@ -13,7 +13,7 @@
                     <input
                         class="form-control"
                         type="search"
-                        placeholder="Cari..."
+                        placeholder="Cari kebutuhanmu di sini"
                         @click="search"
                     />
                     <button type="submit">

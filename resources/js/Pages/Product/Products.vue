@@ -57,6 +57,7 @@ onMounted(() => {
 const metaTitle = ref(props.meta_title);
 const metaDescription = ref(props.meta_description);
 const metaKeyword = ref(props.meta_keyword);
+const filterCategories = reactive([]);
 
 watch(store.state.filterProduct, (val) => {
     axios
@@ -71,6 +72,13 @@ watch(store.state.filterProduct, (val) => {
             console.log(err);
         });
 });
+
+function setCategories(category)
+{
+    filterCategories.push(category.slug)
+    console.log(filterCategories);
+}
+
 </script>
 
 <template>
@@ -116,25 +124,33 @@ watch(store.state.filterProduct, (val) => {
         <div class="page-content-wrapper bg-fug">
             <div class="top-products-area py-3">
                 <div class="container">
+                    <div class="section-heading d-flex align-items-center justify-content-between">
+                        <h6 class="fw-bold">KATEGORI</h6>
+                    </div>
                     <div class="product-catagories">
                         <div class="row g-3">
+                            <div class="col-4">
+                                <a href="#" class="shadow-sm">
+                                    <img src="/assets/images/logo/store.svg" alt="" class="mb-2">
+                                    Semua Produk
+                                </a>
+                            </div>
                             <div
                                 class="col-4"
                                 v-for="(category, i) in categories.data"
                                 :key="i"
                             >
-                                <a class="shadow-sm" href="#">
-                                    <img
-                                        :src="category.icon_url"
-                                        alt=""
-                                        class="mb-2"
-                                    />
+                                <a class="shadow-sm" href="#" @click="setCategories(category)">
+                                    <img :src="category.icon_url" alt="" class="mb-2">
                                     {{ category.name }}
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="row g-3">
+                        <div class="section-heading d-flex align-items-center justify-content-between mt-5">
+                            <h6 class="fw-bold">DAFTAR PRODUK</h6>
+                        </div>
                         <div
                             class="col-6 col-md-4 col-lg-3"
                             v-for="(product, i) in listProducts"
