@@ -296,7 +296,7 @@ import { Link } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
 import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing.vue";
 import FormText from "../../../Shared/Form/FormText.vue";
-import { slugify } from "../../../utils";
+import { slugify } from "../../../utils.js";
 import CurrencyInput from "../../../Shared/Form/CurrencyInput.vue";
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";

@@ -466,7 +466,7 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing.vue";
 import FormText from "../../Shared/Form/FormText.vue";
 import { ref } from "@vue/reactivity";
-import { imageReader, dataURLtoFile } from "../../utils";
+import { imageReader, dataURLtoFile } from "../../utils.js";
 import Cropper from "vue-image-crop-upload";
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";

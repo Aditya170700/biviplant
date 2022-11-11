@@ -10,7 +10,7 @@ import { reactive, ref } from "@vue/reactivity";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 import axios from "axios";
-import { toastError, toastSuccess } from "../../utils";
+import { toastError, toastSuccess } from "../../utils.js";
 import { onMounted, useAttrs, watch } from "@vue/runtime-core";
 import { useStore } from "vuex";
 import AddressModalGuest from "./AddressModalGuest.vue";
