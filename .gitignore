@@ -16,3 +16,5 @@ yarn-error.log
 /.vscode
 public/css/app.css
 public/js/app.js
+/bootstrap/ssr
+/bootstrap/ssr/ssr.mjs
