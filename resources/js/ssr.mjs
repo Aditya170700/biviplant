@@ -4,6 +4,28 @@ import { createInertiaApp } from '@inertiajs/inertia-vue3'
 import createServer from '@inertiajs/server'
 import { ZiggyVue } from "../../vendor/tightenco/ziggy/dist/vue.m.js";
 import route from "ziggy"
+import { createStore } from 'vuex';
+import Toast from "vue-toastification";
+
+let store = createStore({
+    state: {
+        courier: null,
+        filterProduct: {
+            categories: [],
+            sort_price: "asc",
+        },
+    },
+    mutations: {
+        setCourier(state, courier) {
+            state.courier = courier;
+        }
+    },
+    getters: {
+        courier(state) {
+            return state.courier;
+        }
+    }
+});
 
 function withVite(pages, name) {
 	for (const path in pages) {
@@ -34,6 +56,8 @@ createServer((page) => createInertiaApp({
         })
         .use(plugin)
         .use(ZiggyVue)
+        .use(store)
+        .use(Toast)
         .mixin({ 
                 methods: {
                     route: (name, params, absolute, config = Ziggy) => route(name, params, absolute, config),

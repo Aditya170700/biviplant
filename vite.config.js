@@ -21,7 +21,7 @@ export default defineConfig({
         }),
     ],
     ssr: {
-        noExternal: ['@inertiajs/server'],
+        noExternal: ['@inertiajs/server', 'vue-toastification'],
     },
     resolve: {
         alias: {

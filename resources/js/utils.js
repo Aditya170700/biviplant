@@ -1,6 +1,8 @@
-import { createToast } from 'mosha-vue-toastify'
-import 'mosha-vue-toastify/dist/style.css'
+import { useToast } from "vue-toastification";
+import "vue-toastification/dist/index.css";
 import moment from 'moment'
+
+const toast = useToast();
 
 export const imageReader = (files, target) => {
     const reader = new FileReader
@@ -11,22 +13,36 @@ export const imageReader = (files, target) => {
 }
 
 export const toastSuccess = (message) => {
-    createToast(message, {
-        type: 'success',
+    toast.success(message, {
+        position: "top-right",
         timeout: 3000,
-        position: 'top-right',
-        showIcon: true,
-        toastBackgroundColor: '#188753',
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
     });
 }
 
 export const toastError = (message) => {
-    createToast(message, {
-        type: 'danger',
+    toast.error(message, {
+        position: "top-right",
         timeout: 3000,
-        position: 'top-right',
-        showIcon: true,
-        toastBackgroundColor: '#ff4560',
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false
     });
 }
 
