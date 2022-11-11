@@ -18,8 +18,8 @@ import { Link } from "@inertiajs/inertia-vue3";
                         >
                     </li>
                     <li>
-                        <a href="https://wa.me/6283840907389" target="_blank"
-                            ><i class="lni lni-wechat"></i>Pesan</a
+                        <Link :href="route('chat.index')" target="_blank"
+                            ><i class="lni lni-wechat"></i>Chat</Link
                         >
                     </li>
                 </ul>

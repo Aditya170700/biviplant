@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\OriginController;
@@ -74,4 +75,6 @@ Route::middleware(['auth', 'role:admin'])
             'vouchers' => VoucherController::class,
             'products' => ProductController::class,
         ]);
+
+        Route::get('/chat', ChatController::class)->name('chat.index');
     });

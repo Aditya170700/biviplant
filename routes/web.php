@@ -3,6 +3,7 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RatingController;
@@ -81,6 +82,7 @@ Route::middleware(['auth'])
                 Route::get('/{id}/track', 'track')->name('track');
                 Route::put('/{id}/finish', 'finish')->name('finish');
             });
+        Route::get('/chat', ChatController::class)->name('chat.index');
     });
 
 Route::controller(AddressGuestController::class)
