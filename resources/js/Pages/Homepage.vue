@@ -18,7 +18,7 @@ const props = defineProps({
     product_best_sellers: Object,
     vouchers: Object,
     setting: Object,
-    origins: Object
+    origins: Object,
 });
 
 const metaTitle = ref(props.meta_title);
@@ -363,16 +363,30 @@ const metaKeyword = ref(props.meta_keyword);
                                 <p>100% Terpercaya</p>
                             </div>
                         </div>
-                        <hr>
+                        <hr />
                         <div class="row mb-3 p-3">
                             <div class="col-lg-6 my-auto">
-                                <img src="https://dn56y54v4g6fs.cloudfront.net/product/25_04_2022_10_57_10_anggur_merah.jpg" class="img-fluid" alt="">
+                                <img
+                                    src="https://dn56y54v4g6fs.cloudfront.net/product/25_04_2022_10_57_10_anggur_merah.jpg"
+                                    class="img-fluid"
+                                    alt=""
+                                />
                             </div>
                             <div class="col-lg-6 my-auto">
-                                <p>Untuk menjaga agar kualitas bibit tetap terjaga, kami bekerja sama dengan ahli pembibitan dari IPB sebagai konsultan dan pelatih pelaksana di kebun bibit kami. Selain itu kami juga menerapkan standard kualitas bibit hasil kebun kami. Sehingga hanya bibit yang sesuai standard yang kami kirim ke pelanggan. Harga bibit buah yang kami tampilkan adalah harga eceran/satuan.</p>
+                                <p>
+                                    Untuk menjaga agar kualitas bibit tetap
+                                    terjaga, kami bekerja sama dengan ahli
+                                    pembibitan dari IPB sebagai konsultan dan
+                                    pelatih pelaksana di kebun bibit kami.
+                                    Selain itu kami juga menerapkan standard
+                                    kualitas bibit hasil kebun kami. Sehingga
+                                    hanya bibit yang sesuai standard yang kami
+                                    kirim ke pelanggan. Harga bibit buah yang
+                                    kami tampilkan adalah harga eceran/satuan.
+                                </p>
                             </div>
                         </div>
-                        <hr>
+                        <hr />
                         <div class="row mt-3">
                             <div class="col-lg-6 mb-3">
                                 <div class="row">
@@ -398,20 +412,46 @@ const metaKeyword = ref(props.meta_keyword);
                                     <div class="card-title">
                                         <strong>Temukan Kami di</strong>
                                     </div>
-                                    <div class="col-12 d-flex justify-content-around">
+                                    <div
+                                        class="col-12 d-flex justify-content-around"
+                                    >
                                         <div class="img">
-                                            <a :href="setting.ig" target="_blank">
-                                                <img src="assets/images/logo/instagram.jpg" class="opacity-75" width="50" alt="">
+                                            <a
+                                                :href="setting.ig"
+                                                target="_blank"
+                                            >
+                                                <img
+                                                    src="assets/images/logo/instagram.jpg"
+                                                    class="opacity-75"
+                                                    width="50"
+                                                    alt=""
+                                                />
                                             </a>
                                         </div>
                                         <div class="img">
-                                            <a :href="setting.facebook" target="_blank">
-                                                <img src="assets/images/logo/youtube.png" class="opacity-75" width="50" alt="">
+                                            <a
+                                                :href="setting.facebook"
+                                                target="_blank"
+                                            >
+                                                <img
+                                                    src="assets/images/logo/youtube.png"
+                                                    class="opacity-75"
+                                                    width="50"
+                                                    alt=""
+                                                />
                                             </a>
                                         </div>
                                         <div class="img">
-                                            <a :href="setting.tiktok" target="_blank">
-                                                <img src="assets/images/logo/tiktok.png" class="opacity-75" width="50" alt="">
+                                            <a
+                                                :href="setting.tiktok"
+                                                target="_blank"
+                                            >
+                                                <img
+                                                    src="assets/images/logo/tiktok.png"
+                                                    class="opacity-75"
+                                                    width="50"
+                                                    alt=""
+                                                />
                                             </a>
                                         </div>
                                     </div>
@@ -423,17 +463,36 @@ const metaKeyword = ref(props.meta_keyword);
                                         <strong>Kebun Kami</strong>
                                     </div>
                                     <div class="col-lg-12">
-                                        <div class="row mb-2" v-for="(origin, i) in origins" :key="i">
+                                        <div
+                                            class="row mb-2"
+                                            v-for="(origin, i) in origins"
+                                            :key="i"
+                                        >
                                             <div class="col-lg-12">
-                                                <div class="card">
-                                                    <div class="card-body d-flex">
-                                                        <div class="img">
-                                                            <img src="assets/images/logo/map-point.png" class="opacity-75" width="60" alt="">
-                                                        </div>
-                                                        <div class="tex-left">
-                                                            <p class="mb-2">{{ origin.subdistrict.city.province.name }}</p>
-                                                            <p>{{ origin.detail }}</p>
-                                                        </div>
+                                                <div
+                                                    class="d-flex align-items-center"
+                                                >
+                                                    <div class="img">
+                                                        <img
+                                                            src="assets/images/logo/map-point.png"
+                                                            class="opacity-75"
+                                                            width="60"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div class="tex-left">
+                                                        <p class="mb-2">
+                                                            {{
+                                                                origin
+                                                                    .subdistrict
+                                                                    .city
+                                                                    .province
+                                                                    .name
+                                                            }}
+                                                        </p>
+                                                        <p>
+                                                            {{ origin.detail }}
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -443,7 +502,10 @@ const metaKeyword = ref(props.meta_keyword);
                             </div>
                             <div class="col-lg-12 mb-3">
                                 <div class="text-left">
-                                    <p>All rights reserved Biviplant {{ new Date().getFullYear() }}</p>
+                                    <p>
+                                        All rights reserved Biviplant
+                                        {{ new Date().getFullYear() }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
