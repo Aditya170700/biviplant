@@ -21,6 +21,7 @@ let store = createStore({
         courier: null,
         filterProduct: {
             categories: [],
+            category: [],
             sort_price: "asc",
         },
     },

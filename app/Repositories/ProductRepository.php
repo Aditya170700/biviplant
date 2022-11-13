@@ -20,6 +20,11 @@ class ProductRepository implements ProductInterface
             ->when($request->search, function ($query) use ($request) {
                 $query->where('name', 'like', "%$request->search%");
             })
+            ->when($request->category, function ($query) use ($request) {
+                $query->whereHas('category', function ($query) use ($request) {
+                    $query->where('name', $request->category);
+                });
+            })
             ->when($request->categories, function ($query) use ($request) {
                 $query->whereHas('category', function ($query) use ($request) {
                     $query->whereIn('name', $request->categories);
