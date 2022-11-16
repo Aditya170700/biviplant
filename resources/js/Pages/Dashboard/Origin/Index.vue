@@ -6,88 +6,39 @@
                     <div class="card-body">
                         <form @submit.prevent="submit">
                             <div class="row">
-                                <div class="col-1g-12 mb-3">
-                                    <div
-                                        style="
-                                            height: 75vh;
-                                            width: 100%;
-                                            z-index: 1 !important;
-                                        "
-                                    >
-                                        <l-map
-                                            v-model="map.zoom"
-                                            v-model:zoom="map.zoom"
-                                            :center="[
-                                                form.latitude,
-                                                form.longitude,
-                                            ]"
-                                            @click="changeMarker"
+                                <div class="col-lg-12 mb-3">
+                                    <div class="mb-3">
+                                        <label
+                                            for="address"
+                                            class="form-label d-flex justify-content-between"
                                         >
-                                            <l-tile-layer
-                                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                            ></l-tile-layer>
-                                            <l-control position="topright">
-                                                <input
-                                                    @keyup="search"
-                                                    type="text"
-                                                    placeholder="Cari..."
-                                                    style="width: 500px"
-                                                />
-                                                <div
-                                                    class="collapse show"
-                                                    style="width: 500px"
-                                                    v-if="
-                                                        other.searchAddress
-                                                            .length > 0
-                                                    "
-                                                >
-                                                    <div
-                                                        class="card card-body rounded-0 border border-dark p-0"
-                                                    >
-                                                        <p
-                                                            style="
-                                                                cursor: pointer;
-                                                            "
-                                                            v-for="(
-                                                                addr, i
-                                                            ) in other.searchAddress"
-                                                            :key="i"
-                                                            @click="
-                                                                selectAddress(
-                                                                    addr.y,
-                                                                    addr.x
-                                                                )
-                                                            "
-                                                        >
-                                                            {{ addr.label }}
-                                                        </p>
-                                                        <p
-                                                            v-if="
-                                                                other.searchAddress <
-                                                                1
-                                                            "
-                                                        >
-                                                            Alamat tidak
-                                                            ditemukan
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </l-control>
-                                            <l-marker
-                                                :lat-lng="[
-                                                    form.latitude,
-                                                    form.longitude,
-                                                ]"
-                                                draggable
-                                                @moveend="log"
-                                            >
-                                                <l-tooltip>
-                                                    {{
-                                                        `Lat: ${form.latitude} Lng: ${form.longitude}`
-                                                    }}
-                                                </l-tooltip>
-                                            </l-marker>
-                                        </l-map>
+                                            <span>Lokasi</span>
+                                        </label>
+                                        <GMapAutocomplete
+                                            placeholder="Cari..."
+                                            @place_changed="setPlace"
+                                            class="form-control mb-2"
+                                        >
+                                        </GMapAutocomplete>
+                                        <GMapMap
+                                            style="width: 100%; height: 500px"
+                                            :center="{
+                                                lat: form.latitude,
+                                                lng: form.longitude,
+                                            }"
+                                            :zoom="15"
+                                            @click="dragend"
+                                        >
+                                            <GMapMarker
+                                                :position="{
+                                                    lat: form.latitude,
+                                                    lng: form.longitude,
+                                                }"
+                                                :clickable="true"
+                                                :draggable="true"
+                                                @drag="dragend"
+                                            />
+                                        </GMapMap>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-3">
@@ -477,21 +428,6 @@ import FormText from "../../../Shared/Form/FormText.vue";
 import { Inertia } from "@inertiajs/inertia";
 import { ref, onMounted, reactive } from "vue";
 import axios from "axios";
-import {
-    LMap,
-    LIcon,
-    LTileLayer,
-    LMarker,
-    LControl,
-    LControlLayers,
-    LTooltip,
-    LPopup,
-    LPolyline,
-    LPolygon,
-    LRectangle,
-} from "@vue-leaflet/vue-leaflet";
-import "leaflet/dist/leaflet.css";
-import { OpenStreetMapProvider } from "leaflet-geosearch";
 
 export default {
     components: {
@@ -500,27 +436,12 @@ export default {
         SpinnerProcessing,
         FormText,
         Pagination,
-        LMap,
-        LIcon,
-        LTileLayer,
-        LMarker,
-        LControl,
-        LControlLayers,
-        LTooltip,
-        LPopup,
-        LPolyline,
-        LPolygon,
-        LRectangle,
     },
     props: {
         errors: Object,
         result: Object,
     },
     setup(props) {
-        let map = reactive({
-            zoom: 15,
-        });
-
         const form = useForm({
             province_id: "",
             city_id: "",
@@ -643,29 +564,14 @@ export default {
             });
         };
 
-        function log(ev) {
-            let loc = ev.target.getLatLng();
-            form.longitude = loc.lng;
-            form.latitude = loc.lat;
+        function dragend(e) {
+            form.latitude = e.latLng.lat();
+            form.longitude = e.latLng.lng();
         }
 
-        function changeMarker(event) {
-            form.longitude = event.latlng.lng;
-            form.latitude = event.latlng.lat;
-        }
-
-        function search(event) {
-            let provider = new OpenStreetMapProvider();
-            provider.search({ query: event.target.value }).then((res) => {
-                other.searchAddress = res;
-            });
-        }
-
-        function selectAddress(lat, lng) {
-            form.longitude = lng;
-            form.latitude = lat;
-
-            other.searchAddress = [];
+        function setPlace(e) {
+            form.latitude = e.geometry.location.lat();
+            form.longitude = e.geometry.location.lng();
         }
 
         return {
@@ -676,11 +582,8 @@ export default {
             preview,
             submit,
             destroy,
-            map,
-            log,
-            changeMarker,
-            search,
-            selectAddress,
+            dragend,
+            setPlace,
         };
     },
 };
