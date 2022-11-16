@@ -161,7 +161,9 @@ function setCategory(category) {
                                 <a
                                     href="#"
                                     :class="`shadow-sm d-flex align-items-center ${
-                                        category == '' ? 'bg-light' : ''
+                                        category == ''
+                                            ? 'bg-light border border-success'
+                                            : ''
                                     }`"
                                     @click.prevent="setCategory('')"
                                 >
@@ -179,7 +181,9 @@ function setCategory(category) {
                             >
                                 <a
                                     :class="`shadow-sm d-flex align-items-center ${
-                                        category == cat.slug ? 'bg-light' : ''
+                                        category == cat.slug
+                                            ? 'bg-light border border-success'
+                                            : ''
                                     }`"
                                     href="#"
                                     @click.prevent="setCategory(cat.slug)"

@@ -160,8 +160,8 @@ const metaKeyword = ref(props.meta_keyword);
                                         <Link
                                             class="text-danger"
                                             :href="
-                                                route('category.show', {
-                                                    slug: category.slug,
+                                                route('product.index', {
+                                                    category: category.slug,
                                                 })
                                             "
                                         >
