@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Interfaces\CategoryInterface;
+use Inertia\Inertia;
+use Illuminate\Http\Request;
 use App\Interfaces\ProductInterface;
 use App\Interfaces\SettingInterface;
+use App\Interfaces\CategoryInterface;
 use App\Interfaces\UserAddressInterface;
-use Illuminate\Http\Request;
-use Inertia\Inertia;
+use App\Classes\Constants\ProductCondition;
 
 class ProductController extends Controller
 {
@@ -31,8 +32,9 @@ class ProductController extends Controller
             return Inertia::render('Product/Products', [
                 'categories' => $this->categoryInterface->getPaginated($this->request),
                 'products' => $this->productInterface->getPaginated($this->request),
+                'product_conditions' => ProductCondition::labels(),
                 'meta_title' => $this->setting ? $this->setting->meta_title : 'Biviplant',
-                'meta_description' => $this->setting ? $this->setting->meta_description : 'Tempat grosir tanaman buah' ,
+                'meta_description' => $this->setting ? $this->setting->meta_description : 'Tempat grosir tanaman buah',
                 'meta_keyword' => $this->setting ? $this->setting->meta_keyword : 'tanaman',
             ]);
         } catch (\Throwable $th) {

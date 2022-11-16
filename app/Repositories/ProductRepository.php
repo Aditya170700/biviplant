@@ -30,6 +30,9 @@ class ProductRepository implements ProductInterface
                     $query->whereIn('name', $request->categories);
                 });
             })
+            ->when($request->conditions, function ($query) use ($request) {
+                $query->whereIn('condition', $request->conditions);
+            })
             ->when($request->sort_price, function ($query) use ($request) {
                 $query->orderBy('price', $request->sort_price);
             })

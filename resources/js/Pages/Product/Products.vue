@@ -16,12 +16,14 @@ const props = defineProps({
     meta_keyword: String,
     categories: Object,
     products: Object,
+    product_conditions: Object,
 });
 let store = useStore();
 let category = ref("");
 const isLoading = ref(false);
 const dataProducts = ref(props.products);
 const listProducts = ref(props.products.data);
+const productConditions = ref(props.product_conditions);
 
 const nextProduct = () => {
     window.onscroll = () => {
@@ -119,7 +121,7 @@ function setCategory(category) {
             <meta head-key="keyword" name="keyword" :content="metaKeyword" />
         </Head>
         <Header></Header>
-        <Sidebar></Sidebar>
+        <Sidebar :product_conditions="productConditions"></Sidebar>
         <div
             class="toast pwa-install-alert shadow bg-white"
             role="alert"
@@ -161,7 +163,7 @@ function setCategory(category) {
                                 <a
                                     href="#"
                                     :class="`shadow-sm d-flex align-items-center ${
-                                        category == ''
+                                        category == '' || !category
                                             ? 'bg-light border border-success'
                                             : ''
                                     }`"
