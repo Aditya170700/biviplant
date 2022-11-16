@@ -21,7 +21,7 @@ export default defineConfig({
         }),
     ],
     ssr: {
-        noExternal: ['@inertiajs/server', 'vue-toastification'],
+        noExternal: ['@inertiajs/server', 'vue-toastification', '@fawmi/vue-google-maps'],
     },
     resolve: {
         alias: {
@@ -29,5 +29,11 @@ export default defineConfig({
             'ziggy-vue': '/vendor/tightenco/ziggy/src/js/vue',
             '@': '/resources/js'
         }
-    }
+    },
+     optimizeDeps: {
+        include: [
+            "@fawmi/vue-google-maps",
+            "fast-deep-equal",
+        ],
+    },
 });

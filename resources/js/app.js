@@ -8,6 +8,7 @@ import { InertiaProgress } from '@inertiajs/progress';
 import { createStore } from 'vuex';
 import Toast from "vue-toastification";
 import { imageReader, toastError, toastSuccess } from './utils';
+import VueGoogleMaps from "@fawmi/vue-google-maps";
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Biviplant';
 
@@ -45,6 +46,12 @@ createInertiaApp({
             .use(plugin)
             .use(store)
             .use(Toast)
+            .use(VueGoogleMaps, {
+                load: {
+                    key: 'AIzaSyBGEoiVjO46M-okQCc9BH8g8-iG1SPIid8',
+                    libraries: 'places',
+                },
+            })
             .mixin({
                 methods: {
                     route,
