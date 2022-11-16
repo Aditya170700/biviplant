@@ -25,6 +25,7 @@ let store = createStore({
             category: [],
             sort_price: "asc",
             conditions: [],
+            search: "",
         },
     },
     mutations: {
