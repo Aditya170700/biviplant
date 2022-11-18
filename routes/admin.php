@@ -76,5 +76,10 @@ Route::middleware(['auth', 'role:admin'])
             'products' => ProductController::class,
         ]);
 
-        Route::get('/chat', ChatController::class)->name('chat.index');
+        Route::controller(ChatController::class)
+            ->name('chat.')
+            ->group(function () {
+                Route::get('/chat', 'index')->name('index');
+                Route::get('/chat/show/{sender_id}', 'show')->name('show');
+            });
     });

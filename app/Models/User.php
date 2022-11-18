@@ -78,4 +78,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(SocialAccount::class);
     }
+    public function conversationAsSender()
+    {
+        return $this->hasMany(Conversation::class, 'sender_id');
+    }
+
+    public function conversationAsReceiver()
+    {
+        return $this->hasMany(Conversation::class, 'receiver_id');
+    }
 }

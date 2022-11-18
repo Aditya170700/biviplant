@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->tinyInteger('is_featured')->after('category_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('socket_id')->nullable()->after('profile_photo_path');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('is_featured');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('socket_id');
         });
     }
 };

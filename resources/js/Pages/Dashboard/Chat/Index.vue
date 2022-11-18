@@ -1,6 +1,58 @@
 <script setup>
+    import axios from "axios";
+    import { onMounted, reactive, ref, watch } from "vue";
     import Layout from "../../../Layouts/Dashboard/App.vue";
+    import openSocket from "../../../socket.js";
+    import { toastError } from "../../../utils";
 
+    const props = defineProps({
+        user: Object,
+        customers: Object
+    })
+    const textMessage = ref('')
+    const conversation = reactive({})
+    let messages = ref([])
+
+    /**
+     * SOCKET CONNECTED
+     */
+    const socket = openSocket(props.user.id)
+
+    /**
+     * SOCKET EVENT
+     */
+    socket.on('message', (data) => {
+        console.log(data)
+        messages.value.push(data)
+    })
+
+    function submit() {
+        if (textMessage.value != '') {
+            let toUser = conversation.data.sender.id != props.user.id ? conversation.data.sender : conversation.data.receiver
+            socket.emit("message-to-customer", {
+                user_id: props.user.id,
+                message: textMessage.value,
+                conversation_id: conversation.data.id,
+                to_socket_id: toUser.socket_id
+            })
+            textMessage.value = ''
+            show(toUser.id)
+        }
+    }
+
+    function show(userId)
+    {
+        axios.get(route('admin.chat.show', {
+            id: userId
+        })).then((res) => {
+            conversation.data = res.data
+            messages.value = res.data.messages
+        }).catch((error) => {
+            toastError('something went wrooongg!')
+        })
+    }
+
+    
 </script>
 <template>
     <Layout
@@ -26,33 +78,30 @@
                                         </span>
                                     </div>
 
-                                    <div data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px; overflow: scroll;">
+                                    <div data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px; overflow: scroll;" >
                                         <ul class="list-unstyled mb-0">
-                                            <li class="p-2 border-bottom">
-                                                <a href="#!" class="d-flex justify-content-between">
+                                            <li class="p-2 border-bottom" v-for="(customer, i) in customers.data" :key="i">
+                                                <a href="#" class="d-flex justify-content-between" @click="show(customer.id)">
                                                     <div class="d-flex flex-row">
                                                         <div>
                                                             <img
-                                                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                                                :src="customer.profile_photo_path_url"
                                                                 alt="avatar"
                                                                 class="d-flex align-self-center me-3"
-                                                                width="60"
+                                                                width="50"
                                                             />
                                                             <span class="badge bg-success badge-dot"></span>
                                                         </div>
                                                         <div class="pt-1">
                                                             <p class="fw-bold mb-0">
-                                                                Marie Horwitz
+                                                                {{ customer.name }}
                                                             </p>
                                                             <p class="small text-muted">
-                                                                Hello, Are you there?
+                                                                {{ customer.email }}
                                                             </p>
                                                         </div>
                                                     </div>
                                                     <div class="pt-1">
-                                                        <p class="small text-muted mb-1">
-                                                            Just now
-                                                        </p>
                                                         <span class="badge bg-danger rounded-pill float-end">3</span
                                                         >
                                                     </div>
@@ -67,66 +116,51 @@
                                 <div
                                     class="pt-3 pe-3"
                                     data-mdb-perfect-scrollbar="true"
-                                    style="
-                                        position: relative;
-                                        height: 400px;
-                                        overflow: scroll;
-                                    "
+                                    style="position: relative; height: 400px; overflow: scroll;"
                                 >
-                                    <div class="d-flex flex-row justify-content-start">
-                                        <img
-                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                                            alt="avatar 1"
-                                            style="
-                                                width: 45px;
-                                                height: 100%;
-                                            "
-                                        />
-                                        <div>
-                                            <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">
-                                                Lorem ipsum dolor sit amet
-                                            </p>
-                                            <p class="small ms-3 mb-3 rounded-3 text-muted float-end">
-                                                12:00 PM | Aug 13
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <div v-for="(message, i) in messages" :key="i">
 
-                                    <div class="d-flex flex-row justify-content-end">
-                                        <div>
-                                            <p class="small p-2 me-3 mb-1 rounded-3" style="background-color: #f5f6f7;">
-                                                Ut 
-                                            </p>
-                                            <p class="small me-3 mb-3 rounded-3 text-muted">
-                                                12:00 PM | Aug 13
-                                            </p>
+                                        <!-- admin -->
+                                        <div class="d-flex flex-row justify-content-start" v-if="!message.user.is_admin">
+                                            <img
+                                                :src="message.user.profile_photo_path_url"
+                                                alt="avatar 1"
+                                                style="width: 40px; height: 100%;"
+                                            />
+                                            <div>
+                                                <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">
+                                                    {{ message.message }}
+                                                </p>
+                                                <p class="small ms-3 mb-3 rounded-3 text-muted float-end">
+                                                    {{ message.date_time_formated }}
+                                                </p>
+                                            </div>
                                         </div>
-                                        <img
-                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                                            alt="avatar 1"
-                                            style="
-                                                width: 45px;
-                                                height: 100%;
-                                            "
-                                        />
+
+                                        <!-- customer -->
+                                        <div class="d-flex flex-row justify-content-end" v-else>
+                                            <div>
+                                                <p class="small p-2 me-3 mb-1 rounded-3" style="background-color: #f5f6f7;">
+                                                    {{ message.message }}
+                                                </p>
+                                                <p class="small me-3 mb-3 rounded-3 text-muted">
+                                                    {{ message.date_time_formated }}
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
-                                    <img
-                                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                                        alt="avatar 3"
-                                        style="width: 40px; height: 100%"
-                                    />
-                                    <input
+                                    <textarea
                                         type="text"
+                                        v-model="textMessage"
                                         class="form-control form-control-lg"
                                         id="exampleFormControlInput2"
                                         placeholder="Tulis pesan"
-                                    />
+                                    ></textarea>
                                     <a class="ms-1 text-muted" href="#!"><i class="fas fa-paperclip"></i></a>
-                                    <a class="ms-3 text-muted" href="#!"><i class="fas fa-smile"></i></a>
-                                    <a class="ms-3" href="#!"><i class="fas fa-paper-plane"></i></a>
+                                    <a class="ms-3" href="#!" @click="submit()"><i class="fas fa-paper-plane"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -138,20 +172,45 @@
 </template>
 
 <style>
-#chat3 .form-control {
-    border-color: transparent;
-}
+    #chat3 .form-control {
+        border-color: transparent;
+    }
 
-#chat3 .form-control:focus {
-    border-color: transparent;
-    box-shadow: inset 0px 0px 0px 1px transparent;
-}
+    #chat3 .form-control:focus {
+        border-color: transparent;
+        box-shadow: inset 0px 0px 0px 1px transparent;
+    }
 
-.badge-dot {
-    border-radius: 50%;
-    height: 10px;
-    width: 10px;
-    margin-left: 2.9rem;
-    margin-top: -0.75rem;
-}
+    .badge-dot {
+        border-radius: 50%;
+        height: 10px;
+        width: 10px;
+        margin-left: 2.9rem;
+        margin-top: -0.75rem;
+    }
+
+    p {
+        font-size: 12px !important;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        height: 5px;
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 </style>

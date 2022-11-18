@@ -82,7 +82,12 @@ Route::middleware(['auth'])
                 Route::get('/{id}/track', 'track')->name('track');
                 Route::put('/{id}/finish', 'finish')->name('finish');
             });
-        Route::get('/chat', ChatController::class)->name('chat.index');
+
+            Route::controller(ChatController::class)
+                ->name('chat.')
+                ->group(function () {
+                    Route::get('/chat', 'index')->name('index');
+                });
     });
 
 Route::controller(AddressGuestController::class)

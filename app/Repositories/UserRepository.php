@@ -29,6 +29,31 @@ class UserRepository implements UserInterface
             ->paginate($request->limit ?? 25);
     }
 
+    public function getPaginateCustomers($request)
+    {
+        return $this->model
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%")
+                    ->orWhere('email', 'like', "%$request->search%")
+                    ->orWhere('phone', 'like', "%$request->search%");
+            })
+            ->where('role', 'customer')
+            ->paginate($request->limit ?? 25);
+    }
+
+    public function getAdminId($request)
+    {
+        return $this->model
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%")
+                    ->orWhere('email', 'like', "%$request->search%")
+                    ->orWhere('phone', 'like', "%$request->search%");
+            })
+            ->where('role', 'admin')
+            ->pluck('id')
+            ->toArray();
+    }
+
     public function getById(string $id)
     {
         return $this->model
