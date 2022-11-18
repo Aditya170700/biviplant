@@ -26,6 +26,9 @@ class ChatController extends Controller
         $admins = $this->user->getAdminId($request);
         $id = array_merge([ auth()->id() ], $admins);
         return Inertia::render('Chat', [
+            'meta_title' => 'Chat Admin',
+            'meta_description' => 'Fitur chat dengan admin biviplant',
+            'meta_keyword' => 'chat, layanan, customer care, customer service',
             'conversation' => $this->conversation->getBySenderReceiver($id)
         ]);
     }

@@ -11,6 +11,7 @@
     })
     const textMessage = ref('')
     const conversation = reactive({})
+    const activeUser = ref({})
     let messages = ref([])
 
     /**
@@ -22,29 +23,30 @@
      * SOCKET EVENT
      */
     socket.on('message', (data) => {
-        console.log(data)
         messages.value.push(data)
     })
 
     function submit() {
         if (textMessage.value != '') {
             let toUser = conversation.data.sender.id != props.user.id ? conversation.data.sender : conversation.data.receiver
+            activeUser.value = toUser
             socket.emit("message-to-customer", {
                 user_id: props.user.id,
                 message: textMessage.value,
                 conversation_id: conversation.data.id,
-                to_socket_id: toUser.socket_id
+                to_user_id: toUser.id
             })
             textMessage.value = ''
-            show(toUser.id)
+            show(toUser)
         }
     }
 
-    function show(userId)
+    function show(user)
     {
         axios.get(route('admin.chat.show', {
-            id: userId
+            id: user.id
         })).then((res) => {
+            activeUser.value = user
             conversation.data = res.data
             messages.value = res.data.messages
         }).catch((error) => {
@@ -65,7 +67,7 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
                                 <div class="p-3">
-                                    <div class="input-group rounded mb-3">
+                                    <div class="input-group rounded mb-3 shadow-sm">
                                         <input
                                             type="search"
                                             class="form-control rounded"
@@ -81,7 +83,7 @@
                                     <div data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px; overflow: scroll;" >
                                         <ul class="list-unstyled mb-0">
                                             <li class="p-2 border-bottom" v-for="(customer, i) in customers.data" :key="i">
-                                                <a href="#" class="d-flex justify-content-between" @click="show(customer.id)">
+                                                <a href="#" class="d-flex justify-content-between" @click="show(customer)">
                                                     <div class="d-flex flex-row">
                                                         <div>
                                                             <img
@@ -113,6 +115,27 @@
                             </div>
 
                             <div class="col-md-6 col-lg-7 col-xl-8">
+                                <div class="input-group rounded mb-3 px-2 py-2 shadow-sm" v-if="activeUser.id">
+                                    <div class="d-flex flex-row">
+                                        <div>
+                                            <img
+                                                :src="activeUser.profile_photo_path_url"
+                                                alt="avatar"
+                                                class="d-flex align-self-center me-3"
+                                                width="50"
+                                            />
+                                            <span class="badge bg-success badge-dot"></span>
+                                        </div>
+                                        <div class="pt-1">
+                                            <p class="fw-bold mb-0">
+                                                {{ activeUser.name }}
+                                            </p>
+                                            <p class="small text-muted">
+                                                {{ activeUser.email }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div
                                     class="pt-3 pe-3"
                                     data-mdb-perfect-scrollbar="true"
@@ -120,13 +143,8 @@
                                 >
                                     <div v-for="(message, i) in messages" :key="i">
 
-                                        <!-- admin -->
+                                        <!-- CUSTOMER -->
                                         <div class="d-flex flex-row justify-content-start" v-if="!message.user.is_admin">
-                                            <img
-                                                :src="message.user.profile_photo_path_url"
-                                                alt="avatar 1"
-                                                style="width: 40px; height: 100%;"
-                                            />
                                             <div>
                                                 <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">
                                                     {{ message.message }}
@@ -137,7 +155,7 @@
                                             </div>
                                         </div>
 
-                                        <!-- customer -->
+                                        <!-- ADMIN -->
                                         <div class="d-flex flex-row justify-content-end" v-else>
                                             <div>
                                                 <p class="small p-2 me-3 mb-1 rounded-3" style="background-color: #f5f6f7;">
@@ -172,15 +190,6 @@
 </template>
 
 <style>
-    #chat3 .form-control {
-        border-color: transparent;
-    }
-
-    #chat3 .form-control:focus {
-        border-color: transparent;
-        box-shadow: inset 0px 0px 0px 1px transparent;
-    }
-
     .badge-dot {
         border-radius: 50%;
         height: 10px;

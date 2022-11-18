@@ -1,10 +1,14 @@
 <script setup>
     import { onMounted, reactive, ref, watch } from "vue";
     import HeaderWithTitle from '../Shared/HeaderWithTitle.vue';
+    import { Head } from "@inertiajs/inertia-vue3";
     import Sidebar from "./../Shared/Homepage/Sidebar.vue";
     import openSocket from '../socket.js';
 
     const props = defineProps({
+        meta_title: String,
+        meta_description: String,
+        meta_keyword: String,
         user: Object,
         conversation: Object
     })
@@ -17,7 +21,7 @@
      * SOCKET CONNECTED
      */
      const socket = openSocket(props.user.id)
-     
+
     /**
      * SOCKET EVENT
      */
@@ -40,6 +44,15 @@
 
 <template>
     <div>
+        <Head>
+            <title>{{ meta_title }}</title>
+            <meta
+                head-key="description"
+                name="description"
+                :content="meta_description"
+            />
+            <meta head-key="keyword" name="keyword" :content="meta_keyword" />
+        </Head>
         <HeaderWithTitle link_back="/" title="Terhubung Dengan Kami"></HeaderWithTitle>
         <Sidebar></Sidebar>
         <div class="page-content-wrapper">
