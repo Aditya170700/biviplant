@@ -71,4 +71,9 @@ class User extends Authenticatable
             get: fn ($value, $attributes) => $attributes['role'] == 'admin',
         );
     }
+
+    public function social_accounts()
+    {
+        return $this->hasMany(SocialAccount::class);
+    }
 }

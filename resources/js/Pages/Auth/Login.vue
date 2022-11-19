@@ -38,7 +38,11 @@ const submit = () => {
                 name="description"
                 content="Login untuk pengalaman yang menakjubkan"
             />
-            <meta head-key="keyword" name="keyword" content="tanaman buah, biviplant" />
+            <meta
+                head-key="keyword"
+                name="keyword"
+                content="tanaman buah, biviplant"
+            />
         </Head>
         <div
             class="background-shape"
@@ -131,8 +135,21 @@ const submit = () => {
                             >
                         </p>
                     </div>
-                    <div class="view-as-guest mt-3">
-                        <Link class="btn" href="/">View as Guest</Link>
+                    <div class="row mt-3">
+                        <div class="col-6 text-end">
+                            <a
+                                :href="route('socialite.redirect', 'google')"
+                                class="text-decoration-none"
+                                ><i class="lni lni-google"></i
+                            ></a>
+                        </div>
+                        <div class="col-6 text-start">
+                            <a
+                                :href="route('socialite.redirect', 'facebook')"
+                                class="text-decoration-none"
+                                ><i class="lni lni-facebook"></i
+                            ></a>
+                        </div>
                     </div>
                 </div>
             </div>
