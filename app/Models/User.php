@@ -45,6 +45,8 @@ class User extends Authenticatable
         'id' => 'string',
         'email_verified_at' => 'datetime',
     ];
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     /**
      * The accessors to append to the model's array form.

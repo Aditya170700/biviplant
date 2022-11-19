@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\SocialAccount;
 use Laravel\Socialite\Facades\Socialite;
+use DB;
 
 class SocialiteController extends Controller
 {
@@ -19,7 +20,7 @@ class SocialiteController extends Controller
     public function handleProvideCallback($provider)
     {
         try {
-            $user = Socialite::driver($provider)->stateless()->user();
+            $user = Socialite::driver($provider)->user();
         } catch (Exception $e) {
             return redirect()->back();
         }
@@ -33,29 +34,38 @@ class SocialiteController extends Controller
 
     public function findOrCreateUser($socialUser, $provider)
     {
-        $socialAccount = SocialAccount::where('provider_id', $socialUser->getId())
-            ->where('provider_name', $provider)
-            ->first();
+        try {
+            $socialAccount = SocialAccount::where('provider_id', $socialUser->getId())
+                ->where('provider_name', $provider)
+                ->first();
 
-        if ($socialAccount) {
-            return $socialAccount->user;
-        } else {
-            $user = User::where('email', $socialUser->getEmail())->first();
+            if ($socialAccount) {
+                return $socialAccount->user;
+            } else {
+                DB::beginTransaction();
+                $user = User::where('email', $socialUser->getEmail())->first();
 
-            if (!$user) {
-                $user = User::create([
-                    'name' => $socialUser->getName(),
-                    'email' => $socialUser->getEmail(),
-                    'password' => bcrypt(Str::random(24)),
+                if (!$user) {
+                    $user = User::create([
+                        'name' => $socialUser->getName(),
+                        'email' => $socialUser->getEmail(),
+                        'password' => bcrypt(Str::random(24)),
+                        'phone' => '08',
+                    ]);
+                }
+
+                SocialAccount::create([
+                    'provider_id' => $socialUser->getId(),
+                    'provider_name' => $provider,
+                    'user_id' => $user->id,
                 ]);
+
+                DB::commit();
+                return $user;
             }
-
-            $user->social_accounts()->create([
-                'provider_id' => $socialUser->getId(),
-                'provider_name' => $provider
-            ]);
-
-            return $user;
+        } catch (Exception $e) {
+            DB::rollBack();
+            return redirect()->back();
         }
     }
 }
