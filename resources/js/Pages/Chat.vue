@@ -53,11 +53,11 @@
             />
             <meta head-key="keyword" name="keyword" :content="meta_keyword" />
         </Head>
-        <HeaderWithTitle link_back="/" title="Terhubung Dengan Kami"></HeaderWithTitle>
+        <HeaderWithTitle link_back="/" title="Chat"></HeaderWithTitle>
         <Sidebar></Sidebar>
         <div class="page-content-wrapper">
             <!-- Live Chat Intro-->
-            <div class="live-chat-intro mb-3">
+            <div class="live-chat-intro mb-3" style="position: fixed; width: 100%; z-index: 1000;">
                 <p>Mulai Percakapan Dengan Admin</p>
                 <img src="/img/bg-img/9.jpg" alt="" />
                 <div class="status online">Admin sedang online</div>
@@ -65,7 +65,7 @@
                 <!-- .status.offline We’ll be back soon-->
             </div>
             <!-- Support Wrapper-->
-            <div class="support-wrapper py-3">
+            <div class="support-wrapper py-3" style="padding-top: 200px !important;">
                 <div class="container">
                     <!-- Live Chat Wrapper-->
                     <div class="live-chat-wrapper" v-for="(message, i) in messages" :key="i">
