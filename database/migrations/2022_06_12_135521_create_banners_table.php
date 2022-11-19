@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('path');
             $table->string('title');
             $table->string('sub_title');
-            $table->string('link');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

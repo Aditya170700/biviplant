@@ -178,8 +178,8 @@ import Layout from "../../../Layouts/Dashboard/App.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
-import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
-import FormText from "../../../Shared/Form/FormText";
+import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing.vue";
+import FormText from "../../../Shared/Form/FormText.vue";
 import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 import moment from 'moment';

@@ -1,7 +1,7 @@
 <script setup>
 import { Link, useForm } from "@inertiajs/inertia-vue3";
-import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing";
-import FormText from "../../Shared/Form/FormText";
+import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing.vue";
+import FormText from "../../Shared/Form/FormText.vue";
 
 defineProps({
     canResetPassword: Boolean,
@@ -31,6 +31,19 @@ const submit = () => {
         class="login-wrapper d-flex align-items-center justify-content-center text-center"
         style="background: white !important"
     >
+        <Head>
+            <title>Login</title>
+            <meta
+                head-key="description"
+                name="description"
+                content="Login untuk pengalaman yang menakjubkan"
+            />
+            <meta
+                head-key="keyword"
+                name="keyword"
+                content="tanaman buah, biviplant"
+            />
+        </Head>
         <div
             class="background-shape"
             style="background: rgb(80, 208, 72) !important"
@@ -122,8 +135,21 @@ const submit = () => {
                             >
                         </p>
                     </div>
-                    <div class="view-as-guest mt-3">
-                        <Link class="btn" href="/">View as Guest</Link>
+                    <div class="row mt-3">
+                        <div class="col-6 text-end">
+                            <a
+                                :href="route('socialite.redirect', 'google')"
+                                class="text-decoration-none"
+                                ><i class="lni lni-google"></i
+                            ></a>
+                        </div>
+                        <div class="col-6 text-start">
+                            <a
+                                :href="route('socialite.redirect', 'facebook')"
+                                class="text-decoration-none"
+                                ><i class="lni lni-facebook"></i
+                            ></a>
+                        </div>
                     </div>
                 </div>
             </div>

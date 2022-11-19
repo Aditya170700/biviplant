@@ -1,7 +1,12 @@
 <script setup>
+import { ref } from "@vue/reactivity";
 import { useStore } from "vuex";
 
 let store = useStore();
+const props = defineProps({
+    product_conditions: Object,
+});
+const productConditions = ref(props.product_conditions);
 </script>
 <template>
     <div
@@ -25,9 +30,9 @@ let store = useStore();
         <div class="offcanvas-body py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <!-- <div class="col-12">
                         <div class="widget catagory mb-4">
-                            <h6 class="widget-title mb-2">Jenis Tanaman</h6>
+                            <h6 class="widget-title mb-2">Jenis Produk</h6>
                             <div class="widget-desc">
                                 <div class="form-check">
                                     <input
@@ -57,6 +62,33 @@ let store = useStore();
                                         class="form-check-label"
                                         for="tanaman"
                                         >Tanaman</label
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-12">
+                        <div class="widget catagory mb-4">
+                            <h6 class="widget-title mb-2">Kondisi Tanaman</h6>
+                            <div class="widget-desc">
+                                <div
+                                    class="form-check"
+                                    v-for="(cond, iCond) in productConditions"
+                                    :key="iCond"
+                                >
+                                    <input
+                                        class="form-check-input"
+                                        :id="`cond-${iCond}`"
+                                        type="checkbox"
+                                        :value="iCond"
+                                        v-model="
+                                            store.state.filterProduct.conditions
+                                        "
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        :for="`cond-${iCond}`"
+                                        >{{ cond }}</label
                                     >
                                 </div>
                             </div>

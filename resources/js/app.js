@@ -1,10 +1,14 @@
-require('./bootstrap');
+import './bootstrap';
+import '../css/app.css';
 
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import { createStore } from 'vuex';
+import Toast from "vue-toastification";
 import { imageReader, toastError, toastSuccess } from './utils';
+import VueGoogleMaps from "@fawmi/vue-google-maps";
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Biviplant';
 
@@ -18,7 +22,10 @@ let store = createStore({
         courier: null,
         filterProduct: {
             categories: [],
+            category: [],
             sort_price: "asc",
+            conditions: [],
+            search: "",
         },
     },
     mutations: {
@@ -35,11 +42,18 @@ let store = createStore({
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => require(`./Pages/${name}.vue`),
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
             .use(plugin)
             .use(store)
+            .use(Toast)
+            .use(VueGoogleMaps, {
+                load: {
+                    key: 'AIzaSyBGEoiVjO46M-okQCc9BH8g8-iG1SPIid8',
+                    libraries: 'places',
+                },
+            })
             .mixin({
                 methods: {
                     route,

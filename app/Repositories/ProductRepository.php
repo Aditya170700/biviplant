@@ -20,10 +20,18 @@ class ProductRepository implements ProductInterface
             ->when($request->search, function ($query) use ($request) {
                 $query->where('name', 'like', "%$request->search%");
             })
+            ->when($request->category, function ($query) use ($request) {
+                $query->whereHas('category', function ($query) use ($request) {
+                    $query->where('name', $request->category);
+                });
+            })
             ->when($request->categories, function ($query) use ($request) {
                 $query->whereHas('category', function ($query) use ($request) {
                     $query->whereIn('name', $request->categories);
                 });
+            })
+            ->when($request->conditions, function ($query) use ($request) {
+                $query->whereIn('condition', $request->conditions);
             })
             ->when($request->sort_price, function ($query) use ($request) {
                 $query->orderBy('price', $request->sort_price);
@@ -41,6 +49,7 @@ class ProductRepository implements ProductInterface
     {
         return $this->model
             ->with('files', 'category')
+            ->where('is_featured', Product::FEATURED)
             ->paginate(10);
     }
 

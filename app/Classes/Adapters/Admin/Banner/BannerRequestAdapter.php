@@ -12,7 +12,7 @@ class BannerRequestAdapter implements DataRequestAdapterInterface
         return [
             'title' => 'required|string|max:255',
             'sub_title' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
+            'link' => 'nullable|string|max:255',
             'path' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
@@ -22,7 +22,7 @@ class BannerRequestAdapter implements DataRequestAdapterInterface
         return [
             'title' => 'required|string|max:255',
             'sub_title' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
+            'link' => 'nullable|string|max:255',
         ];
     }
 

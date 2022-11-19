@@ -13,6 +13,9 @@ class Product extends Model
 {
     use HasFactory, Uuid, Searchable;
 
+    const NOT_FEATURED = 1;
+    const FEATURED = 2;
+
     protected $guarded = [];
 
     protected $casts = [

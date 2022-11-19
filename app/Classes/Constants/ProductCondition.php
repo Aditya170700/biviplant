@@ -17,7 +17,7 @@ class ProductCondition
             self::YOUNG_PLANT => 'Tanaman Remaja',
             self::FRUIT_PLANT => 'Tanaman Berbuah',
             self::BIG_PLANT => 'Tanaman Induk',
-            self::FLOWER_PLANT => 'Tanaman Bunga'
+            self::FLOWER_PLANT => 'Tanaman Hias'
             
         ];
     }

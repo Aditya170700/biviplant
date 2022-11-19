@@ -16,11 +16,14 @@ const props = defineProps({
     meta_keyword: String,
     categories: Object,
     products: Object,
+    product_conditions: Object,
 });
 let store = useStore();
+let category = ref("");
 const isLoading = ref(false);
 const dataProducts = ref(props.products);
 const listProducts = ref(props.products.data);
+const productConditions = ref(props.product_conditions);
 
 const nextProduct = () => {
     window.onscroll = () => {
@@ -52,11 +55,15 @@ const nextProduct = () => {
 
 onMounted(() => {
     nextProduct();
+
+    const url = new URL(window.location.href);
+    category.value = url.searchParams.get("category");
 });
 
 const metaTitle = ref(props.meta_title);
 const metaDescription = ref(props.meta_description);
 const metaKeyword = ref(props.meta_keyword);
+const filterCategories = reactive([]);
 
 watch(store.state.filterProduct, (val) => {
     axios
@@ -71,6 +78,35 @@ watch(store.state.filterProduct, (val) => {
             console.log(err);
         });
 });
+
+function insertParam(key, value) {
+    key = encodeURIComponent(key);
+    value = encodeURIComponent(value);
+
+    var kvp = document.location.search.substr(1).split("&");
+    let i = 0;
+
+    for (; i < kvp.length; i++) {
+        if (kvp[i].startsWith(key + "=")) {
+            let pair = kvp[i].split("=");
+            pair[1] = value;
+            kvp[i] = pair.join("=");
+            break;
+        }
+    }
+
+    if (i >= kvp.length) {
+        kvp[kvp.length] = [key, value].join("=");
+    }
+
+    let params = kvp.join("&");
+
+    document.location.search = params;
+}
+
+function setCategory(category) {
+    insertParam("category", category);
+}
 </script>
 
 <template>
@@ -85,7 +121,7 @@ watch(store.state.filterProduct, (val) => {
             <meta head-key="keyword" name="keyword" :content="metaKeyword" />
         </Head>
         <Header></Header>
-        <Sidebar></Sidebar>
+        <Sidebar :product_conditions="productConditions"></Sidebar>
         <div
             class="toast pwa-install-alert shadow bg-white"
             role="alert"
@@ -116,25 +152,66 @@ watch(store.state.filterProduct, (val) => {
         <div class="page-content-wrapper bg-fug">
             <div class="top-products-area py-3">
                 <div class="container">
+                    <div
+                        class="section-heading d-flex align-items-center justify-content-between"
+                    >
+                        <h6 class="fw-bold">KATEGORI</h6>
+                    </div>
                     <div class="product-catagories">
                         <div class="row g-3">
+                            <div class="col-4">
+                                <a
+                                    href="#"
+                                    :class="`shadow-sm d-flex align-items-center ${
+                                        category == '' || !category
+                                            ? 'bg-light border border-success'
+                                            : ''
+                                    }`"
+                                    @click.prevent="setCategory('')"
+                                >
+                                    <img
+                                        src="/assets/images/logo/store.svg"
+                                        alt=""
+                                    />
+                                    Semua
+                                </a>
+                            </div>
                             <div
                                 class="col-4"
-                                v-for="(category, i) in categories.data"
+                                v-for="(cat, i) in categories.data"
                                 :key="i"
                             >
-                                <a class="shadow-sm" href="#">
+                                <a
+                                    :class="`shadow-sm d-flex align-items-center ${
+                                        category == cat.slug
+                                            ? 'bg-light border border-success'
+                                            : ''
+                                    }`"
+                                    href="#"
+                                    @click.prevent="setCategory(cat.slug)"
+                                >
                                     <img
-                                        :src="category.icon_url"
+                                        :src="cat.icon_url"
                                         alt=""
-                                        class="mb-2"
+                                        style="width: 19px"
                                     />
-                                    {{ category.name }}
+                                    {{ cat.name }}
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="row g-3">
+                        <div
+                            class="section-heading d-flex align-items-center justify-content-between mt-5"
+                        >
+                            <h6 class="fw-bold">DAFTAR PRODUK</h6>
+                        </div>
+                        <div
+                            class="col-12 text-center"
+                            v-if="listProducts.length < 1"
+                        >
+                            Produk tidak ditemukan
+                        </div>
                         <div
                             class="col-6 col-md-4 col-lg-3"
                             v-for="(product, i) in listProducts"

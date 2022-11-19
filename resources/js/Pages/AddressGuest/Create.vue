@@ -6,8 +6,8 @@ import Footer from "./../../Shared/Footer.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { reactive } from "@vue/reactivity";
 import { onMounted, useAttrs } from "@vue/runtime-core";
-import FormText from "../../Shared/Form/FormText";
-import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing";
+import FormText from "../../Shared/Form/FormText.vue";
+import SpinnerProcessing from "../../Shared/Form/SpinnerProcessing.vue";
 import {
     LMap,
     LTileLayer,

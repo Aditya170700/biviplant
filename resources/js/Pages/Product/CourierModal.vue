@@ -4,7 +4,7 @@ import { Link } from "@inertiajs/inertia-vue3";
 import { onMounted, ref } from "@vue/runtime-core";
 import axios from "axios";
 import { useStore } from "vuex";
-import { toastError } from "../../utils";
+import { toastError } from "../../utils.js";
 
 let store = useStore();
 let props = defineProps({

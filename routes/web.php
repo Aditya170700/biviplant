@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\AddressController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\AddressGuestController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\RatingController;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RatingController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\AddressGuestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,21 @@ use App\Http\Controllers\RatingController;
 |
 */
 
+Route::get('/test', function () {
+    return Inertia::render('Test');
+});
+
+/**
+ * socialite auth
+ */
+Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider'])
+    ->name('socialite.redirect');
+Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProvideCallback'])
+    ->name('socialite.callback');
+
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/tentang-kami', [HomeController::class, 'aboutUs'])->name('about_us');
+Route::get('/kebijakan-dan-privasi', [HomeController::class, 'privacyPolicy'])->name('privacy_policy');
 
 Route::middleware(['auth'])
     ->group(function () {

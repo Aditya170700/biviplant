@@ -140,11 +140,26 @@
                                             theme="snow"
                                             v-model:content="form.description"
                                             contentType="html"
+                                            style="min-height:300px;"
                                         />
                                         <FormText
                                             :id="'description'"
                                             :message="form.errors.description"
                                             v-if="form.errors.description"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <div class="mb-3">
+                                        <label for="is_featured" class="form-label">Tampilkan di Unggulan</label>
+                                        <select class="form-control" v-model="form.is_featured" id="is_featured">
+                                            <option value="1" selected>Tidak</option>
+                                            <option value="2">Ya</option>
+                                        </select>
+                                        <FormText
+                                            :id="'is_featured'"
+                                            :message="form.errors.is_featured"
+                                            v-if="form.errors.is_featured"
                                         />
                                     </div>
                                 </div>
@@ -279,10 +294,10 @@
 import Layout from "../../../Layouts/Dashboard/App.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import { useForm } from "@inertiajs/inertia-vue3";
-import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
-import FormText from "../../../Shared/Form/FormText";
-import { slugify } from "../../../utils";
-import CurrencyInput from "../../../Shared/Form/CurrencyInput";
+import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing.vue";
+import FormText from "../../../Shared/Form/FormText.vue";
+import { slugify } from "../../../utils.js";
+import CurrencyInput from "../../../Shared/Form/CurrencyInput.vue";
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 
@@ -314,6 +329,7 @@ export default {
             weight: 0,
             condition: "",
             category_id: "",
+            is_featured: 1
         });
 
         function changeName() {

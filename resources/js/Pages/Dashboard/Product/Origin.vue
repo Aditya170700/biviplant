@@ -26,7 +26,7 @@
                                         </thead>
                                         <tbody>
                                             <tr
-                                                v-for="(origin, i) in origins"
+                                                v-for="(origin, i) in dataOrigins"
                                                 :key="i"
                                                 :class="`${
                                                     originUsed.includes(
@@ -148,8 +148,8 @@
 import Layout from "../../../Layouts/Dashboard/App.vue";
 import Pagination from "../../../Shared/Pagination.vue";
 import { useForm, Link } from "@inertiajs/inertia-vue3";
-import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
-import FormText from "../../../Shared/Form/FormText";
+import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing.vue";
+import FormText from "../../../Shared/Form/FormText.vue";
 import { Inertia } from "@inertiajs/inertia";
 import { ref, onMounted, reactive } from "vue";
 import axios from "axios";
@@ -169,22 +169,37 @@ export default {
     },
     setup(props) {
         let originUsed = props.result.origins.map((origin) => origin.id);
+        let dataOrigins = props.origins
 
         let attach = (originId) => {
-            Inertia.post(
+            Inertia.visit(
                 route("admin.products.origins.attach", {
                     id: props.result.id,
                     originId,
-                })
-            );
+                }),
+                {
+                    method: 'post',
+                    preserveState: (page) => console.log(page),
+                    onSuccess: (data) => {
+                        props = data.props
+                        originUsed = props.result.origins.map((origin) => origin.id)
+                    }
+                }
+            )
         };
 
         let detach = (originId) => {
-            Inertia.delete(
+            Inertia.visit(
                 route("admin.products.origins.detach", {
                     id: props.result.id,
                     originId,
-                })
+                }),
+                {
+                    method: 'delete',
+                    onSuccess: (data) => {
+                        dataOrigins = data.props.origins
+                    }
+                }
             );
         };
 
@@ -192,6 +207,7 @@ export default {
             originUsed,
             attach,
             detach,
+            dataOrigins
         };
     },
 };

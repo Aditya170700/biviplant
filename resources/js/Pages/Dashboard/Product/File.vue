@@ -213,8 +213,8 @@
 import Layout from "../../../Layouts/Dashboard/App.vue";
 import Pagination from "../../../Shared/Pagination.vue";
 import { useForm, Link } from "@inertiajs/inertia-vue3";
-import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing";
-import FormText from "../../../Shared/Form/FormText";
+import SpinnerProcessing from "../../../Shared/Form/SpinnerProcessing.vue";
+import FormText from "../../../Shared/Form/FormText.vue";
 import { ref } from "@vue/reactivity";
 import { Inertia } from "@inertiajs/inertia";
 import { imageReader, dataURLtoFile } from "../../../utils";

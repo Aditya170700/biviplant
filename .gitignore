@@ -1,5 +1,6 @@
 /node_modules
 /public/hot
+/public/build
 /public/js/app.js
 /public/storage
 /storage/*.key
@@ -15,3 +16,5 @@ yarn-error.log
 /.vscode
 public/css/app.css
 public/js/app.js
+/bootstrap/ssr
+/bootstrap/ssr/ssr.mjs

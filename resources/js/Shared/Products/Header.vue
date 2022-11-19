@@ -20,9 +20,27 @@
                     </svg>
                 </Link>
             </div>
-            <div class="page-heading">
-                <h6 class="mb-0">List Product</h6>
+            <div class="top-search-form">
+                <form action="" method="">
+                    <input
+                        class="form-control"
+                        type="search"
+                        placeholder="Cari kebutuhanmu di sini"
+                        v-model="search"
+                        @keyup="doSearch"
+                    />
+                    <button type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
             </div>
+            <div
+                class="suha-navbar-toggler d-none"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#suhaOffcanvas"
+                aria-controls="suhaOffcanvas"
+                id="suhaOffcanvasToggler"
+            ></div>
             <div
                 class="filter-option"
                 data-bs-toggle="offcanvas"
@@ -47,11 +65,15 @@
     </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from "@vue/reactivity";
+import { useStore } from "vuex";
 import { Link } from "@inertiajs/inertia-vue3";
-export default {
-    components: {
-        Link,
-    },
-};
+
+let store = useStore();
+let search = ref("");
+
+function doSearch() {
+    store.state.filterProduct.search = search.value;
+}
 </script>

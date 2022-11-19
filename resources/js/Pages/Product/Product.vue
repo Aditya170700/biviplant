@@ -10,7 +10,7 @@ import { reactive, ref } from "@vue/reactivity";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 import axios from "axios";
-import { toastError, toastSuccess } from "../../utils";
+import { toastError, toastSuccess } from "../../utils.js";
 import { onMounted, useAttrs, watch } from "@vue/runtime-core";
 import { useStore } from "vuex";
 import AddressModalGuest from "./AddressModalGuest.vue";
@@ -41,17 +41,17 @@ let form = reactive({
     user_id: attrs.user?.id,
     product_id: props.product.id,
     user_address_id: props.primary_address?.id,
-    user_address: null,
-    courier: null,
-    shipping_service: null,
-    shipping_cost: null,
-    shipping_etd: null,
+    user_address: '',
+    courier: '',
+    shipping_service: '',
+    shipping_cost: '',
+    shipping_etd: '',
     qty: props.product.cart_user?.qty ?? 0 + 1,
 });
 
 let feedback = reactive({
     data: [],
-    meta: null,
+    meta: '',
     loading: false,
     more: true,
 });
@@ -171,10 +171,10 @@ watch(
         ></AddressModal>
         <AddressModalGuest v-else></AddressModalGuest>
         <CourierModal
+            v-if="primary_address != null"
             :primary_address="primary_address"
             :product="product"
             :qty="form.qty"
-            v-if="primary_address != null"
         ></CourierModal>
         <div
             class="card fixed-bottom rounded-0 shadow-0 bg-fug"
@@ -506,9 +506,9 @@ watch(
                                 class="d-flex justify-content-between align-items-center"
                             >
                                 <h6>Produk Terkait</h6>
-                                <a class="btn btn-light" href="/"
-                                    >Lihat Semua</a
-                                >
+                                <Link class="btn btn-light" :href="route('category.show', {slug: product?.category?.slug})">
+                                    Lihat Semua
+                                </Link>
                             </div>
                             <div class="related-product-slide carousel">
                                 <carousel :items-to-show="1.5">
