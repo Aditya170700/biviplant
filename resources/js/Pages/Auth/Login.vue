@@ -103,7 +103,7 @@ const submit = () => {
                                     name="remember"
                                 />
                                 <label class="form-check-label" for="remember">
-                                    Remember me
+                                    Ingat saya
                                 </label>
                             </div>
                             <button
@@ -114,7 +114,7 @@ const submit = () => {
                             >
                                 <div class="d-flex justify-content-center">
                                     <SpinnerProcessing v-if="form.processing" />
-                                    Log In
+                                    Login
                                 </div>
                             </button>
                         </form>
@@ -125,17 +125,20 @@ const submit = () => {
                             :href="route('password.request')"
                             class="forgot-password d-block mt-3 mb-1 text-dark"
                         >
-                            Forgot password?
+                            Lupa kata sandi?
                         </Link>
                         <p class="mb-0 text-dark">
-                            Didn't have an account?<Link
+                            Apakah anda belum memiliki akun?<Link
                                 class="ms-1 text-dark"
                                 :href="route('register')"
-                                >Register</Link
+                                >Daftar</Link
                             >
                         </p>
                     </div>
                     <div class="row mt-3">
+                        <p class="mb-2 text-dark">
+                            Atau masuk melalui
+                        </p>
                         <div class="col-6 text-end">
                             <a
                                 :href="route('socialite.redirect', 'google')"
