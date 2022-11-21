@@ -30,6 +30,15 @@ class ChatController extends Controller
         ]);
     }
 
+    public function customers(Request $request)
+    {
+        try {
+            return response()->json($this->user->getPaginateCustomers($request));
+        } catch (\Throwable $th) {
+            panic($th);
+        }
+    }
+
     public function show(Request $request)
     {
         try {

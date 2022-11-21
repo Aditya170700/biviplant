@@ -56,7 +56,7 @@
             <!-- Live Chat Intro-->
             <div class="live-chat-intro mb-3" style="position: fixed; width: 100%; z-index: 1000;">
                 <p>Mulai Percakapan Dengan Admin</p>
-                <img src="/img/bg-img/9.jpg" alt="" />
+                <img src="/assets/images/customer-service.png" alt="" />
                 <div class="status online">Admin sedang online</div>
                 <!-- Use this code for "Offline" Status-->
                 <!-- .status.offline We’ll be back soon-->

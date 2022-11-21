@@ -80,6 +80,7 @@ Route::middleware(['auth', 'role:admin'])
             ->name('chat.')
             ->group(function () {
                 Route::get('/chat', 'index')->name('index');
+                Route::get('/customers', 'customers')->name('customers');
                 Route::get('/chat/show/{sender_id}', 'show')->name('show');
             });
     });

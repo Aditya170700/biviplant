@@ -58,6 +58,21 @@ class User extends Authenticatable
         'is_admin',
     ];
 
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+    public function unreadMessages()
+    {
+        return $this->hasMany(Message::class)
+            ->whereHas('conversation', function($q) {
+                $q->where('receiver_id', auth()->id())
+                    ->orWhere('sender_id', auth()->id());
+            })
+            ->whereNull('read_at');
+    }
+
     protected function profilePhotoPathUrl(): Attribute
     {
         return Attribute::make(

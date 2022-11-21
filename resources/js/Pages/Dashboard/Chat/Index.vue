@@ -3,7 +3,7 @@
     import { onMounted, reactive, ref, watch } from "vue";
     import Layout from "../../../Layouts/Dashboard/App.vue";
     import socket from "../../../socket.js";
-    import { toastError } from "../../../utils";
+    import { toastError, toastSuccess } from "../../../utils";
 
     const props = defineProps({
         user: Object,
@@ -12,12 +12,20 @@
     const textMessage = ref('')
     const conversation = reactive({})
     const activeUser = ref({})
+    let customers = ref(props.customers.data)
     let messages = ref([])
     /**
      * SOCKET EVENT
      */
     socket.on('message', (data) => {
-        messages.value.push(data)
+        if (activeUser.value?.id) {
+            messages.value.push(data)
+        }
+    })
+
+    socket.on('notif-chat-admin', (data) => {
+        getCustomers()
+        toastSuccess(`Pesan baru dari ${data.name}.`)
     })
 
     function submit() {
@@ -35,16 +43,35 @@
         }
     }
 
-    function show(user)
-    {
+    function getCustomers() {
+        axios.get(route('admin.chat.customers')).then((res) => {
+            customers.value = res.data.data
+        }).catch((error) => {
+            toastError('failed sync customers!')
+        })
+    }
+
+    function show(user) {
         axios.get(route('admin.chat.show', {
             id: user.id
         })).then((res) => {
             activeUser.value = user
             conversation.data = res.data
             messages.value = res.data.messages
+            syncReadMessage(user)
         }).catch((error) => {
             toastError('something went wrooongg!')
+        })
+    }
+
+    function syncReadMessage(user) {
+        customers.value?.map(customer => {
+            if (customer.id == user.id) {
+                user.unread_messages = []
+                return user
+            }else {
+                return customer
+            }
         })
     }
 
@@ -76,7 +103,7 @@
 
                                     <div data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px; overflow: scroll;" >
                                         <ul class="list-unstyled mb-0">
-                                            <li class="p-2 border-bottom" v-for="(customer, i) in customers.data" :key="i">
+                                            <li class="p-2 border-bottom" v-for="(customer, i) in customers" :key="i">
                                                 <a href="#" class="d-flex justify-content-between" @click="show(customer)">
                                                     <div class="d-flex flex-row">
                                                         <div>
@@ -97,9 +124,8 @@
                                                             </p>
                                                         </div>
                                                     </div>
-                                                    <div class="pt-1">
-                                                        <span class="badge bg-danger rounded-pill float-end">3</span
-                                                        >
+                                                    <div class="pt-1" v-if="customer.unread_messages.length > 0">
+                                                        <span class="badge bg-danger rounded-pill float-end">{{ customer.unread_messages.length }}</span>
                                                     </div>
                                                 </a>
                                             </li>

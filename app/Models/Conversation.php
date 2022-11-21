@@ -33,7 +33,7 @@ class Conversation extends Model
 
     public function unreadMessages()
     {
-        return $this->messages()->where('user_id', auth()->id())->whereNull('read_at');
+        return $this->messages()->where('user_id', '!=', auth()->id())->whereNull('read_at');
     }
 
     public function receiver()

@@ -32,13 +32,14 @@ class UserRepository implements UserInterface
     public function getPaginateCustomers($request)
     {
         return $this->model
+            ->with('unreadMessages', 'messages')
             ->when($request->search, function ($query) use ($request) {
                 $query->where('name', 'like', "%$request->search%")
                     ->orWhere('email', 'like', "%$request->search%")
                     ->orWhere('phone', 'like', "%$request->search%");
             })
             ->where('role', 'customer')
-            ->paginate($request->limit ?? 25);
+            ->paginate($request->limit ?? 500);
     }
 
     public function getAdminId($request)
