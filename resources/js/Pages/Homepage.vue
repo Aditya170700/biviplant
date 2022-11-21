@@ -28,16 +28,6 @@ const props = defineProps({
 const notifChat = ref(props.unread_messages_count?.unread_messages_count)
 
 /**
- * SOCKET CONNECTED
- */
-if (props.user) {
-    socket.auth = {
-        id: props.user.id
-    }
-    socket.connect()
-}
-
-/**
  * SOCKET EVENT
  */
 socket.on('notif-chat', (data) => {

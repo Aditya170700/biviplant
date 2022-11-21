@@ -13,10 +13,6 @@
     const conversation = reactive({})
     const activeUser = ref({})
     let messages = ref([])
-    socket.auth = {
-        id: props.user.id
-    }
-    socket.connect()
     /**
      * SOCKET EVENT
      */
