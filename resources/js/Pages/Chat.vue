@@ -3,7 +3,7 @@
     import HeaderWithTitle from '../Shared/HeaderWithTitle.vue';
     import { Head } from "@inertiajs/inertia-vue3";
     import Sidebar from "./../Shared/Homepage/Sidebar.vue";
-    import openSocket from '../socket.js';
+    import socket from '../socket.js';
 
     const props = defineProps({
         meta_title: String,
@@ -18,18 +18,15 @@
     messages.value = props.conversation.messages
 
     /**
-     * SOCKET CONNECTED
-     */
-     const socket = openSocket(props.user.id)
-
-    /**
      * SOCKET EVENT
      */
     socket.on('message', (data) => {
         messages.value.push(data)
+        window.scrollTo(0, window.document.getElementsByClassName("page-content-wrapper").scrollHeight)
     })
-
-    function submit() {
+    
+    function submit(e) {
+        e.preventDefault()
         if (textMessage.value != '') {
             socket.emit("message-to-admin", {
                 user_id: props.user.id,
@@ -88,7 +85,7 @@
                         <!-- Customer Message Content-->
                         <div class="user-message-content" v-else>
                             <div class="user-message-text">
-                                <div class="d-block mt-2">
+                                <div class="d-block mt-2 mt-3">
                                     <p style="background-color: #FFFFFF !important; color: #747794;">
                                         {{ message.message }}
                                     </p>
@@ -111,7 +108,7 @@
                     rows="20"
                     placeholder="Tulis pesan"
                 ></textarea>
-                <button type="submit" @click="submit()">
+                <button type="submit" @click="submit">
                     <img src="/assets/images/send-message.png" alt="" style="opacity: 0.5;">
                 </button>
             </form>

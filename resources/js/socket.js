@@ -1,10 +1,5 @@
-import openSocket from "socket.io-client"
+import { io } from "socket.io-client";
 
-function useSocketIo(userId) {
-    return openSocket('http://localhost:3000', {
-        query: {
-            id: userId
-        }
-    });
-}
-export default useSocketIo
+const URL = "http://localhost:3000";
+const socket = io(URL, { autoConnect: false });
+export default socket

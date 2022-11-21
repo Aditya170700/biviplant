@@ -12,6 +12,15 @@ class ConversationRepository implements ConversationInterface
         $this->model = $model;
     }
 
+    public function getUnreadMessagesBySenderReceiver($receiverId)
+    {
+        return $this->model
+            ->withCount('unreadMessages')
+            ->whereIn('sender_id', is_array($receiverId) ? $receiverId : [auth()->id(), $receiverId])
+            ->whereIn('receiver_id', is_array($receiverId) ? $receiverId : [auth()->id(), $receiverId])
+            ->first();
+    }
+
     public function getBySenderReceiver($receiverId)
     {
         $conversation = $this->model
@@ -50,6 +59,16 @@ class ConversationRepository implements ConversationInterface
                 'sender',
             ]);
         }
+
+        // set read message
+        $id = auth()->id() != $conversation->sender_id ? $conversation->sender_id : $conversation->receiver_id;
+        $conversation->messages()
+            ->where('user_id', $id)
+            ->whereNull('read_at')
+            ->update([
+                'read_at' => now()
+            ]);
+
         return $conversation;
     }
 

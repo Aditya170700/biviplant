@@ -2,7 +2,7 @@
     import axios from "axios";
     import { onMounted, reactive, ref, watch } from "vue";
     import Layout from "../../../Layouts/Dashboard/App.vue";
-    import openSocket from "../../../socket.js";
+    import socket from "../../../socket.js";
     import { toastError } from "../../../utils";
 
     const props = defineProps({
@@ -13,12 +13,10 @@
     const conversation = reactive({})
     const activeUser = ref({})
     let messages = ref([])
-
-    /**
-     * SOCKET CONNECTED
-     */
-    const socket = openSocket(props.user.id)
-
+    socket.auth = {
+        id: props.user.id
+    }
+    socket.connect()
     /**
      * SOCKET EVENT
      */

@@ -6,6 +6,8 @@ import Footer from "./../Shared/Footer.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import { reactive, ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
+import socket from "../socket";
+import { toastSuccess } from "../utils";
 
 const props = defineProps({
     meta_title: String,
@@ -19,23 +21,42 @@ const props = defineProps({
     vouchers: Object,
     setting: Object,
     origins: Object,
+    user: Object,
+    unread_messages_count: Object
 });
 
-const metaTitle = ref(props.meta_title);
-const metaDescription = ref(props.meta_description);
-const metaKeyword = ref(props.meta_keyword);
+const notifChat = ref(props.unread_messages_count?.unread_messages_count)
+
+/**
+ * SOCKET CONNECTED
+ */
+if (props.user) {
+    socket.auth = {
+        id: props.user.id
+    }
+    socket.connect()
+}
+
+/**
+ * SOCKET EVENT
+ */
+socket.on('notif-chat', (data) => {
+    notifChat.value++
+    toastSuccess('Admin membalas chat anda.')
+})
+
 </script>
 
 <template>
     <div>
         <Head>
-            <title>{{ metaTitle }}</title>
+            <title>{{ props.meta_title }}</title>
             <meta
                 head-key="description"
                 name="description"
-                :content="metaDescription"
+                :content="props.meta_description"
             />
-            <meta head-key="keyword" name="keyword" :content="metaKeyword" />
+            <meta head-key="keyword" name="keyword" :content="props.meta_keyword" />
         </Head>
         <Header></Header>
         <Sidebar></Sidebar>
@@ -514,6 +535,6 @@ const metaKeyword = ref(props.meta_keyword);
             </div>
         </div>
         <div class="internet-connection-status" id="internetStatus"></div>
-        <Footer></Footer>
+        <Footer :notif_chat="notifChat"></Footer>
     </div>
 </template>

@@ -1,6 +1,10 @@
 <script setup>
 import { Link } from "@inertiajs/inertia-vue3";
 
+const props = defineProps({
+    notif_chat: Number
+})
+
 </script>
 
 <template>
@@ -19,9 +23,12 @@ import { Link } from "@inertiajs/inertia-vue3";
                         >
                     </li>
                     <li>
-                        <Link :href="route('chat.index')" target="_blank"
-                            ><i class="lni lni-wechat"></i>Chat</Link
-                        >
+                        <Link :href="route('chat.index')" target="_blank">
+                            <span class="badge bg-danger rounded-pill" style="font-size: 8px; position: absolute;" v-if="notif_chat > 0">
+                                {{ notif_chat }}
+                            </span>
+                            <i class="lni lni-wechat"></i>Chat
+                        </Link>
                     </li>
                 </ul>
             </div>
