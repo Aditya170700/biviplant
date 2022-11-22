@@ -25,7 +25,14 @@
 
     socket.on('notif-chat-admin', (data) => {
         getCustomers()
-        toastSuccess(`Pesan baru dari ${data.name}.`)
+    })
+
+    socket.on('user-leave', () => {
+        getCustomers()
+    })
+
+    socket.on('user-join', () => {
+        getCustomers()
     })
 
     function submit() {
@@ -74,8 +81,6 @@
             }
         })
     }
-
-    
 </script>
 <template>
     <Layout
@@ -118,6 +123,7 @@
                                                         <div class="pt-1">
                                                             <p class="fw-bold mb-0">
                                                                 {{ customer.name }}
+                                                                <i class="fa-solid fa-circle-dot" style="color: green;" v-if="customer.is_online == 1"></i>
                                                             </p>
                                                             <p class="small text-muted">
                                                                 {{ customer.email }}
@@ -189,7 +195,7 @@
                                     </div>
                                 </div>
 
-                                <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
+                                <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2" v-if="activeUser.id">
                                     <textarea
                                         type="text"
                                         v-model="textMessage"

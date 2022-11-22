@@ -63,6 +63,21 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
+    public function latesMessages()
+    {
+        return $this->hasMany(Message::class)
+            ->whereHas('conversation', function($q) {
+                $q->where('receiver_id', auth()->id())
+                    ->orWhere('sender_id', auth()->id());
+            })
+            ->latest();
+    }
+
+    public function scopelatesMessages($query)
+    {
+        return $this->latesMessages()->first();
+    }
+
     public function unreadMessages()
     {
         return $this->hasMany(Message::class)

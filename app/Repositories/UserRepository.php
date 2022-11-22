@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Interfaces\UserInterface;
+use App\Models\Message;
 
 class UserRepository implements UserInterface
 {
@@ -32,7 +33,13 @@ class UserRepository implements UserInterface
     public function getPaginateCustomers($request)
     {
         return $this->model
-            ->with('unreadMessages', 'messages')
+            ->with([
+                'unreadMessages', 
+                'messages', 
+                'latesMessages' => function ($q) {
+                    $q->first();
+                }
+            ])
             ->when($request->search, function ($query) use ($request) {
                 $query->where('name', 'like', "%$request->search%")
                     ->orWhere('email', 'like', "%$request->search%")
