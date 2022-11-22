@@ -1,5 +1,5 @@
 <script setup>
-    import { onMounted, reactive, ref, watch } from "vue";
+    import { nextTick, onMounted, onUpdated, reactive, ref, watch } from "vue";
     import HeaderWithTitle from '../Shared/HeaderWithTitle.vue';
     import { Head } from "@inertiajs/inertia-vue3";
     import Sidebar from "./../Shared/Homepage/Sidebar.vue";
@@ -16,13 +16,15 @@
     let messages = ref([])
 
     messages.value = props.conversation.messages
-
+    
     /**
      * SOCKET EVENT
      */
     socket.on('message', (data) => {
         messages.value.push(data)
-        window.scrollTo(0, window.document.getElementsByClassName("page-content-wrapper").scrollHeight)
+        nextTick(() => {
+            window.scrollTo(0, window.document.getElementsByClassName("page-content-wrapper")[0].scrollHeight)
+        })
     })
     
     function submit(e) {
@@ -36,6 +38,12 @@
             textMessage.value = ''
         }
     }
+
+    onMounted(() => {
+        nextTick(() => {
+            window.scrollTo(0, window.document.getElementsByClassName("page-content-wrapper")[0].scrollHeight)
+        })
+    })
 
 </script>
 

@@ -1,6 +1,6 @@
 <script setup>
     import axios from "axios";
-    import { onMounted, reactive, ref, watch } from "vue";
+    import { nextTick, onMounted, reactive, ref, watch } from "vue";
     import Layout from "../../../Layouts/Dashboard/App.vue";
     import socket from "../../../socket.js";
     import { toastError, toastSuccess } from "../../../utils";
@@ -20,6 +20,9 @@
     socket.on('message', (data) => {
         if (activeUser.value?.id) {
             messages.value.push(data)
+            nextTick(() => {
+                window.document.getElementsByClassName("chat-room")[0].scrollTo(0, window.document.getElementsByClassName("chat-room")[0].scrollHeight)
+            })
         }
     })
 
@@ -66,6 +69,9 @@
             conversation.data = res.data
             messages.value = res.data.messages
             syncReadMessage(user)
+            nextTick(() => {
+                window.document.getElementsByClassName("chat-room")[0].scrollTo(0, window.document.getElementsByClassName("chat-room")[0].scrollHeight)
+            })
         }).catch((error) => {
             toastError('something went wrooongg!')
         })
@@ -163,7 +169,7 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="pt-3 pe-3"
+                                    class="pt-3 pe-3 chat-room"
                                     data-mdb-perfect-scrollbar="true"
                                     style="position: relative; height: 400px; overflow: scroll;"
                                 >
