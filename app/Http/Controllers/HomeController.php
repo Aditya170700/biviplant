@@ -45,10 +45,6 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         try {
-            // untuk mendapatkan id admin guna get conversation
-            $admins = $this->userInterface->getAdminId($request);
-            $id = array_merge([ auth()->id() ], $admins);
-
             return Inertia::render('Homepage', [
                 'banners' => $this->bannerInterface->getPaginated($this->request),
                 'categories' => $this->categoryInterface->getPaginated($this->request),
@@ -64,8 +60,7 @@ class HomeController extends Controller
                 'canLogin' => Route::has('login'),
                 'canRegister' => Route::has('register'),
                 'laravelVersion' => Application::VERSION,
-                'phpVersion' => PHP_VERSION,
-                'unread_messages_count' => $this->conversationInterface->getUnreadMessagesBySenderReceiver($id)
+                'phpVersion' => PHP_VERSION
             ]);
         } catch (\Throwable $th) {
             panic($th);

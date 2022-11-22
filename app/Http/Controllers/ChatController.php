@@ -32,4 +32,16 @@ class ChatController extends Controller
             'conversation' => $this->conversation->getBySenderReceiver($id)
         ]);
     }
+
+    public function getUnreadMessage(Request $request)
+    {
+        try {
+            $admins = $this->user->getAdminId($request);
+            $id = array_merge([ auth()->id() ], $admins);
+            $unreadMessages = $this->conversation->getUnreadMessagesBySenderReceiver($id);
+            return response()->json($unreadMessages);
+        } catch (\Throwable $th) {
+            panic($th);
+        }
+    }
 }

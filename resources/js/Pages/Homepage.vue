@@ -21,20 +21,8 @@ const props = defineProps({
     vouchers: Object,
     setting: Object,
     origins: Object,
-    user: Object,
-    unread_messages_count: Object
+    user: Object
 });
-
-const notifChat = ref(props.unread_messages_count?.unread_messages_count)
-
-/**
- * SOCKET EVENT
- */
-socket.on('notif-chat', (data) => {
-    notifChat.value++
-    toastSuccess('Admin membalas chat anda.')
-})
-
 </script>
 
 <template>
@@ -525,6 +513,6 @@ socket.on('notif-chat', (data) => {
             </div>
         </div>
         <div class="internet-connection-status" id="internetStatus"></div>
-        <Footer :notif_chat="notifChat"></Footer>
+        <Footer></Footer>
     </div>
 </template>

@@ -87,6 +87,7 @@ Route::middleware(['auth'])
                 ->name('chat.')
                 ->group(function () {
                     Route::get('/chat', 'index')->name('index');
+                    Route::get('/unread-messages', 'getUnreadMessage')->name('get-unread-messages');
                 });
     });
 

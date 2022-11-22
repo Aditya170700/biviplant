@@ -41,6 +41,10 @@ let store = createStore({
     }
 });
 
+socket.on('notif-chat', (data) => {
+    toastSuccess('Admin membalas chat anda.')
+})
+
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),

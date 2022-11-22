@@ -69,9 +69,9 @@
                         
                         <!-- Agent Message Content-->
                         <div class="agent-message-content d-flex align-items-start" v-if="message.user.role == 'admin'">
-                            <div class="agent-thumbnail me-2 mt-3">
+                            <!-- <div class="agent-thumbnail me-2 mt-3">
                                 <img src="/img/bg-img/9.jpg" alt="" />
-                            </div>
+                            </div> -->
                             <div class="agent-message-text">
                                 <div class="d-block mt-2">
                                     <p>
