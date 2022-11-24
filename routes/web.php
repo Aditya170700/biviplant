@@ -3,6 +3,7 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RatingController;
@@ -81,6 +82,13 @@ Route::middleware(['auth'])
                 Route::get('/{id}/track', 'track')->name('track');
                 Route::put('/{id}/finish', 'finish')->name('finish');
             });
+
+            Route::controller(ChatController::class)
+                ->name('chat.')
+                ->group(function () {
+                    Route::get('/chat', 'index')->name('index');
+                    Route::get('/unread-messages', 'getUnreadMessage')->name('get-unread-messages');
+                });
     });
 
 Route::controller(AddressGuestController::class)

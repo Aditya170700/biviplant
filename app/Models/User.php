@@ -45,6 +45,8 @@ class User extends Authenticatable
         'id' => 'string',
         'email_verified_at' => 'datetime',
     ];
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     /**
      * The accessors to append to the model's array form.
@@ -55,6 +57,36 @@ class User extends Authenticatable
         'profile_photo_path_url',
         'is_admin',
     ];
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+    public function latesMessages()
+    {
+        return $this->hasMany(Message::class)
+            ->whereHas('conversation', function($q) {
+                $q->where('receiver_id', auth()->id())
+                    ->orWhere('sender_id', auth()->id());
+            })
+            ->latest();
+    }
+
+    public function scopelatesMessages($query)
+    {
+        return $this->latesMessages()->first();
+    }
+
+    public function unreadMessages()
+    {
+        return $this->hasMany(Message::class)
+            ->whereHas('conversation', function($q) {
+                $q->where('receiver_id', auth()->id())
+                    ->orWhere('sender_id', auth()->id());
+            })
+            ->whereNull('read_at');
+    }
 
     protected function profilePhotoPathUrl(): Attribute
     {
@@ -75,5 +107,14 @@ class User extends Authenticatable
     public function social_accounts()
     {
         return $this->hasMany(SocialAccount::class);
+    }
+    public function conversationAsSender()
+    {
+        return $this->hasMany(Conversation::class, 'sender_id');
+    }
+
+    public function conversationAsReceiver()
+    {
+        return $this->hasMany(Conversation::class, 'receiver_id');
     }
 }

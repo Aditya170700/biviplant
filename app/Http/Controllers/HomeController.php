@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\BannerInterface;
 use App\Interfaces\CategoryInterface;
+use App\Interfaces\ConversationInterface;
 use App\Interfaces\EventInterface;
 use App\Interfaces\OriginInterface;
 use App\Interfaces\ProductInterface;
 use App\Interfaces\SettingInterface;
+use App\Interfaces\UserInterface;
 use App\Interfaces\VoucherInterface;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
@@ -20,23 +22,27 @@ class HomeController extends Controller
         Request $request,
         EventInterface $eventInterface,
         BannerInterface $bannerInterface,
+        ConversationInterface $conversationInterface,
         ProductInterface $productInterface,
         VoucherInterface $voucherInterface,
         CategoryInterface $categoryInterface,
         SettingInterface $settingInterface,
-        OriginInterface $originInterface
+        OriginInterface $originInterface,
+        UserInterface $userInterface
     ) {
         $this->request = $request;
         $this->eventInterface = $eventInterface;
         $this->bannerInterface = $bannerInterface;
+        $this->conversationInterface = $conversationInterface;
         $this->productInterface = $productInterface;
         $this->voucherInterface = $voucherInterface;
         $this->categoryInterface = $categoryInterface;
         $this->originInterface = $originInterface;
+        $this->userInterface = $userInterface;
         $this->setting = $settingInterface->getOne();
     }
 
-    public function index()
+    public function index(Request $request)
     {
         try {
             return Inertia::render('Homepage', [
@@ -54,7 +60,7 @@ class HomeController extends Controller
                 'canLogin' => Route::has('login'),
                 'canRegister' => Route::has('register'),
                 'laravelVersion' => Application::VERSION,
-                'phpVersion' => PHP_VERSION,
+                'phpVersion' => PHP_VERSION
             ]);
         } catch (\Throwable $th) {
             panic($th);
