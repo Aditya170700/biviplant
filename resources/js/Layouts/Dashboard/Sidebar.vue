@@ -61,6 +61,24 @@
                         </Link>
                     </li>
 
+                    <!-- CHAT -->
+                    <li
+                        :class="[
+                            'sidebar-item',
+                            route().current().includes('admin.chat')
+                                ? 'active'
+                                : '',
+                        ]"
+                    >
+                        <Link
+                            :href="route('admin.chat.index')"
+                            class="sidebar-link"
+                        >
+                            <i class="fa fa-paper-plane"></i>
+                            <span>Chat</span>
+                        </Link>
+                    </li>
+
                     <!-- DATA MASTER -->
                     <li
                         :class="[

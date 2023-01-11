@@ -1,5 +1,24 @@
 <script setup>
 import { Link } from "@inertiajs/inertia-vue3";
+import { ref } from "@vue/reactivity";
+import { onMounted } from "@vue/runtime-core";
+import axios from "axios";
+import socket from "../socket.js";
+
+const unreadMessage = ref({})
+const notifChat = ref(0)
+onMounted(() => {
+    axios.get(route('chat.get-unread-messages'))
+        .then((res) => {
+            unreadMessage.value = res.data
+            notifChat.value = unreadMessage.value?.unread_messages_count
+        })
+})
+
+socket.on('notif-chat', (data) => {
+    notifChat.value++
+})
+
 </script>
 
 <template>
@@ -18,9 +37,12 @@ import { Link } from "@inertiajs/inertia-vue3";
                         >
                     </li>
                     <li>
-                        <a href="https://wa.me/6283840907389" target="_blank"
-                            ><i class="lni lni-wechat"></i>Pesan</a
-                        >
+                        <Link :href="route('chat.index')" target="_blank">
+                            <span class="badge bg-danger rounded-pill" style="font-size: 8px; position: absolute;" v-if="notifChat > 0">
+                                {{ notifChat }}
+                            </span>
+                            <i class="lni lni-wechat"></i>Chat
+                        </Link>
                     </li>
                 </ul>
             </div>

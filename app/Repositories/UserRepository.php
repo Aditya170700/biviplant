@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Interfaces\UserInterface;
+use App\Models\Message;
 
 class UserRepository implements UserInterface
 {
@@ -27,6 +28,38 @@ class UserRepository implements UserInterface
                 $query->latest();
             })
             ->paginate($request->limit ?? 25);
+    }
+
+    public function getPaginateCustomers($request)
+    {
+        return $this->model
+            ->with([
+                'unreadMessages', 
+                'messages', 
+                'latesMessages' => function ($q) {
+                    $q->first();
+                }
+            ])
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%")
+                    ->orWhere('email', 'like', "%$request->search%")
+                    ->orWhere('phone', 'like', "%$request->search%");
+            })
+            ->where('role', 'customer')
+            ->paginate($request->limit ?? 500);
+    }
+
+    public function getAdminId($request)
+    {
+        return $this->model
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('name', 'like', "%$request->search%")
+                    ->orWhere('email', 'like', "%$request->search%")
+                    ->orWhere('phone', 'like', "%$request->search%");
+            })
+            ->where('role', 'admin')
+            ->pluck('id')
+            ->toArray();
     }
 
     public function getById(string $id)

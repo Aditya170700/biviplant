@@ -18,6 +18,7 @@ use App\Repositories\CityRepository;
 use App\Repositories\FileRepository;
 use App\Repositories\UserRepository;
 use App\Interfaces\CategoryInterface;
+use App\Interfaces\ConversationInterface;
 use App\Interfaces\ProvinceInterface;
 use App\Repositories\EventRepository;
 use App\Repositories\OrderRepository;
@@ -32,6 +33,7 @@ use App\Interfaces\RatingInterface;
 use App\Interfaces\SubdistrictInterface;
 use App\Interfaces\UserAddressInterface;
 use App\Repositories\CategoryRepository;
+use App\Repositories\ConversationRepository;
 use App\Repositories\ProvinceRepository;
 use App\Repositories\OrderDetailRepository;
 use App\Repositories\RatingRepository;
@@ -64,6 +66,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(OrderInterface::class, OrderRepository::class);
         $this->app->bind(OrderDetailInterface::class, OrderDetailRepository::class);
         $this->app->bind(RatingInterface::class, RatingRepository::class);
+        $this->app->bind(ConversationInterface::class, ConversationRepository::class);
     }
 
     /**

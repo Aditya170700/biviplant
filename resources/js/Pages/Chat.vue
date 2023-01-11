@@ -1,94 +1,104 @@
+<script setup>
+    import { nextTick, onMounted, onUpdated, reactive, ref, watch } from "vue";
+    import HeaderWithTitle from '../Shared/HeaderWithTitle.vue';
+    import { Head } from "@inertiajs/inertia-vue3";
+    import Sidebar from "./../Shared/Homepage/Sidebar.vue";
+    import socket from '../socket.js';
+
+    const props = defineProps({
+        meta_title: String,
+        meta_description: String,
+        meta_keyword: String,
+        user: Object,
+        conversation: Object
+    })
+    let textMessage = ref('')
+    let messages = ref([])
+
+    messages.value = props.conversation.messages
+    
+    /**
+     * SOCKET EVENT
+     */
+    socket.on('message', (data) => {
+        messages.value.push(data)
+        nextTick(() => {
+            window.scrollTo(0, window.document.getElementsByClassName("page-content-wrapper")[0].scrollHeight)
+        })
+    })
+    
+    function submit(e) {
+        e.preventDefault()
+        if (textMessage.value != '') {
+            socket.emit("message-to-admin", {
+                user_id: props.user.id,
+                message: textMessage.value,
+                conversation_id: props.conversation.id
+            })
+            textMessage.value = ''
+        }
+    }
+
+    onMounted(() => {
+        nextTick(() => {
+            window.scrollTo(0, window.document.getElementsByClassName("page-content-wrapper")[0].scrollHeight)
+        })
+    })
+
+</script>
+
 <template>
     <div>
+        <Head>
+            <title>{{ meta_title }}</title>
+            <meta
+                head-key="description"
+                name="description"
+                :content="meta_description"
+            />
+            <meta head-key="keyword" name="keyword" :content="meta_keyword" />
+        </Head>
+        <HeaderWithTitle link_back="/" title="Chat"></HeaderWithTitle>
+        <Sidebar></Sidebar>
         <div class="page-content-wrapper">
             <!-- Live Chat Intro-->
-            <div class="live-chat-intro mb-3">
-                <p>Start a conversation</p>
-                <img src="img/bg-img/9.jpg" alt="" />
-                <div class="status online">We're online</div>
+            <div class="live-chat-intro mb-3" style="position: fixed; width: 100%; z-index: 1000;">
+                <p>Mulai Percakapan Dengan Admin</p>
+                <img src="/assets/images/customer-service.png" alt="" />
+                <div class="status online">Admin sedang online</div>
                 <!-- Use this code for "Offline" Status-->
                 <!-- .status.offline We’ll be back soon-->
             </div>
             <!-- Support Wrapper-->
-            <div class="support-wrapper py-3">
+            <div class="support-wrapper py-3" style="padding-top: 200px !important;">
                 <div class="container">
                     <!-- Live Chat Wrapper-->
-                    <div class="live-chat-wrapper">
+                    <div class="live-chat-wrapper" v-for="(message, i) in messages" :key="i">
+                        
                         <!-- Agent Message Content-->
-                        <div
-                            class="agent-message-content d-flex align-items-start"
-                        >
-                            <!-- Agent Thumbnail-->
-                            <div class="agent-thumbnail me-2 mt-2">
-                                <img src="img/bg-img/9.jpg" alt="" />
-                            </div>
-                            <!-- Agent Message Text-->
+                        <div class="agent-message-content d-flex align-items-start" v-if="message.user.role == 'admin'">
+                            <!-- <div class="agent-thumbnail me-2 mt-3">
+                                <img src="/img/bg-img/9.jpg" alt="" />
+                            </div> -->
                             <div class="agent-message-text">
-                                <div class="d-block">
+                                <div class="d-block mt-2">
                                     <p>
-                                        Hi there! You can start asking your
-                                        question below. I am ready to help.
+                                        {{ message.message }}
+                                    </p>
+                                    <span style="font-size: 10px;">{{ message.date_time_formated }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customer Message Content-->
+                        <div class="user-message-content" v-else>
+                            <div class="user-message-text">
+                                <div class="d-block mt-2 mt-3">
+                                    <p style="background-color: #FFFFFF !important; color: #747794;">
+                                        {{ message.message }}
                                     </p>
                                 </div>
-                                <div class="d-block">
-                                    <p>How can I help you with?</p>
-                                </div>
-                                <span>12:00</span>
-                            </div>
-                        </div>
-                        <!-- User Message Content-->
-                        <div class="user-message-content">
-                            <!-- User Message Text-->
-                            <div class="user-message-text">
-                                <div class="d-block">
-                                    <p>I liked your template.</p>
-                                </div>
-                                <span>12:18</span>
-                            </div>
-                        </div>
-                        <!-- Agent Message Content-->
-                        <div
-                            class="agent-message-content d-flex align-items-start"
-                        >
-                            <!-- Agent Thumbnail-->
-                            <div class="agent-thumbnail me-2 mt-2">
-                                <img src="img/bg-img/9.jpg" alt="" />
-                            </div>
-                            <!-- Agent Message Text-->
-                            <div class="agent-message-text">
-                                <div class="d-block">
-                                    <p>Thank you.</p>
-                                </div>
-                                <span>12:36</span>
-                            </div>
-                        </div>
-                        <!-- User Message Content-->
-                        <div class="user-message-content">
-                            <!-- User Message Text-->
-                            <div class="user-message-text">
-                                <div class="d-block">
-                                    <p>How can I buy this?</p>
-                                </div>
-                                <span>12:42</span>
-                            </div>
-                        </div>
-                        <!-- Agent Message Content-->
-                        <div
-                            class="agent-message-content d-flex align-items-start"
-                        >
-                            <!-- Agent Thumbnail-->
-                            <div class="agent-thumbnail me-2 mt-2">
-                                <img src="img/bg-img/9.jpg" alt="" />
-                            </div>
-                            <!-- Agent Message Text-->
-                            <div class="agent-message-text">
-                                <div class="d-block">
-                                    <div class="writing-mode">
-                                        <span class="dot"></span
-                                        ><span class="dot"></span
-                                        ><span class="dot"></span>
-                                    </div>
-                                </div>
+                                <span style="font-size: 10px;">{{ message.date_time_formated }}</span>
                             </div>
                         </div>
                     </div>
@@ -98,30 +108,16 @@
         <!-- Type Message Form-->
         <div class="type-text-form">
             <form action="#">
-                <div class="form-group file-upload mb-0">
-                    <input type="file" /><i class="lni lni-plus"></i>
-                </div>
                 <textarea
+                    style="height: 69px"
                     class="form-control"
-                    name="message"
+                    v-model="textMessage"
                     cols="30"
-                    rows="10"
-                    placeholder="Type your message"
+                    rows="20"
+                    placeholder="Tulis pesan"
                 ></textarea>
-                <button type="submit">
-                    <svg
-                        class="bi bi-arrow-right"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                    >
-                        <path
-                            fill-rule="evenodd"
-                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                        ></path>
-                    </svg>
+                <button type="submit" @click="submit">
+                    <img src="/assets/images/send-message.png" alt="" style="opacity: 0.5;">
                 </button>
             </form>
         </div>
