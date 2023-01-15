@@ -1,0 +1,4 @@
+[15-Jan-2023 17:20:16 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Interface "Laravel\Fortify\Contracts\CreatesNewUsers" not found in /home/bivk4194/public_html/app/Actions/Fortify/CreateNewUser.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/bivk4194/public_html/app/Actions/Fortify/CreateNewUser.php on line 11
