@@ -1,8 +1,9 @@
 /node_modules
 /public/hot
-# /public/build
-# /public/js/app.js
-# /public/storage
+# /public/build/*
+# /public/build/assets/*
+/public/js/app.js
+/public/storage
 /public/error_log
 /storage/*.key
 /vendor
