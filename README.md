@@ -12,7 +12,7 @@ Run the application
 
 `php artisan serve`
 
-`npm run watch`
+`npm run dev`
 
 `node public/js/ssr.js`
 
