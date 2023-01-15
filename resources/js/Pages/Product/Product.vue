@@ -33,9 +33,11 @@ onMounted(() => {
     loadFeedback();
 });
 
-let primary_address = reactive(
-    props.primary_address ?? JSON.parse(localStorage.getItem("primary_address"))
-);
+if (typeof window !== 'undefined') {
+    let primary_address = reactive(
+        props.primary_address ?? JSON.parse(localStorage.getItem("primary_address"))
+    );
+}
 
 let form = reactive({
     user_id: attrs.user?.id,
@@ -136,7 +138,9 @@ function storeCartGuest() {
     form.shipping_etd = store.getters.courier.etd;
     form.user_address = primary_address;
 
-    localStorage.setItem("cart", JSON.stringify(form));
+    if (typeof window !== 'undefined') {
+        localStorage.setItem("cart", JSON.stringify(form));
+    }
     toastSuccess("Produk berhasil ditambahkan ke keranjang");
 }
 

@@ -18,7 +18,8 @@
      * SOCKET EVENT
      */
     socket.on('message', (data) => {
-        if (activeUser.value?.id) {
+        console.log(conversation, data)
+        if (activeUser.value?.id && (activeUser.value?.id == data.user.id)) {
             messages.value.push(data)
             nextTick(() => {
                 window.document.getElementsByClassName("chat-room")[0].scrollTo(0, window.document.getElementsByClassName("chat-room")[0].scrollHeight)

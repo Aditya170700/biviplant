@@ -1,17 +1,11 @@
 # DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
-PassengerAppRoot "/home/bivk4194/biviplant"
+PassengerAppRoot "/home/bivk4194/vite-ssr"
 PassengerBaseURI "/ssr"
-PassengerNodejs "/home/bivk4194/nodevenv/biviplant/10/bin/node"
+PassengerNodejs "/home/bivk4194/nodevenv/vite-ssr/10/bin/node"
 PassengerAppType node
-PassengerStartupFile biviplant/bootstrap/ssr/ssr.mjs
+PassengerStartupFile index.js
 # DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
-<IfModule mod_rewrite.c>
-# That was ONLY to protect you from 500 errors
-# if your server did not have mod_rewrite enabled
-RewriteEngine On
-# RewriteBase /
-# NOT needed unless you're using mod_alias to redirect
-RewriteCond %{REQUEST_URI} !/public
-RewriteRule ^(.*)$ public/$1 [L]
-# Direct all requests to /public folder
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
 </IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END
