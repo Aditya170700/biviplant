@@ -4014,3 +4014,531 @@ Stack trace:
 #3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
 #4 {main}
   thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:55:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:55:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:55:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:55:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:55:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:55:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:56:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:56:31 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:56:31 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:56:31 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:14 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:14 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:31 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 16:57:36 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:00:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:00:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:00:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:01:36 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:01:36 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:01:36 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:02:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:02:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:02:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:02:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:02:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:02:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:02:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:02:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:02:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:02:47 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:03:01 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:03:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:03:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:03:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:03:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:04:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:04:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:04:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:04:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:04:55 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:04:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:04:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:05:01 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:05:03 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:05:03 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:05:07 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:05:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:05:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:05:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:06:00 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:06:00 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:06:00 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:06:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:06:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:06:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
+[15-Jan-2023 17:09:05 UTC] PHP Fatal error:  Uncaught Error: Call to a member function middleware() on null in /home/bivk4194/public_html/app/Exceptions/Handler.php:58
+Stack trace:
+#0 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(222): App\Exceptions\Handler->render()
+#1 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(199): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse()
+#2 /home/bivk4194/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException()
+#3 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#4 {main}
+  thrown in /home/bivk4194/public_html/app/Exceptions/Handler.php on line 58
