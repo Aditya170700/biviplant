@@ -3,6 +3,7 @@
 # /public/build
 # /public/js/app.js
 # /public/storage
+/public/error_log
 /storage/*.key
 /vendor
 .env
