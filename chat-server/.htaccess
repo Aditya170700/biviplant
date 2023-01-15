@@ -1,0 +1,7 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/bivk4194/chat"
+PassengerBaseURI "/chat-server"
+PassengerNodejs "/home/bivk4194/nodevenv/chat/12/bin/node"
+PassengerAppType node
+PassengerStartupFile index.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
