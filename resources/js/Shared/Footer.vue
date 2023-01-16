@@ -36,13 +36,7 @@ socket.on("notif-chat", (data) => {
                         >
                     </li>
                     <li>
-                        <!-- <Link :href="route('chat.index')" target="_blank">
-                            <span class="badge bg-danger rounded-pill" style="font-size: 8px; position: absolute;" v-if="notifChat > 0">
-                                {{ notifChat }}
-                            </span>
-                            <i class="lni lni-wechat"></i>Chat
-                        </Link> -->
-                        <a :href="route('chat.index')" target="_blank">
+                        <Link :href="route('chat.index')">
                             <span
                                 class="badge bg-danger rounded-pill"
                                 style="font-size: 8px; position: absolute"
@@ -51,7 +45,7 @@ socket.on("notif-chat", (data) => {
                                 {{ notifChat }}
                             </span>
                             <i class="lni lni-wechat"></i>Chat
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
