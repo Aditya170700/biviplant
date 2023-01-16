@@ -33,7 +33,7 @@ socket.on("message", (data) => {
     }
 });
 
-socket.on("message-to-admin", (data) => {
+socket.on("notif-chat-admin", (data) => {
     getCustomers();
 });
 
