@@ -1,0 +1,1 @@
+import{L as r}from"./App.253785ec.js";import{_ as t,c as s,o as a,I as n}from"./app.179d30dd.js";const c={components:{Layout:r},props:{refreshPage:{type:Boolean,required:!0}},setup(e){e.refreshPage&&(window.location.search+="refreshPage=true")}};function p(e,f,u,_,i,d){const o=n("Layout");return a(),s(o,{title:"Dashboard"})}const h=t(c,[["render",p]]);export{h as default};

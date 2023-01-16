@@ -44,11 +44,11 @@ let store = createStore({
 /**
  * SOCKET GLOBAL NOTIF
  */
-socket.on('notif-chat', (data) => {
+socket.on('message-to-customer', (data) => {
     toastSuccess('Admin membalas chat anda.')
 })
 
-socket.on('notif-chat-admin', (data) => {
+socket.on('message-to-admin', (data) => {
     toastSuccess(`Pesan baru dari ${data.name}.`)
 })
 
