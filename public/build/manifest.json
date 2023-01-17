@@ -1,11 +1,11 @@
 {
-  "node_modules/leaflet/dist/images/layers-2x.png": {
-    "file": "assets/layers-2x.066daca8.png",
-    "src": "node_modules/leaflet/dist/images/layers-2x.png"
-  },
   "node_modules/leaflet/dist/images/layers.png": {
     "file": "assets/layers.1dbbe9d0.png",
     "src": "node_modules/leaflet/dist/images/layers.png"
+  },
+  "node_modules/leaflet/dist/images/layers-2x.png": {
+    "file": "assets/layers-2x.066daca8.png",
+    "src": "node_modules/leaflet/dist/images/layers-2x.png"
   },
   "node_modules/leaflet/dist/images/marker-icon.png": {
     "file": "assets/marker-icon.785587f7.js",
@@ -1187,6 +1187,18 @@
     "src": "node_modules/leaflet/dist/leaflet-src.esm.js",
     "isDynamicEntry": true
   },
+  "resources/js/Pages/CourierModal.css": {
+    "file": "assets/CourierModal.4d6b407d.css",
+    "src": "resources/js/Pages/CourierModal.css"
+  },
+  "resources/js/Pages/AddressModal.css": {
+    "file": "assets/AddressModal.fda9c684.css",
+    "src": "resources/js/Pages/AddressModal.css"
+  },
+  "App.css": {
+    "file": "assets/App.2fd50cf7.css",
+    "src": "App.css"
+  },
   "resources/js/Pages/Dashboard/Chat/Index.css": {
     "file": "assets/Index.43be9914.css",
     "src": "resources/js/Pages/Dashboard/Chat/Index.css"
@@ -1195,41 +1207,29 @@
     "file": "assets/AddressModalGuest.fda9c684.css",
     "src": "resources/js/Pages/Product/AddressModalGuest.css"
   },
+  "resources/js/Pages/Welcome.css": {
+    "file": "assets/Welcome.df660f74.css",
+    "src": "resources/js/Pages/Welcome.css"
+  },
   "resources/js/Pages/Product/Product.css": {
     "file": "assets/Product.e7d8ba20.css",
     "src": "resources/js/Pages/Product/Product.css"
-  },
-  "resources/js/Pages/CourierModal.css": {
-    "file": "assets/CourierModal.4d6b407d.css",
-    "src": "resources/js/Pages/CourierModal.css"
-  },
-  "resources/js/Pages/Product/AddressModal.css": {
-    "file": "assets/AddressModal.fda9c684.css",
-    "src": "resources/js/Pages/Product/AddressModal.css"
-  },
-  "geosearch.css": {
-    "file": "assets/geosearch.97c59889.css",
-    "src": "geosearch.css"
-  },
-  "App.css": {
-    "file": "assets/App.2fd50cf7.css",
-    "src": "App.css"
-  },
-  "vue-quill.css": {
-    "file": "assets/vue-quill.6031a568.css",
-    "src": "vue-quill.css"
   },
   "main.css": {
     "file": "assets/main.77ebf614.css",
     "src": "main.css"
   },
-  "resources/js/Pages/Welcome.css": {
-    "file": "assets/Welcome.df660f74.css",
-    "src": "resources/js/Pages/Welcome.css"
-  },
   "upload-3.css": {
     "file": "assets/upload-3.33308521.css",
     "src": "upload-3.css"
+  },
+  "geosearch.css": {
+    "file": "assets/geosearch.97c59889.css",
+    "src": "geosearch.css"
+  },
+  "vue-quill.css": {
+    "file": "assets/vue-quill.6031a568.css",
+    "src": "vue-quill.css"
   },
   "resources/js/app.css": {
     "file": "assets/app.ff1beb95.css",
