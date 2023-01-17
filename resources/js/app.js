@@ -41,17 +41,6 @@ let store = createStore({
     }
 });
 
-/**
- * SOCKET GLOBAL NOTIF
- */
-// socket.on('notif-chat', (data) => {
-//     toastSuccess('Admin membalas chat anda.')
-// })
-
-// socket.on('notif-chat-admin', (data) => {
-//     toastSuccess(`Pesan baru dari ${data.name}.`)
-// })
-
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),

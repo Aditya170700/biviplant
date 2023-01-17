@@ -1,5 +1,7 @@
 import { useToast } from "vue-toastification";
 import "vue-toastification/dist/index.css";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 import moment from 'moment'
 
 const toast = useToast();
@@ -13,37 +15,51 @@ export const imageReader = (files, target) => {
 }
 
 export const toastSuccess = (message) => {
-    toast.success(message, {
-        position: "top-right",
+    createToast(message, {
+        type: 'success',
         timeout: 3000,
-        closeOnClick: true,
-        pauseOnFocusLoss: true,
-        pauseOnHover: true,
-        draggable: true,
-        draggablePercent: 0.6,
-        showCloseButtonOnHover: false,
-        hideProgressBar: true,
-        closeButton: "button",
-        icon: true,
-        rtl: false
+        position: 'top-right',
+        showIcon: true,
+        toastBackgroundColor: '#dc3545',
     });
+    // toast.success(message, {
+    //     position: "top-right",
+    //     timeout: 3000,
+    //     closeOnClick: true,
+    //     pauseOnFocusLoss: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     draggablePercent: 0.6,
+    //     showCloseButtonOnHover: false,
+    //     hideProgressBar: true,
+    //     closeButton: "button",
+    //     icon: true,
+    //     rtl: false
+    // });
 }
 
 export const toastError = (message) => {
-    toast.error(message, {
-        position: "top-right",
+    createToast(message, {
+        type: 'danger',
         timeout: 3000,
-        closeOnClick: true,
-        pauseOnFocusLoss: true,
-        pauseOnHover: true,
-        draggable: true,
-        draggablePercent: 0.6,
-        showCloseButtonOnHover: false,
-        hideProgressBar: true,
-        closeButton: "button",
-        icon: true,
-        rtl: false
+        position: 'top-right',
+        showIcon: true,
+        toastBackgroundColor: '#dc3545',
     });
+    // toast.error(message, {
+    //     position: "top-right",
+    //     timeout: 3000,
+    //     closeOnClick: true,
+    //     pauseOnFocusLoss: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     draggablePercent: 0.6,
+    //     showCloseButtonOnHover: false,
+    //     hideProgressBar: true,
+    //     closeButton: "button",
+    //     icon: true,
+    //     rtl: false
+    // });
 }
 
 export  const dataURLtoFile = (dataurl) => {
