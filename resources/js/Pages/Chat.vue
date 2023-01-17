@@ -36,6 +36,8 @@ socket.on("message", (data) => {
 });
 
 socket.on("notif-chat", (data) => {
+    console.log("Admin membalas chat anda.");
+    alert("Admin membalas chat anda.");
     toastSuccess("Admin membalas chat anda.");
 });
 

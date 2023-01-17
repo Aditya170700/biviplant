@@ -34,6 +34,8 @@ socket.on("message", (data) => {
 });
 
 socket.on("notif-chat-admin", (data) => {
+    console.log(`Pesan baru dari ${data.name}.`);
+    alert(`Pesan baru dari ${data.name}.`);
     toastSuccess(`Pesan baru dari ${data.name}.`);
     getCustomers();
 });
