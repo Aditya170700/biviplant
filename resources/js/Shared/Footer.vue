@@ -5,20 +5,18 @@ import { onMounted } from "@vue/runtime-core";
 import axios from "axios";
 import socket from "../socket.js";
 
-const unreadMessage = ref({})
-const notifChat = ref(0)
+const unreadMessage = ref({});
+const notifChat = ref(0);
 onMounted(() => {
-    axios.get(route('chat.get-unread-messages'))
-        .then((res) => {
-            unreadMessage.value = res.data
-            notifChat.value = unreadMessage.value?.unread_messages_count
-        })
-})
+    axios.get(route("chat.get-unread-messages")).then((res) => {
+        unreadMessage.value = res.data;
+        notifChat.value = unreadMessage.value?.unread_messages_count;
+    });
+});
 
-socket.on('notif-chat', (data) => {
-    notifChat.value++
-})
-
+socket.on("notif-chat", (data) => {
+    notifChat.value++;
+});
 </script>
 
 <template>
@@ -33,12 +31,17 @@ socket.on('notif-chat', (data) => {
                     </li>
                     <li>
                         <Link :href="route('cart.index')"
-                            ><i class="lni lni-shopping-basket"></i>Keranjang</Link
+                            ><i class="lni lni-shopping-basket"></i
+                            >Keranjang</Link
                         >
                     </li>
                     <li>
-                        <Link :href="route('chat.index')" target="_blank">
-                            <span class="badge bg-danger rounded-pill" style="font-size: 8px; position: absolute;" v-if="notifChat > 0">
+                        <Link :href="route('chat.index')">
+                            <span
+                                class="badge bg-danger rounded-pill"
+                                style="font-size: 8px; position: absolute"
+                                v-if="notifChat > 0"
+                            >
                                 {{ notifChat }}
                             </span>
                             <i class="lni lni-wechat"></i>Chat
