@@ -4,6 +4,7 @@ import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import axios from "axios";
 import socket from "../socket.js";
+import { toastSuccess } from "../utils";
 
 const unreadMessage = ref({});
 const notifChat = ref(0);
@@ -15,6 +16,7 @@ onMounted(() => {
 });
 
 socket.on("notif-chat", (data) => {
+    toastSuccess("Admin membalas chat anda.");
     notifChat.value++;
 });
 </script>

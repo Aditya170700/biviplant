@@ -4,6 +4,7 @@ import HeaderWithTitle from "../Shared/HeaderWithTitle.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import Sidebar from "./../Shared/Homepage/Sidebar.vue";
 import socket from "../socket.js";
+import { toastError, toastSuccess } from "../utils";
 
 const props = defineProps({
     meta_title: String,
@@ -32,6 +33,10 @@ socket.on("message", (data) => {
             );
         }
     });
+});
+
+socket.on("notif-chat", (data) => {
+    toastSuccess("Admin membalas chat anda.");
 });
 
 function submit(e) {

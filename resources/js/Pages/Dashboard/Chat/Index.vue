@@ -34,6 +34,7 @@ socket.on("message", (data) => {
 });
 
 socket.on("notif-chat-admin", (data) => {
+    toastSuccess(`Pesan baru dari ${data.name}.`);
     getCustomers();
 });
 
