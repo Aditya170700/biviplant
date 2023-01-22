@@ -46,11 +46,14 @@ class ProductRepository implements ProductInterface
             ->paginate($request->limit ?? 25);
     }
 
-    public function featuredProducts()
+    public function featuredProducts($condition = null)
     {
         return $this->model
             ->with('files', 'category')
             ->where('is_featured', Product::FEATURED)
+            ->when($condition, function ($query) use ($condition) {
+                $query->where('condition', $condition);
+            })
             ->paginate(10);
     }
 

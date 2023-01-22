@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Constants\ProductCondition;
 use App\Interfaces\BannerInterface;
 use App\Interfaces\CategoryInterface;
 use App\Interfaces\ConversationInterface;
@@ -50,6 +51,11 @@ class HomeController extends Controller
                 'categories' => $this->categoryInterface->getPaginated($this->request),
                 'event' => $this->eventInterface->getOne(),
                 'products' => $this->productInterface->featuredProducts(),
+                'seed_plants' => $this->productInterface->featuredProducts(ProductCondition::SEED_PLANT),
+                'young_plants' => $this->productInterface->featuredProducts(ProductCondition::YOUNG_PLANT),
+                'fruit_plants' => $this->productInterface->featuredProducts(ProductCondition::FRUIT_PLANT),
+                'big_plants' => $this->productInterface->featuredProducts(ProductCondition::BIG_PLANT),
+                'flower_plants' => $this->productInterface->featuredProducts(ProductCondition::FLOWER_PLANT),
                 'product_best_sellers' => $this->productInterface->getBestSeller($this->request),
                 'vouchers' => $this->voucherInterface->getActive(),
                 'meta_title' => $this->setting ? $this->setting->meta_title : 'Biviplant',

@@ -18,10 +18,68 @@ const props = defineProps({
     event: Object,
     products: Object,
     product_best_sellers: Object,
+    seed_plants: Object,
+    young_plants: Object,
+    fruit_plants: Object,
+    big_plants: Object,
+    flower_plants: Object,
     vouchers: Object,
     setting: Object,
     origins: Object,
     user: Object,
+});
+
+onMounted(() => {
+    if (props.seed_plants.data.length > 0) {
+        $(".seed-plants").owlCarousel({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            margin: 10,
+            center: true,
+        });
+    }
+    if (props.young_plants.data.length > 0) {
+        $(".young-plants").owlCarousel({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            margin: 10,
+            center: true,
+        });
+    }
+    if (props.fruit_plants.data.length > 0) {
+        $(".fruit-plants").owlCarousel({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            margin: 10,
+            center: true,
+        });
+    }
+    if (props.big_plants.data.length > 0) {
+        $(".big-plants").owlCarousel({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            margin: 10,
+            center: true,
+        });
+    }
+    if (props.flower_plants.data.length > 0) {
+        $(".flower-plants").owlCarousel({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            margin: 10,
+            center: true,
+        });
+    }
 });
 </script>
 
@@ -346,6 +404,141 @@ const props = defineProps({
                         >
                     </div>
                 </div>
+            </div>
+            <div class="container" v-if="seed_plants.data.length > 0">
+                <div
+                    class="section-heading d-flex align-items-center justify-content-between"
+                >
+                    <h6>Bibit Tamanan</h6>
+                </div>
+                <div class="seed-plants owl-carousel">
+                    <div
+                        class="card collection-card"
+                        v-for="(data, i) in seed_plants.data"
+                        :key="i"
+                    >
+                        <Link
+                            :href="
+                                route('product.show', {
+                                    id: data.slug,
+                                })
+                            "
+                            ><img
+                                class="mb-2"
+                                :src="data.files[0]?.src"
+                                :alt="data.files[0]?.alt"
+                        /></Link>
+                    </div>
+                </div>
+                <div class="pb-3"></div>
+            </div>
+            <div class="container" v-if="young_plants.data.length > 0">
+                <div
+                    class="section-heading d-flex align-items-center justify-content-between"
+                >
+                    <h6>Tamanan Remaja</h6>
+                </div>
+                <div class="young-plants owl-carousel">
+                    <div
+                        class="card collection-card"
+                        v-for="(data, i) in young_plants.data"
+                        :key="i"
+                    >
+                        <Link
+                            :href="
+                                route('product.show', {
+                                    id: data.slug,
+                                })
+                            "
+                            ><img
+                                class="mb-2"
+                                :src="data.files[0]?.src"
+                                :alt="data.files[0]?.alt"
+                        /></Link>
+                    </div>
+                </div>
+                <div class="pb-3"></div>
+            </div>
+            <div class="container" v-if="fruit_plants.data.length > 0">
+                <div
+                    class="section-heading d-flex align-items-center justify-content-between"
+                >
+                    <h6>Tamanan Berbuah</h6>
+                </div>
+                <div class="fruit-plants owl-carousel">
+                    <div
+                        class="card collection-card"
+                        v-for="(data, i) in fruit_plants.data"
+                        :key="i"
+                    >
+                        <Link
+                            :href="
+                                route('product.show', {
+                                    id: data.slug,
+                                })
+                            "
+                            ><img
+                                class="mb-2"
+                                :src="data.files[0]?.src"
+                                :alt="data.files[0]?.alt"
+                        /></Link>
+                    </div>
+                </div>
+                <div class="pb-3"></div>
+            </div>
+            <div class="container" v-if="big_plants.data.length > 0">
+                <div
+                    class="section-heading d-flex align-items-center justify-content-between"
+                >
+                    <h6>Tamanan Induk</h6>
+                </div>
+                <div class="big-plants owl-carousel">
+                    <div
+                        class="card collection-card"
+                        v-for="(data, i) in big_plants.data"
+                        :key="i"
+                    >
+                        <Link
+                            :href="
+                                route('product.show', {
+                                    id: data.slug,
+                                })
+                            "
+                            ><img
+                                class="mb-2"
+                                :src="data.files[0]?.src"
+                                :alt="data.files[0]?.alt"
+                        /></Link>
+                    </div>
+                </div>
+                <div class="pb-3"></div>
+            </div>
+            <div class="container" v-if="flower_plants.data.length > 0">
+                <div
+                    class="section-heading d-flex align-items-center justify-content-between"
+                >
+                    <h6>Tamanan Hias</h6>
+                </div>
+                <div class="flower-plants owl-carousel">
+                    <div
+                        class="card collection-card"
+                        v-for="(data, i) in flower_plants.data"
+                        :key="i"
+                    >
+                        <Link
+                            :href="
+                                route('product.show', {
+                                    id: data.slug,
+                                })
+                            "
+                            ><img
+                                class="mb-2"
+                                :src="data.files[0]?.src"
+                                :alt="data.files[0]?.alt"
+                        /></Link>
+                    </div>
+                </div>
+                <div class="pb-3"></div>
             </div>
         </div>
         <div class="internet-connection-status" id="internetStatus"></div>

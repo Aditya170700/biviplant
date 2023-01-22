@@ -147,16 +147,7 @@
     <script src="{{ asset('js/active.js') }}"></script>
     {{-- <script src="js/pwa.js"></script> --}}
     <script>
-        $(document).ready(function() {
-            $(".owl-carousel").owlCarousel({
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 3000,
-                autoplayHoverPause: true,
-                margin: 10,
-                center: true,
-            });
-        });
+        $(document).ready(function() {});
     </script>
 </body>
 
