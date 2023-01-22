@@ -66,11 +66,21 @@ class ProductRepository implements ProductInterface
         return $this->model
             ->leftJoin('order_details', 'products.id', '=', 'order_details.product_id')
             ->select(
-                'products.*',
+                'products.id',
+                'products.slug',
+                'products.name',
+                'products.price',
+                'products.strike_price',
                 DB::raw('COALESCE(sum(order_details.qty),0) as total'),
                 DB::raw('CONCAT("' . config('app.url') . '/", (select path from files where product_id = products.id limit 1)) as thumbnail')
             )
-            ->groupBy('products.id')
+            ->groupBy(
+                'products.id',
+                'products.slug',
+                'products.name',
+                'products.price',
+                'products.strike_price'
+            )
             ->orderBy('total', 'desc')
             ->take(10)
             ->get();
