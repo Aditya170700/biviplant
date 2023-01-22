@@ -12,6 +12,8 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\RatingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ProductImport;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +72,7 @@ Route::controller(RatingController::class)
     ->group(function () {
         Route::get('/{productId}', 'index');
     });
+    
+Route::post('/import', function (Request $request) {
+    dd(Excel::import(new ProductImport, $request->file('excel')));
+});

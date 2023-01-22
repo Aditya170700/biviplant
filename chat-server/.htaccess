@@ -5,3 +5,12 @@ PassengerNodejs "/home/bivk4194/nodevenv/chat-server/16/bin/node"
 PassengerAppType node
 PassengerStartupFile index.js
 # DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+SetEnv DB_HOST localhost
+SetEnv DB_USER bivk4194_biviplant
+SetEnv DB_PASSWORD U2UGtDD7jDS5UCL
+SetEnv DB_NAME bivk4194_biviplant
+SetEnv DB_DIALECT mysql
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END
