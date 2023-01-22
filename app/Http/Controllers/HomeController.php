@@ -53,10 +53,9 @@ class HomeController extends Controller
                 'product_best_sellers' => $this->productInterface->getBestSeller($this->request),
                 'vouchers' => $this->voucherInterface->getActive(),
                 'meta_title' => $this->setting ? $this->setting->meta_title : 'Biviplant',
-                'meta_description' => $this->setting ? $this->setting->meta_description : 'Tempat grosir tanaman buah' ,
+                'meta_description' => $this->setting ? $this->setting->meta_description : 'Tempat grosir tanaman buah',
                 'meta_keyword' => $this->setting ? $this->setting->meta_keyword : 'tanaman',
                 'setting' => $this->setting,
-                'origins' => $this->originInterface->getAll(['subdistrict.city.province']),
                 'canLogin' => Route::has('login'),
                 'canRegister' => Route::has('register'),
                 'laravelVersion' => Application::VERSION,
@@ -71,7 +70,8 @@ class HomeController extends Controller
     {
         try {
             return Inertia::render('Sidebar/AboutUs', [
-                'about_us' => $this->setting->about_us
+                'setting' => $this->setting,
+                'origins' => $this->originInterface->getAll(['subdistrict.city.province']),
             ]);
         } catch (\Throwable $th) {
             panic($th);
