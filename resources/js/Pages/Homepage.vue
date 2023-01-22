@@ -21,7 +21,7 @@ const props = defineProps({
     vouchers: Object,
     setting: Object,
     origins: Object,
-    user: Object
+    user: Object,
 });
 </script>
 
@@ -34,7 +34,11 @@ const props = defineProps({
                 name="description"
                 :content="props.meta_description"
             />
-            <meta head-key="keyword" name="keyword" :content="props.meta_keyword" />
+            <meta
+                head-key="keyword"
+                name="keyword"
+                :content="props.meta_keyword"
+            />
         </Head>
         <Header></Header>
         <Sidebar></Sidebar>
@@ -273,10 +277,12 @@ const props = defineProps({
                                                     id: data.slug,
                                                 })
                                             "
-                                            ><img
-                                                :src="data.files[0]?.src"
-                                                :alt="data.files[0]?.alt"
-                                        /></Link>
+                                        >
+                                            <img
+                                                :src="data.thumbnail"
+                                                :alt="data.thumbnail"
+                                            />
+                                        </Link>
                                     </div>
                                     <div class="product-description">
                                         <Link

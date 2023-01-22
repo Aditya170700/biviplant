@@ -2,9 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Models\Product;
-use App\Interfaces\ProductInterface;
 use App\Models\Origin;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+use App\Interfaces\ProductInterface;
 
 class ProductRepository implements ProductInterface
 {
@@ -63,10 +64,16 @@ class ProductRepository implements ProductInterface
     public function getBestSeller($request)
     {
         return $this->model
-            ->withCount('order_details')
-            ->with('files')
-            ->orderBy('order_details_count', 'desc')
-            ->get($request->limit ?? 5);
+            ->leftJoin('order_details', 'products.id', '=', 'order_details.product_id')
+            ->select(
+                'products.*',
+                DB::raw('COALESCE(sum(order_details.qty),0) as total'),
+                DB::raw('CONCAT("' . config('app.url') . '/", (select path from files where product_id = products.id limit 1)) as thumbnail')
+            )
+            ->groupBy('products.id')
+            ->orderBy('total', 'desc')
+            ->take(10)
+            ->get();
     }
 
     public function search(string $keyword)
