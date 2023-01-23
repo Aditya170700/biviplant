@@ -20,7 +20,7 @@ export const toastSuccess = (message) => {
         timeout: 3000,
         position: 'top-right',
         showIcon: true,
-        toastBackgroundColor: '#dc3545',
+        toastBackgroundColor: '#188753',
     });
     // toast.success(message, {
     //     position: "top-right",

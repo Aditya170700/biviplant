@@ -156,8 +156,8 @@
                                             field="img"
                                             :langType="'en'"
                                             @crop-success="cropIconSuccess"
-                                            :width="50"
-                                            :height="50"
+                                            :width="500"
+                                            :height="500"
                                             v-model="showIconCroper"
                                         >
                                         </crop>
