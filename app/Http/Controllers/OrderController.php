@@ -41,7 +41,9 @@ class OrderController extends Controller
             $body['notifyUrl'] = config('ipaymu.url_notify');
 
             $jsonBody = json_encode($body, JSON_UNESCAPED_SLASHES);
-            $signature = OrderService::stringToSign($jsonBody, 'POST');
+            $requestBody = strtolower(hash('sha256', $jsonBody));
+            $stringToSign = strtoupper('POST') . ':' . config('ipaymu.va') . ':' . $requestBody . ':' . config('ipaymu.api_key');
+            $signature = hash_hmac('sha256', $stringToSign, config('ipaymu.api_key'));
             $timestamp = Date('YmdHis');
 
             $ch = curl_init(config('ipaymu.url_payment_direct'));
