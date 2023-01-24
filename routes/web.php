@@ -98,6 +98,16 @@ Route::middleware(['auth'])
                 Route::get('/create', 'create')->name('create');
                 Route::get('/{id}/edit', 'edit')->name('edit');
             });
+
+        Route::controller(CartController::class)
+            ->name('cart.')
+            ->prefix('carts')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::post('/', 'store')->name('store');
+                Route::put('/{id}', 'update')->name('update');
+                Route::delete('/{id}', 'destroy')->name('destroy');
+            });
     });
 
 Route::middleware([
@@ -119,19 +129,6 @@ Route::controller(ProductController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/{slug}', 'show')->name('show');
-    });
-
-/**
- * CART
- */
-Route::controller(CartController::class)
-    ->name('cart.')
-    ->prefix('carts')
-    ->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::post('/', 'store')->name('store');
-        Route::put('/{id}', 'update')->name('update');
-        Route::delete('/{id}', 'destroy')->name('destroy');
     });
 
 /**

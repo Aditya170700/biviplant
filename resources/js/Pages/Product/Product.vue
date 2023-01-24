@@ -117,8 +117,8 @@ function storeCart() {
 }
 
 function storeCartGuest() {
-    if (store.getters.courier == null) {
-        toastError("Silahkan pilih kurir terlebih dahulu");
+    if (!form.user_address_id) {
+        toastError("Silahkan pilih alamat pengiriman terlebih dahulu");
         return;
     }
 
@@ -180,7 +180,12 @@ watch(
                     <div
                         class="col-3 text-center bg-fug-2 p-3 text-white border-end"
                     >
-                        <i class="lni lni-comments" style="font-size: 25px"></i>
+                        <a href="/chat">
+                            <i
+                                class="lni lni-comments"
+                                style="font-size: 25px"
+                            ></i>
+                        </a>
                     </div>
                     <div
                         v-if="attrs.user"
@@ -404,7 +409,7 @@ watch(
                         </div>
                         <div class="sales-offer-content my-5">
                             <div
-                                class="d-flex justify-content-between align-items-center"
+                                class="d-flex justify-content-between align-items-center mb-3"
                             >
                                 <h6>Produk Terkait</h6>
                                 <Link
@@ -421,7 +426,7 @@ watch(
                             <div class="related-product-slide carousel">
                                 <carousel :items-to-show="1.5">
                                     <slide
-                                        class="single-related-product-slide"
+                                        class="single-related-product-slide border-0"
                                         v-for="(
                                             relatedProduct, i
                                         ) in related_products"
@@ -447,6 +452,7 @@ watch(
                                                             relatedProduct
                                                                 .files[0]?.alt
                                                         "
+                                                        style="width: 100%"
                                                     />
                                                 </Link>
                                                 <Link
