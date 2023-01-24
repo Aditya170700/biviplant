@@ -41,9 +41,7 @@ class OrderController extends Controller
             $body['notifyUrl'] = config('ipaymu.url_notify');
 
             $jsonBody = json_encode($body, JSON_UNESCAPED_SLASHES);
-            $requestBody = strtolower(hash('sha256', $jsonBody));
-            $stringToSign = strtoupper('POST') . ':0000008812668976:' . $requestBody . ':SANDBOX26924A21-DAB0-4028-8A58-0B61F930229C';
-            $signature = hash_hmac('sha256', $stringToSign, 'SANDBOX26924A21-DAB0-4028-8A58-0B61F930229C');
+            $signature = OrderService::stringToSign($jsonBody, 'POST');
             $timestamp = Date('YmdHis');
 
             $ch = curl_init(config('ipaymu.url_payment_direct'));
@@ -51,7 +49,7 @@ class OrderController extends Controller
             $headers = [
                 'Accept: application/json',
                 'Content-Type: application/json',
-                'va: 0000008812668976',
+                'va: ' . config('ipaymu.va'),
                 'signature: ' . $signature,
                 'timestamp: ' . $timestamp
             ];
