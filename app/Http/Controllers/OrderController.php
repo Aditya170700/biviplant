@@ -13,6 +13,7 @@ use App\Services\Order as OrderService;
 use App\Interfaces\OrderDetailInterface;
 use App\Http\Requests\Front\Order\StoreRequest;
 use App\Jobs\FinishJob;
+use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
@@ -69,6 +70,8 @@ class OrderController extends Controller
             curl_close($ch);
 
             if ($return->Status != 200) {
+                Log::error($err);
+                Log::error($return);
                 throw new Exception('Gagal melakukan pembayaran, cobalah beberapa saat lagi', 500);
             }
 
