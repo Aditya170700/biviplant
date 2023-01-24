@@ -158,17 +158,15 @@ function checkout() {
 
     attrs.carts.forEach((cart) => {
         if (
-            "".includes[
-                (cart.courier,
-                cart.shipping_cost,
-                cart.shipping_etd,
-                cart.shipping_service)
-            ]
+            !cart.courier ||
+            !cart.shipping_cost ||
+            !cart.shipping_etd ||
+            !cart.shipping_service
         ) {
             toastError("Belum memilih kurir");
             return false;
         }
-        if ("".includes[cart.user_address_id]) {
+        if (!cart.user_address_id) {
             toastError("Belum memilih alamat pengiriman");
             return false;
         }
