@@ -83,21 +83,21 @@ Route::middleware(['auth'])
                 Route::put('/{id}/finish', 'finish')->name('finish');
             });
 
-            Route::controller(ChatController::class)
-                ->name('chat.')
-                ->group(function () {
-                    Route::get('/chat', 'index')->name('index');
-                    Route::get('/unread-messages', 'getUnreadMessage')->name('get-unread-messages');
-                });
-    });
+        Route::controller(ChatController::class)
+            ->name('chat.')
+            ->group(function () {
+                Route::get('/chat', 'index')->name('index');
+                Route::get('/unread-messages', 'getUnreadMessage')->name('get-unread-messages');
+            });
 
-Route::controller(AddressGuestController::class)
-    ->name('address-guest.')
-    ->prefix('address-guest')
-    ->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::get('/create', 'create')->name('create');
-        Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::controller(AddressGuestController::class)
+            ->name('address-guest.')
+            ->prefix('address-guest')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+            });
     });
 
 Route::middleware([

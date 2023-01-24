@@ -79,29 +79,19 @@ const metaDescription = ref(props.meta_description);
 const metaKeyword = ref(props.meta_keyword);
 
 function buyNow() {
-    // if (store.getters.courier == null) {
-    //     toastError("Silahkan pilih kurir terlebih dahulu");
-    //     return;
-    // }
-
-    // form.courier = store.getters.courier.name;
-    // form.shipping_service = store.getters.courier.service;
-    // form.shipping_cost = store.getters.courier.value;
-    // form.shipping_etd = store.getters.courier.etd;
+    if (!form.user_address_id) {
+        toastError("Silahkan pilih alamat pengiriman terlebih dahulu");
+        return;
+    }
 
     Inertia.post(route("cart.store"), form);
 }
 
 function storeCart() {
-    // if (store.getters.courier == null) {
-    //     toastError("Silahkan pilih kurir terlebih dahulu");
-    //     return;
-    // }
-
-    // form.courier = store.getters.courier.name;
-    // form.shipping_service = store.getters.courier.service;
-    // form.shipping_cost = store.getters.courier.value;
-    // form.shipping_etd = store.getters.courier.etd;
+    if (!form.user_address_id) {
+        toastError("Silahkan pilih alamat pengiriman terlebih dahulu");
+        return;
+    }
 
     if (props.product.cart_user == null) {
         axios
@@ -317,29 +307,7 @@ watch(
                                 }}<span>{{ product.strike_price_rp }}</span>
                             </p>
                         </div>
-                        <!-- <div class="p-wishlist-share">
-                            <a href="wishlist-grid.html"
-                                ><i class="lni lni-heart"></i
-                            ></a>
-                        </div> -->
                     </div>
-                    <!-- <div class="product-ratings">
-                        <div
-                            class="container d-flex align-items-center justify-content-between"
-                        >
-                            <div class="ratings">
-                                <i class="lni lni-star-filled"></i
-                                ><i class="lni lni-star-filled"></i
-                                ><i class="lni lni-star-filled"></i
-                                ><i class="lni lni-star-filled"></i
-                                ><i class="lni lni-star-filled"></i
-                                ><span class="ps-1">3 ratings</span>
-                            </div>
-                            <div class="total-result-of-ratings">
-                                <span>5.0</span><span>Very Good </span>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="container my-2">
                         <hr />
                         <div class="sales-offer-content d-flex mt-2">
@@ -412,70 +380,6 @@ watch(
                                 </a>
                             </div>
                         </div>
-                        <div class="sales-offer-content d-flex mt-2">
-                            <div class="col-3">
-                                <p class="mb-1 fw-bold">Ongkir</p>
-                            </div>
-                            <div class="col-9">
-                                <a
-                                    href="#"
-                                    data-bs-toggle="offcanvas"
-                                    data-bs-target="#courierModal"
-                                    aria-controls="courierModal"
-                                    style="align-items: center"
-                                    v-if="primary_address"
-                                >
-                                    <div
-                                        class="d-flex justify-content-between align-items-center"
-                                    >
-                                        <div v-if="form.courier">
-                                            <p class="small">
-                                                {{ form.courier }}
-                                            </p>
-                                            <p class="small">
-                                                {{ form.shipping_service }}
-                                            </p>
-                                            <p class="small">
-                                                Rp. {{ form.shipping_cost }}
-                                            </p>
-                                            <p class="small">
-                                                {{ form.shipping_etd }} hari
-                                            </p>
-                                            <p class="small">
-                                                {{ form.qty }} pcs
-                                            </p>
-                                        </div>
-                                        <div v-else>
-                                            <p>Cek Ongkir</p>
-                                        </div>
-                                        <i
-                                            class="lni lni-chevron-right small"
-                                        ></i>
-                                    </div>
-                                </a>
-                                <a
-                                    href="#"
-                                    style="align-items: center"
-                                    @click.prevent="
-                                        toastError(
-                                            'Belum pilih alamat pengiriman'
-                                        )
-                                    "
-                                    v-else
-                                >
-                                    <div
-                                        class="d-flex justify-content-between align-items-center"
-                                    >
-                                        <div>
-                                            <p>Belum pilih alamat pengiriman</p>
-                                        </div>
-                                        <i
-                                            class="lni lni-chevron-right small"
-                                        ></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
                         <div class="sales-offer-content mb-2">
                             <hr class="my-2" />
                             <ul class="mb-2">
@@ -483,10 +387,6 @@ watch(
                                     <i class="lni lni-checkmark-circle"> </i>
                                     100% Kualitas Unggul
                                 </li>
-                                <!-- <li>
-                                    <i class="lni lni-checkmark-circle"> </i> 7
-                                    Hari Retur
-                                </li> -->
                                 <li>
                                     <i class="lni lni-checkmark-circle"> </i>
                                     Bergaransi
@@ -496,10 +396,6 @@ watch(
                                     100% Terpercaya
                                 </li>
                             </ul>
-                            <!-- <p>
-                                Deskripsi untuk ajakan beli dan benefit jika
-                                membeli dan kemudahannya.
-                            </p> -->
                         </div>
                         <div class="sales-offer-content mb-2">
                             <hr class="my-2" />
