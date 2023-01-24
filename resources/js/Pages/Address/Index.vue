@@ -91,20 +91,20 @@ function updateStatus(id) {
                                                 <i class="lni lni-pencil"></i>
                                             </Link>
                                             <button
-                                                v-if="data.is_primary"
-                                                :class="`btn btn-sm btn-success rounded-circle`"
-                                            >
-                                                <i
-                                                    class="lni lni-checkmark"
-                                                ></i>
-                                            </button>
-                                            <button
-                                                v-else
+                                                v-if="!data.is_primary"
                                                 :class="`btn btn-sm btn-light rounded-circle`"
                                                 @click="updateStatus(data.id)"
                                             >
                                                 <i
                                                     class="lni lni-power-switch"
+                                                ></i>
+                                            </button>
+                                            <button
+                                                v-else
+                                                :class="`btn btn-sm btn-success rounded-circle`"
+                                            >
+                                                <i
+                                                    class="lni lni-checkmark"
                                                 ></i>
                                             </button>
                                         </span>
