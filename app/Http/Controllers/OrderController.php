@@ -70,9 +70,15 @@ class OrderController extends Controller
             curl_close($ch);
 
             if ($return->Status != 200) {
+                Log::error(config('ipaymu.url_return'));
+                Log::error(config('ipaymu.url_cancel'));
+                Log::error(config('ipaymu.url_notify'));
+                Log::error(config('ipaymu.url_payment_direct'));
+                Log::error(config('ipaymu.va'));
+                Log::error(config('ipaymu.api_key'));
                 Log::error($return->Status);
                 Log::error($err);
-                Log::error(json_decode($return));
+                Log::error(json_encode($return));
                 throw new Exception('Gagal melakukan pembayaran, cobalah beberapa saat lagi', 500);
             }
 
