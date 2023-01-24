@@ -79,6 +79,11 @@ function updateStatus(id) {
                                             data.receiver
                                         }}</span>
                                         <span>
+                                            {{
+                                                data.is_primary == 0
+                                                    ? "NOL"
+                                                    : "SIJI"
+                                            }}
                                             <Link
                                                 :href="
                                                     route(
@@ -91,7 +96,7 @@ function updateStatus(id) {
                                                 <i class="lni lni-pencil"></i>
                                             </Link>
                                             <button
-                                                v-if="!data.is_primary"
+                                                v-if="data.is_primary == 0"
                                                 :class="`btn btn-sm btn-light rounded-circle`"
                                                 @click="updateStatus(data.id)"
                                             >
