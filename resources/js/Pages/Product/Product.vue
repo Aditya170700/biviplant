@@ -33,9 +33,10 @@ onMounted(() => {
     loadFeedback();
 });
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
     let primary_address = reactive(
-        props.primary_address ?? JSON.parse(localStorage.getItem("primary_address"))
+        props.primary_address ??
+            JSON.parse(localStorage.getItem("primary_address"))
     );
 }
 
@@ -43,17 +44,17 @@ let form = reactive({
     user_id: attrs.user?.id,
     product_id: props.product.id,
     user_address_id: props.primary_address?.id,
-    user_address: '',
-    courier: '',
-    shipping_service: '',
-    shipping_cost: '',
-    shipping_etd: '',
+    user_address: "",
+    courier: "",
+    shipping_service: "",
+    shipping_cost: "",
+    shipping_etd: "",
     qty: props.product.cart_user?.qty ?? 0 + 1,
 });
 
 let feedback = reactive({
     data: [],
-    meta: '',
+    meta: "",
     loading: false,
     more: true,
 });
@@ -78,15 +79,15 @@ const metaDescription = ref(props.meta_description);
 const metaKeyword = ref(props.meta_keyword);
 
 function buyNow() {
-    if (store.getters.courier == null) {
-        toastError("Silahkan pilih kurir terlebih dahulu");
-        return;
-    }
+    // if (store.getters.courier == null) {
+    //     toastError("Silahkan pilih kurir terlebih dahulu");
+    //     return;
+    // }
 
-    form.courier = store.getters.courier.name;
-    form.shipping_service = store.getters.courier.service;
-    form.shipping_cost = store.getters.courier.value;
-    form.shipping_etd = store.getters.courier.etd;
+    // form.courier = store.getters.courier.name;
+    // form.shipping_service = store.getters.courier.service;
+    // form.shipping_cost = store.getters.courier.value;
+    // form.shipping_etd = store.getters.courier.etd;
 
     Inertia.post(route("cart.store"), form);
 }
@@ -138,7 +139,7 @@ function storeCartGuest() {
     form.shipping_etd = store.getters.courier.etd;
     form.user_address = primary_address;
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
         localStorage.setItem("cart", JSON.stringify(form));
     }
     toastSuccess("Produk berhasil ditambahkan ke keranjang");
@@ -510,7 +511,14 @@ watch(
                                 class="d-flex justify-content-between align-items-center"
                             >
                                 <h6>Produk Terkait</h6>
-                                <Link class="btn btn-light" :href="route('category.show', {slug: product?.category?.slug})">
+                                <Link
+                                    class="btn btn-light"
+                                    :href="
+                                        route('category.show', {
+                                            slug: product?.category?.slug,
+                                        })
+                                    "
+                                >
                                     Lihat Semua
                                 </Link>
                             </div>
