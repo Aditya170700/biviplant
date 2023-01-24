@@ -148,11 +148,14 @@ function checkVoucher() {
 }
 
 function checkout() {
+    let valid = true;
+
     if (
         !paymentMethod.selected.paymentMethod ||
         !paymentMethod.selected.paymentChannel
     ) {
         toastError("Belum memilih metode pembayaran");
+        valid = false;
         return false;
     }
 
@@ -164,27 +167,31 @@ function checkout() {
             !cart.shipping_service
         ) {
             toastError("Belum memilih kurir");
+            valid = false;
             return false;
         }
         if (!cart.user_address_id) {
             toastError("Belum memilih alamat pengiriman");
+            valid = false;
             return false;
         }
     });
 
-    Inertia.post(
-        route("orders.store"),
-        {
-            carts: attrs.carts,
-            payment_method: paymentMethod.selected,
-            voucher_code: voucherCode.data?.code,
-            voucher: voucher.value,
-            total: total(),
-        },
-        {
-            _method: "post",
-        }
-    );
+    if (valid) {
+        Inertia.post(
+            route("orders.store"),
+            {
+                carts: attrs.carts,
+                payment_method: paymentMethod.selected,
+                voucher_code: voucherCode.data?.code,
+                voucher: voucher.value,
+                total: total(),
+            },
+            {
+                _method: "post",
+            }
+        );
+    }
 }
 </script>
 
