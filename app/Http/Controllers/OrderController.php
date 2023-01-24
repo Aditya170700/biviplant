@@ -42,6 +42,8 @@ class OrderController extends Controller
 
             $jsonBody = json_encode($body, JSON_UNESCAPED_SLASHES);
             $signature = OrderService::stringToSign($jsonBody, 'POST');
+            Log::error($signature);
+            dd();
             $timestamp = Date('YmdHis');
 
             $ch = curl_init(config('ipaymu.url_payment_direct'));
