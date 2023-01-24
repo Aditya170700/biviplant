@@ -86,7 +86,10 @@ function finishOrder(orderId) {
                                     </div>
                                     <div class="d-flex justify-content-start">
                                         <img
-                                            :src="detail.product.files[0].src"
+                                            :src="
+                                                detail.product?.files[0]?.src ??
+                                                '/img/core-img/logo-white.png'
+                                            "
                                             alt=""
                                             style="width: 100px"
                                             class="rounded me-2"

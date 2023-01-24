@@ -186,7 +186,12 @@ let attrs = useAttrs();
                                             class="d-flex justify-content-start"
                                         >
                                             <img
-                                                :src="`${order.order_details[0].product.files[0].src}`"
+                                                :src="`${
+                                                    order.order_details[0]
+                                                        ?.product.files[0]
+                                                        ?.src ??
+                                                    '/img/core-img/logo-white.png'
+                                                }`"
                                                 alt=""
                                                 style="width: 100px"
                                                 class="rounded me-2"
