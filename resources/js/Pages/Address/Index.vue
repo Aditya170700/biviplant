@@ -79,11 +79,6 @@ function updateStatus(id) {
                                             data.receiver
                                         }}</span>
                                         <span>
-                                            {{
-                                                data.is_primary == 0
-                                                    ? "NOL"
-                                                    : "SIJI"
-                                            }}
                                             <Link
                                                 :href="
                                                     route(
