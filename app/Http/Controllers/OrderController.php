@@ -70,8 +70,9 @@ class OrderController extends Controller
             curl_close($ch);
 
             if ($return->Status != 200) {
+                Log::error($return->Status);
                 Log::error($err);
-                Log::error($return);
+                Log::error(json_decode($return));
                 throw new Exception('Gagal melakukan pembayaran, cobalah beberapa saat lagi', 500);
             }
 
