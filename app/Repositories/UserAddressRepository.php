@@ -15,6 +15,7 @@ class UserAddressRepository implements UserAddressInterface
     public function getPaginated($request, $with = [])
     {
         return $this->model
+            ->where('user_id', auth()->id())
             ->when($request->search, function ($query) use ($request) {
                 $query->where('receiver', 'like', "%$request->search%")
                     ->orWhere('detail', 'like', "%$request->search%")
