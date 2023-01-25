@@ -49,7 +49,7 @@ class OrderController extends Controller
             $headers = [
                 'Accept: application/json',
                 'Content-Type: application/json',
-                'va: ' . config('ipaymu.va'),
+                'va: 0000008812668976',
                 'signature: ' . $signature,
                 'timestamp: ' . $timestamp
             ];
