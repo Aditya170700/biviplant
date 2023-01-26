@@ -30,6 +30,10 @@ class OrderController extends Controller
         try {
             DB::beginTransaction();
 
+            if (!auth()->user()->name || !auth()->user()->phone || !auth()->user()->email) {
+                return redirect()->route('profile.edit')->with('failed', 'Lengkapi nama, nomor telepon dan email terlebih dahulu');
+            }
+
             $body['paymentMethod'] = $request->payment_method['paymentMethod'];
             $body['paymentChannel'] = $request->payment_method['paymentChannel'];
             $body['name'] = auth()->user()->name;
@@ -70,12 +74,7 @@ class OrderController extends Controller
             curl_close($ch);
 
             if ($return->Status != 200) {
-                Log::info(json_encode($headers));
-                Log::info($jsonBody);
-                Log::error($return->Status);
-                Log::error($err);
-                Log::error(json_encode($return));
-                throw new Exception('Gagal melakukan pembayaran, cobalah beberapa saat lagi', 500);
+                return redirect()->back()->with('failed', 'Gagal melakukan pembayaran, cobalah beberapa saat lagi');
             }
 
             $uuid = generateUuid();
