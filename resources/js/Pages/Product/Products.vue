@@ -247,9 +247,6 @@ function setCategory(category) {
                                             product.strike_price_rp
                                         }}</span>
                                     </p>
-                                    <a class="btn btn-success btn-sm" href="#"
-                                        ><i class="lni lni-plus"></i
-                                    ></a>
                                 </div>
                             </div>
                         </div>
