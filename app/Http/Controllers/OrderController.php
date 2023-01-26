@@ -70,12 +70,8 @@ class OrderController extends Controller
             curl_close($ch);
 
             if ($return->Status != 200) {
-                Log::error(config('ipaymu.url_return'));
-                Log::error(config('ipaymu.url_cancel'));
-                Log::error(config('ipaymu.url_notify'));
-                Log::error(config('ipaymu.url_payment_direct'));
-                Log::error(config('ipaymu.va'));
-                Log::error(config('ipaymu.api_key'));
+                Log::info(json_encode($headers));
+                Log::info($jsonBody);
                 Log::error($return->Status);
                 Log::error($err);
                 Log::error(json_encode($return));
